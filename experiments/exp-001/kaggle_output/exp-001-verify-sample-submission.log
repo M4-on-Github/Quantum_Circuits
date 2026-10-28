@@ -1,0 +1,33 @@
+[{"stream_name":"stdout","time":15.609675784,"data":"{\n"}
+,{"stream_name":"stdout","time":15.609717671,"data":"  \"platform\": \"Linux-6.18.55+-x86_64-with-glibc2.39\",\n"}
+,{"stream_name":"stdout","time":15.609724393,"data":"  \"python\": \"3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\",\n"}
+,{"stream_name":"stdout","time":15.609729244,"data":"  \"cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":15.609733473,"data":"  \"process_cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":15.609737658,"data":"  \"total_mem_bytes\": 33658159104,\n"}
+,{"stream_name":"stdout","time":15.609742054,"data":"  \"on_kaggle\": true,\n"}
+,{"stream_name":"stdout","time":15.609746289,"data":"  \"affinity_cpus\": 4,\n"}
+,{"stream_name":"stdout","time":15.609751467,"data":"  \"/sys/fs/cgroup/memory.max\": \"32212254720\",\n"}
+,{"stream_name":"stdout","time":15.609756504,"data":"  \"/sys/fs/cgroup/cpu.max\": \"400000 100000\",\n"}
+,{"stream_name":"stdout","time":15.609764097,"data":"  \"mp_start_methods\": [\n"}
+,{"stream_name":"stdout","time":15.609768426,"data":"    \"fork\",\n"}
+,{"stream_name":"stdout","time":15.609772951,"data":"    \"spawn\",\n"}
+,{"stream_name":"stdout","time":15.609777060999999,"data":"    \"forkserver\"\n"}
+,{"stream_name":"stdout","time":15.609781304,"data":"  ],\n"}
+,{"stream_name":"stdout","time":15.609785671000001,"data":"  \"kickmix_dunder_version\": \"0.1\",\n"}
+,{"stream_name":"stdout","time":15.609790223,"data":"  \"kickmix_file\": \"/usr/local/lib/python3.13/dist-packages/kickmix.cpython-313-x86_64-linux-gnu.so\",\n"}
+,{"stream_name":"stdout","time":15.609795412,"data":"  \"kickmix_dist_version\": \"1.0.0\",\n"}
+,{"stream_name":"stdout","time":15.609800046,"data":"  \"numpy\": \"2.1.3\",\n"}
+,{"stream_name":"stdout","time":15.609804932,"data":"  \"scipy\": \"1.16.3\",\n"}
+,{"stream_name":"stdout","time":15.609809886,"data":"  \"psutil\": \"5.9.5\"\n"}
+,{"stream_name":"stdout","time":15.609814626,"data":"}\n"}
+,{"stream_name":"stdout","time":152.232289651,"data":"{\"label\": \"dfthcsos\", \"returncode\": 0, \"wall_s\": 136.6, \"tree_rss_peak_bytes\": 1214189568, \"proc_hwm_peak_bytes\": 1214189568}\n"}
+,{"stream_name":"stdout","time":1654.770490327,"data":"{\"label\": \"invsqrt\", \"returncode\": 0, \"wall_s\": 1502.5, \"tree_rss_peak_bytes\": 709079040, \"proc_hwm_peak_bytes\": 537759744}\n"}
+,{"stream_name":"stdout","time":2103.237860026,"data":"{\"label\": \"dqi\", \"returncode\": 0, \"wall_s\": 448.5, \"tree_rss_peak_bytes\": 9005563904, \"proc_hwm_peak_bytes\": 9532747776}\n"}
+,{"stream_name":"stdout","time":3607.47498391,"data":"{\"label\": \"invsqrt_rerun\", \"returncode\": 0, \"wall_s\": 1504.2, \"tree_rss_peak_bytes\": 707874816, \"proc_hwm_peak_bytes\": 537370624}\n"}
+,{"stream_name":"stderr","time":3610.250023121,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3610.250063702,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3610.621202136,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3610.621232088,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3611.835326426,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3613.117288604,"data":"[NbConvertApp] Writing 313802 bytes to __results__.html\n"}
+]

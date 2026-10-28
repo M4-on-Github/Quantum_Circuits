@@ -1,0 +1,18 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:05:56) [MSC v.1942 64 bit (AMD64)]",
+  "cpu_count": 32,
+  "process_cpu_count": 32,
+  "total_mem_bytes": 34070192128,
+  "on_kaggle": false,
+  "mp_start_methods": [
+    "spawn"
+  ],
+  "kickmix_dunder_version": "0.1",
+  "kickmix_file": "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\.venv\\Lib\\site-packages\\kickmix.cp313-win_amd64.pyd",
+  "kickmix_dist_version": "1.0.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "psutil": "7.2.2"
+}
+{"label": "invsqrt_rerun", "returncode": 0, "wall_s": 9055.0, "tree_rss_peak_bytes": 524177408, "proc_hwm_peak_bytes": 536707072}
