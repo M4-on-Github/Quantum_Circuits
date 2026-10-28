@@ -61,6 +61,8 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
 - `src/kmx_tag_count.py <circuit.kmx> <out.json>` streams a .kmx and attributes Toffolis to the tag stack (full path and per-instance histogram). It also tracks `PUSH_CONDITION` bit definitions (HMR-measured, or an OR of `BIT_STORE1` sources). Its total equals `num_toffoli_like` on the dqi sample (exp-003).
 - The sample `dqi.kmb` is identical (`Circuit ==`, canonical .kmb SHA-256) to a kickmix 1.0.0 build of `data/verifiers/dqi/dqi_reference_circuit.py` with default arguments (exp-003). The build takes 9.1 s on Kaggle.
 - The dqi verifier JSON's `shot_operation_counts` is summed over all shots. Divide by `verified_shots` for per-shot figures.
+- In `operation_statistics()` an `init_and` shows up as one CCX, and its `del_and` as one HMR plus one CZ. So HMR count = CZ count = number of measurement-uncomputed ANDs (exp-006, public dfthcsos loaders).
+- Checking an ANGLE_k loader as an XOR oracle in the simulator: `km.Simulator(batch_size=A*S, counting_operations=True)`, `sim.use_same_registers_as(c)`, `write_across_shots` the selection bits and the target words from `dfthcsos.scoreinfra.circuits.register_layout(circuits)`, `sim.do(c)`, then read phase (`read_phase_flipped_across_shots`), selection, workspace and words. `experiments/exp-006/xor_oracle_check.py` does this for 15 circuits × 1,220 addresses × 8 shots × 3 input modes in about 6.5 s locally.
 
 ## Kaggle notebooks
 
@@ -81,6 +83,9 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Kaggle CPU kernel machine (exp-001): Python 3.13.15, 4 CPUs (`cpu.max` 400000/100000), cgroup `memory.max` 32212254720 B (30 GiB), `fork` available, numpy 2.1.3, scipy 1.16.3, psutil 5.9.5 preinstalled. `pip install kickmix==1.0.0` works with internet on.
 - Competition data mounts at `/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/` (same layout as the zip: `verifiers/`, `sample_submission/`, ...), not `/kaggle/input/<slug>/`. Search for a marker file instead of hard-coding the path. The files there are byte-identical (SHA-256) to the local `data/` copy.
 - Pass absolute paths when a runner starts a verifier with a different `cwd`. Relative paths then resolve against the child's cwd and fail.
+- Kaggle datasets (CLI 2.2.5, exp-006): a specific version is addressed as `owner/slug/N` for `kaggle datasets files owner/slug/N` and `kaggle datasets download owner/slug/N -f <file>`. `owner/slug/versions/N` is rejected as invalid. `kaggle datasets status` returns not-found for other users' datasets. `datasets files` takes `--format`, not `-o`.
+- Kernel `dataset_sources` version pins do not work: `"owner/slug/N"` is accepted by `kaggle kernels push`, but the server strips the version (see `kaggle kernels pull -m`) and mounts the latest version. Identify attached files by SHA-256 inside the kernel (exp-006).
+- Attached datasets mount at `/kaggle/input/datasets/<owner>/<slug>/` (exp-006).
 
 ## Running
 
@@ -90,6 +95,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Seeding (verified from verifier source): invsqrt and dqi seed with `int(SHA-256 of the circuit's canonical .kmb serialization, hex)`. With `--salt S` it becomes `int(sha256(f"{hash}{S}"))`, and `--seed N` overrides both. dfthcsos does the same with `submission_sha256` over circuits, factorization and tree (`scoreinfra.circuits.initial_seed`). Vary `--salt` to get fresh tests. With no salt or seed, re-runs are bit-identical (exp-001: invsqrt on both platforms).
 - dqi with 0 failures: eps+ = -expm1(log2_delta·ln2/N) depends only on N. At 102,400 shots that gives eps+ = 8.6606e-4 and R = 1.19126 (exp-001), the floor.
 - dqi T in the cost is `toffoli_count`, the mean Toffoli-like count per simulated shot (seed-dependent). `max_toffoli_count` is the static circuit count. Sample: mean 5,725,108.38 vs static 5,725,461 (exp-001).
+- `python -I dfthcsos/verify.py <abs stage dir>` (cwd `verifiers/`) works: verify.py puts its own repository root on `sys.path`, so isolated mode needs no PYTHONPATH (exp-006, Windows and Kaggle).
 - Cross-platform parity (exp-001): invsqrt output is bit-identical between Windows and Kaggle Linux. dfthcsos integer resources (T, Q) and pass/fail are identical, but float metrics differ in the last 1–2 ulp (score rel. diff 3e-16, error_1 4e-13) because numpy/scipy versions differ.
 
 ## Verifier runtimes and memory (sample submission, default args, exp-001, 2026-10-28)
@@ -100,6 +106,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 | dqi (102,400 shots) | 449 s wall; 9.5 GB peak per-process, 9.6 GB system used | not run |
 | dqi with `--salt` (exp-003, 3 runs) | 366–371 s wall; 9.53 GB peak per-process, ≤ 9.95 GB system used | not run |
 | dfthcsos | 137 s wall; 1.2 GB | 356 s wall; 1.1 GB |
+| dfthcsos, public 15-circuit 430Q build (1,220 addresses, about 280 Toffoli per circuit; exp-006) | 29.5 and 33.5 s wall; 0.73 GB | 42.8 s wall; 0.86 GB (alone, AC power) |
 
 - dqi accounting pipeline on Kaggle (exp-003):
   - Loading the sample `dqi.kmb` takes 3.8 s.
