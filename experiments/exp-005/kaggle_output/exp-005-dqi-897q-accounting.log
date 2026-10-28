@@ -1,0 +1,17 @@
+[{"stream_name":"stdout","time":12.266215915,"data":"{\"label\": \"prepare\", \"returncode\": 0, \"wall_s\": 4.7, \"proc_hwm_peak_bytes\": 47280128}\n"}
+,{"stream_name":"stdout","time":106.252512953,"data":"{\"label\": \"count\", \"returncode\": 0, \"wall_s\": 94.0, \"proc_hwm_peak_bytes\": 4826894336}\n"}
+,{"stream_name":"stdout","time":243.569359659,"data":"{\"label\": \"segsim_0\", \"returncode\": 0, \"wall_s\": 137.3, \"proc_hwm_peak_bytes\": 4913475584}\n"}
+,{"stream_name":"stdout","time":243.569425399,"data":"{\"label\": \"segsim_1\", \"returncode\": 0, \"wall_s\": 137.3, \"proc_hwm_peak_bytes\": 4912898048}\n"}
+,{"stream_name":"stdout","time":243.569601497,"data":"{\"label\": \"segsim_2\", \"returncode\": 0, \"wall_s\": 137.3, \"proc_hwm_peak_bytes\": 4913266688}\n"}
+,{"stream_name":"stdout","time":243.569625953,"data":"{\"label\": \"segsim_3\", \"returncode\": 0, \"wall_s\": 137.3, \"proc_hwm_peak_bytes\": 4913381376}\n"}
+,{"stream_name":"stdout","time":459.425935039,"data":"{\"label\": \"dqi_salt_exp005-a\", \"returncode\": 0, \"wall_s\": 215.9, \"proc_hwm_peak_bytes\": 4856594432}\n"}
+,{"stream_name":"stdout","time":675.644899142,"data":"{\"label\": \"dqi_salt_exp005-b\", \"returncode\": 0, \"wall_s\": 216.2, \"proc_hwm_peak_bytes\": 4856373248}\n"}
+,{"stream_name":"stdout","time":891.859487553,"data":"{\"label\": \"dqi_salt_exp005-c\", \"returncode\": 0, \"wall_s\": 216.2, \"proc_hwm_peak_bytes\": 4856844288}\n"}
+,{"stream_name":"stdout","time":891.860018444,"data":"done\n"}
+,{"stream_name":"stderr","time":894.95227527,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":894.952311021,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":895.538557606,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":895.538589326,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":897.137950264,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":898.756345622,"data":"[NbConvertApp] Writing 404267 bytes to __results__.html\n"}
+]

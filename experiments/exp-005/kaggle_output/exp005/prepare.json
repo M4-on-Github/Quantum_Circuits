@@ -1,0 +1,33 @@
+{
+ "dataset_dir": "/kaggle/input/datasets/heliosli/qcc-circuits-live",
+ "xz_sha256": "07db71ee28c1d3bfaf2496c92dd7153eb0d01ced3797a8d95502ccf0fa541c33",
+ "xz_bytes": 9144688,
+ "manifest_portfolio": "v17_sjx",
+ "manifest_dqi_sha256": "4ee7a17b4cbca4053a19bc951e7f2ef91fabdbb036006c9d658adcff4fe76da4",
+ "manifest_sha256": "e32f07075055fe45a276b7dbd0e67077f1906c8f7cf346868a8d00049bc0ba1a",
+ "dataset_listing": [
+  "CREDITS.md",
+  "LICENSE.md",
+  "QCC_RELEASE_MANIFEST.json",
+  "dfthcsos__angle_k_0.kmb",
+  "dfthcsos__angle_k_1.kmb",
+  "dfthcsos__angle_k_10.kmb",
+  "dfthcsos__angle_k_11.kmb",
+  "dfthcsos__angle_k_12.kmb",
+  "dfthcsos__angle_k_13.kmb",
+  "dfthcsos__angle_k_14.kmb",
+  "dfthcsos__angle_k_2.kmb",
+  "dfthcsos__angle_k_3.kmb",
+  "dfthcsos__angle_k_4.kmb",
+  "dfthcsos__angle_k_5.kmb",
+  "dfthcsos__angle_k_6.kmb",
+  "dfthcsos__angle_k_7.kmb",
+  "dfthcsos__angle_k_8.kmb",
+  "dfthcsos__angle_k_9.kmb",
+  "dfthcsos__submission.npz",
+  "dqi.kmb.xz",
+  "invsqrt.kmb"
+ ],
+ "kmb_sha256": "4ee7a17b4cbca4053a19bc951e7f2ef91fabdbb036006c9d658adcff4fe76da4",
+ "kmb_bytes": 505139960
+}

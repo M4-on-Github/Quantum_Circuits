@@ -1,0 +1,1 @@
+{"q": 889, "static_toffoli": 454507, "tag_total": 454507, "conditioned": 14524, "n_tag_names": 26}

@@ -1,0 +1,15 @@
+{
+  "id": "rainm4/exp-005-dqi-897q-accounting",
+  "title": "exp-005 dqi 897q accounting",
+  "code_file": "exp005_account.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["heliosli/qcc-circuits-live"],
+  "competition_sources": ["google-verifiable-quantum-circuit-compilation"],
+  "kernel_sources": [],
+  "model_sources": []
+}

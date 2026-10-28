@@ -1,0 +1,326 @@
+{
+ "file": "/tmp/exp005/dqi.kmx",
+ "n_lines": 55833283,
+ "total_toffoli_like": 454507,
+ "conditioned_toffoli_like": 14524,
+ "op_counts": {
+  "APPEND_TO_REGISTER": 49980,
+  "REGISTER": 4165,
+  "INFO_TAG": 17690,
+  "BIT_STORE0": 116708,
+  "BIT_INVERT": 2882282,
+  "Z": 79994,
+  "CX": 49283484,
+  "SWAP": 1619099,
+  "CCX": 430489,
+  "R": 98187,
+  "HMR": 125215,
+  "CZ": 795211,
+  "X": 250146,
+  "CSWAP": 22104,
+  "NEG": 2241,
+  "PUSH_CONDITION": 19555,
+  "POP_CONDITION": 19555,
+  "BIT_STORE1": 15264,
+  "CCZ": 1914
+ },
+ "by_path": {
+  "unextract": 97339,
+  "unconvert": 69343,
+  "convert": 68160,
+  "unsynthesis": 54408,
+  "extract": 50817,
+  "scan": 44275,
+  "synthesis": 33317,
+  "extract/multiply v": 5544,
+  "unextract/reverse multiply v": 5544,
+  "unextract/reverse scale v": 4704,
+  "unextract/reverse scale u": 4704,
+  "extract/inverse24 products": 3920,
+  "extract/inverse24 norm": 2352,
+  "unextract/reverse norm": 2352,
+  "unextract/reverse start inverse with flag": 1848,
+  "unextract/reverse finish inverse": 1680,
+  "extract/inverse24 scalar/inverse12 products": 1400,
+  "extract/inverse24 scalar/inverse12 scalar": 1008,
+  "unextract/reverse cached phase inverse": 952,
+  "extract/inverse24 scalar/inverse12 norm": 840
+ },
+ "instance_histograms": {
+  "convert": {
+   "68160": 1
+  },
+  "extract": {
+   "65881": 1
+  },
+  "gf_iadd": {
+   "0": 8050
+  },
+  "initial": {
+   "0": 1
+  },
+  "inverse12 norm": {
+   "15": 56
+  },
+  "inverse12 products": {
+   "25": 56
+  },
+  "inverse12 scalar": {
+   "18": 56
+  },
+  "inverse24 norm": {
+   "42": 56
+  },
+  "inverse24 products": {
+   "70": 56
+  },
+  "inverse24 scalar": {
+   "58": 56
+  },
+  "mask_projection": {
+   "0": 1
+  },
+  "multiply v": {
+   "99": 56
+  },
+  "restore_masks": {
+   "0": 1
+  },
+  "reverse cached phase inverse": {
+   "17": 56
+  },
+  "reverse finish inverse": {
+   "30": 56
+  },
+  "reverse multiply v": {
+   "99": 56
+  },
+  "reverse norm": {
+   "42": 56
+  },
+  "reverse scale u": {
+   "84": 56
+  },
+  "reverse scale v": {
+   "84": 56
+  },
+  "reverse start inverse with flag": {
+   "33": 56
+  },
+  "scan": {
+   "44275": 1
+  },
+  "synthesis": {
+   "33317": 1
+  },
+  "unconvert": {
+   "69343": 1
+  },
+  "unextract": {
+   "119123": 1
+  },
+  "uninitial": {
+   "0": 1
+  },
+  "unsynthesis": {
+   "54408": 1
+  }
+ },
+ "conditioned_by_top_mark": {
+  "unconvert": {
+   "toffolis": 160,
+   "definitions": {
+    "[{\"kind\": \"measured\"}]": 160
+   }
+  },
+  "unsynthesis": {
+   "toffolis": 12672,
+   "definitions": {
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 12474,
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}, {\"kind\": \"measured\"}]": 198
+   }
+  },
+  "unextract": {
+   "toffolis": 1692,
+   "definitions": {
+    "[{\"kind\": \"measured\"}]": 396,
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 1296
+   }
+  }
+ },
+ "push_condition_definitions": {
+  "{\"kind\": \"measured\"}": 2179,
+  "{\"kind\": \"store0\"}": 2220,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}": 14076,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 2, \"n_sources\": 2, \"register_prefixes\": {\"b\": 2}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 3, \"n_sources\": 3, \"register_prefixes\": {\"b\": 3}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 4, \"n_sources\": 4, \"register_prefixes\": {\"b\": 4}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 5, \"n_sources\": 5, \"register_prefixes\": {\"b\": 5}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 6, \"n_sources\": 6, \"register_prefixes\": {\"b\": 6}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 7, \"n_sources\": 7, \"register_prefixes\": {\"b\": 7}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 8, \"n_sources\": 8, \"register_prefixes\": {\"b\": 8}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 9, \"n_sources\": 9, \"register_prefixes\": {\"b\": 9}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 10, \"n_sources\": 10, \"register_prefixes\": {\"b\": 10}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 11, \"n_sources\": 11, \"register_prefixes\": {\"b\": 11}}": 108
+ },
+ "conditioned_by_path": {
+  "unsynthesis | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 12474,
+  "unextract | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 1296,
+  "unextract | [{\"kind\": \"measured\"}]": 396,
+  "unsynthesis | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}, {\"kind\": \"measured\"}]": 198,
+  "unconvert | [{\"kind\": \"measured\"}]": 160
+ },
+ "count_s": 47.3,
+ "circuit_info": {
+  "load_s": 0.6,
+  "canonical_sha256": "4ee7a17b4cbca4053a19bc951e7f2ef91fabdbb036006c9d658adcff4fe76da4",
+  "num_qubits": 889,
+  "num_bits": 103173,
+  "num_registers": 4165,
+  "num_toffoli_like": 454507,
+  "num_t_like": 0,
+  "num_instructions": 55779138,
+  "op_counts": {
+   "NEG": 2241,
+   "BIT_INVERT": 2882282,
+   "BIT_STORE0": 116708,
+   "BIT_STORE1": 15264,
+   "X": 250146,
+   "Z": 79994,
+   "R": 98187,
+   "HMR": 125215,
+   "CX": 49283484,
+   "CZ": 795211,
+   "SWAP": 1619099,
+   "CSWAP": 22104,
+   "CCX": 430489,
+   "CCZ": 1914,
+   "INFO_TAG": 17690,
+   "POP_CONDITION": 19555,
+   "PUSH_CONDITION": 19555
+  },
+  "reaction_depth": 9339,
+  "register_names_sample": [
+   "E0",
+   "E1",
+   "E10",
+   "E100",
+   "E1000",
+   "S68",
+   "S69",
+   "S7",
+   "S8",
+   "S9"
+  ],
+  "kmx_write_s": 7.9,
+  "kmx_bytes": 762559800
+ },
+ "counter_total_matches_stats": true,
+ "excerpts": {
+  "mask_projection": {
+   "file": "mask_projection.kmx",
+   "lines": 6000
+  },
+  "initial": {
+   "file": "initial.kmx",
+   "lines": 6000
+  },
+  "inverse24 norm": {
+   "file": "inverse24_norm.kmx",
+   "lines": 1986
+  },
+  "inverse12 norm": {
+   "file": "inverse12_norm.kmx",
+   "lines": 219
+  },
+  "inverse12 scalar": {
+   "file": "inverse12_scalar.kmx",
+   "lines": 588
+  },
+  "inverse12 products": {
+   "file": "inverse12_products.kmx",
+   "lines": 862
+  },
+  "inverse24 scalar": {
+   "file": "inverse24_scalar.kmx",
+   "lines": 2306
+  },
+  "inverse24 products": {
+   "file": "inverse24_products.kmx",
+   "lines": 6000
+  },
+  "multiply v": {
+   "file": "multiply_v.kmx",
+   "lines": 6000
+  },
+  "extract": {
+   "file": "extract.kmx",
+   "lines": 6000
+  },
+  "synthesis": {
+   "file": "synthesis.kmx",
+   "lines": 6000
+  },
+  "convert": {
+   "file": "convert.kmx",
+   "lines": 6000
+  },
+  "gf_iadd": {
+   "file": "gf_iadd.kmx",
+   "lines": 9
+  },
+  "scan": {
+   "file": "scan.kmx",
+   "lines": 6000
+  },
+  "unconvert": {
+   "file": "unconvert.kmx",
+   "lines": 6000
+  },
+  "unsynthesis": {
+   "file": "unsynthesis.kmx",
+   "lines": 6000
+  },
+  "reverse norm": {
+   "file": "reverse_norm.kmx",
+   "lines": 1457
+  },
+  "reverse start inverse with flag": {
+   "file": "reverse_start_inverse_with_flag.kmx",
+   "lines": 992
+  },
+  "reverse multiply v": {
+   "file": "reverse_multiply_v.kmx",
+   "lines": 6000
+  },
+  "reverse finish inverse": {
+   "file": "reverse_finish_inverse.kmx",
+   "lines": 552
+  },
+  "reverse scale v": {
+   "file": "reverse_scale_v.kmx",
+   "lines": 3452
+  },
+  "reverse scale u": {
+   "file": "reverse_scale_u.kmx",
+   "lines": 3452
+  },
+  "reverse cached phase inverse": {
+   "file": "reverse_cached_phase_inverse.kmx",
+   "lines": 1192
+  },
+  "unextract": {
+   "file": "unextract.kmx",
+   "lines": 6000
+  },
+  "uninitial": {
+   "file": "uninitial.kmx",
+   "lines": 6000
+  },
+  "restore_masks": {
+   "file": "restore_masks.kmx",
+   "lines": 6000
+  }
+ },
+ "excerpt_s": 27.7
+}

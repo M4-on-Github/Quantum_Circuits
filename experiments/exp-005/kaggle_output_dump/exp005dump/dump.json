@@ -1,0 +1,16 @@
+{
+ "kickmix": "1.0.0",
+ "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+ "dataset_dir": "/kaggle/input/datasets/heliosli/qcc-circuits-live",
+ "xz_sha256": "07db71ee28c1d3bfaf2496c92dd7153eb0d01ced3797a8d95502ccf0fa541c33",
+ "kmb_sha256": "4ee7a17b4cbca4053a19bc951e7f2ef91fabdbb036006c9d658adcff4fe76da4",
+ "num_qubits": 889,
+ "num_toffoli_like": 454507,
+ "load_and_kmx_s": 9.1,
+ "kmx_bytes": 762559800,
+ "kmx_sha256": "61a4305ddcdee9562cb378899377d6f5f88d60393e243480e4b9d10a095fdd08",
+ "xz_s": 240.5,
+ "kmx_xz_bytes": 16569664,
+ "kmx_xz_sha256": "cd4dae60ca02f2e4775c47f3e3a4d3ad16a1b0d49943cf8e5357382bf8219ccc",
+ "peak_rss_bytes": 533651456
+}

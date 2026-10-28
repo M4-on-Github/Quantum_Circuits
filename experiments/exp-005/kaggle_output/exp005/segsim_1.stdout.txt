@@ -1,0 +1,2 @@
+  segsim 60s segments {'uncond': 0, 'cond': 0, 'cond_multi_path': 0}
+{"worker": 1, "toffoli_equal": true, "phase_equal": true, "qubits_equal": true, "full_value_errors": 0, "full_phase_errors": 0, "per_shot_total": 440565.439453125, "inexact_executed_fraction": 0.0, "segments": {"uncond": 69, "cond": 68, "cond_multi_path": 0}, "wall_s": 115.1}

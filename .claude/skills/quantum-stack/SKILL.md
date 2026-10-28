@@ -58,6 +58,8 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
   | 12-bit `init_and`, `flip_if_equal(x, 0)`, `cswap`, controlled `gf2_iadd` | 12 each |
 - kickmix itself emits `INFO_TAG "@enter:/@exit:<name>"` marks for its subroutines (`gf_mul`, `c_gf_mul`, `gf_inverse_chain`, `gf_div`, `unary_iteration`, `flip_if_lt`, ...), on top of `builder.mark(...)`. The sample `dqi.kmb` carries them (exp-003).
 - In `.kmx` each instruction is one line. In the dqi circuits each CCX/CSWAP line is one gate, and Toffoli-like = CCX + CSWAP (+ CCZ).
+- .kmx operand order (exp-005): `CX c t` (control first), `CCX c1 c2 t`, `CSWAP c x y`, `HMR q b` (X-basis measure of q into bit b, q reset), `R q`. Phase ops carry a classical condition: `CZ q q if b`, `Z q if b`, `NEG if b`, `BIT_INVERT b if b`. Registers are declared as `APPEND_TO_REGISTER qN rK` lines followed by `REGISTER rK "name"`. Checked by evaluating kickmix's own `ixor_gf2_mul` .kmx with this convention: it gives a bilinear 12 x 12 map with no zero divisors.
+- kickmix 1.0.0 qubit-controlled `ixor_gf2_mul` is the uncontrolled 63-Toffoli `gf_mul` core (identical Toffoli skeleton) plus a 12-Toffoli controlled `c_gf_iadd` (exp-005).
 - `src/kmx_tag_count.py <circuit.kmx> <out.json>` streams a .kmx and attributes Toffolis to the tag stack (full path and per-instance histogram). It also tracks `PUSH_CONDITION` bit definitions (HMR-measured, or an OR of `BIT_STORE1` sources). Its total equals `num_toffoli_like` on the dqi sample (exp-003).
 - The sample `dqi.kmb` is identical (`Circuit ==`, canonical .kmb SHA-256) to a kickmix 1.0.0 build of `data/verifiers/dqi/dqi_reference_circuit.py` with default arguments (exp-003). The build takes 9.1 s on Kaggle.
 - The dqi verifier JSON's `shot_operation_counts` is summed over all shots. Divide by `verified_shots` for per-shot figures.
@@ -121,6 +123,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 | dqi with `--salt` (exp-003, 3 runs) | 366–371 s wall; 9.53 GB peak per-process, ≤ 9.95 GB system used | not run |
 | dfthcsos | 137 s wall; 1.2 GB | 356 s wall; 1.1 GB |
 | dfthcsos, public 15-circuit 430Q build (1,220 addresses, about 280 Toffoli per circuit; exp-006) | 29.5 and 33.5 s wall; 0.73 GB | 42.8 s wall; 0.86 GB (alone, AC power) |
+| dqi with `--salt`, public 889Q decoder (454,507 static Toffoli, 505 MB .kmb; exp-005, 3 runs) | 216 s wall each; 4.86 GB peak per process, ≤ 5.8 GB system used | not run |
 
 - dqi accounting pipeline on Kaggle (exp-003):
   - Loading the sample `dqi.kmb` takes 3.8 s.
@@ -128,6 +131,8 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
   - The streaming `kmx_tag_count` takes 111 s.
   - Peak memory is 3.57 GB per process.
   - Generator build, sample load, `==`, plus the count: 4.47 GB peak.
+- Same pipeline on the public 889Q dqi .kmb (exp-005, Kaggle): load 0.6 s, `to_file(format='kmx')` 7.9 s for 762.6 MB (55.8M lines), `kmx_tag_count` 47 s, count step 94 s at 4.83 GB peak. A whole-circuit `sim.do` on 2,048 verifier-distributed shots takes 16.7 s. Four parallel segsim workers of 2,048 shots took 137 s wall and 4.9 GB each, 20.3 GB system used.
+- To analyse a large circuit as text off Kaggle, have a kernel write the .kmx and compress it with Python `lzma` (preset 6): 762.6 MB of .kmx became 16.6 MB in 240 s, with 0.53 GB peak RSS (exp-005, kernel `rainm4/exp-005-dqi-kmx-dump`). Locally, streaming that .xz through `lzma.open(..., 'rt')` with a line parser takes about 90 s.
 - So run full invsqrt verifies on Kaggle. The dqi CLI's "~6 GB per worker" estimate did not hold: the whole forked tree stayed under 10 GB.
 - The local figures come from three verifiers running concurrently.
 - A local dfthcsos verify of the sample took 1,017 s wall with a 1.11 GB peak RSS (exp-002). For the first ~11 min it got only about 98 CPU-s, then about 1 CPU-s/s. It was mostly alone, but exp-004's dfthcsos verify overlapped its last ~69 s. The laptop was on battery (`BatteryStatus.Discharging` True); that this caused the slowdown is untested. Two concurrent runs of the same verifier in the exp-002 review took about 330 s each (1.04 GB). Expect 5.5–17 min locally.
@@ -144,6 +149,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Deflate shrinks the sample a lot (exp-004): `dqi.kmb` goes from 886,118,180 B to 69,819,447 B, and the whole zip is 73,803,082 B. Building and checking takes about 45 s locally.
 - Fixed member metadata makes the zip SHA-256 reproducible between runs on the same Python/zlib build (verified for 3.13.12 / zlib 1.3.1, exp-004): `ZipInfo` date_time (1980,1,1,0,0,0), `create_system=3`, mode 0o100644, sorted members.
 - Verifier seeds hash member contents (canonical kmb bytes and npz arrays), not the zip bytes, so the packaging doesn't change which tests run.
+- Windows: `np.load` on an `.npz` keeps the file open until the `NpzFile` is closed, so a `tempfile.TemporaryDirectory` holding it fails to clean up with WinError 32. Use `with np.load(p) as z: d = {k: z[k] for k in z.files}` (exp-005).
 - Windows: renaming a just-written zip can fail with `PermissionError` WinError 32 because something else briefly holds the file. Retry the rename (exp-004).
 - dfthcsos `verify.py` accepts a folder extracted from the zip (`verify.py <extract>/dfthcsos`). Its output was bit-identical to exp-001 local: 512 s wall against 356 s in exp-001. Machine load is unknown: exp-002 and exp-003 were running at the same time.
 
