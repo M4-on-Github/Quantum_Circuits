@@ -1,0 +1,616 @@
+{
+ "label": "v11",
+ "portfolio": "v17_sjx",
+ "manifest_local_metric": {
+  "split0": 22.700308431297035,
+  "split1": 22.700308789471347
+ },
+ "kickmix_version": "1.0.0",
+ "numpy_version": "2.5.4",
+ "R": 8,
+ "B": 143,
+ "C": 60,
+ "num_addresses": 1220,
+ "selection_qubits": 11,
+ "J": 5,
+ "brot": 8,
+ "n_circuits": 15,
+ "max_width": 128,
+ "min_spare_under_128": 0,
+ "static_toffoli_sum_one_pass": 4188,
+ "static_toffoli_both_passes": 8376,
+ "angle_words_in_npz": [
+  1220,
+  75
+ ],
+ "npz_members": [
+  {
+   "name": "U.npy",
+   "file_size": 695680,
+   "compress_size": 695680,
+   "ok": true
+  },
+  {
+   "name": "W.npy",
+   "file_size": 549248,
+   "compress_size": 549248,
+   "ok": true
+  },
+  {
+   "name": "H2_I.npy",
+   "file_size": 3968,
+   "compress_size": 3968,
+   "ok": true
+  },
+  {
+   "name": "H1_I.npy",
+   "file_size": 132,
+   "compress_size": 132,
+   "ok": true
+  },
+  {
+   "name": "Hsym_lower.npy",
+   "file_size": 11832,
+   "compress_size": 11832,
+   "ok": true
+  },
+  {
+   "name": "angle_words.npy",
+   "file_size": 732128,
+   "compress_size": 732128,
+   "ok": true
+  },
+  {
+   "name": "tree_edges.npy",
+   "file_size": 1328,
+   "compress_size": 1328,
+   "ok": true
+  },
+  {
+   "name": "brot.npy",
+   "file_size": 136,
+   "compress_size": 136,
+   "ok": true
+  }
+ ],
+ "npz_arrays": {
+  "U": {
+   "shape": [
+    8,
+    143,
+    76
+   ],
+   "dtype": "float64"
+  },
+  "W": {
+   "shape": [
+    8,
+    143,
+    60
+   ],
+   "dtype": "float64"
+  },
+  "H2_I": {
+   "shape": [
+    8,
+    60
+   ],
+   "dtype": "float64"
+  },
+  "H1_I": {
+   "shape": [],
+   "dtype": "float32"
+  },
+  "Hsym_lower": {
+   "shape": [
+    2926
+   ],
+   "dtype": "float32"
+  },
+  "angle_words": {
+   "shape": [
+    1220,
+    75
+   ],
+   "dtype": "int64",
+   "min": 0,
+   "max": 255
+  },
+  "tree_edges": {
+   "shape": [
+    75,
+    2
+   ],
+   "dtype": "int64",
+   "min": 0,
+   "max": 75
+  },
+  "brot": {
+   "shape": [],
+   "dtype": "int64",
+   "min": 8,
+   "max": 8
+  }
+ },
+ "files": {
+  "CREDITS.md": {
+   "bytes": 1899,
+   "sha256": "d45c0367542be9954f09d34f81d2b1bc01aba8cf4b73741755d7222b155384dd",
+   "matches_release_manifest": null
+  },
+  "dfthcsos__angle_k_0.kmb": {
+   "bytes": 400714,
+   "sha256": "114a2acb164b6538af6fac7784d97ce4bca52cd59878b9ae597889f230888f71",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_1.kmb": {
+   "bytes": 402401,
+   "sha256": "a01248289fe2a488a39491455089b16bd41b8bff1e86b6dce6be5e85c5019385",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_10.kmb": {
+   "bytes": 359172,
+   "sha256": "708409dc540b0726438b94854f959a2b6641de6b1aa9b0840beaffe3862f6ba2",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_11.kmb": {
+   "bytes": 317403,
+   "sha256": "78c041703bbc43f795ae4ab9224a15e2a6dc97d60c76cf9927226de6c959a466",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_12.kmb": {
+   "bytes": 358118,
+   "sha256": "8375a66c80b83e4a4ac697112769fbba126d6f58fc58e7591aba01fb864bd269",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_13.kmb": {
+   "bytes": 319846,
+   "sha256": "fbdac0002c7cd3e66487f966ccac1edf2ac40f628fb7d22af048c1ce66f60219",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_14.kmb": {
+   "bytes": 354501,
+   "sha256": "be4bd2e0e6f63e5c37a232aec0b2a30fd693b4e928605f1d4ade6f4263ffa39c",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_2.kmb": {
+   "bytes": 401845,
+   "sha256": "b88a234ab24b00c657c4b3b5e8f3f680ac1e41208a64abad08ef4bf87f0d475e",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_3.kmb": {
+   "bytes": 402254,
+   "sha256": "abf0069e563e4797ed7e3b74d65f932aec131974009f80cb323ae5f5d754fb56",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_4.kmb": {
+   "bytes": 352883,
+   "sha256": "017d5072da349301a8c0ca5243ffd058528c38531e88728f6735b29f48a65eab",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_5.kmb": {
+   "bytes": 322932,
+   "sha256": "b4d36019132b43661850f984cf8eb723482cfb0af7eeb4cadb0964b6cc103e2a",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_6.kmb": {
+   "bytes": 358435,
+   "sha256": "d30c71fb6a288e946f688829f56b6c7026418337441e87a0a2bb5c7bb4fab794",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_7.kmb": {
+   "bytes": 318759,
+   "sha256": "dead802918d2183ecb2d3c96d6ea1df5ba7e5240d3a20cf63dbfc8fa146bb05f",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_8.kmb": {
+   "bytes": 354555,
+   "sha256": "ea2d9ab05bd9c61d8e4f2a21ba20c188e08b0db614c222aafa1af0d948f93f18",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__angle_k_9.kmb": {
+   "bytes": 318419,
+   "sha256": "663497ad211daa8803a60e1cfff5d4e760499f971054c2908fe3a59489aa597c",
+   "matches_release_manifest": true
+  },
+  "dfthcsos__submission.npz": {
+   "bytes": 1995236,
+   "sha256": "aef36d39b83bbbf696e909884218f6c02f067baef14a29de1c41306bc1f6395b",
+   "matches_release_manifest": true
+  },
+  "LICENSE.md": {
+   "bytes": 535,
+   "sha256": "ddd71764aaf7930662ae40ecd18070bf099d5537397cd6edf51db706261340fe",
+   "matches_release_manifest": null
+  },
+  "QCC_RELEASE_MANIFEST.json": {
+   "bytes": 3663,
+   "sha256": "e32f07075055fe45a276b7dbd0e67077f1906c8f7cf346868a8d00049bc0ba1a",
+   "matches_release_manifest": null
+  }
+ },
+ "per_circuit": [
+  {
+   "k": 0,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 302,
+   "num_instructions": 44287,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 18,
+    "HMR": 80,
+    "CX": 43807,
+    "CZ": 80,
+    "CCX": 302
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 1,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 302,
+   "num_instructions": 44474,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 17,
+    "HMR": 80,
+    "CX": 43995,
+    "CZ": 80,
+    "CCX": 302
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 2,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 302,
+   "num_instructions": 44410,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 12,
+    "HMR": 80,
+    "CX": 43936,
+    "CZ": 80,
+    "CCX": 302
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 3,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 302,
+   "num_instructions": 44459,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 20,
+    "HMR": 80,
+    "CX": 43977,
+    "CZ": 80,
+    "CCX": 302
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 4,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 38984,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 22,
+    "HMR": 80,
+    "CX": 38522,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 5,
+   "num_qubits": 128,
+   "num_bits": 1,
+   "static_toffoli_like": 260,
+   "num_instructions": 35701,
+   "reaction_depth": 13,
+   "spare_under_128": 0,
+   "op_counts": {
+    "X": 23,
+    "R": 80,
+    "HMR": 80,
+    "CX": 35178,
+    "CZ": 80,
+    "CCX": 260
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 77
+  },
+  {
+   "k": 6,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 39600,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 20,
+    "HMR": 80,
+    "CX": 39140,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 7,
+   "num_qubits": 128,
+   "num_bits": 1,
+   "static_toffoli_like": 260,
+   "num_instructions": 35236,
+   "reaction_depth": 14,
+   "spare_under_128": 0,
+   "op_counts": {
+    "X": 20,
+    "R": 80,
+    "HMR": 80,
+    "CX": 34716,
+    "CZ": 80,
+    "CCX": 260
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 77
+  },
+  {
+   "k": 8,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 39168,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 18,
+    "HMR": 80,
+    "CX": 38710,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 9,
+   "num_qubits": 128,
+   "num_bits": 1,
+   "static_toffoli_like": 260,
+   "num_instructions": 35200,
+   "reaction_depth": 14,
+   "spare_under_128": 0,
+   "op_counts": {
+    "X": 24,
+    "R": 80,
+    "HMR": 80,
+    "CX": 34676,
+    "CZ": 80,
+    "CCX": 260
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 77
+  },
+  {
+   "k": 10,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 39681,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 18,
+    "HMR": 80,
+    "CX": 39223,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 11,
+   "num_qubits": 128,
+   "num_bits": 1,
+   "static_toffoli_like": 260,
+   "num_instructions": 35084,
+   "reaction_depth": 13,
+   "spare_under_128": 0,
+   "op_counts": {
+    "X": 17,
+    "R": 80,
+    "HMR": 80,
+    "CX": 34567,
+    "CZ": 80,
+    "CCX": 260
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 77
+  },
+  {
+   "k": 12,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 39563,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 16,
+    "HMR": 80,
+    "CX": 39107,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  },
+  {
+   "k": 13,
+   "num_qubits": 128,
+   "num_bits": 1,
+   "static_toffoli_like": 260,
+   "num_instructions": 35355,
+   "reaction_depth": 13,
+   "spare_under_128": 0,
+   "op_counts": {
+    "X": 16,
+    "R": 80,
+    "HMR": 80,
+    "CX": 34839,
+    "CZ": 80,
+    "CCX": 260
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 77
+  },
+  {
+   "k": 14,
+   "num_qubits": 126,
+   "num_bits": 1,
+   "static_toffoli_like": 280,
+   "num_instructions": 39166,
+   "reaction_depth": 11,
+   "spare_under_128": 2,
+   "op_counts": {
+    "X": 27,
+    "HMR": 80,
+    "CX": 38699,
+    "CZ": 80,
+    "CCX": 280
+   },
+   "registers": {
+    "selection": 11,
+    "word_0": 8,
+    "word_1": 8,
+    "word_2": 8,
+    "word_3": 8,
+    "word_4": 8
+   },
+   "workspace_qubits": 75
+  }
+ ],
+ "load_inspect_s": 0.06,
+ "staged_to": "experiments\\exp-006\\work\\v11\\dfthcsos"
+}

@@ -1,0 +1,19 @@
+{
+ "id": "rainm4/exp-006-account-430q-v11",
+ "title": "exp-006-account-430q-v11",
+ "code_file": "exp006_verify.py",
+ "language": "python",
+ "kernel_type": "script",
+ "is_private": true,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "dataset_sources": [
+  "heliosli/qcc-circuits-live/11"
+ ],
+ "competition_sources": [
+  "google-verifiable-quantum-circuit-compilation"
+ ],
+ "kernel_sources": [],
+ "model_sources": []
+}

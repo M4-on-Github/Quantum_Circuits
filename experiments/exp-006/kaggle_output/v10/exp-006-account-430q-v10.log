@@ -1,0 +1,139 @@
+[{"stream_name":"stdout","time":7.316162114,"data":"verifying v11 from /kaggle/input/datasets/heliosli/qcc-circuits-live\n"}
+,{"stream_name":"stdout","time":40.842878163,"data":"v11 {'label': 'v11', 'cmd': ['/usr/bin/python3', '-I', 'dfthcsos/verify.py', '/kaggle/working/stage_v11/dfthcsos'], 'cwd': '/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers', 'returncode': 0, 'wall_s': 33.53, 'peak_rss_bytes': 733515776}\n"}
+,{"stream_name":"stdout","time":40.844667464,"data":"{\n"}
+,{"stream_name":"stdout","time":40.844698088,"data":" \"machine\": {\n"}
+,{"stream_name":"stdout","time":40.844705622,"data":"  \"platform\": \"Linux-6.18.55+-x86_64-with-glibc2.39\",\n"}
+,{"stream_name":"stdout","time":40.844712087,"data":"  \"python\": \"3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\",\n"}
+,{"stream_name":"stdout","time":40.844718575,"data":"  \"cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":40.84472456,"data":"  \"total_mem_bytes\": 33658155008,\n"}
+,{"stream_name":"stdout","time":40.844730522,"data":"  \"kickmix_dist_version\": \"1.0.0\",\n"}
+,{"stream_name":"stdout","time":40.844736119,"data":"  \"numpy\": \"2.1.3\",\n"}
+,{"stream_name":"stdout","time":40.844741638,"data":"  \"scipy\": \"1.16.3\",\n"}
+,{"stream_name":"stdout","time":40.844747604,"data":"  \"/sys/fs/cgroup/memory.max\": \"32212254720\",\n"}
+,{"stream_name":"stdout","time":40.844753596,"data":"  \"/sys/fs/cgroup/cpu.max\": \"400000 100000\"\n"}
+,{"stream_name":"stdout","time":40.84475952,"data":" },\n"}
+,{"stream_name":"stdout","time":40.844765198,"data":" \"data_root\": \"/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation\",\n"}
+,{"stream_name":"stdout","time":40.844771655,"data":" \"verify_py_sha256\": \"0775be7a528922367caebe9e4d051d6199811f1aefeaa4b793eaaa4621b8ec9d\",\n"}
+,{"stream_name":"stdout","time":40.844777969,"data":" \"runs\": [\n"}
+,{"stream_name":"stdout","time":40.844783571,"data":"  {\n"}
+,{"stream_name":"stdout","time":40.844789285,"data":"   \"dir\": \"/kaggle/input/datasets/heliosli/qcc-circuits-live\",\n"}
+,{"stream_name":"stdout","time":40.844793954,"data":"   \"identified_as\": \"v11\",\n"}
+,{"stream_name":"stdout","time":40.844799839,"data":"   \"manifest_portfolio\": \"v17_sjx\",\n"}
+,{"stream_name":"stdout","time":40.844806054,"data":"   \"static\": [\n"}
+,{"stream_name":"stdout","time":40.844811555,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844817118,"data":"     \"k\": 0,\n"}
+,{"stream_name":"stdout","time":40.844822742,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.844828873,"data":"     \"static_toffoli_like\": 302,\n"}
+,{"stream_name":"stdout","time":40.844835225,"data":"     \"num_instructions\": 44287\n"}
+,{"stream_name":"stdout","time":40.844841087,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.844846993,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844852599,"data":"     \"k\": 1,\n"}
+,{"stream_name":"stdout","time":40.844858086,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.844863833,"data":"     \"static_toffoli_like\": 302,\n"}
+,{"stream_name":"stdout","time":40.844869537,"data":"     \"num_instructions\": 44474\n"}
+,{"stream_name":"stdout","time":40.844875331,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.844880751,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844886176,"data":"     \"k\": 2,\n"}
+,{"stream_name":"stdout","time":40.844890834,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.844896414,"data":"     \"static_toffoli_like\": 302,\n"}
+,{"stream_name":"stdout","time":40.844902151,"data":"     \"num_instructions\": 44410\n"}
+,{"stream_name":"stdout","time":40.844921531,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.844926184,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844930495,"data":"     \"k\": 3,\n"}
+,{"stream_name":"stdout","time":40.844934828,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.844939281,"data":"     \"static_toffoli_like\": 302,\n"}
+,{"stream_name":"stdout","time":40.844943571,"data":"     \"num_instructions\": 44459\n"}
+,{"stream_name":"stdout","time":40.844947904,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.844952187,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844956299,"data":"     \"k\": 4,\n"}
+,{"stream_name":"stdout","time":40.844960598,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.844965345,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.844969823,"data":"     \"num_instructions\": 38984\n"}
+,{"stream_name":"stdout","time":40.844974383,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.844978867,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.844983469,"data":"     \"k\": 5,\n"}
+,{"stream_name":"stdout","time":40.844987926,"data":"     \"num_qubits\": 128,\n"}
+,{"stream_name":"stdout","time":40.844992593,"data":"     \"static_toffoli_like\": 260,\n"}
+,{"stream_name":"stdout","time":40.844997242,"data":"     \"num_instructions\": 35701\n"}
+,{"stream_name":"stdout","time":40.845001932,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845006322,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845010736,"data":"     \"k\": 6,\n"}
+,{"stream_name":"stdout","time":40.845015184,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.845019863,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.845024467,"data":"     \"num_instructions\": 39600\n"}
+,{"stream_name":"stdout","time":40.845029562,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845033743,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845037969,"data":"     \"k\": 7,\n"}
+,{"stream_name":"stdout","time":40.845042841,"data":"     \"num_qubits\": 128,\n"}
+,{"stream_name":"stdout","time":40.845047411,"data":"     \"static_toffoli_like\": 260,\n"}
+,{"stream_name":"stdout","time":40.845052037,"data":"     \"num_instructions\": 35236\n"}
+,{"stream_name":"stdout","time":40.845056357,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845060451,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845064734,"data":"     \"k\": 8,\n"}
+,{"stream_name":"stdout","time":40.845069251,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.845073871,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.845078495,"data":"     \"num_instructions\": 39168\n"}
+,{"stream_name":"stdout","time":40.845083214,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845087599,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845091995,"data":"     \"k\": 9,\n"}
+,{"stream_name":"stdout","time":40.845096372,"data":"     \"num_qubits\": 128,\n"}
+,{"stream_name":"stdout","time":40.84510108,"data":"     \"static_toffoli_like\": 260,\n"}
+,{"stream_name":"stdout","time":40.845105625,"data":"     \"num_instructions\": 35200\n"}
+,{"stream_name":"stdout","time":40.845118666,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.84512326,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845132723,"data":"     \"k\": 10,\n"}
+,{"stream_name":"stdout","time":40.845143628,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.845148286,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.8451528,"data":"     \"num_instructions\": 39681\n"}
+,{"stream_name":"stdout","time":40.845157169,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.84516165,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845169202,"data":"     \"k\": 11,\n"}
+,{"stream_name":"stdout","time":40.845173944,"data":"     \"num_qubits\": 128,\n"}
+,{"stream_name":"stdout","time":40.845178776,"data":"     \"static_toffoli_like\": 260,\n"}
+,{"stream_name":"stdout","time":40.845185231,"data":"     \"num_instructions\": 35084\n"}
+,{"stream_name":"stdout","time":40.845190023,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845194566,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845199036,"data":"     \"k\": 12,\n"}
+,{"stream_name":"stdout","time":40.845203604,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.845208371,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.845213007,"data":"     \"num_instructions\": 39563\n"}
+,{"stream_name":"stdout","time":40.845217639,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845221959,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845226184,"data":"     \"k\": 13,\n"}
+,{"stream_name":"stdout","time":40.845230376,"data":"     \"num_qubits\": 128,\n"}
+,{"stream_name":"stdout","time":40.845235178,"data":"     \"static_toffoli_like\": 260,\n"}
+,{"stream_name":"stdout","time":40.845239797,"data":"     \"num_instructions\": 35355\n"}
+,{"stream_name":"stdout","time":40.845244129,"data":"    },\n"}
+,{"stream_name":"stdout","time":40.845248158,"data":"    {\n"}
+,{"stream_name":"stdout","time":40.845252616,"data":"     \"k\": 14,\n"}
+,{"stream_name":"stdout","time":40.845257181,"data":"     \"num_qubits\": 126,\n"}
+,{"stream_name":"stdout","time":40.845261958,"data":"     \"static_toffoli_like\": 280,\n"}
+,{"stream_name":"stdout","time":40.845266549,"data":"     \"num_instructions\": 39166\n"}
+,{"stream_name":"stdout","time":40.845271167,"data":"    }\n"}
+,{"stream_name":"stdout","time":40.845275568,"data":"   ],\n"}
+,{"stream_name":"stdout","time":40.845280018,"data":"   \"verify\": {\n"}
+,{"stream_name":"stdout","time":40.845284591,"data":"    \"label\": \"v11\",\n"}
+,{"stream_name":"stdout","time":40.845289408,"data":"    \"cmd\": [\n"}
+,{"stream_name":"stdout","time":40.845293931,"data":"     \"/usr/bin/python3\",\n"}
+,{"stream_name":"stdout","time":40.845298569,"data":"     \"-I\",\n"}
+,{"stream_name":"stdout","time":40.845303159,"data":"     \"dfthcsos/verify.py\",\n"}
+,{"stream_name":"stdout","time":40.845330724,"data":"     \"/kaggle/working/stage_v11/dfthcsos\"\n"}
+,{"stream_name":"stdout","time":40.845339303,"data":"    ],\n"}
+,{"stream_name":"stdout","time":40.845343969,"data":"    \"cwd\": \"/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers\",\n"}
+,{"stream_name":"stdout","time":40.845349117,"data":"    \"returncode\": 0,\n"}
+,{"stream_name":"stdout","time":40.845353794,"data":"    \"wall_s\": 33.53,\n"}
+,{"stream_name":"stdout","time":40.845358416,"data":"    \"peak_rss_bytes\": 733515776\n"}
+,{"stream_name":"stdout","time":40.845363208,"data":"   }\n"}
+,{"stream_name":"stdout","time":40.845367712,"data":"  }\n"}
+,{"stream_name":"stdout","time":40.845372231,"data":" ],\n"}
+,{"stream_name":"stdout","time":40.845376617,"data":" \"release_dirs\": [\n"}
+,{"stream_name":"stdout","time":40.845386332,"data":"  \"/kaggle/input/datasets/heliosli/qcc-circuits-live\"\n"}
+,{"stream_name":"stdout","time":40.845391308,"data":" ]\n"}
+,{"stream_name":"stdout","time":40.845395729,"data":"}\n"}
+,{"stream_name":"stderr","time":43.893947125,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":43.893992923,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":44.315041466,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":44.315071,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":45.5845004,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":47.019995071,"data":"[NbConvertApp] Writing 308892 bytes to __results__.html\n"}
+]
