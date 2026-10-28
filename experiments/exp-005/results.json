@@ -1,7 +1,9 @@
 {
  "exp": "exp-005",
- "commit": "70659bf",
- "commit_note": "commit of the code that produced the measured numbers; later revisions add annotations only",
+ "commit": "74bff90",
+ "commit_note": "latest commit whose code produced a measured value in this file: analysis/controls.py (controls.json, incl. kernels_126_zero_divisors) at 74bff90. The kernel outputs and the other local-analysis numbers (out/) come from code at 70659bf (measurement_commit). This file is built by make_results.py at the commit that last changed results.json (git log -1 -- experiments/exp-005/results.json); revisions after 74bff90 change annotation strings and commit pointers only, no measured value",
+ "measurement_commit": "70659bf",
+ "controls_commit": "74bff90",
  "analysis_cmds": [
   ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kmx_skeleton.py experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/skeleton.npz",
   ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/fingerprint_search.py experiments/exp-005/out/skeleton.npz experiments/exp-005/out/fingerprint_search.json",
@@ -49,9 +51,10 @@
   "dataset_versions_with_same_dqi_bytes": [
    9,
    10,
-   11
+   11,
+   12
   ],
-  "provenance_note": "same dqi.kmb.xz bytes in heliosli/qcc-circuits-live versions 9, 10 and 11 (critic.md, fresh downloads). Version 12 (2026-10-28 21:44 UTC) lists a dqi.kmb.xz of the same size, bytes unchecked. This is the circuit behind the public dqi base cost. The digest figure \"897Q, mean T 432,740.56\" is that cost divided by R x 897^2, i.e. this circuit at the wrong width."
+  "provenance_note": "same dqi.kmb.xz bytes (SHA-256 07db71ee...1c33) in heliosli/qcc-circuits-live versions 9, 10, 11 and 12 (critic.md check 7a, fresh downloads of each; version 12 created 2026-10-28 21:44 UTC). This is the circuit behind the public dqi base cost. The digest figure \"897Q, mean T 432,740.56\" is that cost divided by R x 897^2, i.e. this circuit at the wrong width."
  },
  "critic_default_salt_run": {
   "source": "critic.md, kernel rainm4/exp-005-critic-reverify v2 (critic run, not ours)",
@@ -396,8 +399,8 @@
     "sampled_per_side": 16384
    }
   },
-  "kernels_126_note": "the 10 126-Toffoli 24 x 24 kernels are 3 x 42 GF(2^12) products in a split algebra with zero divisors, not GF(2^24) (controls.json kernels_126; critic.md)",
-  "untagged_99_note": "the 662 untagged 24 x 24 99-Toffoli components are identified by Toffoli count and operand widths only. Only tagged multiply v kernels were field-tested",
+  "kernels_126_note": "10 components of 126 Toffoli (restart mode), each three consecutive 42-Toffoli GF(2^12) windows (critic.md check 7b, all ten). Four are 24 x 24 (2 convert, 2 unconvert): dual-number products GF(2^12)[eps]/(eps^2), local, with a 12-dimensional nilradical, non-squarefree minimal polynomials, and zero divisors exactly one 12-dimensional ideal (density 2^-12 per side); not GF(2^24) and not a split algebra GF(2^12) x GF(2^12) (critic.md check 7b; zero-divisor witnesses in controls.json kernels_126). Six are 24 x 36 in unconvert: 3 x 42 structure confirmed, algebra not determined",
+  "untagged_99_note": "the 662 untagged 24 x 24 99-Toffoli components and the 234 two-product 198-Toffoli components (207 at 24 x 24, 27 at 24 x 48; 468 units) share one 99-Toffoli skeleton (1,130 copies). Eight tested untagged 99s (extract and unextract) are GF(2^24) isotopes: nilradical 0, irreducible degree-24 minimal polynomials, 0 rank-deficient operands in 4,096 per side; three tested 24 x 24 198s have output rank 48 (critic.md check 7c). Our own field test covered only tagged multiply v",
   "class_table_restart_mode": {
    "bilinear_small_operand": {
     "static": 54549,
@@ -813,8 +816,8 @@
      24
     ],
     "segments": 2,
-    "algebra_note": "3 x 42 product in a split algebra with zero divisors, not GF(2^24)",
-    "field_like_note": "sampling false positive: zero divisors have density about 2^-11; explicit witnesses in controls.json kernels_126"
+    "algebra_note": "3 x 42 product; 24 x 24 instances are dual-number products GF(2^12)[eps]/(eps^2) with zero divisors, not GF(2^24) (critic.md check 7b)",
+    "field_like_note": "sampling false positive: zero divisors form one 12-dimensional ideal, density 2^-12 per side (critic.md check 7b); explicit witnesses in controls.json kernels_126"
    },
    {
     "label": "run:unconvert",
@@ -930,7 +933,7 @@
      24
     ],
     "segments": 1,
-    "algebra_note": "3 x 42 product in a split algebra with zero divisors, not GF(2^24)"
+    "algebra_note": "3 x 42 product; 24 x 24 instances are dual-number products GF(2^12)[eps]/(eps^2) with zero divisors, not GF(2^24) (critic.md check 7b)"
    },
    {
     "label": "T:unextract/reverse scale u#84|unextract/reverse scale v#84",

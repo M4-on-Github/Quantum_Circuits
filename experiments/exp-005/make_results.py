@@ -11,9 +11,11 @@ Inputs:
   out/fingerprint_search.json  analysis/fingerprint_search.py
   controls.json                analysis/controls.py (controls, jet skeleton check, 126-Toffoli zero divisors)
 
-Revision after the critic review (critic.md): the measured numbers are unchanged. `commit` is pinned to the
-commit whose code produced them. The revision only adds provenance, the critic's default-salt run (labelled
-as the critic's), the pre-registered GF(2^12) multiply share and annotations of the field-test summary.
+Revision after the critic review (critic.md): the measured numbers are unchanged. `commit` is 74bff90, the
+latest commit whose code (analysis/controls.py) produced a measured value here; `measurement_commit` 70659bf
+produced the kernel outputs and the out/ analysis. The revisions only add provenance, the critic's default-salt
+run (labelled as the critic's), the pre-registered GF(2^12) multiply share and annotations. The second critic
+round (2026-10-28) corrected annotation strings only (126-Toffoli algebra, version 12, untagged 99s).
 """
 import collections
 import json
@@ -26,7 +28,8 @@ HERE = Path(__file__).resolve().parent
 KO = HERE / 'kaggle_output' / 'exp005'
 OUT = HERE / 'out'
 SALTS = ['exp005-a', 'exp005-b', 'exp005-c']
-RESULTS_COMMIT = '70659bf'  # code that produced the measured numbers (kernel outputs + local analysis)
+MEASUREMENT_COMMIT = '70659bf'  # code that produced the kernel outputs and the local-analysis numbers (out/)
+CONTROLS_COMMIT = '74bff90'     # analysis/controls.py, which produced controls.json (incl. kernels_126 values)
 _KMX = 'experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz'
 _O = 'experiments/exp-005/out/'
 _A = '.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/'
@@ -184,7 +187,7 @@ def main():
     s_12 = s_main.get('product_12x12', {}).get('share_of_T', 0.0)
     s_wide = s_main.get('product_wider', {}).get('share_of_T', 0.0)
 
-    commit = RESULTS_COMMIT
+    commit = CONTROLS_COMMIT
     ctl = json.loads((HERE / 'controls.json').read_text())
     k126 = ctl['kernels_126']
     v0 = ver[SALTS[0]]
@@ -192,7 +195,14 @@ def main():
     res = {
         'exp': 'exp-005',
         'commit': commit,
-        'commit_note': 'commit of the code that produced the measured numbers; later revisions add annotations only',
+        'commit_note': ('latest commit whose code produced a measured value in this file: analysis/controls.py '
+                        '(controls.json, incl. kernels_126_zero_divisors) at 74bff90. The kernel outputs and the '
+                        'other local-analysis numbers (out/) come from code at 70659bf (measurement_commit). '
+                        'This file is built by make_results.py at the commit that last changed results.json '
+                        '(git log -1 -- experiments/exp-005/results.json); revisions after 74bff90 change '
+                        'annotation strings and commit pointers only, no measured value'),
+        'measurement_commit': MEASUREMENT_COMMIT,
+        'controls_commit': CONTROLS_COMMIT,
         'analysis_cmds': ANALYSIS_CMDS,
         'task': 'dqi',
         'verifier': 'verify_submission_dqi.py',
@@ -204,10 +214,10 @@ def main():
                     'kmb_bytes': prepare['kmb_bytes'], 'kmx_sha256': dump['kmx_sha256'],
                     'external_not_submittable': True,
                     'dataset_version_downloaded': 11,
-                    'dataset_versions_with_same_dqi_bytes': [9, 10, 11],
-                    'provenance_note': ('same dqi.kmb.xz bytes in heliosli/qcc-circuits-live versions 9, 10 and 11 '
-                                        '(critic.md, fresh downloads). Version 12 (2026-10-28 21:44 UTC) lists a '
-                                        'dqi.kmb.xz of the same size, bytes unchecked. This is the circuit behind the '
+                    'dataset_versions_with_same_dqi_bytes': [9, 10, 11, 12],
+                    'provenance_note': ('same dqi.kmb.xz bytes (SHA-256 07db71ee...1c33) in heliosli/qcc-circuits-live '
+                                        'versions 9, 10, 11 and 12 (critic.md check 7a, fresh downloads of each; '
+                                        'version 12 created 2026-10-28 21:44 UTC). This is the circuit behind the '
                                         'public dqi base cost. The digest figure "897Q, mean T 432,740.56" is that '
                                         'cost divided by R x 897^2, i.e. this circuit at the wrong width.')},
         'critic_default_salt_run': {
@@ -283,10 +293,20 @@ def main():
                     'fix_B_sampled_rank_deficient': v['fix_B']['sampled_rank_deficient'],
                     'sampled_per_side': v['fix_A']['sampled_nonzero_operands']}
                 for k, v in k126.items()},
-            'kernels_126_note': ('the 10 126-Toffoli 24 x 24 kernels are 3 x 42 GF(2^12) products in a split '
-                                 'algebra with zero divisors, not GF(2^24) (controls.json kernels_126; critic.md)'),
-            'untagged_99_note': ('the 662 untagged 24 x 24 99-Toffoli components are identified by Toffoli count '
-                                 'and operand widths only. Only tagged multiply v kernels were field-tested'),
+            'kernels_126_note': ('10 components of 126 Toffoli (restart mode), each three consecutive 42-Toffoli '
+                                 'GF(2^12) windows (critic.md check 7b, all ten). Four are 24 x 24 (2 convert, '
+                                 '2 unconvert): dual-number products GF(2^12)[eps]/(eps^2), local, with a '
+                                 '12-dimensional nilradical, non-squarefree minimal polynomials, and zero divisors '
+                                 'exactly one 12-dimensional ideal (density 2^-12 per side); not GF(2^24) and not '
+                                 'a split algebra GF(2^12) x GF(2^12) (critic.md check 7b; zero-divisor witnesses '
+                                 'in controls.json kernels_126). Six are 24 x 36 in unconvert: 3 x 42 structure '
+                                 'confirmed, algebra not determined'),
+            'untagged_99_note': ('the 662 untagged 24 x 24 99-Toffoli components and the 234 two-product 198-Toffoli '
+                                 'components (207 at 24 x 24, 27 at 24 x 48; 468 units) share one 99-Toffoli '
+                                 'skeleton (1,130 copies). Eight tested untagged 99s (extract and unextract) are '
+                                 'GF(2^24) isotopes: nilradical 0, irreducible degree-24 minimal polynomials, 0 '
+                                 'rank-deficient operands in 4,096 per side; three tested 24 x 24 198s have output '
+                                 'rank 48 (critic.md check 7c). Our own field test covered only tagged multiply v'),
             'class_table_restart_mode': sem['restart']['by_class'],
             'class_table_plain_mode': sem['plain']['by_class'],
             'class_by_stage_static_restart_mode': sem['restart']['by_stage_static'],
@@ -302,10 +322,12 @@ def main():
     }
     for row in res['c010']['field_test_summary']:
         if row['n_toffoli'] == 126:
-            row['algebra_note'] = '3 x 42 product in a split algebra with zero divisors, not GF(2^24)'
+            row['algebra_note'] = ('3 x 42 product; 24 x 24 instances are dual-number products '
+                                   'GF(2^12)[eps]/(eps^2) with zero divisors, not GF(2^24) (critic.md check 7b)')
             if row['field_like']:
-                row['field_like_note'] = ('sampling false positive: zero divisors have density about 2^-11; '
-                                          'explicit witnesses in controls.json kernels_126')
+                row['field_like_note'] = ('sampling false positive: zero divisors form one 12-dimensional ideal, '
+                                          'density 2^-12 per side (critic.md check 7b); explicit witnesses in '
+                                          'controls.json kernels_126')
     holds = (s_12 + s_wide) >= 0.5 and res['c010']['projected_51_saving_fraction'] >= 0.08
     res['c010']['verdict'] = 'holds' if holds else 'refuted'
     (HERE / 'results.json').write_text(json.dumps(res, indent=1))

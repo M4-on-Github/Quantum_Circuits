@@ -19,7 +19,7 @@ Dataset `heliosli/qcc-circuits-live`, Apache-2.0 per its metadata.
   - Identification (added 2026-10-28, after the critic review). `kaggle datasets files heliosli/qcc-circuits-live/11` lists exactly these creationDates (`dqi.kmb.xz` 15:57:48.245) and these sizes (CREDITS.md 1,899, LICENSE.md 535, QCC_RELEASE_MANIFEST.json 3,663, dqi.kmb.xz 9,144,688).
   - The address for re-downloading is `heliosli/qcc-circuits-live/11`.
 - **The same `dqi.kmb.xz` bytes are in versions 9, 10 and 11.** The critic downloaded all three fresh (critic.md, check 7a). Version 9 is from 2026-10-28 04:28 UTC, and version 10 is the heliosli notebook's `v15b_sjmixL`. So the dqi circuit did not change in the 15:57 update. Only the other files did.
-- **Version 12 appeared after our download** (files created 2026-10-28 21:44 UTC). It lists a `dqi.kmb.xz` of the same size, 9,144,688 B. Its bytes were not checked.
+- **Version 12 appeared after our download** (files created 2026-10-28 21:44 UTC, manifest portfolio `v18_p1a`). It holds the same `dqi.kmb.xz` bytes: the critic's second review downloaded it fresh and got SHA-256 `07db71ee…1c33`, 9,144,688 B, with the manifest listing `dqi.kmb` as `4ee7a17b…6da4` (critic.md, check 7a; updated 2026-10-28). We did not download version 12 ourselves.
 - Manifest `portfolio: "v17_sjx"`. The heliosli notebook, cached copy SHA-256 7f68a867...653e, asserts `v15b_sjmixL`. That is version 10's manifest; its `dqi.kmb.xz` is byte-identical to ours.
 
 | File | Bytes | SHA-256 |
