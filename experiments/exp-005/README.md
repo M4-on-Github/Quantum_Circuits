@@ -8,6 +8,7 @@ status: done
 date: 2026-10-28
 commit: 74bff90
 measurement_commit: 70659bf
+build_commit: 5165a9d
 result: C-010 refuted. The released decoder is Q 889, mean T 440,563.80, with no 63-Toffoli kickmix multiplier anywhere (M63 = 0, projected 51-Toffoli saving 0%). Its products are 42-Toffoli GF(2^12) units and 99-Toffoli GF(2^24) kernels. GF(2^12) multiplies (the pre-registered s) are 12.1% (pure 12 x 12) to 48.0% (all 42-Toffoli units) of T. All products together are 57-76%.
 ---
 
@@ -93,7 +94,7 @@ Outputs are downloaded into `experiments/exp-005/kaggle_output/`. `results.json`
 All numbers come from `results.json`. Which code produced what (corrected 2026-10-28 after the second critic review):
 - **Measurement commit 70659bf:** the kernel outputs (`kaggle_output/`, `kaggle_output_dump/`) and the local analysis in `out/` (skeleton, fingerprint, semantics, field test).
 - **Controls commit 74bff90:** `analysis/controls.py` and its output `controls.json`, including the measured `kernels_126` values (basis-vector ranks, sampled rank-deficient counts, zero-divisor witnesses) that `results.json` carries as `c010.kernels_126_zero_divisors`. This is the frontmatter `commit` and `results.json` `commit`. That file cannot be rebuilt at 70659bf, which has no `controls.py`.
-- **Build:** the committed `results.json` is built by `make_results.py` at the commit that last changed it (`git log -1 -- experiments/exp-005/results.json`). Revisions after 74bff90 change annotation strings and commit pointers only; a key-by-key comparison shows no measured value changed.
+- **Build commit 5165a9d:** the committed `results.json` is built by `make_results.py` at 5165a9d, the commit that last changed it (`git log -1 -- experiments/exp-005/results.json`). Revisions after 74bff90 change annotation strings and commit pointers only; a key-by-key comparison shows no measured value changed.
 
 The circuit is `dqi.kmb` from `heliosli/qcc-circuits-live` dataset version 11, manifest portfolio `v17_sjx`, canonical .kmb SHA-256 `4ee7a17b…6da4`. It is an external public circuit, measured only.
 
