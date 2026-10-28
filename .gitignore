@@ -1,0 +1,18 @@
+# Competition data (1 GB; download with the Kaggle CLI, see the quantum-stack skill)
+data/
+
+# Generated circuits are large; commit the generator, config and results.json instead
+*.kmb
+*.kmx
+*.npz
+experiments/*/out/
+/submissions/
+kaggle/.cache/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Claude Code local settings
+.claude/settings.local.json
