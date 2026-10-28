@@ -63,3 +63,25 @@ Exact predicted Q, mean Toffoli, rotation count, eps and cost for the build that
 - **Full verify.** `python -I -B verify_submission_invsqrt.py invsqrt.kmb` (default 64 shots per x, default salt, no seed), on a private CPU Kaggle kernel with 4 forked workers. Full stdout, wall time, kernel slug and version are recorded.
 - **Byte identity.** We compare the SHA-256 of our `.kmb` with the frontier's `07314803...` and with marsyas's stated `ff629b09...`.
 - **Safety.** We never submit and never call a submit endpoint. Downloaded code is never executed. No downloaded circuit is copied into any output.
+
+### Pre-registration 1 (2026-10-28, before the first full verify): the port, `config_port.json`
+
+Local facts about our build (`build.py config_port.json`, 140 s locally):
+- Canonical `.kmb` SHA-256 `ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917`. This equals the output hash marsyas's notebook states, so the port is byte-identical to marsyas's circuit (prediction 1's "about 60% not byte-identical" failed).
+- Q 92, static Toffoli-like 1,315.
+- Exact model over all 3,133,452 x: worst error/tolerance 0.9999059628540141, min margin 73,111,258 units of 2^-64 turns.
+- Lane simulation over all x (`src/kmx_value_sim.py`): x restored, scratch clean, mean executed Toffoli 1,303.999. The only conditioned Toffolis are 22 static ones in the un-normalization, at p = 1/2 each, so the expectation is 1,304.0.
+- Official verifier probe, `--max-x 20000` (1,280,000 shots, 30 s locally): PASS, toffoli_count 1,304.003, rotation_eps 2.8298390184213153e-13, cost 148,978.24.
+
+Predicted full official verify (default arguments, Kaggle):
+- PASS, Q 92;
+- toffoli_count 1,304.000 ± 0.001;
+- t_count 1;
+- rotation_count 44;
+- rotation_eps 2.8298390184213153e-13, exact (the phase is deterministic, so the verifier's min margin is the model's);
+- worst_error_over_tolerance 0.9999059628540141;
+- toffoli_equivalent 1,619.326 ± 0.001;
+- cost 148,977.95 ± 0.1;
+- ratio to the reference 13.940.
+
+Against C-014's rule (≤ 103,690.88) this build is a refutation by construction. It is the baseline for our own changes.
