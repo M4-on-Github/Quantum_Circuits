@@ -1,0 +1,19 @@
+{"zip_sha256": "0d28eaa55bcb6856565fd45300cf2f10219b93587046be1fcd818af2153bcf01", "zip_size": 73803082, "n_members": 13, "all_checks_pass": true, "runtime_s": 43.4}
+{
+ "member_names_exact": true,
+ "no_directory_entries": true,
+ "no_duplicates": true,
+ "testzip_ok": true,
+ "one_invsqrt": true,
+ "one_dqi": true,
+ "angle_k_contiguous_from_0": true,
+ "n_angle_k": 10,
+ "has_submission_npz": true,
+ "no_zip64": true,
+ "all_members_byte_identical_to_source": true,
+ "all_members_match_exp001_kaggle_hashes": true,
+ "npz_required_keys_present": true,
+ "npz_all_little_endian": true,
+ "extracted_files_byte_identical_to_source": true
+}
+exit 0
