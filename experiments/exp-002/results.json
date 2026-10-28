@@ -161,6 +161,14 @@
   "rel_diff_vs_baseline_local": 0.0,
   "improvement_factor": 1.0000000000000002,
   "score_delta_factor": 1.0,
+  "improvement_factor_note": "improvement_factor / score_delta_factor are vs exp-001 Kaggle (cross-platform, 2-ulp float difference); the same-platform figures are the *_vs_local fields",
+  "improvement_factor_vs_local": 1.0,
+  "score_delta_factor_vs_local": 1.0,
+  "input": {
+    "angle_words_source": "data/sample_submission/dfthcsos/submission.npz:angle_words",
+    "sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69",
+    "note": "SHA-256 of data/sample_submission/dfthcsos/submission.npz (pinned 2026-10-28 after critic review; also in config.json and checked by build.py)"
+  },
   "runtime_s": 1017.0,
   "peak_rss_bytes": 1107927040,
   "salts_or_seeds": [

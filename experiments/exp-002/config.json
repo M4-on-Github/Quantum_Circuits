@@ -1,6 +1,7 @@
 {
   "sample_dir": "data/sample_submission/dfthcsos",
   "angle_words_source": "data/sample_submission/dfthcsos/submission.npz:angle_words",
+  "angle_words_source_sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69",
   "brot": 12,
   "J": 8,
   "format": "kmb",

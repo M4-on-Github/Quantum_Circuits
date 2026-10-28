@@ -10,7 +10,10 @@ meta = json.loads((EXP / "logs" / "run_meta.json").read_text())
 build = json.loads((EXP / "logs" / "build_report.json").read_text())
 base_local = json.loads((ROOT / "experiments/exp-001/logs/local/dfthcsos.stdout.json").read_text())
 base_kaggle = json.loads((ROOT / "experiments/exp-001/kaggle_output/exp001/dfthcsos.stdout.json").read_text())
-commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+# Keep the commit that produced the results (b857178) when re-assembling after documentation fixes.
+_prev = EXP / "results.json"
+commit = (json.loads(_prev.read_text()).get("commit") if _prev.exists() else None) or subprocess.run(
+    ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
 
 BASE_COST = 3355599588.3155375  # exp-001 Kaggle
 cost = v["score"]
@@ -60,6 +63,12 @@ res = {
     "rel_diff_vs_baseline_local": (cost - base_local["score"]) / base_local["score"],
     "improvement_factor": BASE_COST / cost,
     "score_delta_factor": (BASE_COST / cost) ** (1 / 3),
+    "improvement_factor_note": "improvement_factor / score_delta_factor are vs exp-001 Kaggle (cross-platform, 2-ulp float difference); the same-platform figures are the *_vs_local fields",
+    "improvement_factor_vs_local": base_local["score"] / cost,
+    "score_delta_factor_vs_local": (base_local["score"] / cost) ** (1 / 3),
+    "input": {"angle_words_source": build["config"]["angle_words_source"],
+              "sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69",
+              "note": "SHA-256 of data/sample_submission/dfthcsos/submission.npz (pinned 2026-10-28 after critic review; also in config.json and checked by build.py)"},
     "runtime_s": meta["wall_s"],
     "peak_rss_bytes": meta["peak_rss_bytes_max_process"],
     "salts_or_seeds": ["default (no --salt, no --seed): seed from submission_sha256"],

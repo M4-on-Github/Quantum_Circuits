@@ -29,6 +29,9 @@ def main() -> None:
     sample = ROOT / cfg["sample_dir"]
     out = ROOT / cfg["out_dir"]
     npz_path, key = cfg["angle_words_source"].split(":")
+    pinned = cfg.get("angle_words_source_sha256")
+    if pinned is not None and sha(ROOT / npz_path) != pinned:
+        raise SystemExit(f"input {npz_path} SHA-256 {sha(ROOT / npz_path)} != pinned {pinned}")
     with np.load(ROOT / npz_path, allow_pickle=False) as z:
         words = np.array(z[key], dtype=np.int64)
 

@@ -22,6 +22,31 @@ Construction (one circuit): a balanced segment tree over the address range
 - A node whose right half starts at or beyond A only recurses into its left half
   under the same control.
 For A = 3976 with no constant segments this is A - 2 = 3974 Toffolis per circuit.
+
+Lineage, licence and modification notice
+----------------------------------------
+This module is a derivative work (a port) of the official competition file
+data/verifiers/dfthcsos/example_submission/angle_k_reference_circuit.py
+(SHA-256 8daccdca69f2d718b0176cd9281803df84a988ea5ac6c167fbb02e461ac2b371),
+which is distributed under the Apache License, Version 2.0; the licence text is
+data/verifiers/LICENSE.txt (also http://www.apache.org/licenses/LICENSE-2.0).
+Any release of this code must ship that licence text.
+
+Modified in this repository (2026-10-28, exp-002):
+- Renamed: batch_deltas -> angle_deltas, build_angle_k_circuit ->
+  build_qrom_circuit (inner load -> xor_row, node -> visit),
+  build_angle_k_family -> build_family, write_kmx_family -> write_family.
+  Comments and docstrings rewritten; the command-line entry point and
+  load_angle_words are not ported; circuit_stats is added.
+- One functional change, the constant-segment leaf test. This port tests rows:
+  (delta[lo:hi] == delta[lo]).all(), i.e. every row equals the first row. The
+  reference tests one scalar: np.all(delta[lo:hi] == delta[lo, 0]), i.e. every
+  word equals the first word of the first row. On the sample angle_words table
+  (brot 12, J 8) neither test fires and the output is byte-identical to the
+  reference script's. On tables with runs of identical rows the port emits
+  fewer Toffolis than the reference; in the exp-002 critic probe both families
+  passed the official recover_words_from_circuits check.
+The gate emission order is otherwise the reference's.
 """
 
 from __future__ import annotations
