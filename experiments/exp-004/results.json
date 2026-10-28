@@ -1,0 +1,181 @@
+{
+ "exp": "exp-004",
+ "commit": "db682e774b2c92531e09a3d963fa8c6ac5c0c315",
+ "task": "all",
+ "verifier": "verify.py (dfthcsos only; invsqrt and dqi members byte-identical to exp-001 inputs, not re-run)",
+ "verifier_cmd": ".venv/Scripts/python.exe <repo>/data/verifiers/dfthcsos/verify.py <repo>/experiments/exp-004/out/extract/dfthcsos",
+ "passed": true,
+ "packaging": {
+  "zip_path": "experiments/exp-004/submission.zip",
+  "zip_sha256": "0d28eaa55bcb6856565fd45300cf2f10219b93587046be1fcd818af2153bcf01",
+  "zip_size": 73803082,
+  "n_members": 13,
+  "zip_params": {
+   "compression": "ZIP_DEFLATED",
+   "compresslevel": 6,
+   "date_time": [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "create_system": 3,
+   "unix_mode": "0o100644",
+   "python": "3.13.12",
+   "zlib": "1.3.1"
+  },
+  "checks": {
+   "member_names_exact": true,
+   "no_directory_entries": true,
+   "no_duplicates": true,
+   "testzip_ok": true,
+   "one_invsqrt": true,
+   "one_dqi": true,
+   "angle_k_contiguous_from_0": true,
+   "n_angle_k": 10,
+   "has_submission_npz": true,
+   "no_zip64": true,
+   "all_members_byte_identical_to_source": true,
+   "all_members_match_exp001_kaggle_hashes": true,
+   "npz_required_keys_present": true,
+   "npz_all_little_endian": true,
+   "extracted_files_byte_identical_to_source": true
+  },
+  "reproducible_rebuild_same_sha256": true,
+  "members": [
+   {
+    "name": "invsqrt.kmb",
+    "size": 579721,
+    "compressed_size": 18606,
+    "sha256": "e2bf8eb64350a4460a271fc7f1d591ef125b1e276377e9a0f64b96ab3ca321e1"
+   },
+   {
+    "name": "dqi.kmb",
+    "size": 886118180,
+    "compressed_size": 69819447,
+    "sha256": "959471d05a26373b4f14ca0cae2d8639ea25f18170d9f6532139aa51ccc04995"
+   },
+   {
+    "name": "dfthcsos/angle_k_0.kmb",
+    "size": 1671932,
+    "compressed_size": 112922,
+    "sha256": "7bfb3983accc6ff97d6ab41a88deae924f1d1c97cf30e60879d0bff5688a8e25"
+   },
+   {
+    "name": "dfthcsos/angle_k_1.kmb",
+    "size": 1662896,
+    "compressed_size": 115853,
+    "sha256": "a04b6d0d57ce851b123af265066aaab2ab33353ea049d26acd534727466d72b6"
+   },
+   {
+    "name": "dfthcsos/angle_k_2.kmb",
+    "size": 1665821,
+    "compressed_size": 116351,
+    "sha256": "5c1b8987bc3fa1a4b8607e470f8c8f1392c22e7a7dbcb228f0ce9ec986e18058"
+   },
+   {
+    "name": "dfthcsos/angle_k_3.kmb",
+    "size": 1666802,
+    "compressed_size": 117309,
+    "sha256": "16ac67cdcaf3e2c6abdd98c4138ff1ae8a56cfc4ae15622bcdb3d3a3ba1e22cf"
+   },
+   {
+    "name": "dfthcsos/angle_k_4.kmb",
+    "size": 1954082,
+    "compressed_size": 134959,
+    "sha256": "d21cdd4c7e94196654aab15ebcabfe10ce8d343151a5e8dc3672e76684b6628d"
+   },
+   {
+    "name": "dfthcsos/angle_k_5.kmb",
+    "size": 1948583,
+    "compressed_size": 133922,
+    "sha256": "63b8d4cba36955e6098321f3b2ef3e34401dd276fa629b2e490d043b1743880b"
+   },
+   {
+    "name": "dfthcsos/angle_k_6.kmb",
+    "size": 1947980,
+    "compressed_size": 133745,
+    "sha256": "5bf740428e661d035fda860142578f421969e35e0df2e4e024fbf01a7340b378"
+   },
+   {
+    "name": "dfthcsos/angle_k_7.kmb",
+    "size": 1968527,
+    "compressed_size": 135539,
+    "sha256": "606009582111a22bd549b795c8d115ac8bbeb124bc8da24a80380eca6d34163d"
+   },
+   {
+    "name": "dfthcsos/angle_k_8.kmb",
+    "size": 1957124,
+    "compressed_size": 136948,
+    "sha256": "57c7cc51f5922fff6e95d76e1f723d4c2d029a241da643b95684d6322157a8fe"
+   },
+   {
+    "name": "dfthcsos/angle_k_9.kmb",
+    "size": 1953830,
+    "compressed_size": 134416,
+    "sha256": "22cbe2828988ff954fc07fd971a25e6bc04a02c302bf2cc642e4c3535daaad65"
+   },
+   {
+    "name": "dfthcsos/submission.npz",
+    "size": 4537436,
+    "compressed_size": 2691533,
+    "sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69"
+   }
+  ]
+ },
+ "metrics": {
+  "dfthcsos": {
+   "status": "PASS",
+   "Q": 730,
+   "toffoli": 93237.0,
+   "cost": 3355599588.3155365,
+   "lambda_eff": 49.30136925057438,
+   "Lambda": 308.4559397330944,
+   "E_gap": 3.965477244291833,
+   "error_1": 0.0031851950317984485,
+   "error_2": 0.01863957063097418,
+   "max_width": 119,
+   "n_circuits": 10,
+   "verified_shots": 254464,
+   "submission_sha256": "276d464ff14da828b6b33e8487d99975494cbdf0c3cb2bd37dd3c3ddc4002695",
+   "wall_s": 512.0,
+   "returncode": 0
+  },
+  "invsqrt_cost_from_exp001": 2076774.233715282,
+  "dqi_cost_from_exp001": 24439463583672.93
+ },
+ "dfthcsos_identical_to_exp001_local": {
+  "status": true,
+  "score": true,
+  "lambda_eff": true,
+  "toffoli_count": true,
+  "num_qubits": true,
+  "num_circuits": true,
+  "verified_shots": true,
+  "submission_sha256": true,
+  "resources": true,
+  "metrics": true
+ },
+ "baseline": {
+  "exp": "exp-001",
+  "dfthcsos_cost_local": 3355599588.3155365,
+  "local_three_task_score_vs_C001_refs": 1.000042972609377
+ },
+ "improvement_factor": 1.0,
+ "score_delta_factor": 1.0,
+ "lb_prediction": {
+  "if_C001_holds": 1.00004,
+  "refuted_if_outside": [
+   0.999,
+   1.001
+  ],
+  "alt_half_shot_dqi_eps": 0.97498,
+  "alt_brief_unsourced": 1.015,
+  "measured_lb": null
+ },
+ "salts_or_seeds": [
+  "verifier default (empty salt)"
+ ]
+}

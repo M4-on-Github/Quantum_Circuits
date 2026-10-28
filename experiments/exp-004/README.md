@@ -4,10 +4,10 @@ title: Package the official sample submission as submission.zip and pre-register
 task: all
 tests: [C-001]
 direction: none
-status: planned
+status: done
 date: 2026-10-28
-commit: pending
-result: pending
+commit: db682e7
+result: submission.zip (13 members, SHA-256 0d28eaa55bcb6856565fd45300cf2f10219b93587046be1fcd818af2153bcf01, 73,803,082 B) byte-identical to the sample; dfthcsos re-verified from the zip identical to exp-001; LB prediction 1.00004 (refuted outside [0.999, 1.001]) awaits an approved submission
 ---
 
 ## Hypothesis
@@ -80,3 +80,79 @@ LB score (to be read by the submitter agent after an approved submission; not me
   `manifest.json`.
 - Seeds/salts: verifier defaults.
 - No submit endpoint is called by anything in this experiment.
+
+## Results
+
+Packaging (from `manifest.json`, written by `package.py`):
+
+- **Zip:** `experiments/exp-004/submission.zip`, 73,803,082 bytes.
+- **SHA-256:** `0d28eaa55bcb6856565fd45300cf2f10219b93587046be1fcd818af2153bcf01`.
+- **Members:** 13, with no directory entries and no zip64.
+- **Reproducible:** a second, independent build gave the same zip SHA-256 and a manifest identical apart from runtime.
+- **Excluded from git:** yes, by `experiments/exp-004/.gitignore`.
+
+| Member | Size (B) | Compressed (B) | SHA-256 | = sample file | = exp-001 Kaggle hash |
+|---|---:|---:|---|---|---|
+| `invsqrt.kmb` | 579,721 | 18,606 | `e2bf8eb64350a4460a271fc7f1d591ef125b1e276377e9a0f64b96ab3ca321e1` | yes | yes |
+| `dqi.kmb` | 886,118,180 | 69,819,447 | `959471d05a26373b4f14ca0cae2d8639ea25f18170d9f6532139aa51ccc04995` | yes | yes |
+| `dfthcsos/angle_k_0.kmb` | 1,671,932 | 112,922 | `7bfb3983accc6ff97d6ab41a88deae924f1d1c97cf30e60879d0bff5688a8e25` | yes | yes |
+| `dfthcsos/angle_k_1.kmb` | 1,662,896 | 115,853 | `a04b6d0d57ce851b123af265066aaab2ab33353ea049d26acd534727466d72b6` | yes | yes |
+| `dfthcsos/angle_k_2.kmb` | 1,665,821 | 116,351 | `5c1b8987bc3fa1a4b8607e470f8c8f1392c22e7a7dbcb228f0ce9ec986e18058` | yes | yes |
+| `dfthcsos/angle_k_3.kmb` | 1,666,802 | 117,309 | `16ac67cdcaf3e2c6abdd98c4138ff1ae8a56cfc4ae15622bcdb3d3a3ba1e22cf` | yes | yes |
+| `dfthcsos/angle_k_4.kmb` | 1,954,082 | 134,959 | `d21cdd4c7e94196654aab15ebcabfe10ce8d343151a5e8dc3672e76684b6628d` | yes | yes |
+| `dfthcsos/angle_k_5.kmb` | 1,948,583 | 133,922 | `63b8d4cba36955e6098321f3b2ef3e34401dd276fa629b2e490d043b1743880b` | yes | yes |
+| `dfthcsos/angle_k_6.kmb` | 1,947,980 | 133,745 | `5bf740428e661d035fda860142578f421969e35e0df2e4e024fbf01a7340b378` | yes | yes |
+| `dfthcsos/angle_k_7.kmb` | 1,968,527 | 135,539 | `606009582111a22bd549b795c8d115ac8bbeb124bc8da24a80380eca6d34163d` | yes | yes |
+| `dfthcsos/angle_k_8.kmb` | 1,957,124 | 136,948 | `57c7cc51f5922fff6e95d76e1f723d4c2d029a241da643b95684d6322157a8fe` | yes | yes |
+| `dfthcsos/angle_k_9.kmb` | 1,953,830 | 134,416 | `22cbe2828988ff954fc07fd971a25e6bc04a02c302bf2cc642e4c3535daaad65` | yes | yes |
+| `dfthcsos/submission.npz` | 4,537,436 | 2,691,533 | `14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69` | yes | yes |
+
+Checks in `manifest.json` (all true):
+- `testzip` CRC check;
+- exact member list;
+- one invsqrt and one dqi file;
+- 10 `angle_k` files, numbered 0..9 with no gaps;
+- `submission.npz` present, with U, W, H2_I, H1_I, Hsym_lower and tree_edges (plus the unread `angle_words`);
+- all npz arrays load with `allow_pickle=False` and are little-endian (`<f4` floats, `<i8` ints);
+- files extracted to `out/extract/` are byte-identical to the sample.
+
+Official dfthcsos verifier on the zip-extracted `out/extract/dfthcsos` (`logs/dfthcsos_from_zip.stdout.json`, local Windows, default args, 512 s wall):
+
+| Metric | exp-001 (local) | exp-004 (from zip) | Change |
+|---|---|---|---|
+| status | PASS | PASS | none |
+| cost | 3,355,599,588.3155365 | 3,355,599,588.3155365 | 0 |
+| lambda_eff | 49.30136925057438 | 49.30136925057438 | 0 |
+| Toffoli / Q | 93,237 / 730 | 93,237 / 730 | 0 |
+| circuits / max width | 10 / 119 | 10 / 119 | 0 |
+| verified shots | 254,464 | 254,464 | 0 |
+| submission_sha256 | `276d464f...2695` | `276d464f...2695` | identical |
+
+All fields of the verifier output (`status`, `score`, `resources`, `metrics`, ...) are identical to exp-001's local run (`results.json`, `dfthcsos_identical_to_exp001_local`).
+
+invsqrt and dqi were not re-verified. Their members are byte-identical to the files exp-001 verified, so exp-001's costs apply
+unchanged: invsqrt 2,076,774.2337, dqi 24,439,463,583,672.93.
+
+LB score: **not measured**. Nothing was submitted.
+
+## Conclusion
+
+- **Packaging prediction held.** The zip has the predicted 13-member layout. Every member is byte-identical to the sample
+  file and to the exp-001 Kaggle hashes, and the official dfthcsos verifier reproduces exp-001 exactly from the extracted folder.
+- **C-001 is still untested.** The LB part of the prediction waits on a submission.
+- The submitter agent can use `experiments/exp-004/submission.zip` (SHA-256 `0d28eaa5...cf01`) once the user approves it in
+  `approvals/S-NNN.txt`. It should check the file against this hash first.
+- Reading the LB number back:
+  - 1.00004 means C-001 holds with the rounded references;
+  - 1.00000 means C-001 holds with the sample's exact costs as references;
+  - outside [0.999, 1.001], C-001 is refuted. About 0.97498 points to half-shot dqi eps+ on the public split, and about 1.015 to
+    different references.
+  - The submitter should also record any per-task values Kaggle shows.
+
+## Deviations
+
+- 2026-10-28: the Method guessed the zip at "~0.9 GB". Deflate actually gives 73.8 MB (dqi.kmb compresses 12.7x). The zip is still
+  gitignored, since a 74 MB binary does not belong in git and it rebuilds byte-identically from `package.py`.
+- 2026-10-28: the first rebuild (reproducibility check) failed on the final rename with WinError 32, because the file was briefly
+  locked by another process. Its finished `.partial` file had the same SHA-256 as the first build. `package.py` now retries the
+  rename, and the clean rerun gave the same SHA-256 again. Neither event changed any zip content.
