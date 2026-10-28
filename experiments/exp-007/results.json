@@ -1,6 +1,6 @@
 {
   "exp": "exp-007",
-  "commit": "0fadaf4",
+  "commit": "5373e1d",
   "task": "dfthcsos",
   "verifier": "data/verifiers/dfthcsos/verify.py",
   "verifier_cmd": "cd data/verifiers && python -B -I dfthcsos/verify.py <abs>/experiments/exp-007/out/p5",

@@ -4,10 +4,10 @@ title: Can the reverse ANGLE_k use be a cheaper measurement-based uncompute? (ve
 task: dfthcsos
 tests: [C-012]
 direction: D-001
-status: running
+status: done
 date: 2026-10-28
-commit: pending
-result: pending
+commit: 5373e1d
+result: "C-012 refuted structurally (prediction held): the reverse pass re-runs the same submitted circuits, uninverted, in reverse order and charges them again; no separate uncompute circuit can be supplied (2K files rejected, extra names ignored); a direction-specific target MBU fails at reverse ANGLE_2. MBU inside ANGLE_k is legal (P1, P5 PASS; P5 official verify 124 qubits, angles 159,040 = 2 x static), conditioned Toffolis are charged per shot (implied fraction 0.4985 / 0.5057). Realistic saving at J=8, brot=12 under the cap: 0%"
 ---
 
 ## Hypothesis
@@ -55,3 +55,65 @@ What would refute the pre-registered answers: P1 or P5 failing (MBU inside ANGLE
 - Code: `experiments/exp-007/probes.py` (P1-P4, small, on the official checking path `dfthcsos.scoreinfra.circuits.recover_words_from_circuits` and `load_circuits`), `experiments/exp-007/build_p5.py` (P5 family to `experiments/exp-007/out/p5/`, with the sample `submission.npz` copied in), `experiments/exp-007/run_verify_p5.py` (official CLI, background, log in `logs/`). MBU-section builders in `src/angleload/mbu.py`.
 - Verifier: `data/verifiers/dfthcsos/verify.py` unmodified, `python -B` from `data/verifiers/`, default salt (empty) and default 64 shots per address. Small probes use seeds 0 and 12345.
 - Baseline numbers: exp-002 / SCORING_README (score 3,355,599,588.3, T_total 93,237, Q_total 730, ANGLES 79,480).
+
+## Results
+
+All numbers are from `results.json` (official checking path for P1-P4, official `verify.py` CLI for P5). kickmix 1.0.0, local Windows.
+
+### Probes
+
+| Probe | Predicted | Observed |
+|---|---|---|
+| P1 MBU section (init_lookup → ancilla, CX, del_lookup) | PASS, dynamic = 2 × Σ static | PASS on seeds 0 and 12345, words = table; dynamic 432.0 = static 2 × 216 |
+| P2 1,000 identity CCX pairs under one fresh HMR bit | extra dynamic 1,850-2,150 vs +4,000 static | +1,994.09 (seed 0) and +2,022.80 (seed 12345); implied condition fraction 0.4985 and 0.5057 |
+| P3 direction-specific "MBU-clear batch[k-1], load batch[k]" | FAIL at reverse ANGLE_2 | FAIL on both seeds: `reverse ANGLE_2: uncorrected phase (measurement kickback)`; all 3 forward circuits passed |
+| P4a K forward + K uncompute circuits (6 files) | FAIL on circuit count | `load_circuits` read 6; FAIL `5 angles in batches of J=2 need 3 circuits, got 6` (0.006 s, before simulation) |
+| P4b extra file `angle_k_0_dag.kmb` | ignored | 3 circuits loaded, equal to P1; PASS with the same 432.0 count |
+
+### P5: full size, official verifier
+
+| Metric | Baseline (exp-002, reference) | P5 (MBU section in every circuit) | Change |
+|---|---|---|---|
+| status | PASS | PASS | |
+| max ANGLE_k width | 119 | 124 | +5 (4 ancilla + unary-iteration ladder) |
+| static Toffoli per circuit | 3,974 | 7,952 | +3,978 (the MBU fix-up's unary iteration) |
+| angles_toffoli (both passes) | 79,480 | 159,040 | = 2 × Σ static exactly |
+| toffoli_count (T_total) | 93,237 | 172,797 | |
+| num_qubits (Q_total) | 730 | 730 | 0 (ANGLE temp 16 < shared 544) |
+| lambda_eff | 49.301369 | 49.30136925057438 | 0 (same words) |
+| error_1 / error_2 (mHa) | | 3.185 / 18.640 | |
+| score (cost) | 3,355,599,588.3 | 6,218,963,952.7 | improvement factor 0.5396 (a legality probe, not an optimization) |
+| wall / peak RSS | | 580.8 s / 1.10 GB | |
+
+The `emit_qrom_xor` builder used in P5 emits a circuit equal (`==`) to `angleload.qrom.build_qrom_circuit` for all 10 sample circuits, so P5 differs from the reference only by its MBU section.
+
+### Layout arithmetic (estimates, `analysis.py`, not verifier output)
+
+Per pass, the reference family costs K × (A − 2) = 10 × 3,974. A select-swap loader (target as block 0, λ blocks, MBU of the (λ − 1)·W junk bits) needs 12 + λ·12J + ladder ≤ 128, which forces Jλ ≤ 8. Its lookup term is then about 75·A/(Jλ), no better than the reference's, plus swap and MBU overhead. Best feasible T_total × Q_total relative to the reference:
+
+| J | λ | width | per circuit (1 pass) | ANGLES (2 passes) | T_total | Q_total | T·Q / ref |
+|---|---|---|---|---|---|---|---|
+| 8 | 1 (reference) | 119 | 3,974 | 79,480 | 93,237 | 730 | 1.000 |
+| 4 | 2 | 118 | 2,271 | 86,298 | 100,055 | 682 | 1.003 |
+| 2 | 4 | 117 | 1,325 | 100,700 | 114,457 | 658 | 1.107 |
+| 7 | 1 | 107 | 3,974 | 87,428 | 101,185 | 718 | 1.067 |
+| 1 | 8 | 116 | 852 | 127,800 | 141,557 | 646 | 1.344 |
+
+The hypothetical case the verifier does not allow is a direction-specific reverse circuit. Even then only reverse ANGLE_0 is a pure uncompute: kickmix `del_lookup` costs 119 static at W = 96, against 3,974. That saves 3,855 Toffoli, 4.9% of ANGLES and 4.1% of T_total, not the 44% of the C-012 arithmetic.
+
+## Conclusion
+
+The prediction held on every point.
+
+1. **Charging.** The verifier runs the same K submitted circuits forward and then again, uninverted, in reverse order, and one simulator counts both passes. No separate or cheaper uncompute circuit can be supplied: 2K files are rejected by the count check, and a differently named extra file is never read (P4).
+2. **Measurements and counting.** Mid-circuit `HMR` and classically conditioned fix-ups (`CZ`, `Z`, `NEG`, `BIT_INVERT`, and gates under `PUSH_CONDITION`) are accepted inside ANGLE_k (P1, P5). `toffoli_count` is per shot: a CCX under a condition bit is charged only on shots where the bit is 1, which is 1/2 for one fresh HMR bit (P2). Unconditioned gates make the dynamic count equal 2 × the static count (P1, P5).
+3. **Legality of MBU.** Each use is checked on its own, and the state is cleared between uses, so nothing carries from the forward use to the reverse use. The circuit must leave phase unflipped, selection unchanged, every ancilla at |0>, and the words at batch k (forward) or batch k-1 (reverse). That makes MBU legal for an ancilla holding a known function of the address. It is not legal for the target: one circuit sees z = batch[k-1] going forward and z = batch[k] in reverse, so a target MBU that is correct in one direction leaves a phase in the other (P3).
+
+**C-012 is structurally impossible.** The reverse use cannot be a cheaper uncompute. At J = 8, brot = 12 under the 128-qubit cap, the realistic per-circuit ANGLE saving from MBU is **0%**. Inside a circuit, MBU only pays for clean junk registers, and the 20 spare qubits cannot hold even one extra 96-bit block. The reference unary QROM with measurement-based `del_and` is already the cheapest layout that fits. By my arithmetic, a J = 4, λ = 2 select-swap loader with MBU junk uncompute is about break-even (T·Q ×1.003, estimate, not built).
+
+Next step: the research lead can mark C-012 refuted once the critic accepts this. One lead remains open. MBU makes select-swap loaders feasible at small J, which separates ANGLE T from the J·brot qubits that Q_total charges. Whether that helps the frontier design (brot 8, J 5, heavily structured tables, about 280 Toffoli per circuit, exp-006) needs its own claim and arithmetic. It does not help the reference.
+
+## Deviations
+
+- 2026-10-28, P5 construction. The prediction table says the 4 routed bits "go through `init_lookup` into a clean 4-qubit ancilla, CX, `del_lookup`". kickmix 1.0.0's `del_lookup` refuses narrow targets: at 12 address bits it raises `tried to take 1 clean qubits, but only 0 were available` for W ≤ 48 and works for W ≥ 64 (scan in the quantum-stack skill). A 64-bit ancilla does not fit under the cap. So P5 fills the 4-qubit ancilla in the same QROM pass, which costs no extra Toffolis, and clears it with `angleload.mbu.emit_mbu_clear`: HMR, then a unary-iteration phase fix with Z conditioned on the measured bits. The function, the MBU nature of the section and the predicted outcomes are unchanged. The extra static cost is +3,978 per circuit, inside the predicted "about +4,100".
+- The P1, P2 and P3 small probes use kickmix `init_lookup` / `del_lookup` as written, at 6 address bits and W = 8, where `del_lookup` works.

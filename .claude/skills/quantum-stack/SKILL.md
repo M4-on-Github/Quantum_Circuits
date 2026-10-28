@@ -63,6 +63,20 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
 - The dqi verifier JSON's `shot_operation_counts` is summed over all shots. Divide by `verified_shots` for per-shot figures.
 - In `operation_statistics()` an `init_and` shows up as one CCX, and its `del_and` as one HMR plus one CZ. So HMR count = CZ count = number of measurement-uncomputed ANDs (exp-006, public dfthcsos loaders).
 - Checking an ANGLE_k loader as an XOR oracle in the simulator: `km.Simulator(batch_size=A*S, counting_operations=True)`, `sim.use_same_registers_as(c)`, `write_across_shots` the selection bits and the target words from `dfthcsos.scoreinfra.circuits.register_layout(circuits)`, `sim.do(c)`, then read phase (`read_phase_flipped_across_shots`), selection, workspace and words. `experiments/exp-006/xor_oracle_check.py` does this for 15 circuits × 1,220 addresses × 8 shots × 3 input modes in about 6.5 s locally.
+- dfthcsos verifier rules for ANGLE_k (read in `scoreinfra/circuits.py` and probed in exp-007):
+  - The reverse pass runs the *same* K circuits, uninverted, in reverse order, and one simulator counts both passes. So `angles_toffoli` = 2 × Σ static when no gate is conditioned (P5: 159,040).
+  - No separate uncompute circuit is possible. Exactly `ceil(75/J)` files `angle_k_<k>` are required (2K files fail with "need K circuits, got 2K"), and differently named files such as `angle_k_0_dag.kmb` are never read.
+  - Every use is checked separately: phase, selection, workspace at 0, and words. Between circuits the simulator is cleared (`clear_for_shot`) and the words are rewritten.
+  - `HMR` and conditioned `CZ`/`Z`/`NEG`/`BIT_INVERT`/`PUSH_CONDITION` blocks are accepted.
+  - A Toffoli-like gate under `PUSH_CONDITION b` is charged only on shots where b = 1. One fresh HMR bit gives half (P2: implied fractions 0.4985 and 0.5057 over 4,736 shots).
+  - kickmix has no Z-basis measurement. Classical bits come only from `HMR` (uniform random) or constants.
+- `recover_words_from_circuits(circuits, num_vectors=A, num_angles=n, seed=s)` (from `dfthcsos.scoreinfra.circuits`) runs the official ANGLE_k check on any small synthetic table. It takes about 0.03 s at A = 37 (`experiments/exp-007/probes.py`).
+- kickmix 1.0.0 lookups (exp-007):
+  - `init_lookup(table=, address=, target=)` needs `len(table) == 2**len(address)`, so pad with zeros. Over 12 address bits it costs 4,094 Toffoli at any target width.
+  - `del_lookup` is a built-in measurement-based lookup uncompute (HMR target, parities by conditioned `BIT_INVERT`, one-hot built in the measured target qubits, phase lookup with conditioned `CZ`). Its CCX/CSWAP are unconditioned. Static cost: 119 at n = 12 address bits, W = 96 (6 extra qubits); 56 at n = 10; 25 at n = 8.
+  - `del_lookup` raises `tried to take 1 clean qubits, but only 0 were available` when the target is narrow. At n = 12 it works only for W ≥ 64; at n = 10 for W ≥ 24; at n = 8 for W ≥ 8.
+  - `unary_iteration(sel, range(3976))` costs 3,978 Toffoli when used for a full phase fix-up pass.
+- `src/angleload/mbu.py`: `emit_qrom_xor(b, sel, rows, targets)` is the qrom.py segment tree on a caller's builder, with arbitrary target qubits and a freed ladder. With the word bits as targets it gives `==` the reference circuit for all 10 sample circuits. `emit_mbu_clear` measures out qubits holding `rows[a]` (HMR plus a unary-iteration phase fix). `build_mbu_section_family` is the exp-007 P5 legality probe (official verify PASS, width 124, 580.8 s local, 1.10 GB).
 
 ## Kaggle notebooks
 
