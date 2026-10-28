@@ -19,6 +19,8 @@ user-invocable: false
 - kickmix 1.0.0 (verified exp-001, Windows and Kaggle Linux): `kickmix.__version__` reports `0.1` even though `pip show kickmix` / `importlib.metadata.version('kickmix')` says 1.0.0. Check the version with `importlib.metadata`, not `__version__`.
 - Windows has only the `spawn` start method. The invsqrt and dqi verifiers parallelize only when `'fork'` is available (`_run_parallel`), so on Windows they run serially on one core. dfthcsos (`scoreinfra`) never uses multiprocessing.
 - Set `PYTHONDONTWRITEBYTECODE=1` when running verifiers, so no `__pycache__` is written into `data/` (or the read-only Kaggle input).
+- In the Bash tool, bare `python` resolves to `C:\Users\moemy\miniconda3\python.exe`, not the venv. Always call `.venv/Scripts/python.exe`. `python -` (script from stdin) hangs even with `< /dev/null` and has to be killed with `Stop-Process` (exp-004).
+- Large heredocs (~150 lines of Python) passed through the Bash tool can fail with `unexpected EOF while looking for matching '`, even with a quoted `'EOF'` delimiter. Write long scripts with the Write tool (exp-004).
 
 ## Data
 
@@ -86,6 +88,19 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - A lone local dfthcsos verify took 1,017 s wall with a 1.11 GB peak RSS while the laptop ran on battery (`BatteryStatus.Discharging` True). For the first ~11 min it got only about 98 CPU-s, then about 1 CPU-s/s (exp-002). Expect 6–17 min locally, depending on power state.
 - Waiting on a background job: `powershell.exe -NoProfile -Command "Wait-Process -Id <pid> -Timeout 590"` works. If it exceeds the Bash tool's 600 s limit, the call moves itself to the background (exp-002).
 - The machine runs at about 92% commit charge with the user's normal apps open (Edge alone about 14 GB private). Check `Win32_OperatingSystem` free memory before starting dqi locally.
+
+## Submission packaging
+
+- `experiments/exp-004/package.py` builds a submission zip with Python `zipfile`, `ZIP_DEFLATED` level 6.
+  - Layout: `invsqrt.kmb` and `dqi.kmb` at the root, then `dfthcsos/angle_k_0..n-1.kmb` and `dfthcsos/submission.npz`. No directory entries and no wrapping folder.
+  - It then re-reads every member and checks its SHA-256 against the source.
+  - This is the competition page layout, and the one public assembly notebooks use.
+  - (unverified) That the LB accepts it. This is settled once a submission of it is scored.
+- Deflate shrinks the sample a lot (exp-004): `dqi.kmb` goes from 886,118,180 B to 69,819,447 B, and the whole zip is 73,803,082 B. Building and checking takes about 45 s locally.
+- Fixed member metadata makes the zip SHA-256 reproducible between runs on the same Python/zlib build (verified for 3.13.12 / zlib 1.3.1, exp-004): `ZipInfo` date_time (1980,1,1,0,0,0), `create_system=3`, mode 0o100644, sorted members.
+- Verifier seeds hash member contents (canonical kmb bytes and npz arrays), not the zip bytes, so the packaging doesn't change which tests run.
+- Windows: renaming a just-written zip can fail with `PermissionError` WinError 32 because something else briefly holds the file. Retry the rename (exp-004).
+- dfthcsos `verify.py` accepts a folder extracted from the zip (`verify.py <extract>/dfthcsos`). Its output was bit-identical to exp-001 local: 512 s wall against 356 s in exp-001. Machine load is unknown: exp-002 and exp-003 were running at the same time.
 
 ## Process housekeeping
 
