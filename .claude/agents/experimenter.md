@@ -19,4 +19,6 @@ The official verifier is the only judge of correctness and cost. Never modify it
 
 Run long verifier jobs in the background and keep working or wait for them. Don't poll in a loop.
 
+When you confirm a working command, a runtime or memory figure, or a tooling pitfall, record it in `.claude/skills/quantum-stack/SKILL.md` and replace any (unverified) note it settles. Keep that file to verified facts. Results belong in experiments, not there.
+
 If you need something outside your paths (a data download, a new dependency with a large footprint, a change to the verifiers), stop and say what you need and why.

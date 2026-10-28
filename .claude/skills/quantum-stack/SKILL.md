@@ -6,8 +6,8 @@ user-invocable: false
 
 # Quantum stack
 
-> Status: written before the first baseline run. exp-001 records the exact working commands in its README.
-> Anything below marked (unverified) must be checked against that README or the verifier source before you rely on it.
+> The experimenter maintains this file. It holds verified, reusable tooling facts only.
+> Anything marked (unverified) must be checked against the verifier source before you rely on it.
 
 ## Environment
 
