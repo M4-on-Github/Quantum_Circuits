@@ -1,0 +1,40 @@
+{
+  "env": {
+    "CLAUDE_CODE_FORK_SUBAGENT": "0",
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "permissions": {
+    "deny": [
+      "Bash(kaggle competitions submit *)",
+      "PowerShell(kaggle competitions submit *)"
+    ]
+  },
+  "disableBundledSkills": true,
+  "skillOverrides": {
+    "experimental-design": "off",
+    "research-lookup": "off",
+    "scientific-critical-thinking": "off",
+    "scientific-slides": "off",
+    "scientific-writing": "off",
+    "statistical-analysis": "off",
+    "statistical-power": "off"
+  },
+  "enabledPlugins": {
+    "agent-skills@addy-agent-skills": false,
+    "academic-research-skills@academic-research-skills": false,
+    "ralph-loop@claude-plugins-official": false
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/scripts/build_index.py\""
+          }
+        ]
+      }
+    ]
+  }
+}
