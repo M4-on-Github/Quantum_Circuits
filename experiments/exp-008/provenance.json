@@ -1,0 +1,95 @@
+{
+  "downloaded": "2026-10-28",
+  "rules": "knowledge/user-decisions.md: own empty dir per source under external/ (gitignored); code read as text only (nb_to_text.py); circuits loaded only via kickmix; python -I -B; nothing downloaded is copied into any output",
+  "sources": [
+    {
+      "id": "busyaprime-dataset",
+      "kind": "dataset",
+      "ref": "busyaprime/33-qcc-v8-members",
+      "version": 4,
+      "licence": "Apache-2.0 (LICENSE file + NOTICE.md; invsqrt.kmb is 'Modified from mrmeows ... Apache-2.0: the main lookup region is re-synthesised; the rest is his, unchanged')",
+      "use": "measurement only (the public frontier circuit)",
+      "files": {
+        "invsqrt.kmb": {"bytes": 451423, "sha256": "07314803a0925970cf45007ebbdb8a146378c242e3991c70d6f7509af3d583da"},
+        "LICENSE": {"bytes": 11358, "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"},
+        "NOTICE.md": {"bytes": 1365, "sha256": "f1e40a00aeaca66d847694079ff596f374b99c13b3b66b4f7c6db291a88e4f63"},
+        "README.md": {"bytes": 6472, "sha256": "632b10ebc9cb3929cc069f393797dd617d3e98bfb6c0267b169020f7237ba9de"},
+        "SHA256SUMS": {"bytes": 1598, "sha256": "ad9247f1104a12382ae80d05cafee965c4e62d9ae0fe390d84c75ed4e05f1645"}
+      }
+    },
+    {
+      "id": "mrmeows-dataset",
+      "kind": "dataset",
+      "ref": "mrmeows/qcc-1375-open-circuits",
+      "version": 8,
+      "licence": "Apache-2.0 (LICENSE file; README 'Everything is Apache-2.0')",
+      "use": "measurement only (the 103,546 base the frontier modifies) and reading the reproducer text",
+      "files": {
+        "circuits/invsqrt.kmb": {"bytes": 459891, "sha256": "0766a111a76f241aa57fbbed466436d743be13436943ddb0628c291ca07d67d6"},
+        "circuits/NOTICE.txt": {"bytes": 3093, "sha256": "77a796583fe58d2b3e850b7e849cf0822ecffb0cd28e1d8f4a8c79d4f94b147f"},
+        "circuits/SHA256SUMS": {"bytes": 1920, "sha256": "a987506ed0576232e2b4cac4e0e063bd1d80e2d4319f7f67c49b71bb6b5b4d1c"},
+        "LICENSE": {"bytes": 11358, "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"},
+        "README.md": {"bytes": 27710, "sha256": "16b07a0773d3d078c2ebf27d87ba9aaa7ed7319906630fa4d6f182ea13f2225d"},
+        "sources/SHA256SUMS": {"bytes": 911, "sha256": "b04ddc6ee06bb76fa62ff6be6cf03b887d486cedc557ed2081bb0b07a2dd62f2"},
+        "sources/invsqrt_20p056_verified_source/invsqrt_20p056505_complete/README.md": {"bytes": 7396, "sha256": "1b9075eed6f2309ecd774e24c9b80cd6ff9d7ee24d12e9ab287586f4c3f1b7e4"},
+        "sources/invsqrt_20p056_verified_source/invsqrt_20p056505_complete/generate.py": {"bytes": 10000, "sha256": "7cda70050c4aaef6fb4e6f5090d21b59d06f115a847f6fd6bf701d96862f5599"},
+        "sources/invsqrt_20p056_verified_source/invsqrt_20p056505_complete/build_config.json": {"bytes": 594, "sha256": "2d406a9fb7099e1bfcf4f4a3adbd5a71de5c41a55d05faadc75857269bc9d001"},
+        "sources/invsqrt_20p056_verified_source/invsqrt_20p056505_complete/research/README.md": {"bytes": 3119, "sha256": "cc03b886eb8771cbba26fc133c011b24af0f3da6ada9961d4effcc16ea7b5cca"}
+      }
+    },
+    {
+      "id": "marsyas-notebook",
+      "kind": "notebook",
+      "ref": "marsyas/vqcc-invsqrt-13-94x-full-source",
+      "version": "latest at 2026-10-28 (lastRunTime 2026-10-24 15:12:04 UTC; the CLI pull does not report a version number)",
+      "licence": "Apache-2.0 (notebook text: 'License: Apache 2.0.')",
+      "use": "ported with attribution into src/invsqrt/ (read as text, re-typed; never executed)",
+      "files": {"vqcc-invsqrt-13-94x-full-source.ipynb": {"bytes": 86396, "sha256": "4da9352436daf9d7e51a26ee4242c322ca43de70dc43b0820d35cc32655faed9"},
+                "kernel-metadata.json": {"bytes": 671, "sha256": "bfcfd770d713c311ec04450c7fbc8510c39359b47e3e833603fbe2dd57a00d9c"}}
+    },
+    {
+      "id": "gluzdov-notebook",
+      "kind": "notebook",
+      "ref": "dmitriigluzdov/quantum-circuit-compilation-from-source",
+      "version": "latest at 2026-10-28 (lastRunTime 2026-10-28 21:55:39 UTC)",
+      "licence": "Apache-2.0 (notebook text: 'All reused circuits and code are Apache 2.0; this notebook and its dataset are released under Apache 2.0.')",
+      "use": "design description only (its invsqrt is the frontier file 07314803..., copied, not generated)",
+      "files": {"quantum-circuit-compilation-from-source.ipynb": {"bytes": 24039, "sha256": "5653034e7eee35cae069a186cf31e9754681b205c25cb6df16f8987ec16ef407"}}
+    },
+    {
+      "id": "busyaprime-notebook",
+      "kind": "notebook",
+      "ref": "busyaprime/lb-22-33981-22x-cheaper-than-google-s-circuits",
+      "version": "latest at 2026-10-28 (lastRunTime 2026-10-28 02:55:20 UTC)",
+      "licence": "no licence statement found for the notebook code; its dataset is Apache-2.0",
+      "use": "design and lineage description only; nothing ported",
+      "files": {"lb-22-33981-22x-cheaper-than-google-s-circuits.ipynb": {"bytes": 157077, "sha256": "ad5e72d1e6ab3d4dfa6153f113baed70cb0dc786a5e58f4735af0a57ca2140e5"}}
+    },
+    {
+      "id": "zongaobian-notebook",
+      "kind": "notebook",
+      "ref": "zongaobian/quantum-circuits-signed-digits-bm-psi-qrom",
+      "version": "latest at 2026-10-28 (lastRunTime 2026-10-28 16:58:10 UTC)",
+      "licence": "notebook says 'Original licenses and notices are included in the resource' (dataset not downloaded); no licence statement for the notebook code",
+      "use": "confirms its invsqrt is the same file 07314803... ('published 172-AND main lookup. The original lookup search is not rerun.'); nothing ported",
+      "files": {"quantum-circuits-signed-digits-bm-psi-qrom.ipynb": {"bytes": 16537, "sha256": "8082d2c7c22be67cfac2bc4bc82507c03f5d6449a2b9556c93a763a0f663ccd0"}}
+    },
+    {
+      "id": "mrmeows-notebooks",
+      "kind": "notebook",
+      "ref": ["mrmeows/21-0-circuits-let-s-all-reach-the-plateau", "mrmeows/qcc-14-50-everything-i-learned-open-circuits"],
+      "licence": "Apache-2.0 (their text)",
+      "use": "lineage description only; they assemble the dataset files",
+      "files": {"21-0-circuits-let-s-all-reach-the-plateau.ipynb": {"bytes": 15219, "sha256": "ecdb4e5ec0bf7c062e19eb5c76f4de22fa5b6614fa62e51c8a5fff419331523d"},
+                "qcc-14-50-everything-i-learned-open-circuits.ipynb": {"bytes": 10332, "sha256": "fd3c656b0c4a3284bfcb71a230786b8ab20f496e7f099f3079c39cab67cb9cdc"}}
+    },
+    {
+      "id": "busyaprime-notebook-2",
+      "kind": "notebook",
+      "ref": "busyaprime/lb-22-2622907-best-public-packings-fq-quench",
+      "licence": "not relevant (no invsqrt content used)",
+      "use": "scanned; nothing used",
+      "files": {"lb-22-2622907-best-public-packings-fq-quench.ipynb": {"bytes": 83140, "sha256": "a00c2b26eb185f9fe7e594060352d1378c7d66a6ef138dacb96c8bbca73a61ac"}}
+    }
+  ]
+}
