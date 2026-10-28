@@ -1,0 +1,8 @@
+{
+  "sample_dir": "data/sample_submission/dfthcsos",
+  "angle_words_source": "data/sample_submission/dfthcsos/submission.npz:angle_words",
+  "brot": 12,
+  "J": 8,
+  "format": "kmb",
+  "out_dir": "experiments/exp-002/out/submission"
+}
