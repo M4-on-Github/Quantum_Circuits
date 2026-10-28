@@ -45,6 +45,22 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
 - Verifiers check that inputs are restored, ancillas end at |0⟩, and the phase is correct on every shot.
 - dfthcsos ANGLE_k generator: `src/angleload` (`build_family(angle_words, brot, J)`, `write_family(circuits, dir, "kmb")`). From the sample `submission.npz` `angle_words` at brot 12, J 8, it rebuilds all 10 sample `angle_k_*.kmb` byte for byte in about 4.5 s locally (exp-002). `Circuit.to_file(path, format="kmb")` is deterministic across builds, so an identical gate sequence gives identical bytes and thus the same `submission_sha256` and seed.
 - `operation_statistics().num_toffoli_like` counts `init_and` as 1 Toffoli and `del_and` (measurement uncompute) as 0. A segment-tree QROM over A addresses with the top bit used as a free control is A − 2 = 3,974 per circuit for A = 3,976 (exp-002).
+- kickmix 1.0.0 GF(2^12) Toffoli costs, from isolated builds (exp-003):
+
+  | Operation | Toffoli |
+  |---|---|
+  | `ixor_gf2_mul` / `init_gf2_mul` | 63 |
+  | qubit-controlled `ixor_gf2_mul` | 75 |
+  | `init_gf2_inverse_with_scaffold` (Itoh–Tsujii = 5 multiplies, 48 scaffold qubits) | 315 |
+  | `del_gf2_inverse_with_scaffold` | 0 |
+  | `init_gf2_div_with_scaffold` (60 scaffold qubits) | 378 |
+  | `gf2_phase_by_product`, constant `gf2_imul` / `gf2_idiv` | 0 |
+  | 12-bit `init_and`, `flip_if_equal(x, 0)`, `cswap`, controlled `gf2_iadd` | 12 each |
+- kickmix itself emits `INFO_TAG "@enter:/@exit:<name>"` marks for its subroutines (`gf_mul`, `c_gf_mul`, `gf_inverse_chain`, `gf_div`, `unary_iteration`, `flip_if_lt`, ...), on top of `builder.mark(...)`. The sample `dqi.kmb` carries them (exp-003).
+- In `.kmx` each instruction is one line. In the dqi circuits each CCX/CSWAP line is one gate, and Toffoli-like = CCX + CSWAP (+ CCZ).
+- `src/kmx_tag_count.py <circuit.kmx> <out.json>` streams a .kmx and attributes Toffolis to the tag stack (full path and per-instance histogram). It also tracks `PUSH_CONDITION` bit definitions (HMR-measured, or an OR of `BIT_STORE1` sources). Its total equals `num_toffoli_like` on the dqi sample (exp-003).
+- The sample `dqi.kmb` is identical (`Circuit ==`, canonical .kmb SHA-256) to a kickmix 1.0.0 build of `data/verifiers/dqi/dqi_reference_circuit.py` with default arguments (exp-003). The build takes 9.1 s on Kaggle.
+- The dqi verifier JSON's `shot_operation_counts` is summed over all shots. Divide by `verified_shots` for per-shot figures.
 
 ## Kaggle notebooks
 
@@ -60,6 +76,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Record the kernel slug, version and metadata in the README. Save the downloaded outputs (`kaggle kernels output`) under `experiments/exp-NNN/`.
 - Experiment code and kernels never submit to the competition.
 - Verified working (exp-001, kernel `rainm4/exp-001-verify-sample-submission` v1, 2026-10-28): the defaults above with Kaggle CLI 2.2.5 and `kaggle kernels push -p <dir>`. `kaggle kernels status <slug>` reports `KernelWorkerStatus.RUNNING` / `COMPLETE`. `kaggle kernels output <slug> -p <dir>` downloads `/kaggle/working` contents plus `<slug>.log`. The server renames `code_file` to `<slug>.py` and adds `docker_image` and `machine_shape: "None"` (see `kaggle kernels pull <slug> -m`).
+- The Kaggle CLI is the miniconda one on PATH (`kaggle`, at `/c/Users/moemy/miniconda3/Scripts/kaggle`). It is not in `.venv` (exp-003).
 - Auth: the CLI authenticates with `KAGGLE_API_TOKEN`. It is set at Windows user scope, but the Bash tool's shell may not inherit it. Load it without printing: `export KAGGLE_API_TOKEN="$(powershell.exe -NoProfile -Command "[Environment]::GetEnvironmentVariable('KAGGLE_API_TOKEN','User')" | tr -d '\r\n')"`.
 - Kaggle CPU kernel machine (exp-001): Python 3.13.15, 4 CPUs (`cpu.max` 400000/100000), cgroup `memory.max` 32212254720 B (30 GiB), `fork` available, numpy 2.1.3, scipy 1.16.3, psutil 5.9.5 preinstalled. `pip install kickmix==1.0.0` works with internet on.
 - Competition data mounts at `/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/` (same layout as the zip: `verifiers/`, `sample_submission/`, ...), not `/kaggle/input/<slug>/`. Search for a marker file instead of hard-coding the path. The files there are byte-identical (SHA-256) to the local `data/` copy.
@@ -81,8 +98,15 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 |---|---|---|
 | invsqrt (200,540,928 shots) | 1,503 s wall; 0.54 GB per process, 0.71 GB summed tree RSS | 9,056 s wall (2.5 h, ~94% of one core); 0.54 GB peak working set; no stdout until it finishes |
 | dqi (102,400 shots) | 449 s wall; 9.5 GB peak per-process, 9.6 GB system used | not run |
+| dqi with `--salt` (exp-003, 3 runs) | 366–371 s wall; 9.53 GB peak per-process, ≤ 9.95 GB system used | not run |
 | dfthcsos | 137 s wall; 1.2 GB | 356 s wall; 1.1 GB |
 
+- dqi accounting pipeline on Kaggle (exp-003):
+  - Loading the sample `dqi.kmb` takes 3.8 s.
+  - `to_file(format='kmx')` takes 14.3 s and writes 1.54 GB (86.1M lines).
+  - The streaming `kmx_tag_count` takes 111 s.
+  - Peak memory is 3.57 GB per process.
+  - Generator build, sample load, `==`, plus the count: 4.47 GB peak.
 - So run full invsqrt verifies on Kaggle. The dqi CLI's "~6 GB per worker" estimate did not hold: the whole forked tree stayed under 10 GB.
 - The local figures come from three verifiers running concurrently.
 - A lone local dfthcsos verify took 1,017 s wall with a 1.11 GB peak RSS while the laptop ran on battery (`BatteryStatus.Discharging` True). For the first ~11 min it got only about 98 CPU-s, then about 1 CPU-s/s (exp-002). Expect 6–17 min locally, depending on power state.
@@ -103,6 +127,9 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - dfthcsos `verify.py` accepts a folder extracted from the zip (`verify.py <extract>/dfthcsos`). Its output was bit-identical to exp-001 local: 512 s wall against 356 s in exp-001. Machine load is unknown: exp-002 and exp-003 were running at the same time.
 
 ## Process housekeeping
+
+- Git: a user hook (`block_claude_trailer.py`) rejects commit messages that carry a Claude `Co-Authored-By` trailer, so commit without it (exp-003).
+- Bash tool: one long command that wrote several files through `<<'EOF'` heredocs failed with ``unexpected EOF while looking for matching `''`` and wrote nothing. The cause was not determined. Writing the files with the Write tool worked (exp-003).
 
 - To list processes from Git Bash, call PowerShell CIM. Escape every `$` as `\$` inside the double-quoted `-Command`:
   `powershell.exe -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { \$_.Name -match '^(python|bash|powershell|kaggle)(\.exe)?$' } | Format-List ProcessId,ParentProcessId,CreationDate,CommandLine"`
