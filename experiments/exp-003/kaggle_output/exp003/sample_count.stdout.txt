@@ -1,0 +1,1 @@
+{"sample": 5725461, "q": 1893, "tag_total": 5725461, "conditioned": 1437345}

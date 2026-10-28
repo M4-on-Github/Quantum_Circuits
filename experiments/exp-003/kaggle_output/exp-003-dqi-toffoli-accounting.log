@@ -1,0 +1,13 @@
+[{"stream_name":"stdout","time":150.582735437,"data":"{\"label\": \"sample_count\", \"returncode\": 0, \"wall_s\": 136.1, \"proc_hwm_peak_bytes\": 3570200576}\n"}
+,{"stream_name":"stdout","time":294.971418898,"data":"{\"label\": \"gen_compare\", \"returncode\": 0, \"wall_s\": 144.4, \"proc_hwm_peak_bytes\": 4470632448}\n"}
+,{"stream_name":"stdout","time":666.276552715,"data":"{\"label\": \"dqi_salt_exp003-a\", \"returncode\": 0, \"wall_s\": 371.3, \"proc_hwm_peak_bytes\": 9532071936}\n"}
+,{"stream_name":"stdout","time":1032.527258734,"data":"{\"label\": \"dqi_salt_exp003-b\", \"returncode\": 0, \"wall_s\": 366.3, \"proc_hwm_peak_bytes\": 9532649472}\n"}
+,{"stream_name":"stdout","time":1402.425937859,"data":"{\"label\": \"dqi_salt_exp003-c\", \"returncode\": 0, \"wall_s\": 369.9, \"proc_hwm_peak_bytes\": 9532514304}\n"}
+,{"stream_name":"stdout","time":1402.426380484,"data":"done\n"}
+,{"stream_name":"stderr","time":1405.070558823,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1405.070595775,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1405.43740788,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1405.437454313,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1406.615439856,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1407.839442393,"data":"[NbConvertApp] Writing 346402 bytes to __results__.html\n"}
+]
