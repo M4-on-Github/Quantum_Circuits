@@ -4,10 +4,10 @@ title: Own dfthcsos ANGLE_k generator reproduces the sample loaders
 task: dfthcsos
 tests: [C-009]
 direction: D-001
-status: planned
+status: done
 date: 2026-10-28
-commit: unknown
-result: unknown
+commit: b857178
+result: PASS at cost 3,355,599,588.3155365 (local), equal to exp-001; all 10 generated angle_k .kmb are byte-identical to the sample (119 qubits, 3,974 Toffoli each); prediction held
 ---
 
 ## Hypothesis
@@ -48,8 +48,61 @@ Expected score delta: none (improvement factor 1.0). This is the generator base 
 
 ## Results
 
-(pending)
+All numbers are from `results.json`. It is assembled by `make_results.py` from the verifier stdout `logs/verify_stdout.json`, the run metadata `logs/run_meta.json` and the build report `logs/build_report.json`.
+The verifier ran locally, unmodified, at the default seed. Command: `(cwd data/verifiers) PYTHONDONTWRITEBYTECODE=1 .venv/Scripts/python.exe dfthcsos/verify.py <abs>/experiments/exp-002/out/submission`. Return code 0.
+
+| Metric | Baseline exp-001 (local / Kaggle) | exp-002 (local) | Change |
+|---|---|---|---|
+| status | PASS | PASS | - |
+| cost | 3,355,599,588.3155365 / 3,355,599,588.3155375 | 3,355,599,588.3155365 | 0 vs local; -2.8e-16 rel. vs Kaggle |
+| T_total (`toffoli_count`) | 93,237 | 93,237 | 0 |
+| ANGLES Toffoli (both passes) / heuristic | 79,480 / 13,757 | 79,480 / 13,757 | 0 |
+| Q_total | 730 | 730 | 0 |
+| lambda_eff | 49.30136925057438 | 49.30136925057438 | 0 |
+| Lambda / E_gap (Ha) | 308.4559397330944 / 3.965477244291833 | same | 0 |
+| error_1 / error_2 (mHa) | 3.1852 / 18.6396 | 3.1852 / 18.6396 | 0 |
+| n_circuits / brot / J / max width | 10 / 12 / 8 / 119 | 10 / 12 / 8 / 119 | 0 |
+| submission_sha256 | 276d464f...4002695 | 276d464f...4002695 | identical |
+| verified_shots | 254,464 | 254,464 | 0 |
+| improvement factor | 1 | 1.0000000000000002 | - |
+
+The verifier's whole stdout JSON is byte-identical to exp-001's local `logs/local/dfthcsos.stdout.json` (`cmp`). Every top-level field matches.
+
+Per circuit (static counts from `operation_statistics()`; the same values hold for the sample files):
+
+| k | width | Toffoli | instructions | byte-identical to sample |
+|---|---|---|---|---|
+| 0 | 119 | 3,974 | 187,427 | yes |
+| 1 | 119 | 3,974 | 186,423 | yes |
+| 2 | 119 | 3,974 | 186,748 | yes |
+| 3 | 119 | 3,974 | 186,857 | yes |
+| 4 | 119 | 3,974 | 218,777 | yes |
+| 5 | 119 | 3,974 | 218,166 | yes |
+| 6 | 119 | 3,974 | 218,099 | yes |
+| 7 | 119 | 3,974 | 220,382 | yes |
+| 8 | 119 | 3,974 | 219,115 | yes |
+| 9 | 119 | 3,974 | 218,749 | yes |
+
+- `submission.npz` in the swapped submission is a byte copy of the sample's (SHA-256 equal).
+- The generator took 4.4 s, and 4.6 s on a rebuild from the committed code b857178. The rebuild produced the same 10 SHA-256s.
+- The verifier ran 1,017 s wall with a 1.11 GB peak RSS.
 
 ## Conclusion
 
-(pending)
+The prediction held on every pre-registered item:
+- PASS, at a cost equal to exp-001 on the same platform. The 0.1% criterion against the Kaggle value is met with a relative difference of -2.8e-16.
+- T 93,237 and Q 730.
+- 3,974 Toffoli and 119 qubits per circuit.
+- Every metric is unchanged.
+- All 10 `.kmb` files are byte-identical to the sample's.
+
+Because the bytes are identical, `submission_sha256` and the simulator seed are identical too. So this run repeats exp-001's local verification exactly. It adds no independent sampling evidence for the circuits' correctness. What it shows is that our committed generator (`src/angleload/qrom.py`) regenerates the sample's dfthcsos circuits exactly, which is the prize-reproducibility requirement (kg-752010).
+
+This supports C-009, pending critic review. It meets D-001's midterm check for dfthcsos (our generator reproduces 3,355,599,588.3 within 0.1%).
+
+Next: use `src/angleload` as the base for C-008 (J = 9, brot = 11) and C-003 (reachable-only loaders). Any changed circuit gets a fresh seed, so those runs give new sampling evidence.
+
+## Deviations
+
+- 2026-10-28: the verifier runtime (1,017 s) was about 3x the ~6 min planned. The laptop was on battery (`BatteryStatus.Discharging` True). For the first ~11 min the verifier process got only about 98 CPU-s, after which it ran at about one core. The result is not affected.
+- 2026-10-28: Kaggle was not used. The task allowed a local run, and the byte-identical files make the Kaggle result predictable from exp-001 (3,355,599,588.3155375). It was not re-measured.

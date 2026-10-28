@@ -11,7 +11,8 @@ user-invocable: false
 
 ## Environment
 
-- Python 3.13 in `.venv/` at the repo root. Dependencies are pinned in `requirements.txt`.
+- Python 3.13 in `.venv/` at the repo root. Dependencies are pinned in `requirements.txt` (added exp-002: kickmix 1.0.0, numpy 2.5.4, scipy 1.18.1, psutil 7.2.2, the versions of the working `.venv`). The venv's base interpreter is the user's miniconda Python 3.13.12 (`sys.version` from `.venv/Scripts/python.exe`, exp-002).
+- Commit messages: a user-level hook (`~/.claude/hooks/block_claude_trailer.py`) blocks any `git commit` whose message has a Claude co-author trailer or "Generated with" line. Commit without attribution lines (exp-002).
 - `pip install kickmix` installs the host's PyPI wheels (Windows x86_64 supported).
 - Use the PyPI version, not `data/kickmix/kickmix.so`, which is Linux-only and being phased out.
 - Docs: the kickmix section of Google's Qualtran docs (circuit file format, instruction set, Python API).
@@ -40,6 +41,8 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
 - kickmix instructions are reversible classical gates, phase gates, and measurement-based uncomputation (measure an ancilla holding a∧b, then fix the phase classically).
 - The simulator runs one bit string per lane, 64–512 inputs per CPU instruction.
 - Verifiers check that inputs are restored, ancillas end at |0⟩, and the phase is correct on every shot.
+- dfthcsos ANGLE_k generator: `src/angleload` (`build_family(angle_words, brot, J)`, `write_family(circuits, dir, "kmb")`). From the sample `submission.npz` `angle_words` at brot 12, J 8, it rebuilds all 10 sample `angle_k_*.kmb` byte for byte in about 4.5 s locally (exp-002). `Circuit.to_file(path, format="kmb")` is deterministic across builds, so an identical gate sequence gives identical bytes and thus the same `submission_sha256` and seed.
+- `operation_statistics().num_toffoli_like` counts `init_and` as 1 Toffoli and `del_and` (measurement uncompute) as 0. A segment-tree QROM over A addresses with the top bit used as a free control is A − 2 = 3,974 per circuit for A = 3,976 (exp-002).
 
 ## Kaggle notebooks
 
@@ -80,6 +83,8 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 
 - So run full invsqrt verifies on Kaggle. The dqi CLI's "~6 GB per worker" estimate did not hold: the whole forked tree stayed under 10 GB.
 - The local figures come from three verifiers running concurrently.
+- A lone local dfthcsos verify took 1,017 s wall with a 1.11 GB peak RSS while the laptop ran on battery (`BatteryStatus.Discharging` True). For the first ~11 min it got only about 98 CPU-s, then about 1 CPU-s/s (exp-002). Expect 6–17 min locally, depending on power state.
+- Waiting on a background job: `powershell.exe -NoProfile -Command "Wait-Process -Id <pid> -Timeout 590"` works. If it exceeds the Bash tool's 600 s limit, the call moves itself to the background (exp-002).
 - The machine runs at about 92% commit charge with the user's normal apps open (Edge alone about 14 GB private). Check `Win32_OperatingSystem` free memory before starting dqi locally.
 
 ## Process housekeeping

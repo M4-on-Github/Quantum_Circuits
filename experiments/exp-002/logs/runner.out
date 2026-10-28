@@ -1,0 +1,8 @@
+{
+  "cmd": "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\.venv\\Scripts\\python.exe C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\data\\verifiers\\dfthcsos\\verify.py C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\experiments\\exp-002\\out\\submission",
+  "cwd": "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\data\\verifiers",
+  "returncode": 0,
+  "wall_s": 1017.0,
+  "peak_rss_bytes_max_process": 1107927040,
+  "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:05:56) [MSC v.1942 64 bit (AMD64)]"
+}
