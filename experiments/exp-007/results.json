@@ -1,0 +1,245 @@
+{
+  "exp": "exp-007",
+  "commit": "0fadaf4",
+  "task": "dfthcsos",
+  "verifier": "data/verifiers/dfthcsos/verify.py",
+  "verifier_cmd": "cd data/verifiers && python -B -I dfthcsos/verify.py <abs>/experiments/exp-007/out/p5",
+  "passed": true,
+  "metrics": {
+    "Q": 730,
+    "toffoli": 172797.0,
+    "cost": 6218963952.745796,
+    "angles_toffoli": 159040.0,
+    "angles_toffoli_per_pass": 79520.0,
+    "angles_static_both_passes": 159040,
+    "lambda_eff": 49.30136925057438,
+    "Lambda": 308.4559397330944,
+    "E_gap": 3.965477244291833,
+    "ham_error_mHa": {
+      "error_1": 3.1851950317984485,
+      "error_2": 18.63957063097418
+    },
+    "max_width": 124,
+    "n_circuits": 10,
+    "submission_sha256": "fa47cd1a0340d87e0aaa74cd4d7a60cfe32454a4f77366cfc65db8f4b9ab5a01",
+    "verified_shots": 254464
+  },
+  "baseline": {
+    "exp": "exp-002",
+    "cost": 3355599588.3155365,
+    "toffoli": 93237,
+    "Q": 730,
+    "angles_toffoli": 79480
+  },
+  "improvement_factor": 0.5395753398496501,
+  "score_delta_factor": 0.8141117651098397,
+  "note": "P5 is a legality probe (MBU section added to the reference); it is not meant to improve cost.",
+  "runtime_s": 580.8,
+  "peak_rss_bytes": 1095958528,
+  "salts_or_seeds": [
+    "default (empty salt) for P5",
+    "seeds 0 and 12345 for P1-P3, 0 for P4"
+  ],
+  "probes": {
+    "table": {
+      "A": 37,
+      "n_angles": 5,
+      "J": 2,
+      "brot": 4,
+      "seed": 7,
+      "shots_per_address": 64
+    },
+    "kickmix": "1.0.0",
+    "P1": {
+      "num_qubits": [
+        28,
+        28,
+        28
+      ],
+      "static": [
+        72,
+        72,
+        72
+      ],
+      "static_both_passes": 432,
+      "runs": {
+        "0": {
+          "status": "PASS",
+          "words_match_table": true,
+          "toffoli_dynamic_both_passes": 432.0,
+          "runtime_s": 0.028
+        },
+        "12345": {
+          "status": "PASS",
+          "words_match_table": true,
+          "toffoli_dynamic_both_passes": 432.0,
+          "runtime_s": 0.028
+        }
+      }
+    },
+    "P2": {
+      "num_qubits": [
+        28,
+        28,
+        28
+      ],
+      "static": [
+        2072,
+        72,
+        72
+      ],
+      "static_both_passes": 4432,
+      "extra_static_both_passes": 4000,
+      "runs": {
+        "0": {
+          "status": "PASS",
+          "words_match_table": true,
+          "toffoli_dynamic_both_passes": 2426.087837837838,
+          "runtime_s": 0.034,
+          "extra_dynamic_vs_P1": 1994.087837837838,
+          "implied_condition_fraction": 0.4985219594594595
+        },
+        "12345": {
+          "status": "PASS",
+          "words_match_table": true,
+          "toffoli_dynamic_both_passes": 2454.804054054054,
+          "runtime_s": 0.033,
+          "extra_dynamic_vs_P1": 2022.8040540540542,
+          "implied_condition_fraction": 0.5057010135135136
+        }
+      }
+    },
+    "P3": {
+      "num_qubits": [
+        20,
+        20,
+        20
+      ],
+      "static": [
+        62,
+        72,
+        72
+      ],
+      "runs": {
+        "0": {
+          "status": "FAIL",
+          "error": "reverse ANGLE_2: uncorrected phase (measurement kickback)",
+          "runtime_s": 0.018
+        },
+        "12345": {
+          "status": "FAIL",
+          "error": "reverse ANGLE_2: uncorrected phase (measurement kickback)",
+          "runtime_s": 0.02
+        }
+      }
+    },
+    "P4a": {
+      "files": [
+        "angle_k_0.kmb",
+        "angle_k_1.kmb",
+        "angle_k_2.kmb",
+        "angle_k_3.kmb",
+        "angle_k_4.kmb",
+        "angle_k_5.kmb"
+      ],
+      "loaded": 6,
+      "run": {
+        "status": "FAIL",
+        "error": "5 angles in batches of J=2 need 3 circuits, got 6",
+        "runtime_s": 0.006
+      }
+    },
+    "P4b": {
+      "files": [
+        "angle_k_0.kmb",
+        "angle_k_0_dag.kmb",
+        "angle_k_1.kmb",
+        "angle_k_2.kmb"
+      ],
+      "loaded": 3,
+      "loaded_equal_P1": true,
+      "run": {
+        "status": "PASS",
+        "words_match_table": true,
+        "toffoli_dynamic_both_passes": 432.0,
+        "runtime_s": 0.029
+      }
+    }
+  },
+  "p5_build": {
+    "brot": 12,
+    "J": 8,
+    "mbu_word": 7,
+    "mbu_bits": 4,
+    "angle_words_shape": [
+      3976,
+      75
+    ],
+    "emitter_equals_reference_per_k": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "emitter_check_s": 8.21,
+    "small_check": {
+      "A": 45,
+      "n_angles": 13,
+      "brot": 6,
+      "J": 3,
+      "word": 2,
+      "nbits": 3,
+      "passed": true,
+      "toffoli_dynamic_both_passes": 890.0,
+      "static_both_passes": 890
+    },
+    "build_s": 3.25,
+    "static_both_passes": 159040,
+    "ref_static_both_passes": 79480,
+    "max_num_qubits": 124,
+    "submission_npz_sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69"
+  },
+  "analysis_best_feasible": {
+    "J": 8,
+    "lambda": 1,
+    "K": 10,
+    "width": 119,
+    "within_cap": true,
+    "per_circuit_one_pass": 3974,
+    "lookup": 3974,
+    "angles_both_passes": 79480,
+    "T_total": 93237,
+    "Q_total": 730,
+    "TQ": 68063010,
+    "TQ_vs_reference": 1.0
+  },
+  "analysis_J4_lambda2": {
+    "J": 4,
+    "lambda": 2,
+    "K": 19,
+    "width": 118,
+    "within_cap": true,
+    "per_circuit_one_pass": 2271,
+    "lookup": 1986,
+    "swaps": 96,
+    "mbu": 189,
+    "mbu_k": 32,
+    "angles_both_passes": 86298,
+    "T_total": 100055,
+    "Q_total": 682,
+    "TQ": 68237510,
+    "TQ_vs_reference": 1.0025638008075164
+  },
+  "analysis_hypothetical": {
+    "reverse_angle0_del_lookup_static": 119,
+    "saving_per_family": 3855,
+    "saving_frac_of_angles": 0.04850276799194766,
+    "saving_frac_of_T_total": 0.041346246661733005
+  }
+}

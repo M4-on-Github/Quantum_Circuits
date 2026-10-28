@@ -1,0 +1,15 @@
+{
+  "label": "p5",
+  "cmd": [
+    "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-I",
+    "dfthcsos/verify.py",
+    "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\experiments\\exp-007\\out\\p5"
+  ],
+  "cwd": "C:\\Users\\moemy\\Documents\\Kaggle\\Quantum_Circuits\\data\\verifiers",
+  "returncode": 0,
+  "wall_s": 580.8,
+  "peak_rss_bytes_max_process": 1095958528,
+  "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:05:56) [MSC v.1942 64 bit (AMD64)]"
+}

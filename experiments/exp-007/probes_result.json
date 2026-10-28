@@ -1,0 +1,126 @@
+{
+  "table": {
+    "A": 37,
+    "n_angles": 5,
+    "J": 2,
+    "brot": 4,
+    "seed": 7,
+    "shots_per_address": 64
+  },
+  "kickmix": "1.0.0",
+  "P1": {
+    "num_qubits": [
+      28,
+      28,
+      28
+    ],
+    "static": [
+      72,
+      72,
+      72
+    ],
+    "static_both_passes": 432,
+    "runs": {
+      "0": {
+        "status": "PASS",
+        "words_match_table": true,
+        "toffoli_dynamic_both_passes": 432.0,
+        "runtime_s": 0.028
+      },
+      "12345": {
+        "status": "PASS",
+        "words_match_table": true,
+        "toffoli_dynamic_both_passes": 432.0,
+        "runtime_s": 0.028
+      }
+    }
+  },
+  "P2": {
+    "num_qubits": [
+      28,
+      28,
+      28
+    ],
+    "static": [
+      2072,
+      72,
+      72
+    ],
+    "static_both_passes": 4432,
+    "extra_static_both_passes": 4000,
+    "runs": {
+      "0": {
+        "status": "PASS",
+        "words_match_table": true,
+        "toffoli_dynamic_both_passes": 2426.087837837838,
+        "runtime_s": 0.034,
+        "extra_dynamic_vs_P1": 1994.087837837838,
+        "implied_condition_fraction": 0.4985219594594595
+      },
+      "12345": {
+        "status": "PASS",
+        "words_match_table": true,
+        "toffoli_dynamic_both_passes": 2454.804054054054,
+        "runtime_s": 0.033,
+        "extra_dynamic_vs_P1": 2022.8040540540542,
+        "implied_condition_fraction": 0.5057010135135136
+      }
+    }
+  },
+  "P3": {
+    "num_qubits": [
+      20,
+      20,
+      20
+    ],
+    "static": [
+      62,
+      72,
+      72
+    ],
+    "runs": {
+      "0": {
+        "status": "FAIL",
+        "error": "reverse ANGLE_2: uncorrected phase (measurement kickback)",
+        "runtime_s": 0.018
+      },
+      "12345": {
+        "status": "FAIL",
+        "error": "reverse ANGLE_2: uncorrected phase (measurement kickback)",
+        "runtime_s": 0.02
+      }
+    }
+  },
+  "P4a": {
+    "files": [
+      "angle_k_0.kmb",
+      "angle_k_1.kmb",
+      "angle_k_2.kmb",
+      "angle_k_3.kmb",
+      "angle_k_4.kmb",
+      "angle_k_5.kmb"
+    ],
+    "loaded": 6,
+    "run": {
+      "status": "FAIL",
+      "error": "5 angles in batches of J=2 need 3 circuits, got 6",
+      "runtime_s": 0.006
+    }
+  },
+  "P4b": {
+    "files": [
+      "angle_k_0.kmb",
+      "angle_k_0_dag.kmb",
+      "angle_k_1.kmb",
+      "angle_k_2.kmb"
+    ],
+    "loaded": 3,
+    "loaded_equal_P1": true,
+    "run": {
+      "status": "PASS",
+      "words_match_table": true,
+      "toffoli_dynamic_both_passes": 432.0,
+      "runtime_s": 0.029
+    }
+  }
+}

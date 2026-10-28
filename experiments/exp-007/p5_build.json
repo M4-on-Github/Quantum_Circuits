@@ -1,0 +1,121 @@
+{
+  "brot": 12,
+  "J": 8,
+  "mbu_word": 7,
+  "mbu_bits": 4,
+  "angle_words_shape": [
+    3976,
+    75
+  ],
+  "emitter_equals_reference_per_k": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "emitter_check_s": 8.21,
+  "small_check": {
+    "A": 45,
+    "n_angles": 13,
+    "brot": 6,
+    "J": 3,
+    "word": 2,
+    "nbits": 3,
+    "passed": true,
+    "toffoli_dynamic_both_passes": 890.0,
+    "static_both_passes": 890
+  },
+  "build_s": 3.25,
+  "files": [
+    {
+      "k": 0,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "817ca060496a0c1306ae03d1d02ad6c2812ad4421d7249ba6b6235219c647139"
+    },
+    {
+      "k": 1,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "1a0ad554c0e1c0f24a6747cc95d86e78cb298eb0ce2d159dde845100cc98ef8c"
+    },
+    {
+      "k": 2,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "e33a159560b0aad627c4c68649d6880d25d69e1ff099a4eb63d6545dac700ca8"
+    },
+    {
+      "k": 3,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "2f1e57efc5e8f996a206349da1ff0e9b425f6231a45014dbf4ae0751bcbcf354"
+    },
+    {
+      "k": 4,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "9228a743836774313ed50cd9122c35150ba74409363cebb6206a9ce31c0bf3b2"
+    },
+    {
+      "k": 5,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "55abdd52273908bba6a951b19b57e2417b7701dcb476cb31f694384a520d8133"
+    },
+    {
+      "k": 6,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "937be37d397e2ab2c07ff61422e6f169e4f7b2ad215697b56a57253731f1488d"
+    },
+    {
+      "k": 7,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "651197e20d8cf88cc20dba39640745a7c489253901d9c41079beaf52564eb5d9"
+    },
+    {
+      "k": 8,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "16c2f5ede965400540d54d630c24b4ead709abf9db7b9b3df9cd93b145714dce"
+    },
+    {
+      "k": 9,
+      "num_qubits": 124,
+      "static_toffoli": 7952,
+      "ref_static_toffoli": 3974,
+      "ref_num_qubits": 119,
+      "sha256": "a18884f03329589e6a6e4d46b795d2ccb2b066518e25e178685785032133aabd"
+    }
+  ],
+  "static_both_passes": 159040,
+  "ref_static_both_passes": 79480,
+  "max_num_qubits": 124,
+  "submission_npz_sha256": "14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69"
+}
