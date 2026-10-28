@@ -9,11 +9,15 @@ Inputs:
   out/semantics*.json/.npz     analysis/kernel_semantics.py (plain and restart modes)
   out/field_test.json          analysis/field_test.py
   out/fingerprint_search.json  analysis/fingerprint_search.py
+  controls.json                analysis/controls.py (controls, jet skeleton check, 126-Toffoli zero divisors)
+
+Revision after the critic review (critic.md): the measured numbers are unchanged. `commit` is pinned to the
+commit whose code produced them. The revision only adds provenance, the critic's default-salt run (labelled
+as the critic's), the pre-registered GF(2^12) multiply share and annotations of the field-test summary.
 """
 import collections
 import json
 import math
-import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -22,6 +26,21 @@ HERE = Path(__file__).resolve().parent
 KO = HERE / 'kaggle_output' / 'exp005'
 OUT = HERE / 'out'
 SALTS = ['exp005-a', 'exp005-b', 'exp005-c']
+RESULTS_COMMIT = '70659bf'  # code that produced the measured numbers (kernel outputs + local analysis)
+_KMX = 'experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz'
+_O = 'experiments/exp-005/out/'
+_A = '.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/'
+# Run from the repo root. The original invocations were not logged; these reproduce out/ exactly
+# (critic.md check 2; field_test.py needs max_per_label = 6, see controls.json field_test_input).
+ANALYSIS_CMDS = [
+    f'{_A}kmx_skeleton.py {_KMX} {_O}skeleton.npz',
+    f'{_A}fingerprint_search.py {_O}skeleton.npz {_O}fingerprint_search.json',
+    f'{_A}kernel_semantics.py {_O}skeleton.npz {_KMX} {_O}semantics.json {_O}semantics_gates.npz plain',
+    f'{_A}kernel_semantics.py {_O}skeleton.npz {_KMX} {_O}semantics_restart.json {_O}semantics_restart_gates.npz restart',
+    f'{_A}field_test.py {_O}skeleton.npz {_KMX} {_O}semantics.json {_O}field_test.json 6',
+    f'{_A}controls.py {_O}skeleton.npz {_O}semantics.json {_KMX} experiments/exp-005/controls.json',
+    '.venv/Scripts/python.exe -I experiments/exp-005/make_results.py',
+]
 STAGES = ['extract', 'synthesis', 'convert', 'scan', 'unconvert', 'unsynthesis', 'unextract']
 
 
@@ -165,13 +184,16 @@ def main():
     s_12 = s_main.get('product_12x12', {}).get('share_of_T', 0.0)
     s_wide = s_main.get('product_wider', {}).get('share_of_T', 0.0)
 
-    commit = subprocess.run(['git', 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True,
-                            cwd=HERE).stdout.strip()
+    commit = RESULTS_COMMIT
+    ctl = json.loads((HERE / 'controls.json').read_text())
+    k126 = ctl['kernels_126']
     v0 = ver[SALTS[0]]
     base_cost = 24439471538812.85  # exp-003 results.json metrics.cost (reference decoder, 3 salts)
     res = {
         'exp': 'exp-005',
         'commit': commit,
+        'commit_note': 'commit of the code that produced the measured numbers; later revisions add annotations only',
+        'analysis_cmds': ANALYSIS_CMDS,
         'task': 'dqi',
         'verifier': 'verify_submission_dqi.py',
         'verifier_cmd': 'python3 verify_submission_dqi.py /tmp/exp005/dqi.kmb --salt <exp005-a|exp005-b|exp005-c>',
@@ -180,7 +202,19 @@ def main():
         'circuit': {'source': 'heliosli/qcc-circuits-live (manifest portfolio v17_sjx), dqi.kmb.xz',
                     'xz_sha256': prepare['xz_sha256'], 'kmb_sha256': prepare['kmb_sha256'],
                     'kmb_bytes': prepare['kmb_bytes'], 'kmx_sha256': dump['kmx_sha256'],
-                    'external_not_submittable': True},
+                    'external_not_submittable': True,
+                    'dataset_version_downloaded': 11,
+                    'dataset_versions_with_same_dqi_bytes': [9, 10, 11],
+                    'provenance_note': ('same dqi.kmb.xz bytes in heliosli/qcc-circuits-live versions 9, 10 and 11 '
+                                        '(critic.md, fresh downloads). Version 12 (2026-10-28 21:44 UTC) lists a '
+                                        'dqi.kmb.xz of the same size, bytes unchecked. This is the circuit behind the '
+                                        'public dqi base cost. The digest figure "897Q, mean T 432,740.56" is that '
+                                        'cost divided by R x 897^2, i.e. this circuit at the wrong width.')},
+        'critic_default_salt_run': {
+            'source': 'critic.md, kernel rainm4/exp-005-critic-reverify v2 (critic run, not ours)',
+            'salt': None, 'status': 'PASS', 'Q': 889, 'max_toffoli_count': 454507, 'failures': 0,
+            'toffoli_count': 440563.9552734375, 'score': 414781342770.7355,
+            'note': 'equals the public dqi base cost 414,781,342,770.7355'},
         'passed': all(ver[s]['status'] == 'PASS' for s in SALTS),
         'metrics': {
             'Q': v0['num_qubits'],
@@ -236,6 +270,23 @@ def main():
             'saving_if_every_12x12_kernel_over_51_became_51': over51_saving,
             'multiply_share_12x12': s_12,
             'multiply_share_all_field_sized_products': round(s_12 + s_wide, 4),
+            'multiply_share_gf2_12_preregistered': {
+                'pure_12x12_kernels': s_12,
+                'all_42_toffoli_gf2_12_units': round(42 * units['gf2^12_product_42'] / T_mean, 4),
+                'note': ('the pre-registered s counts GF(2^12) multiplies: 12.1% (pure 12 x 12 kernels) to 48.0% '
+                         '(all 42-Toffoli units, restart mode). s >= 50% holds only if GF(2^24) and wider '
+                         'products count as multiplies (all products: 56.6% plain, 76.0% restart).')},
+            'kernels_126_zero_divisors': {
+                k: {'label': v['label'], 'A': v['A'], 'B': v['B'], 'zero_divisor_found': v['zero_divisor_found'],
+                    'fix_A_basis_vector_min_rank': min(v['fix_A']['basis_vector_ranks']),
+                    'fix_A_sampled_rank_deficient': v['fix_A']['sampled_rank_deficient'],
+                    'fix_B_sampled_rank_deficient': v['fix_B']['sampled_rank_deficient'],
+                    'sampled_per_side': v['fix_A']['sampled_nonzero_operands']}
+                for k, v in k126.items()},
+            'kernels_126_note': ('the 10 126-Toffoli 24 x 24 kernels are 3 x 42 GF(2^12) products in a split '
+                                 'algebra with zero divisors, not GF(2^24) (controls.json kernels_126; critic.md)'),
+            'untagged_99_note': ('the 662 untagged 24 x 24 99-Toffoli components are identified by Toffoli count '
+                                 'and operand widths only. Only tagged multiply v kernels were field-tested'),
             'class_table_restart_mode': sem['restart']['by_class'],
             'class_table_plain_mode': sem['plain']['by_class'],
             'class_by_stage_static_restart_mode': sem['restart']['by_stage_static'],
@@ -249,6 +300,12 @@ def main():
             'verdict': None,
         },
     }
+    for row in res['c010']['field_test_summary']:
+        if row['n_toffoli'] == 126:
+            row['algebra_note'] = '3 x 42 product in a split algebra with zero divisors, not GF(2^24)'
+            if row['field_like']:
+                row['field_like_note'] = ('sampling false positive: zero divisors have density about 2^-11; '
+                                          'explicit witnesses in controls.json kernels_126')
     holds = (s_12 + s_wide) >= 0.5 and res['c010']['projected_51_saving_fraction'] >= 0.08
     res['c010']['verdict'] = 'holds' if holds else 'refuted'
     (HERE / 'results.json').write_text(json.dumps(res, indent=1))

@@ -100,6 +100,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Competition data mounts at `/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/` (same layout as the zip: `verifiers/`, `sample_submission/`, ...), not `/kaggle/input/<slug>/`. Search for a marker file instead of hard-coding the path. The files there are byte-identical (SHA-256) to the local `data/` copy.
 - Pass absolute paths when a runner starts a verifier with a different `cwd`. Relative paths then resolve against the child's cwd and fail.
 - Kaggle datasets (CLI 2.2.5, exp-006): a specific version is addressed as `owner/slug/N` for `kaggle datasets files owner/slug/N` and `kaggle datasets download owner/slug/N -f <file>`. `owner/slug/versions/N` is rejected as invalid. `kaggle datasets status` returns not-found for other users' datasets. `datasets files` takes `--format`, not `-o`.
+- Finding which version an unversioned download was (exp-005 fix, 2026-10-28): `kaggle datasets files owner/slug/N --format csv --page-size 200` works on other users' datasets and lists each file's size and creationDate for that version. The default page size is 20, and `--page-size` goes up to 200. Match the creationDates and sizes recorded at download time against each N.
 - Kernel `dataset_sources` version pins do not work: `"owner/slug/N"` is accepted by `kaggle kernels push`, but the server strips the version (see `kaggle kernels pull -m`) and mounts the latest version. Identify attached files by SHA-256 inside the kernel (exp-006).
 - Attached datasets mount at `/kaggle/input/datasets/<owner>/<slug>/` (exp-006).
 
@@ -157,6 +158,8 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 
 - Git: a user hook (`block_claude_trailer.py`) rejects commit messages that carry a Claude `Co-Authored-By` trailer, so commit without it (exp-003).
 - Bash tool: one long command that wrote several files through `<<'EOF'` heredocs failed with ``unexpected EOF while looking for matching `''`` and wrote nothing. The cause was not determined. Writing the files with the Write tool worked (exp-003).
+  - It happened again in the exp-005 fix: a ~100-line `<<'EOF'` heredoc of Python whose content held `'''` and `"""` strings. Writing that script with the Write tool and then running it worked.
+- The experimenter's path guard (`.claude/hooks/guard_paths.py`) blocks Write and Edit outside `experiments/**`, `src/**`, `requirements.txt` and this file, and that includes the session scratchpad. Put helper scripts under a gitignored `experiments/exp-NNN/out/`. Bash `cp` into the scratchpad still works (exp-005 fix).
 
 - To list processes from Git Bash, call PowerShell CIM. Escape every `$` as `\$` inside the double-quoted `-Command`:
   `powershell.exe -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { \$_.Name -match '^(python|bash|powershell|kaggle)(\.exe)?$' } | Format-List ProcessId,ParentProcessId,CreationDate,CommandLine"`

@@ -1,6 +1,16 @@
 {
  "exp": "exp-005",
  "commit": "70659bf",
+ "commit_note": "commit of the code that produced the measured numbers; later revisions add annotations only",
+ "analysis_cmds": [
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kmx_skeleton.py experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/skeleton.npz",
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/fingerprint_search.py experiments/exp-005/out/skeleton.npz experiments/exp-005/out/fingerprint_search.json",
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kernel_semantics.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics.json experiments/exp-005/out/semantics_gates.npz plain",
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kernel_semantics.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics_restart.json experiments/exp-005/out/semantics_restart_gates.npz restart",
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/field_test.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics.json experiments/exp-005/out/field_test.json 6",
+  ".venv/Scripts/python.exe -I -B experiments/exp-005/analysis/controls.py experiments/exp-005/out/skeleton.npz experiments/exp-005/out/semantics.json experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/controls.json",
+  ".venv/Scripts/python.exe -I experiments/exp-005/make_results.py"
+ ],
  "task": "dqi",
  "verifier": "verify_submission_dqi.py",
  "verifier_cmd": "python3 verify_submission_dqi.py /tmp/exp005/dqi.kmb --salt <exp005-a|exp005-b|exp005-c>",
@@ -34,7 +44,25 @@
   "kmb_sha256": "4ee7a17b4cbca4053a19bc951e7f2ef91fabdbb036006c9d658adcff4fe76da4",
   "kmb_bytes": 505139960,
   "kmx_sha256": "61a4305ddcdee9562cb378899377d6f5f88d60393e243480e4b9d10a095fdd08",
-  "external_not_submittable": true
+  "external_not_submittable": true,
+  "dataset_version_downloaded": 11,
+  "dataset_versions_with_same_dqi_bytes": [
+   9,
+   10,
+   11
+  ],
+  "provenance_note": "same dqi.kmb.xz bytes in heliosli/qcc-circuits-live versions 9, 10 and 11 (critic.md, fresh downloads). Version 12 (2026-10-28 21:44 UTC) lists a dqi.kmb.xz of the same size, bytes unchecked. This is the circuit behind the public dqi base cost. The digest figure \"897Q, mean T 432,740.56\" is that cost divided by R x 897^2, i.e. this circuit at the wrong width."
+ },
+ "critic_default_salt_run": {
+  "source": "critic.md, kernel rainm4/exp-005-critic-reverify v2 (critic run, not ours)",
+  "salt": null,
+  "status": "PASS",
+  "Q": 889,
+  "max_toffoli_count": 454507,
+  "failures": 0,
+  "toffoli_count": 440563.9552734375,
+  "score": 414781342770.7355,
+  "note": "equals the public dqi base cost 414,781,342,770.7355"
  },
  "passed": true,
  "metrics": {
@@ -331,6 +359,45 @@
   "saving_if_every_12x12_kernel_over_51_became_51": 0,
   "multiply_share_12x12": 0.1206,
   "multiply_share_all_field_sized_products": 0.7596,
+  "multiply_share_gf2_12_preregistered": {
+   "pure_12x12_kernels": 0.1206,
+   "all_42_toffoli_gf2_12_units": 0.4805,
+   "note": "the pre-registered s counts GF(2^12) multiplies: 12.1% (pure 12 x 12 kernels) to 48.0% (all 42-Toffoli units, restart mode). s >= 50% holds only if GF(2^24) and wider products count as multiplies (all products: 56.6% plain, 76.0% restart)."
+  },
+  "kernels_126_zero_divisors": {
+   "1856": {
+    "label": "run:convert",
+    "A": 24,
+    "B": 24,
+    "zero_divisor_found": true,
+    "fix_A_basis_vector_min_rank": 12,
+    "fix_A_sampled_rank_deficient": 4,
+    "fix_B_sampled_rank_deficient": 5,
+    "sampled_per_side": 16384
+   },
+   "2807": {
+    "label": "run:unconvert",
+    "A": 24,
+    "B": 24,
+    "zero_divisor_found": true,
+    "fix_A_basis_vector_min_rank": 12,
+    "fix_A_sampled_rank_deficient": 8,
+    "fix_B_sampled_rank_deficient": 4,
+    "sampled_per_side": 16384
+   },
+   "2856": {
+    "label": "run:unconvert",
+    "A": 24,
+    "B": 24,
+    "zero_divisor_found": true,
+    "fix_A_basis_vector_min_rank": 12,
+    "fix_A_sampled_rank_deficient": 5,
+    "fix_B_sampled_rank_deficient": 3,
+    "sampled_per_side": 16384
+   }
+  },
+  "kernels_126_note": "the 10 126-Toffoli 24 x 24 kernels are 3 x 42 GF(2^12) products in a split algebra with zero divisors, not GF(2^24) (controls.json kernels_126; critic.md)",
+  "untagged_99_note": "the 662 untagged 24 x 24 99-Toffoli components are identified by Toffoli count and operand widths only. Only tagged multiply v kernels were field-tested",
   "class_table_restart_mode": {
    "bilinear_small_operand": {
     "static": 54549,
@@ -745,7 +812,9 @@
      24,
      24
     ],
-    "segments": 2
+    "segments": 2,
+    "algebra_note": "3 x 42 product in a split algebra with zero divisors, not GF(2^24)",
+    "field_like_note": "sampling false positive: zero divisors have density about 2^-11; explicit witnesses in controls.json kernels_126"
    },
    {
     "label": "run:unconvert",
@@ -860,7 +929,8 @@
      12,
      24
     ],
-    "segments": 1
+    "segments": 1,
+    "algebra_note": "3 x 42 product in a split algebra with zero divisors, not GF(2^24)"
    },
    {
     "label": "T:unextract/reverse scale u#84|unextract/reverse scale v#84",

@@ -7,7 +7,7 @@ direction: D-001
 status: done
 date: 2026-10-28
 commit: 70659bf
-result: C-010 refuted. The released decoder is Q 889, mean T 440,563.80, with no 63-Toffoli kickmix multiplier anywhere (M63 = 0, projected 51-Toffoli saving 0%). Its products are 42-Toffoli GF(2^12) and 99-Toffoli GF(2^24) kernels, which make up 57-76% of T.
+result: C-010 refuted. The released decoder is Q 889, mean T 440,563.80, with no 63-Toffoli kickmix multiplier anywhere (M63 = 0, projected 51-Toffoli saving 0%). Its products are 42-Toffoli GF(2^12) units and 99-Toffoli GF(2^24) kernels. GF(2^12) multiplies (the pre-registered s) are 12.1% (pure 12 x 12) to 48.0% (all 42-Toffoli units) of T. All products together are 57-76%.
 ---
 
 ## Hypothesis
@@ -89,7 +89,12 @@ Outputs are downloaded into `experiments/exp-005/kaggle_output/`. `results.json`
 
 ## Results
 
-All numbers come from `results.json`, which `make_results.py` builds at commit 70659bf. The circuit is `dqi.kmb` from `heliosli/qcc-circuits-live`, manifest portfolio `v17_sjx`, canonical .kmb SHA-256 `4ee7a17b…6da4`. It is an external public circuit, measured only.
+All numbers come from `results.json`, which `make_results.py` builds at commit 70659bf. The circuit is `dqi.kmb` from `heliosli/qcc-circuits-live` dataset version 11, manifest portfolio `v17_sjx`, canonical .kmb SHA-256 `4ee7a17b…6da4`. It is an external public circuit, measured only.
+
+Provenance (corrected 2026-10-28 after the critic review):
+- **The same bytes since version 9.** Dataset versions 9, 10 and 11 hold a byte-identical `dqi.kmb.xz` (critic.md, check 7a; `external/SOURCES.md`).
+- **It is the circuit behind the public dqi figure.** At the default salt (no `--salt`), the critic's run of the official verifier gives cost 414,781,342,770.7355 and T 440,563.9552734375, with Q 889, 0 failures and PASS. That was kernel `rainm4/exp-005-critic-reverify` v2, recorded in critic.md and `results.json` `critic_default_salt_run`. It is the critic's run, not ours, and the cost equals the public dqi base cost exactly.
+- **What the digest's "897Q" was.** The digest's "897Q, mean T 432,740.56" is that same cost divided by R × 897²: 414,781,342,770.7355 / (1.1912604648 × 897²) = 432,740.56. So it is this circuit quoted at the wrong width, not a different circuit.
 
 ### Official verifier (unmodified `verify_submission_dqi.py`, Kaggle, 102,400 shots per salt)
 
@@ -123,35 +128,51 @@ The segmented simulation matched a whole-circuit run on the same inputs in all f
 Jet inversions:
 - The tags name 56 forward jets (`extract/inverse24 …` + `multiply v`, 269 Toffoli each) and 56 reverse jets (`unextract/reverse …`, 389 Toffoli each).
 - That is 36,848 Toffoli per shot, or **8.36% of T**.
-- The relabelled Toffoli skeleton of each jet-only sub-kernel (`inverse12 norm`, `inverse12 products`, `inverse24 products`, `reverse start inverse with flag`, `reverse cached phase inverse`) occurs exactly 56 times in the whole circuit, so no untagged copies of these jets exist.
+- The relabelled Toffoli skeleton of each jet-only sub-kernel (`inverse12 norm`, `inverse12 products`, `inverse24 products`, `reverse start inverse with flag`, `reverse cached phase inverse`) occurs exactly 56 times in the whole circuit, all 56 inside its own tag. So no untagged copies of these jets exist (`controls.json` `jet_skeletons`, from `analysis/controls.py`).
 
 ### Multiplier identity and cost
 
 The only tags are the seven stage names, four 0-Toffoli setup tags (`mask_projection`, `initial`, `uninitial`, `restore_masks`), 14 jet sub-kernel names, and a 0-Toffoli `gf_iadd` tag (8,050 instances of X gates adding constants). That makes 26 names in all, and none of them is `gf_mul` or any other multiplier. Two independent analyses of the exported .kmx text support the findings below (Method addendum in Deviations).
 
-- **kickmix 63-Toffoli multiplier.** The relabelled Toffoli skeleton of kickmix 1.0.0's `ixor_gf2_mul` (63) occurs **0** times in the 454,507-gate stream, and its controlled form (75) also 0 times. Controls: the same search finds 2 in a two-multiply kickmix build, and the 63-gate core once inside the controlled build. So **M63 = 0**, and the projected 51-Toffoli saving 12 × M63 / T = **0%**.
-- **Semantic classification** (`analysis/kernel_semantics.py`). Every Toffoli's two controls are tested as functions of the segment-start state: whether each is affine, and which qubits it depends on. The affine × affine gates are then 2-coloured into bilinear maps between operand sets A and B. Controls on kickmix builds:
-  - `gf_mul` gives one 12 × 12 map;
-  - controlled `c_gf_iadd` gives 1 × 12;
-  - a 12-bit zero test gives only 1 × 1 maps or non-affine controls;
-  - two chained multiplies give two 12 × 12 maps in `restart` mode.
+- **kickmix 63-Toffoli multiplier.** The relabelled Toffoli skeleton of kickmix 1.0.0's `ixor_gf2_mul` (63) occurs **0** times in the 454,507-gate stream, and its controlled form (75) also 0 times. Controls: the same search finds 2 in a two-multiply kickmix build, and the 63-gate core once inside the controlled build (`out/fingerprint_search.json` self-check; `controls.json` `semantic_controls`). So **M63 = 0**, and the projected 51-Toffoli saving 12 × M63 / T = **0%**.
+- **Semantic classification** (`analysis/kernel_semantics.py`). Every Toffoli's two controls are tested as functions of the segment-start state: whether each is affine, and which qubits it depends on. The affine × affine gates are then 2-coloured into bilinear maps between operand sets A and B. Controls on kickmix 1.0.0 builds (`controls.json` `semantic_controls`, from `analysis/controls.py`):
+  - `gf_mul`, and `init_gf2_mul` plus `del_gf2_mul`, each give one 12 × 12 map of 63 Toffoli;
+  - the controlled multiply gives 12 × 12 of 63, plus 1 × 12 of 12 in `restart` mode;
+  - two independent multiplies give two 12 × 12 maps of 63;
+  - controlled `gf2_iadd` gives 1 × 12;
+  - a 12-bit zero test gives only 1 × 1 maps;
+  - two chained multiplies give two 12 × 12 maps of 63 in `restart` mode, but only one in plain mode, where the second is non-affine;
+  - a multiply with a CX-mixed operand gives 12 × 24 of 63;
+  - a multiply of a register by its own copy gives one non-bipartite component of 63.
+
+  The fingerprint finds the 63-Toffoli template once in every build that contains a multiply, and twice in the two-multiply and chained builds.
 - **Every bipartite product component with both operands at least 12 bits has a Toffoli count that is an exact multiple of 42 or of 99.** In `restart` mode there are 5,040 GF(2^12)-product units of 42 and 1,242 units of 99, and no other size. No component of exactly 63 exists, and no 12 × 12 component exceeds 51 Toffoli.
 
 | Product kernel | Operand widths | Toffoli | Instances (restart mode) |
 |---|---|---|---|
 | GF(2^12) × GF(2^12), the generic multiplier (template = `reverse norm`) | 12 × 12 | 42 | 1,265 (12 × 12), plus 42-unit pieces of wider components |
 | GF(2^12) scalar × GF(2^24) (`reverse scale u/v`) | 12 × 24 | 84 = 2 × 42 | 616 + 56 (12 × 25) + 50 (13 × 24) |
-| GF(2^24) × GF(2^24) (`multiply v` and untagged) | 24 × 24 (+1 to 5 extra qubits) | 99 | 662 (24 × 24) + 112 (tagged) |
-| GF(2^24) via 3 × 42 | 24 × 24 | 126 | 10 over all widths (4 at exactly 24 × 24) |
+| GF(2^24) × GF(2^24) (`multiply v` and untagged) | 24 × 24 (+1 to 5 extra qubits) | 99 | 662 (24 × 24) + 112 (tagged). Only tagged kernels were field-tested; the 662 untagged ones are identified by Toffoli count and operand widths only |
+| 3 × 42 GF(2^12) products in a split algebra with zero divisors (not GF(2^24)) | 24 × 24 | 126 | 10 over all widths (4 at exactly 24 × 24) |
 | scalar × polynomial folds (synthesis, unsynthesis, convert, unconvert) | 24 × 108…396 | 42 · k | for example 16 × 42 = 672 |
 
 - **Field test** (`analysis/field_test.py`). The test evaluates the kernel text with this script's own Boolean model, with the other inputs fixed at random values, and computes B(a, b) = F(a,b) ⊕ F(a,0) ⊕ F(0,b) ⊕ F(0,0). Results on pure bilinear kernels:
   - **12 × 12 42-Toffoli kernels** (6 tagged-template instances and 3 untagged): B is bilinear and independent of the other inputs, and for every one of the 4,095 nonzero a the map b ↦ B(a, b) has rank 12. So there are no zero divisors, as a GF(2^12) multiplication requires.
   - **84-Toffoli 12 × 24 kernels:** rank 24 for every sampled nonzero scalar and rank 12 for every sampled nonzero vector (256 samples per side).
-  - **99-Toffoli and 126-Toffoli 24 × 24 kernels:** rank 24 from both sides.
-  - Exceptions among the pure kernels: in 2 of the 84-Toffoli kernels and 1 of the 42-Toffoli 13 × 12 kernels, the sampled minimum rank was 0 on the side whose component has extra qubits. In the one 126-Toffoli convert kernel, the sampled minimum was 12. Those operand sets include qubits outside a 12- or 24-bit core, so a sample can fall where the core part is 0.
+  - **99-Toffoli 24 × 24 `multiply v` kernels (tagged):** rank 24 from both sides.
+  - **126-Toffoli 24 × 24 kernels: not field multiplications.** All three tested kernels are clean bilinear maps, independent of the other inputs: segment 1856 (convert) and segments 2807 and 2856 (unconvert). All three have zero divisors. These are 3 × 42 GF(2^12) products in a split algebra, not GF(2^24) multiplications. Evidence (corrected 2026-10-28 after the critic review):
+    - The 256-sample test of `field_test.py` missed the zero divisors in the two unconvert kernels. It reported rank 24 from both sides, and `results.json` marks them `field_like: true`. That is a **sampling false positive**, annotated `field_like_note` there. In the convert kernel the same test happened to hit one (sampled minimum 12).
+    - An exact check over all 24 basis vectors of operand A finds 12 basis vectors e_i with rank(b ↦ B(e_i, b)) = 12 in each of the three kernels. A denser random sample (16,384 nonzero operands per side) finds 3 to 8 rank-deficient operands per side, a density of about 2^-11.
+    - For each kernel, an explicit pair a, b ≠ 0 with B(a, b) = 0 is re-evaluated at two random settings of the other inputs and gives 0 both times (`controls.json` `kernels_126`).
+    - The critic found the same with an independent method in kickmix's own simulator (critic.md, check 7b).
+    - Scale: 10 kernels, 1,260 Toffoli, 0.29% of T. No effect on M63.
+  - Exceptions among the pure kernels: in 2 of the 84-Toffoli kernels and 1 of the 42-Toffoli 13 × 12 kernels, the sampled minimum rank was 0 on the side whose component has extra qubits. Those operand sets include qubits outside a 12- or 24-bit core, so a sample can fall where the core part is 0. (The 126-Toffoli convert kernel, listed here before the critic review, is exactly 24 × 24. Its rank-12 minimum is a true zero divisor; see the bullet above.)
   - 36 tested segments that also contain non-bilinear gates give no valid field test and are listed only in `out/field_test.json`.
-  - Controls: kickmix `gf_mul` passes. A truncated 12 × 12 polynomial product fails (2,047 zero divisors), and so does a truncated 24 × 24 product (rank down to 16).
+  - Controls (`controls.json` `field_controls`, from `analysis/controls.py`):
+    - kickmix `gf_mul` at n = 12 passes, with 0 zero divisors;
+    - kickmix `gf_mul` at n = 24 (189 Toffoli) passes the sampled test;
+    - a truncated 12 × 12 polynomial product a·b mod x^12 fails, with 2,047 zero divisors;
+    - a truncated 24 × 24 product fails, with sampled minimum ranks 16 and 17.
 
 ### Multiply share of T (per shot)
 
@@ -159,7 +180,7 @@ The only tags are the seven stage names, four 0-Toffoli setup tags (`mask_projec
 |---|---|---|
 | GF(2^12) × GF(2^12) products (12 × 12) | 53,130 (12.06%) | 52,500 (11.92%) |
 | wider field products (12 × 24, 24 × 24, scalar × polynomial) | 281,508 (63.90%) | 196,641 (44.63%) |
-| **all field products, s** | **75.96%** | **56.55%** |
+| **all field products** (12 × 12 and wider; not the pre-registered s, see below) | **75.96%** | **56.55%** |
 | bilinear with an operand under 12 bits (flags, GF(64) pieces, scan) | 54,112 (12.28%) | 5,221 (1.18%) |
 | quadratic forms (norms, overlapping supports) | 28,857 (6.55%) | 35,572 (8.07%) |
 | non-affine control (chained products, AND trees, inversions) | 0 | 119,522 (27.13%) |
@@ -171,28 +192,58 @@ The only tags are the seven stage names, four 0-Toffoli setup tags (`mask_projec
 - `restart` mode starts a new sub-segment at such a gate. Its extra product gates still come out as exact 42- and 99-multiples.
 - The scan stage (44,275 = 4,025 × 11) contains no products in either mode.
 
+**Multiply share s under the pre-registered definition** (added 2026-10-28 after the critic review). The Prediction defines s as the Toffolis in general GF(2^12) multiplies divided by T (`results.json` `c010.multiply_share_gf2_12_preregistered`).
+- **Pure 12 × 12 kernels:** 12.1% of T.
+- **All 42-Toffoli GF(2^12) product units** (5,040 × 42 = 211,680, restart mode, including the 42-unit pieces of wider components): 48.0% of T.
+
+The "all field products" row above (56.6% plain, 76.0% restart) also counts the 99-Toffoli GF(2^24) kernels and other wider products. So "s ≥ 50%" holds only if GF(2^24) and wider products count as multiplies. Under the pre-registered GF(2^12) definition, s is 12.1% to 48.0%, below 50%. The C-010 verdict does not depend on s, because the refutation goes through M63 = 0.
+
+### Reproduction (local analysis command lines)
+
+Run these from the repo root. The original invocations were not logged; these reproduce every file in `out/` exactly (critic.md, check 2). `field_test.py` must be run with `max_per_label = 6` (the final `6`). The script default of 3 selects 56 segments, not the 92 in `out/field_test.json`. Its input is the plain-mode `semantics.json` (`controls.json` `field_test_input`).
+
+```
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kmx_skeleton.py experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/skeleton.npz
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/fingerprint_search.py experiments/exp-005/out/skeleton.npz experiments/exp-005/out/fingerprint_search.json
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kernel_semantics.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics.json experiments/exp-005/out/semantics_gates.npz plain > experiments/exp-005/out/semantics.log
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kernel_semantics.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics_restart.json experiments/exp-005/out/semantics_restart_gates.npz restart > experiments/exp-005/out/semantics_restart.log
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/field_test.py experiments/exp-005/out/skeleton.npz experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/out/semantics.json experiments/exp-005/out/field_test.json 6 > experiments/exp-005/out/field_test.log
+.venv/Scripts/python.exe -I -B experiments/exp-005/analysis/controls.py experiments/exp-005/out/skeleton.npz experiments/exp-005/out/semantics.json experiments/exp-005/kaggle_output_dump/exp005dump/dqi.kmx.xz experiments/exp-005/controls.json > experiments/exp-005/out/controls.log
+.venv/Scripts/python.exe -I experiments/exp-005/make_results.py
+```
+
+- **Getting the input.** `dqi.kmx.xz` (SHA-256 `cd4dae60…9ccc`, `dump.json`) comes from `kaggle kernels output rainm4/exp-005-dqi-kmx-dump -p experiments/exp-005/kaggle_output_dump`.
+- **Run times.** The critic measured skeleton 34 s, fingerprint 4 s, semantics 210 s (plain) and 316 s (restart), and field test 546 s at 3 per label.
+- **`controls.py`** took 49 s wall locally. A second run wrote a byte-identical `controls.json`.
+
+The list is also in `results.json` `analysis_cmds`.
+
 ## Conclusion
 
 **C-010 is refuted** by the pre-registered rule: 12 × M63 / T = 0 < 8%.
 
-- The premise that the frontier decoder spends its T on 63-Toffoli GF(2^12) multiplies is false, even though most of its T is multiplies (s = 57 to 76%, so s ≥ 50% holds).
+- The premise that the frontier decoder spends its T on 63-Toffoli GF(2^12) multiplies is false. Under the pre-registered definition, GF(2^12) multiplies are 12.1% (pure 12 × 12 kernels) to 48.0% (all 42-Toffoli units) of T. Most of its T is products (57 to 76%) only if the 99-Toffoli GF(2^24) and other wider products count as multiplies; only then does s ≥ 50% hold.
 - Its generic GF(2^12) multiplier already costs 42 Toffoli, below the 51-Toffoli multiplier of C-006.
 - Its GF(2^24) products cost 99 Toffoli. That is less than three 42-Toffoli multiplies (126) and far less than four 51-Toffoli ones.
 - So dropping in a 51-Toffoli GF(2^12) multiplier saves nothing here. Swapping it in for the 42s would add about 9 × 5,040 ≈ 45k Toffoli per shot, roughly +10% T.
 - This is the "multiplier is already cheaper than 63" branch of the refutation rule.
 
 Against the predictions:
-- Q (897) and the ±1% T band (432,740.56) both missed. The downloaded release is a newer 889-qubit variant with T 1.81% higher, as the Prediction's dataset-update caveat anticipated.
+- Q (897) and the ±1% T band (432,740.56) both missed. The cause is the digest's misstated width, not a dataset update (corrected 2026-10-28 after the critic review).
+  - The released `dqi.kmb.xz` bytes are unchanged across dataset versions 9, 10 and 11.
+  - The critic's default-salt run of this circuit gives cost 414,781,342,770.7355, which is the public base cost.
+  - The digest's "897Q, mean T 432,740.56" is that cost divided by R × 897² instead of R × 889².
+  - So the measured file is the frontier decoder C-010 is about: heliosli's 889-qubit modification of SomeJoint's 897-qubit design. The prediction targeted the right circuit with a wrong Q and T.
 - Failures (1, 0, 0) fell within the predicted 0 to 2.
 - I gave P ≈ 0.5 that the multiplies are kickmix `gf_mul`. They are not.
-- My share estimate (50%, 80% interval 20 to 75%) was in the right range: 57% conservative, 76% with restarts.
+- My share estimate was 50%, with an 80% interval of 20 to 75%. Under the pre-registered GF(2^12) definition the share is 12.1% (pure 12 × 12, below the interval) to 48.0% (all 42-Toffoli units, inside it). Counting every product, including GF(2^24), the share is 57% conservative and 76% with restarts. The 76% figure is just above the interval.
 
 The scout's notebook reading, checked against the measurements:
 - **Confirmed:** Q 889 and mean T ≈ 440.6k (440,563.80).
 - **Confirmed:** a confluent-Hermite-style design whose jets cost 269 forward and 389 reverse Toffoli. The tagged sub-kernels sum to exactly these.
 - **Confirmed:** 99-Toffoli GF(2^24) product kernels.
-- **Refuted for this release:** "289 jet inversions at about 39% of T". There are 112 jets (56 forward, 56 reverse) at 8.36% of T. The 289 and 39% figures likely describe Gluzdov's 883Q, ~468k build, not this file.
-- **Partly confirmed:** "24-bit product kernels of 99, 105 or 126". 99 and 126 occur (126 = 3 × 42, 10 instances). No 105-Toffoli product kernel exists in this circuit.
+- **Refuted for this release:** "289 jet inversions at about 39% of T". There are 112 jets (56 forward, 56 reverse) at 8.36% of T. Where the 289 and 39% figures come from is unknown. A guess is Gluzdov's 883Q, ~468k build, but that attribution is unverified. Dataset versions 6–8 hold an 883Q-lineage release (manifest `v12_sj883L5`, critic.md) that could test it.
+- **Partly confirmed:** "24-bit product kernels of 99, 105 or 126". 99 and 126 both occur. The 126s (10 instances) are 3 × 42 GF(2^12) products in a split algebra with zero divisors, not GF(2^24) multiplications. No 105-Toffoli product kernel exists in this circuit.
 
 Next steps:
 - For the research lead: dqi T on the frontier is dominated by 42-Toffoli GF(2^12) and 99-Toffoli GF(2^24) bilinear kernels. Each Toffoli saved per GF(2^12) product unit is worth about 5,040 / 440,564 ≈ 1.1% of T. Each Toffoli saved per GF(2^24) product is worth 1,242 / 440,564 ≈ 0.28%.
@@ -205,7 +256,18 @@ Next steps:
   - This run resumed from the files on disk and re-ran nothing from v1. All v1 outputs (prepare, count, 4 segsim workers, 3 salted verifier runs) were complete and internally consistent: counter total = `num_toffoli_like`, and every segsim check passed.
   - The pre-registration (Hypothesis through Method) was committed in 16bb91a at 15:21 local time, before kernel v1 was pushed (about 15:30).
   - `src/kmx_segment_sim.py`, `tools/test_segsim.py` and `tools/xz_sha.py` come from the interrupted run. The in-kernel equality checks validate `kmx_segment_sim`. Whether `test_segsim.py` was ever run locally is unknown.
-- **Circuit differs from the prediction's target.** The release is Q 889 (manifest `v17_sjx`), not the 897Q in the digest, and its T is 1.81% above 432,740.56. As pre-registered, this experiment reports on the circuit actually downloaded.
+- **Q and T differ from the prediction's figures, but the circuit is the same.** The release measures Q 889 (manifest `v17_sjx`), not the digest's 897Q, and its T is 1.81% above 432,740.56. As pre-registered, this experiment reports on the circuit actually downloaded.
+  - This bullet first called the release a newer variant.
+  - Corrected 2026-10-28 after the critic review: the `dqi.kmb.xz` bytes are identical in dataset versions 9, 10 and 11. The critic's default-salt cost, 414,781,342,770.7355, equals the public base cost. The digest's figures are this circuit at Q = 897 (see Results, Provenance).
+- **Segment cut rule.** The Method says segsim cuts the .kmx "at tag enter/exit boundaries where the condition stack is empty". `src/kmx_segment_sim.py` actually cuts at the boundaries of outermost conditioned regions. Disclosed 2026-10-28 after the critic review. It is harmless: 0 inexact mass, and segment-sum equality with a whole-circuit run in all 4 workers.
+- **2026-10-28, revision after the critic review (critic.md, verdict needs-work).** The revision changes no measured number. It adds:
+  - provenance (dataset version 11; the same bytes in versions 9 and 10) and the critic's default-salt figure;
+  - the relabelling of the 126-Toffoli kernels as split-algebra 3 × 42 products;
+  - the pre-registered GF(2^12) multiply share;
+  - `analysis/controls.py` with its output `controls.json` (controls, jet skeleton check, 126-Toffoli zero divisors);
+  - the analysis command lines.
+
+  `make_results.py` now pins `commit` to 70659bf, the code that produced the numbers, and adds annotation keys to `results.json`. Before this revision it took `git rev-parse HEAD`. A key-by-key comparison with the previous `results.json` shows only added keys: no value changed and none was removed.
 - **Generator source unavailable.** The notebook slug named in the Method, `somejoint/quantum-circuits-22-34-local-gm-897-qubit-dqi`, no longer resolves. The previous run pulled `somejoint/quantum-circuits-22-67-local-gm-full-xor-chem` instead (`external/SOURCES.md`). It embeds no DQI generator, so the multiplier structure was recovered from the gate stream alone.
 - **Method addendum, the second kernel and local text analysis.** The tags turned out to be coarse: 26 names covering stages and jets only. The Method's fallback, "repeated gate-pattern blocks in the .kmx", needed the full gate text.
   - Second private kernel, `rainm4/exp-005-dqi-kmx-dump` v1 (`kernel_dump/`). It checks the dataset's `dqi.kmb.xz` SHA-256 against the exp-005 download, loads it with kickmix only, writes the .kmx (SHA-256 `61a4305d…`) and xz-compresses it to 16.6 MB (`kaggle_output_dump/exp005dump/dqi.kmx.xz`, gitignored). It never calls the Kaggle API or submits.
