@@ -1,0 +1,1321 @@
+{
+ "n_py": 59,
+ "python": "3.13.12",
+ "all_parse": true,
+ "top_level_import_names": [
+  "argparse",
+  "audit",
+  "baseline",
+  "circ",
+  "collections",
+  "common",
+  "contextlib",
+  "convert",
+  "decode",
+  "division",
+  "exp",
+  "extract",
+  "field",
+  "final_decoder",
+  "functools",
+  "hankel_check",
+  "hashlib",
+  "importlib",
+  "inverse20",
+  "json",
+  "kernels",
+  "kickmix",
+  "lowwidth",
+  "model",
+  "numpy",
+  "pathlib",
+  "phase36",
+  "phase39",
+  "prefix",
+  "random",
+  "repair",
+  "safe_bridge",
+  "scalar",
+  "scan",
+  "sys",
+  "time",
+  "types"
+ ],
+ "watched_calls_outside_main": [
+  {
+   "file": "build_897.py",
+   "line": 20,
+   "call": "importlib.util.spec_from_file_location",
+   "under_main": false
+  },
+  {
+   "file": "build_897.py",
+   "line": 21,
+   "call": "importlib.util.module_from_spec",
+   "under_main": false
+  },
+  {
+   "file": "build_897.py",
+   "line": 23,
+   "call": "spec.loader.exec_module",
+   "under_main": false
+  },
+  {
+   "file": "build_897.py",
+   "line": 41,
+   "call": "write_text",
+   "under_main": false
+  },
+  {
+   "file": "build_897.py",
+   "line": 37,
+   "call": "open",
+   "under_main": false
+  },
+  {
+   "file": "exp/confluent_extract/model.py",
+   "line": 188,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/confluent_extract/model.py",
+   "line": 199,
+   "call": "write_text",
+   "under_main": false
+  },
+  {
+   "file": "exp/confluent_synthesis/kernel.py",
+   "line": 17,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/confluent_synthesis/kernel.py",
+   "line": 18,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/convert_short_hankel/phase34.py",
+   "line": 14,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/fold_cached_norm/kernel.py",
+   "line": 39,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse12_escape/zero1.py",
+   "line": 9,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse19_joint/kernel.py",
+   "line": 10,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_search/inverse20.py",
+   "line": 14,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_search/inverse20_iso.py",
+   "line": 12,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width/kernel.py",
+   "line": 14,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width/kernel.py",
+   "line": 15,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width_subspaces/kernel19.py",
+   "line": 14,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "call": "globals",
+   "under_main": false
+  },
+  {
+   "file": "exp/phase24_tradeoff/phase6small.py",
+   "line": 6,
+   "call": "json.loads",
+   "under_main": false
+  },
+  {
+   "file": "exp/tail_alias/divide.py",
+   "line": 16,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/tail_alias/kernel.py",
+   "line": 14,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/zero_padding_synthesis/kernel.py",
+   "line": 61,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "exp/zero_padding_synthesis/kernel.py",
+   "line": 62,
+   "call": "FunctionType",
+   "under_main": false
+  },
+  {
+   "file": "final_decoder/conversion.py",
+   "line": 20,
+   "call": "FunctionType",
+   "under_main": false
+  }
+ ],
+ "files": [
+  {
+   "file": "build_897.py",
+   "imports": [
+    "hashlib",
+    "importlib.util",
+    "json",
+    "kickmix",
+    "pathlib",
+    "sys",
+    "time"
+   ],
+   "watched_calls": [
+    {
+     "line": 20,
+     "call": "importlib.util.spec_from_file_location",
+     "under_main": false
+    },
+    {
+     "line": 21,
+     "call": "importlib.util.module_from_spec",
+     "under_main": false
+    },
+    {
+     "line": 23,
+     "call": "spec.loader.exec_module",
+     "under_main": false
+    },
+    {
+     "line": 41,
+     "call": "write_text",
+     "under_main": false
+    },
+    {
+     "line": 37,
+     "call": "open",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 29,
+     "kind": "For"
+    },
+    {
+     "line": 32,
+     "kind": "For"
+    },
+    {
+     "line": 37,
+     "kind": "With"
+    }
+   ]
+  },
+  {
+   "file": "decode.py",
+   "imports": [
+    "common",
+    "exp.confluent_extract.kernel",
+    "exp.confluent_extract.model",
+    "exp.convert_short_hankel.phase34",
+    "exp.fold_cached_norm.kernel",
+    "exp.fold_joint.kernel",
+    "exp.jet24.pro_jet",
+    "exp.mask_projection.kernel",
+    "pathlib",
+    "scan",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/alternating_gauge/even_fold.py",
+   "imports": [
+    "exp.mul99.schedules",
+    "exp.tail_alias.kernel",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/alternating_gauge/kernel.py",
+   "imports": [
+    "exp.alternating_gauge.even_fold",
+    "exp.alternating_gauge.scalar",
+    "exp.tail_alias.kernel",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/alternating_gauge/scalar.py",
+   "imports": [
+    "exp.arithmetic.lowwidth",
+    "exp.inverse19_joint.kernel",
+    "exp.noscratch.schedules",
+    "exp.safe_scalar.phase",
+    "exp.tail_alias.kernel",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/arithmetic/division.py",
+   "imports": [
+    "field"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/arithmetic/field.py",
+   "imports": [
+    "circ",
+    "functools"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/arithmetic/lowwidth.py",
+   "imports": [
+    "division",
+    "field"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/confluent_extract/kernel.py",
+   "imports": [
+    ".model",
+    "exp.decoder.common",
+    "exp.inverse12_escape.joint",
+    "model",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 12,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/confluent_extract/model.py",
+   "imports": [
+    "audit",
+    "functools",
+    "json",
+    "pathlib",
+    "random",
+    "sys",
+    "time"
+   ],
+   "watched_calls": [
+    {
+     "line": 188,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 199,
+     "call": "write_text",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 201,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "exp/confluent_synthesis/kernel.py",
+   "imports": [
+    "exp.alternating_gauge",
+    "exp.decoder.common",
+    "functools",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 17,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 18,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/convert/convert.py",
+   "imports": [
+    "contextlib",
+    "kernels",
+    "lowwidth",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/convert/hankel_check.py",
+   "imports": [
+    "functools",
+    "json",
+    "random"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 14,
+     "kind": "For"
+    },
+    {
+     "line": 16,
+     "kind": "For"
+    },
+    {
+     "line": 76,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "exp/convert/kernels.py",
+   "imports": [
+    "field",
+    "functools",
+    "hankel_check",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/convert/repair.py",
+   "imports": [
+    "contextlib",
+    "convert",
+    "kernels",
+    "lowwidth"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/convert_short_hankel/kernel.py",
+   "imports": [
+    "exp.safe_scalar",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/convert_short_hankel/phase34.py",
+   "imports": [
+    "contextlib",
+    "exp.convert_short_hankel",
+    "exp.fold_cached_norm.phase34",
+    "exp.safe_scalar",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 14,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 25,
+     "kind": "For"
+    },
+    {
+     "line": 31,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "exp/decoder/common.py",
+   "imports": [
+    "circ",
+    "field",
+    "functools",
+    "numpy",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/decoder/extract.py",
+   "imports": [
+    "common",
+    "exp.inverse12_escape.joint",
+    "functools"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/decoder/safe_bridge.py",
+   "imports": [
+    "common",
+    "division",
+    "exp.mul99.schedules",
+    "json",
+    "numpy"
+   ],
+   "watched_calls": [
+    {
+     "line": 24,
+     "call": "write_text",
+     "under_main": true
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 9,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "exp/decoder/synthesis.py",
+   "imports": [
+    "common",
+    "convert",
+    "division",
+    "exp.noscratch.kernels",
+    "extract",
+    "kernels",
+    "lowwidth",
+    "safe_bridge"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/fold_cached_norm/kernel.py",
+   "imports": [
+    "exp.alternating_gauge",
+    "exp.arithmetic.division",
+    "exp.arithmetic.field",
+    "exp.fold_cached_norm.phase34",
+    "exp.inverse12_escape.joint",
+    "exp.inverse12_escape.zero1",
+    "exp.mul99.schedules",
+    "exp.noscratch.kernels",
+    "exp.noscratch.schedules",
+    "exp.phase24_tradeoff.phase6small",
+    "exp.zero_padding_synthesis",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 39,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/fold_cached_norm/phase34.py",
+   "imports": [
+    "exp.jet24.kernel"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/fold_joint/divide.py",
+   "imports": [
+    "exp.arithmetic.lowwidth",
+    "exp.mul99.schedules",
+    "exp.noscratch.kernels",
+    "exp.safe_scalar.phase",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/fold_joint/kernel.py",
+   "imports": [
+    "exp.decoder.common",
+    "exp.fold_joint.divide",
+    "exp.mul99.kernels",
+    "exp.mul99.schedules",
+    "exp.partial_gauge",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/inverse12_escape/joint.py",
+   "imports": [
+    "exp.inverse12_escape.zero1",
+    "exp.inverse19_joint.kernel",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/inverse12_escape/zero1.py",
+   "imports": [
+    "exp.inverse19_joint",
+    "exp.inverse19_joint.kernel",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 9,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 45,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 45,
+     "call": "globals",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/inverse19_joint/kernel.py",
+   "imports": [
+    "exp.arithmetic.lowwidth",
+    "exp.inverse_width_subspaces",
+    "exp.inverse_width_subspaces.kernel19",
+    "exp.noscratch.schedules",
+    "exp.safe_scalar",
+    "exp.safe_scalar.phase",
+    "json",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 10,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 51,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 51,
+     "call": "globals",
+     "under_main": false
+    },
+    {
+     "line": 51,
+     "call": "globals",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 50,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "exp/inverse_search/baseline.py",
+   "imports": [
+    "exp.noscratch.kernels",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/inverse_search/inverse20.py",
+   "imports": [
+    ".baseline",
+    "baseline",
+    "contextlib",
+    "json"
+   ],
+   "watched_calls": [
+    {
+     "line": 14,
+     "call": "json.loads",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 7,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/inverse_search/inverse20_iso.py",
+   "imports": [
+    ".",
+    ".inverse20",
+    "inverse20",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 12,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 81,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 81,
+     "call": "globals",
+     "under_main": false
+    },
+    {
+     "line": 81,
+     "call": "globals",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 6,
+     "kind": "Try"
+    },
+    {
+     "line": 78,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "exp/inverse_width/kernel.py",
+   "imports": [
+    "exp.arithmetic.lowwidth",
+    "exp.inverse_search",
+    "exp.inverse_search.inverse20_iso",
+    "json",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [
+    {
+     "line": 14,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 15,
+     "call": "json.loads",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/inverse_width_subspaces/kernel19.py",
+   "imports": [
+    "exp.inverse_search",
+    "exp.inverse_search.inverse20_iso",
+    "exp.inverse_width.kernel",
+    "json",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 14,
+     "call": "json.loads",
+     "under_main": false
+    },
+    {
+     "line": 49,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 49,
+     "call": "globals",
+     "under_main": false
+    },
+    {
+     "line": 49,
+     "call": "globals",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 48,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "exp/jet24/kernel.py",
+   "imports": [
+    "exp.arithmetic.lowwidth",
+    "exp.inverse12_escape",
+    "exp.inverse12_escape.joint",
+    "exp.mul99.kernels",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/jet24/pro_jet.py",
+   "imports": [
+    "exp.inverse_search",
+    "exp.jet24.kernel",
+    "exp.mul99.kernels",
+    "exp.noscratch.kernels",
+    "exp.noscratch.schedules",
+    "field"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/mask_projection/kernel.py",
+   "imports": [
+    "exp.decoder.common",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/mul99/kernels.py",
+   "imports": [
+    "field",
+    "functools",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/mul99/phase36.py",
+   "imports": [
+    ".kernels",
+    "exp.noscratch.kernels",
+    "kernels",
+    "lowwidth"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 6,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/mul99/schedules.py",
+   "imports": [
+    ".kernels",
+    ".phase36",
+    "division",
+    "exp.noscratch.kernels",
+    "exp.noscratch.phase39",
+    "exp.noscratch.schedules",
+    "kernels",
+    "phase36"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 2,
+     "kind": "Try"
+    },
+    {
+     "line": 11,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/noscratch/kernels.py",
+   "imports": [
+    "field",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/noscratch/phase39.py",
+   "imports": [
+    ".kernels",
+    "kernels",
+    "lowwidth"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 5,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/noscratch/schedules.py",
+   "imports": [
+    ".phase39",
+    "division",
+    "phase39"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 2,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/partial_gauge/prefix.py",
+   "imports": [
+    ".scalar",
+    "scalar"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 7,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/partial_gauge/scalar.py",
+   "imports": [
+    "field",
+    "lowwidth",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/partial_gauge/synthesis_noflag.py",
+   "imports": [
+    "common",
+    "division",
+    "exp.decoder",
+    "exp.mul99.schedules",
+    "exp.partial_gauge",
+    "exp.partial_gauge.scalar",
+    "exp.partial_gauge.tail",
+    "extract",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/partial_gauge/tail.py",
+   "imports": [
+    ".prefix",
+    ".scalar",
+    "lowwidth",
+    "prefix",
+    "scalar"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 2,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/phase24_tradeoff/kernel.py",
+   "imports": [
+    "exp.jet24.kernel",
+    "exp.mul99.phase36"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/phase24_tradeoff/phase6small.py",
+   "imports": [
+    "exp.phase24_tradeoff.kernel",
+    "json"
+   ],
+   "watched_calls": [
+    {
+     "line": 6,
+     "call": "json.loads",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/safe_scalar/converter.py",
+   "imports": [
+    "contextlib",
+    "convert",
+    "exp.inverse12_escape.zero1",
+    "kernels",
+    "lowwidth",
+    "pathlib",
+    "repair",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/safe_scalar/kernel.py",
+   "imports": [
+    "exp.inverse_search.inverse20_iso",
+    "exp.noscratch.schedules",
+    "exp.safe_scalar.phase",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/safe_scalar/phase.py",
+   "imports": [
+    "exp.mul99.kernels",
+    "exp.noscratch.kernels",
+    "lowwidth"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 6,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "exp/scan/scan.py",
+   "imports": [
+    "common",
+    "extract",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/tail_alias/divide.py",
+   "imports": [
+    "exp.fold_joint",
+    "exp.inverse19_joint.kernel",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 16,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/tail_alias/kernel.py",
+   "imports": [
+    "exp.fold_joint.kernel",
+    "exp.tail_alias.divide",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 14,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "exp/zero_padding_synthesis/kernel.py",
+   "imports": [
+    "exp.alternating_gauge",
+    "exp.alternating_gauge.even_fold",
+    "exp.confluent_synthesis",
+    "exp.tail_alias.kernel",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 61,
+     "call": "FunctionType",
+     "under_main": false
+    },
+    {
+     "line": 62,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": []
+  },
+  {
+   "file": "final_decoder/conversion.py",
+   "imports": [
+    "contextlib",
+    "exp.convert_short_hankel",
+    "exp.decoder.common",
+    "exp.fold_cached_norm.phase34",
+    "pathlib",
+    "sys",
+    "types"
+   ],
+   "watched_calls": [
+    {
+     "line": 20,
+     "call": "FunctionType",
+     "under_main": false
+    }
+   ],
+   "other_toplevel": [
+    {
+     "line": 187,
+     "kind": "For"
+    },
+    {
+     "line": 199,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "final_decoder/decode.py",
+   "imports": [
+    "decode",
+    "exp.arithmetic.division",
+    "exp.confluent_extract.model",
+    "exp.convert_short_hankel.phase34",
+    "exp.decoder.common",
+    "exp.fold_cached_norm.phase34",
+    "exp.inverse12_escape.joint",
+    "exp.inverse19_joint.kernel",
+    "exp.jet24.pro_jet",
+    "exp.mul99.kernels",
+    "exp.mul99.phase36",
+    "exp.mul99.schedules",
+    "exp.noscratch.kernels",
+    "exp.noscratch.schedules",
+    "final_decoder",
+    "final_decoder.conversion",
+    "functools",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 49,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "final_decoder/synthesis.py",
+   "imports": [
+    "decode",
+    "exp.arithmetic.division",
+    "exp.decoder.common",
+    "exp.fold_cached_norm",
+    "exp.inverse_search.inverse20_iso",
+    "exp.mul99.schedules",
+    "exp.noscratch.kernels",
+    "exp.noscratch.schedules",
+    "exp.phase24_tradeoff.phase6small",
+    "exp.zero_padding_synthesis.kernel",
+    "pathlib",
+    "sys"
+   ],
+   "watched_calls": [],
+   "other_toplevel": []
+  },
+  {
+   "file": "playbook/exp/cf_check/audit.py",
+   "imports": [
+    "argparse",
+    "collections",
+    "json",
+    "random",
+    "time"
+   ],
+   "watched_calls": [],
+   "other_toplevel": [
+    {
+     "line": 147,
+     "kind": "If"
+    }
+   ]
+  }
+ ]
+}

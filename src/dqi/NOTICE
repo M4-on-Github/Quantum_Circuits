@@ -1,0 +1,57 @@
+src/dqi: generator for the dqi benchmark (RS(4095, 4025) syndrome decoder over GF(2^12))
+
+This directory contains a port of third-party code, used under the Apache License,
+Version 2.0. The full licence text is in LICENSE, next to this file.
+
+Ported code: src/dqi/pro_q2_897/ (68 files, unmodified)
+------------------------------------------------------
+Origin: the 897-qubit DQI decoder builder "pro-q2-897" embedded in the public Kaggle
+notebook by Agniv Banerjee (Kaggle user somejoint):
+
+  somejoint/quantum-circuits-22-77-local-gm-889-qubit-dqi, version 14,
+  "Quantum Circuits | 22.34 Local GM: 897-Qubit DQI"
+  https://www.kaggle.com/code/somejoint/quantum-circuits-22-77-local-gm-889-qubit-dqi
+  (notebook ipynb SHA-256 b7e42f52411165caa1ab07d419b46c10a0fbcd5edd97086aadafe71383ef43ff,
+  embedded path blocks/dqi/pro-q2-897/source/, retrieved 2026-10-29)
+
+The notebook states: "the notebook code is Apache-2.0", and embeds the Apache-2.0 LICENSE
+file reproduced here. Copyright in that code remains with its authors. The files under
+pro_q2_897/ are byte-for-byte the upstream files. Their SHA-256 values are in
+MANIFEST.json, and generate.py checks them before every build. No upstream file was
+modified.
+
+Credits, as the upstream notebook gives them:
+- GPT-6 Astra Pro, asked by Claude for Agniv Banerjee (SomeJoint): the three files in
+  final_decoder/ (homogeneous external chains with exact phase replay, a synthesis with
+  additive continuants and shared norms, deferred tail phases, a conversion that shares
+  its gap predicates) and the 658-Toffoli jet (exp/jet24/pro_jet.py).
+- SomeJoint's research team of AI agents (GPT-6 Astra leading GPT-6.1 Sol, directed by
+  Claude for Agniv Banerjee): the fused decoder whose modules it uses (decode.py, exp/,
+  playbook/).
+- Ahmed Berat Ozer: the narrowing of the fused decoder (his version 9), from which the
+  883-qubit decoder came.
+- Alex Chilton: the 883-qubit Schur decoder whose design it starts from, based on
+  jday96314's QuantumAI decoder and classical models.
+- mrmeows and Ahmed Berat Ozer: the mask projection (round17, version 8), after
+  manwithacat's classical-mask projection.
+- Earlier links of the design: Dmitrii Gluzdov (round12 decoder), Agniv Banerjee
+  (SomeJoint) (Bezout-Hankel phase solve), ViberTeam, Phuc Thai (DePie).
+
+Provenance caveat
+-----------------
+The design lineage runs through the GitHub repository jday96314/QuantumAI. Every public
+note on it says it "states no license", and it returned HTTP 404 on 2026-10-29. Alex
+Chilton's notebook says his decoder was rebuilt from that repository's code. SomeJoint
+describes its decoder as rebuilt from scratch, starting from Chilton's design, and
+licenses its code as Apache-2.0. We could not compare the ported text with jday96314's
+code.
+
+Our own files (Apache-2.0)
+--------------------------
+generate.py, __init__.py, MANIFEST.json, NOTICE, .gitattributes. generate.py
+re-implements the upstream build script (pro_q2_897/build_897.py, which we do not run)
+with the same register layout and output format, plus a manifest check and a JSON build
+record.
+
+kickmix (the circuit builder the code runs on) is Google's, under its own licence; it is
+not part of this directory.

@@ -1,0 +1,15 @@
+{
+  "id": "rainm4/exp-011-dqi-897-port-verify",
+  "title": "exp-011 dqi 897 port verify",
+  "code_file": "exp011_verify.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": ["google-verifiable-quantum-circuit-compilation"],
+  "kernel_sources": [],
+  "model_sources": []
+}

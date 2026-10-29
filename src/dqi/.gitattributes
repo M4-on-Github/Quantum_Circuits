@@ -1,0 +1,2 @@
+# Keep the ported files byte-identical to their upstream SHA-256 (MANIFEST.json): no newline conversion.
+* -text

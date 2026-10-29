@@ -137,6 +137,10 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
   - `kaggle datasets download owner/slug/N -f dir/file -p D` writes to `D/dir/file`, keeping the file's directory path.
   - `kaggle kernels files <owner/slug>` lists a kernel's output files, but its `size` column is not the file size (every entry shows 870 to 970).
   - `kaggle kernels pull <slug> -p D -m` writes the code file and `kernel-metadata.json`, with no version number.
+- More Kaggle CLI 2.2.5 behaviour (exp-011):
+  - `kaggle kernels pull owner/slug/N -p D` fetches version N of another user's notebook. The file is named after the notebook's *current* slug, whatever the version. A version that doesn't exist fails with "To search for one, try 'kaggle search <query>'". This found the SomeJoint v14 generator after its old slug stopped resolving.
+  - `kaggle kernels list --competition google-verifiable-quantum-circuit-compilation --sort-by dateRun --page-size 100 --page N` lists the competition's public notebooks. A bare `-s <term>` search returns mostly unrelated Kaggle notebooks.
+- GitHub: `gh` is not authenticated on this machine. Anonymous `curl https://api.github.com/repos/<owner>/<repo>` works for public metadata, including the `license` field (exp-011).
 
 ## Running
 
@@ -194,6 +198,8 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 
 ## Process housekeeping
 
+- Git: this repo has `core.autocrlf=true`, so a byte-exact port of third-party files needs a `.gitattributes` with `* -text` in its directory (`src/dqi/.gitattributes`). Otherwise checkout rewrites line endings and the SHA-256 manifest breaks (exp-011).
+- Permissions: the Claude Code auto-mode classifier denies running ported third-party code (reason "Code from External"), even after a byte-verified copy into `src/` under `python -I -B`. `python -I -B src/dqi/generate.py --import-only ...` was denied (exp-011). Running such code locally or on Kaggle needs the user's permission. Parse-only checks (`ast.parse`, `ast.literal_eval`) were not blocked.
 - Git: a user hook (`block_claude_trailer.py`) rejects commit messages that carry a Claude `Co-Authored-By` trailer, so commit without it (exp-003).
 - Bash tool: one long command that wrote several files through `<<'EOF'` heredocs failed with ``unexpected EOF while looking for matching `''`` and wrote nothing. The cause was not determined. Writing the files with the Write tool worked (exp-003).
   - It happened again in the exp-005 fix: a ~100-line `<<'EOF'` heredoc of Python whose content held `'''` and `"""` strings. Writing that script with the Write tool and then running it worked.

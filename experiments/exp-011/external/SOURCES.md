@@ -20,7 +20,7 @@ All downloads were made on 2026-10-29 between 13:01 and 13:05 UTC, with `kaggle 
 
 | Source | Licence stated | Where |
 |---|---|---|
-| SomeJoint notebook, all versions read (v14 = the 897 builder) | **Apache-2.0** | Embedded `LICENSE` file: the full Apache-2.0 text, SHA-256 `cfc7749b…3d30`, byte-identical to the competition's `data/kickmix/LICENSE.txt`. Credits cell: "The circuits keep their authors' licences; the notebook code is Apache-2.0". `notebooks/launch.py` and `take.py` also carry `SPDX-License-Identifier: Apache-2.0`. The 69 decoder files carry no per-file header. |
+| SomeJoint notebook, all versions read (v14 = the 897 builder) | **Apache-2.0** | Embedded `LICENSE` file: the full Apache-2.0 text, SHA-256 `cfc7749b…3d30`, byte-identical to the competition's `data/kickmix/LICENSE.txt`. Credits cell: "The circuits keep their authors' licences; the notebook code is Apache-2.0". `notebooks/launch.py` and `take.py` also carry `SPDX-License-Identifier: Apache-2.0`. The 68 decoder files carry no per-file header. |
 | saurabhkumar234 "DQI Width Anatomy 897 Qubits" | none stated for its own text. It calls SomeJoint's builder "Public Apache-2.0; notices retained" | cell 7 |
 | avazaku "Slack Homotopy + 897-Qubit DQI" | not needed. It uses SomeJoint v20's `dqi.kmb` (`53d8b2ed…`) unchanged and holds no decoder source | cell 0 |
 | jday96314/QuantumAI (GitHub), upstream of the design | **none**. "That repository states no license" appears in SomeJoint v13 to v21, in Özer's `DQI_NOTICE.md` (embedded in v13) and in the alexchilton notebook. The repository now returns HTTP 404 (`api.github.com/repos/jday96314/QuantumAI` and `github.com/jday96314/QuantumAI`, checked 2026-10-29 about 13:15 UTC), so its current state can't be checked. Not downloaded. | |
@@ -68,7 +68,7 @@ The 73 entries of v14's `SOURCES` dict, written out as text by `nb_sources.py du
 
 What the entries are:
 - `LICENSE`: Apache-2.0, `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`.
-- `blocks/dqi/pro-q2-897/source/`: 69 files making up the 897 builder: `build_897.py` `82026453…`, `README.md` `02836173…`, `decode.py`, `exp/`, `final_decoder/`, `playbook/` and `source_sha256.json`. Their per-file hashes are in `src/dqi/MANIFEST.json`, which our port checks at build time.
+- `blocks/dqi/pro-q2-897/source/`: 68 files making up the 897 builder: `build_897.py` `82026453…`, `README.md` `02836173…`, `decode.py`, `exp/`, `final_decoder/`, `playbook/` and `source_sha256.json`. Their per-file hashes are in `src/dqi/MANIFEST.json`, which our port checks at build time.
 - `notebooks/`: 4 notebook helper files, not ported.
 
 ## nb-saurabhkumar234_dqi-width-anatomy-897-qubits/

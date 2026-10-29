@@ -7,7 +7,7 @@ direction: D-002
 status: running
 date: 2026-10-29
 commit: pending
-result: pending
+result: blocked before build. The ported code may not run (permission denied, "Code from External"); source found (SomeJoint v14, Apache-2.0, design lineage through the unlicensed jday96314 repo); port, manifest and kernel prepared
 ---
 
 ## Hypothesis
@@ -101,3 +101,15 @@ A byte mismatch with `b3354f60…` alone doesn't refute C-016, because the claim
 
 ## Conclusion
 (pending)
+
+## Deviations
+- **2026-10-29, file count.** The kit has **68** files, not 69 as written in the Method above. v14's 73 `SOURCES` entries are 4 notebook helpers, `LICENSE` and 68 files under `pro-q2-897/source/`. `src/dqi/MANIFEST.json` lists all 68, and each one's hash equals v14's `SOURCE_HASHES` entry.
+- **2026-10-29, build blocked by the permission system.** The local import-only smoke test (`python -I -B src/dqi/generate.py --import-only ...`) was denied by Claude Code's auto-mode classifier, reason "Code from External".
+  - Building on a Kaggle kernel would run the same third-party code, so it was not pushed either.
+  - Done without running the kit:
+    - source located, with its licence recorded (`external/SOURCES.md`);
+    - port with a hash manifest (`src/dqi/`);
+    - parse-only static review (`static_review.json`);
+    - kernel prepared but not pushed (`kernel/`).
+  - No build, verify or anatomy result exists yet.
+  - The predictions above stand unchanged until the user decides whether the ported code may run.
