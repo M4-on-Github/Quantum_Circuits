@@ -4,10 +4,10 @@ title: Our own invsqrt generator against the public 63-qubit frontier (C-014)
 task: invsqrt
 tests: [C-014]
 direction: D-002
-status: running
+status: done
 date: 2026-10-28
-commit: pending
-result: pending
+commit: 46af961
+result: C-014 refuted for this generator. Our src/invsqrt port passes the full official verify at Q 92, cost 148,977.90 (13.940x vs exp-001), 1.451x the 63Q frontier's 102,664.24. It is byte-identical to marsyas's stated ff629b09, not to the frontier. Pre-registration 1 held on every figure.
 ---
 
 ## Hypothesis
@@ -85,3 +85,133 @@ Predicted full official verify (default arguments, Kaggle):
 - ratio to the reference 13.940.
 
 Against C-014's rule (≤ 103,690.88) this build is a refutation by construction. It is the baseline for our own changes.
+
+## Results
+
+All numbers come from `results.json`, built by `make_results.py kaggle_output 46af961` from the downloaded kernel output in `kaggle_output/exp008/`.
+
+**Run.**
+- Kernel `rainm4/exp-008-invsqrt-port-verify` v1. Private CPU script kernel, metadata in `kernel/port/kernel-metadata.json`, status `KernelWorkerStatus.COMPLETE`.
+- The kernel embeds `src/invsqrt` as committed in 46af961: every downloaded `kaggle_output/src/invsqrt/*.py` has the same SHA-256 as `git show 46af961:src/invsqrt/<file>`. `kaggle_output/exp008/config.json` equals `config_port.json`.
+- Kaggle built the circuit from scratch: the work dir started empty, the tables were fitted and the LP calibration ran in the kernel. Build rc 0 in 113.3 s, on numpy 2.1.3 and scipy 1.16.3.
+- It then ran the unmodified verifier. SHA-256 `ddef520d...` is the same as the local `data/verifiers/invsqrt/verify_submission_invsqrt.py`.
+- Command: `/usr/bin/python3 -I -B invsqrt/verify_submission_invsqrt.py /kaggle/working/exp008/invsqrt.kmb`, cwd `/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers`. Default salt, no seed, 64 shots per x, 4 forked workers.
+
+**Full verifier output** (`kaggle_output/exp008/verify_full.json`, verifier stdout; stderr is empty):
+
+```json
+{
+  "status": "PASS",
+  "score": 148977.90224394592,
+  "toffoli_equivalent": 1619.3250243907166,
+  "toffoli_count": 1303.999457656843,
+  "max_toffoli_count": 1315,
+  "t_count": 1.0,
+  "rotation_count": 44.0,
+  "rotation_eps": 2.8298390184213153e-13,
+  "num_qubits": 92,
+  "reaction_depth": 205,
+  "num_ops": 39084,
+  "verified_shots": 200540928,
+  "worst_error_over_tolerance": 0.9999059628540141,
+  "worst_x": 2,
+  "circuit_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917"
+}
+```
+
+**Runtime and memory.**
+- Verifier subprocess: 774.9 s wall on Kaggle. Peak summed tree RSS 0.70 GB, peak system used 0.97 GB.
+- Whole kernel: about 902 s, made up of the 113.3 s build, the verify, and the HTML render.
+- For comparison, exp-001's sample invsqrt took 1,503 s on the same kernel type.
+
+| Metric | exp-001 baseline (sample) | public frontier (63Q) | this (our port) | change vs baseline |
+|---|---|---|---|---|
+| status | PASS | not run by us | PASS | |
+| Q | 260 | 63 | 92 | -168 |
+| toffoli_count (mean per shot) | | 1,334.496 (our lane sim, not the verifier) | 1,303.99946 | |
+| toffoli_equivalent C | 7,987.59 | 1,629.59 (implied by the stated cost) | 1,619.32502 | |
+| rotations | | 41 (+1 T) | 44 (+1 T) | |
+| cost | 2,076,774.23 | 102,664.24 (busyaprime dataset README, not re-verified here) | 148,977.90 | improvement factor 13.940 |
+| score factor on invsqrt alone | 1 | | 13.940^(1/3) = 2.4067 | |
+
+- C-014 rule: the threshold is 1.01 x 102,664.24 = 103,690.88. Our cost is 148,977.90, which is 1.4511 x the frontier. **C-014 does not hold for this generator.**
+- Byte identity:
+  - Our canonical `.kmb` has SHA-256 `ff629b09...`. It is the same for the Kaggle build, the local build `out/port.kmb`, and the verifier's `circuit_sha256`. It equals the hash marsyas's notebook states for its output. We never downloaded marsyas's circuit file, so the comparison is against the stated hash only.
+  - It is **not** byte-identical to the frontier `07314803...` (busyaprime v4).
+  - It is also not byte-identical to mrmeows' `0766a111...`.
+- Cross-platform:
+  - The Kaggle build (numpy 2.1.3, scipy 1.16.3) and the local build (numpy 2.5.4, scipy 1.18.1) give the same circuit bytes and the same calibration cache bytes (SHA-256 `7ad3da69...` for both `hang_*.pkl`).
+  - The table `.npy` is identical (`41f9d90f...`).
+  - The two `ref.npz` files differ in bytes; their contents were not compared.
+  - The generator reports are identical apart from timing.
+
+**Pre-registration 1 vs measured.**
+
+| Predicted (before the push) | Measured | Held? |
+|---|---|---|
+| PASS, Q 92 | PASS, Q 92 | yes |
+| toffoli_count 1,304.000 ± 0.001 | 1,303.99946 | yes |
+| t_count 1, rotation_count 44 | 1, 44 | yes |
+| rotation_eps 2.8298390184213153e-13 exactly | 2.8298390184213153e-13 | yes |
+| worst_error_over_tolerance 0.9999059628540141 | 0.9999059628540141 (worst_x 2) | yes |
+| toffoli_equivalent 1,619.326 ± 0.001 | 1,619.32502 | yes (0.00098 below centre, inside the band) |
+| cost 148,977.95 ± 0.1 | 148,977.90 | yes |
+| ratio to reference 13.940 | 13.940 | yes |
+
+**Original predictions (commit 7272591, before any generator code).**
+1. Port passes at Q 92, mean Toffoli 1,304 ± 5, 44 rotations, cost 148,978 ± 1%. Held. The guess "about 60% not byte-identical to `ff629b09`" was wrong: it is byte-identical, on two different scipy versions.
+2. Our width changes on top give Q 70 to 88, cost 115,000 to 145,000. **Not reached and not tested by the official verifier.**
+   - The one lever tried was in-place adder prefixes under a qubit cap (`qcap`). It was swept locally with `sweep.py`, exact pass off. The output is `out/sweep_qcap.jsonl`, the generator's self-reported cost from sampled kickmix simulation, which is not a verifier number.
+   - At qcap 88, Q was 89 and the cost rose to 155,065. At qcap 84, 80, 76 and 72, Q stayed 92 because the peak moved to another `B add` stage, and the cost rose to 149,806 to 166,175.
+   - No lever beat the port, so nothing went to a verify.
+3. C-014 refuted (about 95%). Held.
+4. Not byte-identical to the frontier (over 99%). Held.
+
+**Licence and provenance** (from `provenance.json`; downloads in `external/`, gitignored).
+- Ported source, only one: marsyas (Houssem Alayet), notebook `marsyas/vqcc-invsqrt-13-94x-full-source`. Our copy's ipynb SHA-256 is `4da93524...`, and its last run was 2026-10-24 15:12:04 UTC. The Kaggle CLI does not report its version number.
+  - Licence: Apache-2.0. The only statement is one sentence in the notebook text, "License: Apache 2.0." There is no LICENSE file.
+  - The code was re-typed from the text dump `out/nb-marsyas.txt` and never executed.
+- Our notice: the `src/invsqrt/__init__.py` docstring names the source, author, URL, read date and ipynb hash. It says the original copyright stays with its author and is used under Apache-2.0, with the licence URL, and it lists the people marsyas credits for ideas.
+  - Each module docstring says "Ported from marsyas's Apache-2.0 notebook (...)". `generate.py` says "The pipeline structure follows marsyas's Apache-2.0 run.py/hsplit.py main".
+  - Changes from the original are marked "change:".
+- **Flag, licence compliance gap:** `src/invsqrt` carries a notice and the licence URL but no copy of the Apache-2.0 licence text, and the repository has no LICENSE or NOTICE file. Apache-2.0 §4(a) requires giving recipients a copy of the licence on redistribution. This must be added before any public release or prize code delivery. Nothing has been redistributed yet: the kernel is private.
+- **Flag, upstream unknown:** marsyas credits ideas to Sumit Chongder, kozykappa, anazemcev, Dmitrii Gluzdov, Artem, auqib92, mizeroluckygall, lightningv08 and rudrabhaskar. Whether marsyas's notebook contains code copied from those authors' notebooks, and under what licences, is `unknown`. We did not download or check those notebooks.
+- Sources without a licence statement: the busyaprime notebook `lb-22-33981...` and the zongaobian notebook. Both were read for design and lineage only. **Nothing from either was ported.** No source without a licence was ported.
+- Downloaded circuits (frontier `07314803...` and mrmeows `0766a111...`, both Apache-2.0 datasets) were only loaded through kickmix for measurement. Our generator never reads them, and no downloaded circuit is in any output.
+
+**Safety checks.**
+- Pickles: `out/work/hang_28_19_8_1_sd_tc_a5_b_r63_L21_S20_d1.pkl` was written by our `src/invsqrt/generate.py` (`pickle.dump` of the LP calibration result) during the local build:
+  - `port_build.log` shows the calibration computed fresh (63 s, from 22.4 s to 85.5 s into the build), not loaded.
+  - The file mtime, 18:58:03, matches the build start (18:56:37, from `ref.npz` at 18:56:40) plus 85.5 s.
+  - No `.pkl` exists anywhere under `external/`.
+  - The Kaggle kernel's independent build wrote a byte-identical pickle (`7ad3da69...`).
+  - That downloaded copy in `kaggle_output/exp008/work/` was deleted unloaded. Note that `generate.py` loads the cache whenever the file exists, so its work dir must never point at a downloaded directory.
+- All Python ran with `-I -B`. Nothing was submitted, and no submit endpoint was called.
+
+## Conclusion
+
+- **C-014 is refuted for this generator.**
+  - Our own from-source generator (`src/invsqrt`, an attributed Apache-2.0 port of marsyas) passes the full official invsqrt verify: 200,540,928 shots, Q 92, cost 148,977.90.
+  - That is 13.940x the exp-001 sample, a 2.407x score factor on its own.
+  - It is 45.1% above the 63-qubit frontier's 102,664.24, far outside the 1% band.
+- Pre-registration 1 held on every figure, and the build is bit-reproducible across platforms and scipy versions.
+- The planned width work (prediction 2) produced nothing that beat the port. The only lever tried, qcap adder prefixes, cost more Toffolis than it saved and mostly did not move the peak.
+- The width gap is 29 qubits (92 vs 63). Q enters the cost linearly, so even at our Toffoli-equivalent count, 63 qubits would give about 102,000. Width alone is the lever, and per the design study the frontier has every stage packed to the cap rather than one bottleneck.
+- Next step, for the research lead: a new experiment on per-stage width reduction of the port. Start from the live-qubit profile of `out/port.kmx` (`src/kmx_value_sim.py`) and take each lever to `--max-x 20000` and then a full verify.
+- Before any public release of this code, add the Apache-2.0 licence text and a NOTICE to `src/invsqrt`.
+
+## Deviations
+
+- **2026-10-28, interruption.** The previous experimenter run hit an API rate limit after it had:
+  - committed pre-registration 1 (46af961, 19:06:19 -0400);
+  - generated `kernel/port/` (files at 19:06:27);
+  - pushed kernel v1 (`push_v1.log` at 19:06:30);
+  - written `make_results.py` (19:08:49).
+
+  So the prediction predates the kernel push by 11 s, and the pushed code is the committed `src/invsqrt`, checked file by file through SHA-256. `kernel/port/` and `make_results.py` were not committed before the push; they are committed now.
+
+  This session found the kernel `COMPLETE` with verifier rc 0 and downloaded its output. **No re-push** was needed, and none was made.
+- **Prediction 2 and the Method's width levers were not carried out** beyond the local qcap sweep. Smaller lookup targets, parking flags and freeing the H word early were never tried. None went to the official verifier. This experiment closes on the port result alone, and the width work is left to a new pre-registered experiment.
+- `make_results.py` was edited after the output was seen, to add `kernel_version`, plus `runtime_note` with the in-kernel build time parsed from `kernel.log`. No metric field changed.
+- From `kaggle_output/` only the small files are committed: verifier JSON and meta, logs, build stdout, report, config and runner. The duplicated `src/` copy, `work/` (50 MB `ref.npz` and the table) and `invsqrt.kmb` are left uncommitted, and the downloaded pickle was deleted, as described above.
+- The frontier cost 102,664.24 is busyaprime's stated official figure. We did not run the verifier on the frontier file in this experiment. The verdict does not depend on it unless that figure were off by more than 45%.

@@ -21,6 +21,8 @@ user-invocable: false
 - Set `PYTHONDONTWRITEBYTECODE=1` when running verifiers, so no `__pycache__` is written into `data/` (or the read-only Kaggle input).
 - In the Bash tool, bare `python` resolves to `C:\Users\moemy\miniconda3\python.exe`, not the venv. Always call `.venv/Scripts/python.exe`. `python -` (script from stdin) hangs even with `< /dev/null` and has to be killed with `Stop-Process` (exp-004).
 - Large heredocs (~150 lines of Python) passed through the Bash tool can fail with `unexpected EOF while looking for matching '`, even with a quoted `'EOF'` delimiter. Write long scripts with the Write tool (exp-004).
+- `python -I` implies `-E`, so it ignores `PYTHONIOENCODING`. On Windows, printing a non-cp1252 character (emoji, Greek letters from notebook text) then raises `UnicodeEncodeError`. Call `sys.stdout.reconfigure(encoding="utf-8")` in the script instead (exp-008).
+- `multiprocessing` with `get_context('spawn')` works under `python -I -B`: the children inherit the `-I -B` flags and the parent's `sys.path`. A script that inserts `REPO/src` at module top level must keep its work under `if __name__ == '__main__':` (`src/invsqrt/fit.py`, exp-008).
 
 ## Data
 
@@ -78,6 +80,18 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
   - `del_lookup` is a built-in measurement-based lookup uncompute (HMR target, parities by conditioned `BIT_INVERT`, one-hot built in the measured target qubits, phase lookup with conditioned `CZ`). Its CCX/CSWAP are unconditioned. Static cost: 119 at n = 12 address bits, W = 96 (6 extra qubits); 56 at n = 10; 25 at n = 8.
   - `del_lookup` raises `tried to take 1 clean qubits, but only 0 were available` when the target is narrow. At n = 12 it works only for W ≥ 64; at n = 10 for W ≥ 24; at n = 8 for W ≥ 8.
   - `unary_iteration(sel, range(3976))` costs 3,978 Toffoli when used for a full phase fix-up pass.
+- invsqrt generator `src/invsqrt` (exp-008): an Apache-2.0 port of marsyas's "VQCC invsqrt 13.94x - full source", with an attribution notice.
+  - Run it with `python -I -B experiments/exp-008/build.py experiments/exp-008/config_port.json <out.kmb>`.
+  - It fits the tables (8 spawn workers), runs the LP angle calibration (both cached in `experiments/exp-008/out/work/`), builds the circuit and runs the exact pass. About 140 s locally the first time.
+  - The output is byte-identical (SHA-256 `ff629b09...`) to the hash marsyas's notebook states, so PyPI kickmix 1.0.0 + scipy 1.18.1 reproduce a Kaggle build.
+  - A fresh build on a Kaggle CPU kernel (numpy 2.1.3, scipy 1.16.3, empty work dir) gives the same `ff629b09...` bytes and a byte-identical calibration cache `hang_*.pkl` in 113 s, so the build is reproducible across these numpy/scipy versions (exp-008, kernel `rainm4/exp-008-invsqrt-port-verify` v1).
+  - `generate.py` loads `<work>/hang_*.pkl` with `pickle.load` whenever it exists. Never point its work dir at a downloaded directory (exp-008).
+  - Q 92, static Toffoli 1,315, mean 1,304.0, 44 rotations.
+- `src/kmx_value_sim.py <c.kmx> <out.json> --lanes=all|N` (exp-008): a value-only lane simulator for .kmx (one basis input per lane, random HMR outcomes, condition masks; phases ignored). It reports x restored, dirty scratch, static and mean executed Toffoli, and the live-qubit profile (qubits nonzero on some lane).
+  - On the public 63Q invsqrt: mean 1,334.496 over 193,606 lanes in 4.5 s.
+  - On our 92Q port over all 3,133,452 x: about 70 s, mean 1,303.999.
+  - The REGISTER line's id (`r0`) is not a q/b operand. Map it from the raw tokens.
+- invsqrt verifier `--max-x N` runs the same checks on x = 1..N only (64 shots each). `--max-x 20000` (1.28M shots) takes 30 s locally, serially. Its `rotation_eps` comes from the min margin over x ≤ N only, so it equals the full-run eps only when the worst-margin x is ≤ N (true for the exp-008 port, which is calibrated against all x).
 - `src/angleload/mbu.py`: `emit_qrom_xor(b, sel, rows, targets)` is the qrom.py segment tree on a caller's builder, with arbitrary target qubits and a freed ladder. With the word bits as targets it gives `==` the reference circuit for all 10 sample circuits. `emit_mbu_clear` measures out qubits holding `rows[a]` (HMR plus a unary-iteration phase fix). `build_mbu_section_family` is the exp-007 P5 legality probe (official verify PASS, width 124, 580.8 s local, 1.10 GB).
 
 ## Kaggle notebooks
@@ -103,6 +117,11 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Finding which version an unversioned download was (exp-005 fix, 2026-10-28): `kaggle datasets files owner/slug/N --format csv --page-size 200` works on other users' datasets and lists each file's size and creationDate for that version. The default page size is 20, and `--page-size` goes up to 200. Match the creationDates and sizes recorded at download time against each N.
 - Kernel `dataset_sources` version pins do not work: `"owner/slug/N"` is accepted by `kaggle kernels push`, but the server strips the version (see `kaggle kernels pull -m`) and mounts the latest version. Identify attached files by SHA-256 inside the kernel (exp-006).
 - Attached datasets mount at `/kaggle/input/datasets/<owner>/<slug>/` (exp-006).
+- More Kaggle CLI 2.2.5 behaviour (exp-008):
+  - `kaggle datasets files owner/slug/N --format csv --page-size 200` prints `Next Page Token = ...` when more files exist. Pass `--page-token <tok>` for the next page (mrmeows/qcc-1375-open-circuits v8 lists 2,704 files, including members of its zips).
+  - `kaggle datasets download owner/slug/N -f dir/file -p D` writes to `D/dir/file`, keeping the file's directory path.
+  - `kaggle kernels files <owner/slug>` lists a kernel's output files, but its `size` column is not the file size (every entry shows 870 to 970).
+  - `kaggle kernels pull <slug> -p D -m` writes the code file and `kernel-metadata.json`, with no version number.
 
 ## Running
 
@@ -125,6 +144,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 | dfthcsos | 137 s wall; 1.2 GB | 356 s wall; 1.1 GB |
 | dfthcsos, public 15-circuit 430Q build (1,220 addresses, about 280 Toffoli per circuit; exp-006) | 29.5 and 33.5 s wall; 0.73 GB | 42.8 s wall; 0.86 GB (alone, AC power) |
 | dqi with `--salt`, public 889Q decoder (454,507 static Toffoli, 505 MB .kmb; exp-005, 3 runs) | 216 s wall each; 4.86 GB peak per process, ≤ 5.8 GB system used | not run |
+| invsqrt, 92Q `src/invsqrt` port (200,540,928 shots, default args; exp-008) | 774.9 s wall; 0.70 GB summed tree RSS, 0.97 GB system used | not run (only `--max-x 20000`, 30 s) |
 
 - dqi accounting pipeline on Kaggle (exp-003):
   - Loading the sample `dqi.kmb` takes 3.8 s.

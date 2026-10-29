@@ -1,0 +1,31 @@
+[{"stream_name":"stdout","time":6.802471815,"data":"[23:06:42] {\"platform\": \"Linux-6.18.55+-x86_64-with-glibc2.39\", \"python\": \"3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\", \"cpu_count\": 4, \"total_mem_bytes\": 33658159104, \"tag\": \"port\", \"kickmix\": \"1.0.0\", \"numpy\": \"2.1.3\", \"scipy\": \"1.16.3\"}\n"}
+,{"stream_name":"stdout","time":120.07392349,"data":"[23:08:35] build rc 0 in 113.3s\n"}
+,{"stream_name":"stdout","time":120.08942549,"data":"[23:08:35] kmb sha256 file ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917 canonical ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917 expected ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917\n"}
+,{"stream_name":"stdout","time":120.100490201,"data":"[23:08:35] verifier /kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers/invsqrt/verify_submission_invsqrt.py sha256 ddef520dec6b68d1cf0a6f328ddd36d79eb84570b9192cf3f7acaf073f06733a\n"}
+,{"stream_name":"stdout","time":120.100593258,"data":"[23:08:35] running: /usr/bin/python3 -I -B invsqrt/verify_submission_invsqrt.py /kaggle/working/exp008/invsqrt.kmb (cwd /kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers)\n"}
+,{"stream_name":"stdout","time":894.972514376,"data":"[23:21:30] {\"rc\": 0, \"wall_s\": 774.8584003448486, \"peak\": {\"tree_rss\": 704888832, \"sys_used\": 968421376}, \"cmd\": [\"/usr/bin/python3\", \"-I\", \"-B\", \"invsqrt/verify_submission_invsqrt.py\", \"/kaggle/working/exp008/invsqrt.kmb\"], \"cwd\": \"/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers\", \"sha256\": \"ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917\", \"verifier_sha256\": \"ddef520dec6b68d1cf0a6f328ddd36d79eb84570b9192cf3f7acaf073f06733a\", \"machine\": {\"platform\": \"Linux-6.18.55+-x86_64-with-glibc2.39\", \"python\": \"3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\", \"cpu_count\": 4, \"total_mem_bytes\": 33658159104, \"tag\": \"port\", \"kickmix\": \"1.0.0\", \"numpy\": \"2.1.3\", \"scipy\": \"1.16.3\"}}\n"}
+,{"stream_name":"stdout","time":894.972713221,"data":"[23:21:30] {\n"}
+,{"stream_name":"stdout","time":894.972723586,"data":"  \"status\": \"PASS\",\n"}
+,{"stream_name":"stdout","time":894.97272931,"data":"  \"score\": 148977.90224394592,\n"}
+,{"stream_name":"stdout","time":894.972734704,"data":"  \"toffoli_equivalent\": 1619.3250243907166,\n"}
+,{"stream_name":"stdout","time":894.97273981,"data":"  \"toffoli_count\": 1303.999457656843,\n"}
+,{"stream_name":"stdout","time":894.97274485,"data":"  \"max_toffoli_count\": 1315,\n"}
+,{"stream_name":"stdout","time":894.972749602,"data":"  \"t_count\": 1.0,\n"}
+,{"stream_name":"stdout","time":894.972754439,"data":"  \"rotation_count\": 44.0,\n"}
+,{"stream_name":"stdout","time":894.972759188,"data":"  \"rotation_eps\": 2.8298390184213153e-13,\n"}
+,{"stream_name":"stdout","time":894.972763882,"data":"  \"num_qubits\": 92,\n"}
+,{"stream_name":"stdout","time":894.972768447,"data":"  \"reaction_depth\": 205,\n"}
+,{"stream_name":"stdout","time":894.972773326,"data":"  \"num_ops\": 39084,\n"}
+,{"stream_name":"stdout","time":894.972778246,"data":"  \"verified_shots\": 200540928,\n"}
+,{"stream_name":"stdout","time":894.972783138,"data":"  \"worst_error_over_tolerance\": 0.9999059628540141,\n"}
+,{"stream_name":"stdout","time":894.972787683,"data":"  \"worst_x\": 2,\n"}
+,{"stream_name":"stdout","time":894.972790801,"data":"  \"circuit_sha256\": \"ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917\"\n"}
+,{"stream_name":"stdout","time":894.972794082,"data":"}\n"}
+,{"stream_name":"stdout","time":894.972796845,"data":"\n"}
+,{"stream_name":"stderr","time":898.008044034,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":898.008095245,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":898.545017575,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":898.545046312,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":900.154764074,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":901.768738356,"data":"[NbConvertApp] Writing 442102 bytes to __results__.html\n"}
+]

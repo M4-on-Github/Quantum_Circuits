@@ -1,0 +1,28 @@
+{
+ "rc": 0,
+ "wall_s": 774.8584003448486,
+ "peak": {
+  "tree_rss": 704888832,
+  "sys_used": 968421376
+ },
+ "cmd": [
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "invsqrt/verify_submission_invsqrt.py",
+  "/kaggle/working/exp008/invsqrt.kmb"
+ ],
+ "cwd": "/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers",
+ "sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "verifier_sha256": "ddef520dec6b68d1cf0a6f328ddd36d79eb84570b9192cf3f7acaf073f06733a",
+ "machine": {
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+  "cpu_count": 4,
+  "total_mem_bytes": 33658159104,
+  "tag": "port",
+  "kickmix": "1.0.0",
+  "numpy": "2.1.3",
+  "scipy": "1.16.3"
+ }
+}

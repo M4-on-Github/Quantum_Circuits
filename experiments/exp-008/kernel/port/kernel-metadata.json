@@ -1,0 +1,17 @@
+{
+ "id": "rainm4/exp-008-invsqrt-port-verify",
+ "title": "exp-008-invsqrt-port-verify",
+ "code_file": "exp008_verify.py",
+ "language": "python",
+ "kernel_type": "script",
+ "is_private": true,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "dataset_sources": [],
+ "competition_sources": [
+  "google-verifiable-quantum-circuit-compilation"
+ ],
+ "kernel_sources": [],
+ "model_sources": []
+}

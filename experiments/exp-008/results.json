@@ -1,0 +1,62 @@
+{
+ "exp": "exp-008",
+ "commit": "46af961",
+ "task": "invsqrt",
+ "verifier": "verify_submission_invsqrt.py",
+ "verifier_cmd": "/usr/bin/python3 -I -B invsqrt/verify_submission_invsqrt.py /kaggle/working/exp008/invsqrt.kmb  (cwd /kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers)",
+ "verifier_sha256": "ddef520dec6b68d1cf0a6f328ddd36d79eb84570b9192cf3f7acaf073f06733a",
+ "kernel": "rainm4/exp-008-invsqrt-port-verify",
+ "passed": true,
+ "circuit_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "generator": "src/invsqrt (config experiments/exp-008/config_port.json)",
+ "metrics": {
+  "Q": 92,
+  "toffoli": 1303.999457656843,
+  "max_toffoli": 1315,
+  "t_gates": 1.0,
+  "rotation_count": 44.0,
+  "rotation_eps": 2.8298390184213153e-13,
+  "toffoli_equivalent": 1619.3250243907166,
+  "cost": 148977.90224394592,
+  "worst_error_over_tolerance": 0.9999059628540141,
+  "worst_x": 2,
+  "verified_shots": 200540928
+ },
+ "baseline": {
+  "exp": "exp-001",
+  "cost": 2076774.233715282
+ },
+ "improvement_factor": 13.94014952844912,
+ "score_delta_factor": 2.4067028785599063,
+ "frontier": {
+  "cost": 102664.23957721348,
+  "Q": 63,
+  "sha256": "07314803a0925970cf45007ebbdb8a146378c242e3991c70d6f7509af3d583da",
+  "source": "busyaprime/33-qcc-v8-members v4 (dataset README: official x86-64 unsalted 102,664.24)"
+ },
+ "cost_over_frontier": 1.4511177685380903,
+ "c014_threshold": 103690.88197298562,
+ "c014_holds": false,
+ "byte_identical_to_frontier": false,
+ "byte_identical_to_marsyas_stated": true,
+ "kernel_version": 1,
+ "runtime_s": 774.8584003448486,
+ "runtime_note": "runtime_s is the verifier subprocess wall time on Kaggle (4 forked workers); the in-kernel build took 113.3 s",
+ "memory": {
+  "tree_rss": 704888832,
+  "sys_used": 968421376
+ },
+ "machine": {
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+  "cpu_count": 4,
+  "total_mem_bytes": 33658159104,
+  "tag": "port",
+  "kickmix": "1.0.0",
+  "numpy": "2.1.3",
+  "scipy": "1.16.3"
+ },
+ "salts_or_seeds": [
+  "default (no salt, no seed)"
+ ]
+}

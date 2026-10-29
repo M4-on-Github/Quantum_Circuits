@@ -1,0 +1,16 @@
+{
+ "_note": "marsyas 13.94x arguments: 28 19 8 1 sd=1 dropA=5 LB=21 S=20 mdel=1 wins=17:11,10;15:9,8;13:7,6;11:5,4;9:3,2;7:1,0 (drop defaults to 1, g1 to 1, tcap to 1, fit radii (6,3))",
+ "F0": 28,
+ "FT": 19,
+ "F2": 8,
+ "G0": 1,
+ "dropA": [
+  5
+ ],
+ "dropB": [],
+ "LB": 21,
+ "S": 20,
+ "drop": 1,
+ "wins": "17:11,10;15:9,8;13:7,6;11:5,4;9:3,2;7:1,0",
+ "exact_pass": true
+}

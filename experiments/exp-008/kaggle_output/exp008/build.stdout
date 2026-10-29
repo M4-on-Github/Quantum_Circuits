@@ -1,0 +1,81 @@
+tables 28.3s
+calibration worst 0.9999059628540141 margin 73111258.0 nrot 44 (80.6s)
+windows A {'A': 10, 'B': 19}, wcb [2, 2, 2, 2, 2, 2]
+raw build {'Q': 92, 'toffoli_sampled_mean': 1312.970703125, 't': 1.0, 'rot': 44.0, 'max_toffoli': 1324, 'C': 1628.2962698588735, 'cost': 149803.25682701636, 'ratio': 13.863345014677577, 'peak': (92, 'B add n=21'), 'sha256': 'c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66'} (98.5s)
+exact pass {'ccx_del': 8, 'ccx_cx': 1, 'ccz_del': 0, 'ccz_cz': 0, 'cswap_del': 0, 'cswap_swap': 0} (111.3s)
+final {'Q': 92, 'toffoli_sampled_mean': 1303.970703125, 't': 1.0, 'rot': 44.0, 'max_toffoli': 1315, 'C': 1619.2962698588735, 'cost': 148975.25682701636, 'ratio': 13.940397069606952, 'sha256': 'ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917'} (111.3s)
+{
+ "cfg": {
+  "_note": "marsyas 13.94x arguments: 28 19 8 1 sd=1 dropA=5 LB=21 S=20 mdel=1 wins=17:11,10;15:9,8;13:7,6;11:5,4;9:3,2;7:1,0 (drop defaults to 1, g1 to 1, tcap to 1, fit radii (6,3))",
+  "F0": 28,
+  "FT": 19,
+  "F2": 8,
+  "G0": 1,
+  "dropA": [
+   5
+  ],
+  "dropB": [],
+  "LB": 21,
+  "S": 20,
+  "drop": 1,
+  "wins": "17:11,10;15:9,8;13:7,6;11:5,4;9:3,2;7:1,0",
+  "exact_pass": true
+ },
+ "tag": "28_19_8_1_sd_tc_a5_b_r63",
+ "model": {
+  "worst": 0.9999059628540141,
+  "min_margin": 73111258,
+  "nrot_model": 44,
+  "pass": true
+ },
+ "windows": {
+  "A": {
+   "A": 10,
+   "B": 19
+  },
+  "wcb": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ "raw": {
+  "Q": 92,
+  "toffoli_sampled_mean": 1312.970703125,
+  "t": 1.0,
+  "rot": 44.0,
+  "max_toffoli": 1324,
+  "C": 1628.2962698588735,
+  "cost": 149803.25682701636,
+  "ratio": 13.863345014677577,
+  "peak": [
+   92,
+   "B add n=21"
+  ],
+  "sha256": "c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66"
+ },
+ "exact_stats": {
+  "ccx_del": 8,
+  "ccx_cx": 1,
+  "ccz_del": 0,
+  "ccz_cz": 0,
+  "cswap_del": 0,
+  "cswap_swap": 0
+ },
+ "final": {
+  "Q": 92,
+  "toffoli_sampled_mean": 1303.970703125,
+  "t": 1.0,
+  "rot": 44.0,
+  "max_toffoli": 1315,
+  "C": 1619.2962698588735,
+  "cost": 148975.25682701636,
+  "ratio": 13.940397069606952,
+  "sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917"
+ },
+ "seconds": 111.3,
+ "tables_sha256": "e02d184e6b4f730c69750968a560ea5b2841495cb5c9410e69508d1ff335ad98"
+}
