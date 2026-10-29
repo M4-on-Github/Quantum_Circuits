@@ -1,0 +1,5380 @@
+{
+ "python": "3.13.12",
+ "n_kit_py": 59,
+ "all_parse": true,
+ "kit_import_tops": [
+  "argparse",
+  "audit",
+  "baseline",
+  "circ",
+  "collections",
+  "common",
+  "contextlib",
+  "convert",
+  "decode",
+  "division",
+  "exp",
+  "extract",
+  "field",
+  "final_decoder",
+  "functools",
+  "hankel_check",
+  "hashlib",
+  "importlib",
+  "inverse20",
+  "json",
+  "kernels",
+  "kickmix",
+  "lowwidth",
+  "model",
+  "numpy",
+  "pathlib",
+  "phase36",
+  "phase39",
+  "prefix",
+  "random",
+  "repair",
+  "safe_bridge",
+  "scalar",
+  "scan",
+  "sys",
+  "time",
+  "types"
+ ],
+ "kit_imports_unresolved": {},
+ "kit_names_shadowing_stdlib": [],
+ "kit_network": [],
+ "kit_subprocess": [],
+ "kit_file_writes": [
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 36,
+   "what": "c.to_file",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 41,
+   "what": "target.with_suffix().write_text",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/model.py",
+   "line": 199,
+   "what": "Path().with_name().write_text",
+   "func": "main",
+   "under_main_guard": false,
+   "func_call_sites": [
+    201
+   ],
+   "func_main_only": true
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/safe_bridge.py",
+   "line": 24,
+   "what": "write_text",
+   "func": "<module>",
+   "under_main_guard": true
+  },
+  {
+   "file": "pro_q2_897/playbook/exp/cf_check/audit.py",
+   "line": 77,
+   "what": "vals.copy",
+   "func": "extract",
+   "under_main_guard": false,
+   "func_call_sites": [
+    118
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/playbook/exp/cf_check/audit.py",
+   "line": 52,
+   "what": "a.copy",
+   "func": "pdiv",
+   "under_main_guard": false,
+   "func_call_sites": [
+    71,
+    105,
+    132,
+    60,
+    139,
+    141
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/playbook/exp/cf_check/audit.py",
+   "line": 133,
+   "what": "D.copy",
+   "func": "validate",
+   "under_main_guard": false,
+   "func_call_sites": [
+    150
+   ],
+   "func_main_only": true
+  }
+ ],
+ "kit_dynamic_non_json": [
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 8,
+   "what": "import importlib.util",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 16,
+   "what": "assign sys.modules[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 22,
+   "what": "assign sys.modules[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 20,
+   "what": "importlib.util.spec_from_file_location",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 21,
+   "what": "importlib.util.module_from_spec",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 23,
+   "what": "spec.loader.exec_module",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/decode.py",
+   "line": 14,
+   "what": "assign sys.path[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/decode.py",
+   "line": 23,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/decode.py",
+   "line": 25,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/even_fold.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/kernel.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/scalar.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/kernel.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/model.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 5,
+   "what": "import types : FunctionType,SimpleNamespace",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 6,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 17,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 18,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 17,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 17,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 18,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 18,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 17,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 18,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "line": 16,
+   "what": "vars",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert/convert.py",
+   "line": 11,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert/kernels.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/kernel.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 6,
+   "what": "import types : FunctionType,SimpleNamespace",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 14,
+   "what": "FunctionType",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    20,
+    21,
+    23,
+    26,
+    32
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 22,
+   "what": "vars",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 30,
+   "what": "vars",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 14,
+   "what": ".__code__",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    20,
+    21,
+    23,
+    26,
+    32
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 14,
+   "what": ".__closure__",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    20,
+    21,
+    23,
+    26,
+    32
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 20,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 21,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/common.py",
+   "line": 8,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/common.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/synthesis.py",
+   "line": 12,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 4,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 5,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 39,
+   "what": "FunctionType",
+   "func": "bind",
+   "under_main_guard": false,
+   "func_call_sites": [
+    41,
+    62,
+    63,
+    64,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 39,
+   "what": ".__code__",
+   "func": "bind",
+   "under_main_guard": false,
+   "func_call_sites": [
+    41,
+    62,
+    63,
+    64,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 39,
+   "what": ".__closure__",
+   "func": "bind",
+   "under_main_guard": false,
+   "func_call_sites": [
+    41,
+    62,
+    63,
+    64,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 73,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "line": 39,
+   "what": ".__globals__",
+   "func": "bind",
+   "under_main_guard": false,
+   "func_call_sites": [
+    41,
+    62,
+    63,
+    64,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_joint/divide.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/fold_joint/kernel.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/joint.py",
+   "line": 6,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 8,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 6,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 45,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 48,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": "assign globals()[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 51,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/baseline.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 77,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": "assign globals()[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 81,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width/kernel.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 46,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": "assign globals()[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": "globals",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 49,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/jet24/kernel.py",
+   "line": 7,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/mask_projection/kernel.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/kernels.py",
+   "line": 9,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/phase36.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/schedules.py",
+   "line": 6,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/kernels.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/scalar.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/synthesis_noflag.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/synthesis_noflag.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/converter.py",
+   "line": 13,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/kernel.py",
+   "line": 4,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/phase.py",
+   "line": 10,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/scan/scan.py",
+   "line": 11,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 4,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 5,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 16,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 14,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 16,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "line": 16,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 11,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 8,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 14,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 14,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 15,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "line": 14,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 4,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 5,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 61,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 62,
+   "what": "FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 61,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 61,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 62,
+   "what": ".__code__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 62,
+   "what": ".__closure__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 61,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "line": 62,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 11,
+   "what": "import types : SimpleNamespace",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 15,
+   "what": "import types : FunctionType",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 13,
+   "what": "sys.path.insert",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 20,
+   "what": "FunctionType",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    193,
+    194,
+    202,
+    190,
+    192,
+    201
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 185,
+   "what": "vars",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 20,
+   "what": ".__code__",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    193,
+    194,
+    202,
+    190,
+    192,
+    201
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 20,
+   "what": ".__closure__",
+   "func": "clone",
+   "under_main_guard": false,
+   "func_call_sites": [
+    193,
+    194,
+    202,
+    190,
+    192,
+    201
+   ],
+   "func_main_only": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/decode.py",
+   "line": 9,
+   "what": "assign sys.path[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/synthesis.py",
+   "line": 10,
+   "what": "assign sys.path[]",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/synthesis.py",
+   "line": 164,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/final_decoder/synthesis.py",
+   "line": 165,
+   "what": ".__globals__",
+   "func": "<module>",
+   "under_main_guard": false
+  }
+ ],
+ "kit_json_reads": [
+  {
+   "file": "pro_q2_897/exp/confluent_extract/model.py",
+   "line": 188,
+   "what": "json.loads (data only: JSON)",
+   "func": "main",
+   "under_main_guard": false,
+   "func_call_sites": [
+    201
+   ],
+   "func_main_only": true
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "line": 9,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 10,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20.py",
+   "line": 14,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 12,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width/kernel.py",
+   "line": 14,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width/kernel.py",
+   "line": 15,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 14,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  },
+  {
+   "file": "pro_q2_897/exp/phase24_tradeoff/phase6small.py",
+   "line": 6,
+   "what": "json.loads (data only: JSON)",
+   "func": "<module>",
+   "under_main_guard": false
+  }
+ ],
+ "kit_module_level_other": [
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 29,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 32,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/build_897.py",
+   "line": 37,
+   "kind": "With"
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/kernel.py",
+   "line": 12,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/model.py",
+   "line": 201,
+   "kind": "If"
+  },
+  {
+   "file": "pro_q2_897/exp/convert/hankel_check.py",
+   "line": 14,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/convert/hankel_check.py",
+   "line": 16,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/convert/hankel_check.py",
+   "line": 76,
+   "kind": "If"
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 25,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "line": 31,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/safe_bridge.py",
+   "line": 9,
+   "kind": "If"
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "line": 50,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20.py",
+   "line": 7,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 6,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "line": 78,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "line": 48,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/phase36.py",
+   "line": 6,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/schedules.py",
+   "line": 2,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/schedules.py",
+   "line": 11,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/phase39.py",
+   "line": 5,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/schedules.py",
+   "line": 2,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/prefix.py",
+   "line": 7,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/tail.py",
+   "line": 2,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/phase.py",
+   "line": 6,
+   "kind": "Try"
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 187,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "line": 199,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/final_decoder/decode.py",
+   "line": 49,
+   "kind": "For"
+  },
+  {
+   "file": "pro_q2_897/playbook/exp/cf_check/audit.py",
+   "line": 147,
+   "kind": "If"
+  }
+ ],
+ "kit_non_py_files": [
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero_layout.json",
+   "bytes": 325,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse12_escape/zero1.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/layout.json",
+   "bytes": 758,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse12_escape/zero1.py",
+    "pro_q2_897/exp/inverse19_joint/kernel.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/optimized.json",
+   "bytes": 967,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse_search/inverse20.py",
+    "pro_q2_897/exp/inverse_width/kernel.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/optimized_isotopy2.json",
+   "bytes": 996,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse_search/inverse20_iso.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width/partial5.json",
+   "bytes": 495,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse_width/kernel.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/inverse19.json",
+   "bytes": 864,
+   "referenced_by": [
+    "pro_q2_897/exp/inverse_width_subspaces/kernel19.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/phase24_tradeoff/phase6_six_search.json",
+   "bytes": 2840,
+   "referenced_by": [
+    "pro_q2_897/exp/phase24_tradeoff/phase6small.py"
+   ]
+  },
+  {
+   "file": "pro_q2_897/README.md",
+   "bytes": 738,
+   "referenced_by": []
+  },
+  {
+   "file": "pro_q2_897/source_sha256.json",
+   "bytes": 6646,
+   "referenced_by": []
+  }
+ ],
+ "ours": [
+  {
+   "file": "src/dqi/generate.py",
+   "lines": 129,
+   "imports": [
+    {
+     "line": 17,
+     "name": "hashlib",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "importlib.metadata",
+     "func": "<module>"
+    },
+    {
+     "line": 19,
+     "name": "importlib.util",
+     "func": "<module>"
+    },
+    {
+     "line": 20,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 21,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 22,
+     "name": "sysconfig",
+     "func": "<module>"
+    },
+    {
+     "line": 23,
+     "name": "time",
+     "func": "<module>"
+    },
+    {
+     "line": 24,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 44,
+     "name": "kickmix",
+     "func": "load_decoder"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 101,
+     "what": "c.to_file",
+     "func": "build",
+     "under_main_guard": false,
+     "func_call_sites": [
+      122
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 119,
+     "what": "Path().write_text",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      128
+     ],
+     "func_main_only": true
+    },
+    {
+     "line": 123,
+     "what": "target.with_suffix().write_text",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      128
+     ],
+     "func_main_only": true
+    }
+   ],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 18,
+     "what": "import importlib.metadata",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 19,
+     "what": "import importlib.util",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 45,
+     "what": "assign sys.modules[]",
+     "func": "load_decoder",
+     "under_main_guard": false,
+     "func_call_sites": [
+      88,
+      116
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 48,
+     "what": "assign sys.modules[]",
+     "func": "load_decoder",
+     "under_main_guard": false,
+     "func_call_sites": [
+      88,
+      116
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 32,
+     "what": "json.loads (data only: JSON)",
+     "func": "check_manifest",
+     "under_main_guard": false,
+     "func_call_sites": [
+      87,
+      115
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 46,
+     "what": "importlib.util.spec_from_file_location",
+     "func": "load_decoder",
+     "under_main_guard": false,
+     "func_call_sites": [
+      88,
+      116
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 47,
+     "what": "importlib.util.module_from_spec",
+     "func": "load_decoder",
+     "under_main_guard": false,
+     "func_call_sites": [
+      88,
+      116
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 49,
+     "what": "spec.loader.exec_module",
+     "func": "load_decoder",
+     "under_main_guard": false,
+     "func_call_sites": [
+      88,
+      116
+     ],
+     "func_main_only": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 127,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "experiments/exp-011/kernel/exp011_template.py",
+   "lines": 227,
+   "imports": [
+    {
+     "line": 15,
+     "name": "__future__",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "argparse",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "base64",
+     "func": "<module>"
+    },
+    {
+     "line": 19,
+     "name": "hashlib",
+     "func": "<module>"
+    },
+    {
+     "line": 20,
+     "name": "io",
+     "func": "<module>"
+    },
+    {
+     "line": 21,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 22,
+     "name": "lzma",
+     "func": "<module>"
+    },
+    {
+     "line": 23,
+     "name": "os",
+     "func": "<module>"
+    },
+    {
+     "line": 24,
+     "name": "platform",
+     "func": "<module>"
+    },
+    {
+     "line": 25,
+     "name": "subprocess",
+     "func": "<module>"
+    },
+    {
+     "line": 26,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 27,
+     "name": "threading",
+     "func": "<module>"
+    },
+    {
+     "line": 28,
+     "name": "time",
+     "func": "<module>"
+    },
+    {
+     "line": 29,
+     "name": "zipfile",
+     "func": "<module>"
+    },
+    {
+     "line": 30,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 83,
+     "name": "kickmix",
+     "func": "step_stats"
+    },
+    {
+     "line": 102,
+     "name": "kickmix",
+     "func": "step_dump"
+    },
+    {
+     "line": 134,
+     "name": "psutil",
+     "func": "run_child"
+    },
+    {
+     "line": 193,
+     "name": "importlib.metadata",
+     "func": "main"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 88,
+     "what": "c.to_file",
+     "func": "step_stats",
+     "under_main_guard": false,
+     "func_call_sites": [
+      187
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 97,
+     "what": "write_text",
+     "func": "step_stats",
+     "under_main_guard": false,
+     "func_call_sites": [
+      187
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 105,
+     "what": "c.to_file",
+     "func": "step_dump",
+     "under_main_guard": false,
+     "func_call_sites": [
+      189
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 116,
+     "what": "KMX.unlink",
+     "func": "step_dump",
+     "under_main_guard": false,
+     "func_call_sites": [
+      189
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 117,
+     "what": "write_text",
+     "func": "step_dump",
+     "under_main_guard": false,
+     "func_call_sites": [
+      189
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 182,
+     "what": "OUT.mkdir",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      226
+     ],
+     "func_main_only": true
+    },
+    {
+     "line": 183,
+     "what": "TMP.mkdir",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      226
+     ],
+     "func_main_only": true
+    },
+    {
+     "line": 216,
+     "what": "write_text",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      226
+     ],
+     "func_main_only": true
+    },
+    {
+     "line": 110,
+     "what": "lzma.open(mode='wb')",
+     "func": "step_dump",
+     "under_main_guard": false,
+     "func_call_sites": [
+      189
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 137,
+     "what": "open(mode='wb')",
+     "func": "run_child",
+     "under_main_guard": false,
+     "func_call_sites": [
+      206
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 137,
+     "what": "open(mode='wb')",
+     "func": "run_child",
+     "under_main_guard": false,
+     "func_call_sites": [
+      206
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 203,
+     "what": "write_text",
+     "func": "log",
+     "under_main_guard": false,
+     "func_call_sites": [
+      207
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 77,
+     "what": "dst.parent.mkdir",
+     "func": "step_unpack",
+     "under_main_guard": false,
+     "func_call_sites": [
+      185
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 78,
+     "what": "dst.write_bytes",
+     "func": "step_unpack",
+     "under_main_guard": false,
+     "func_call_sites": [
+      185
+     ],
+     "func_main_only": false
+    }
+   ],
+   "network": [],
+   "subprocess": [
+    {
+     "line": 25,
+     "what": "import subprocess",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 138,
+     "what": "subprocess.Popen",
+     "func": "run_child",
+     "under_main_guard": false,
+     "func_call_sites": [
+      206
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 192,
+     "what": "subprocess.run",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      226
+     ],
+     "func_main_only": true
+    }
+   ],
+   "dynamic": [
+    {
+     "line": 193,
+     "what": "import importlib.metadata : version",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      226
+     ],
+     "func_main_only": true
+    },
+    {
+     "line": 170,
+     "what": "json.loads (data only: JSON)",
+     "func": "run_child",
+     "under_main_guard": false,
+     "func_call_sites": [
+      206
+     ],
+     "func_main_only": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 225,
+     "kind": "If"
+    }
+   ]
+  }
+ ],
+ "kit": [
+  {
+   "file": "pro_q2_897/build_897.py",
+   "lines": 43,
+   "imports": [
+    {
+     "line": 7,
+     "name": "hashlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "importlib.util",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "time",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "kickmix",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 36,
+     "what": "c.to_file",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 41,
+     "what": "target.with_suffix().write_text",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 8,
+     "what": "import importlib.util",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 16,
+     "what": "assign sys.modules[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 22,
+     "what": "assign sys.modules[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 20,
+     "what": "importlib.util.spec_from_file_location",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 21,
+     "what": "importlib.util.module_from_spec",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 23,
+     "what": "spec.loader.exec_module",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 29,
+     "kind": "For"
+    },
+    {
+     "line": 32,
+     "kind": "For"
+    },
+    {
+     "line": 37,
+     "kind": "With"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/decode.py",
+   "lines": 83,
+   "imports": [
+    {
+     "line": 10,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.confluent_extract.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "exp.confluent_extract.model",
+     "func": "<module>"
+    },
+    {
+     "line": 19,
+     "name": "exp.jet24.pro_jet",
+     "func": "<module>"
+    },
+    {
+     "line": 20,
+     "name": "exp.fold_cached_norm.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 21,
+     "name": "exp.fold_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 22,
+     "name": "exp.mask_projection.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 24,
+     "name": "exp.convert_short_hankel.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 26,
+     "name": "scan",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 14,
+     "what": "assign sys.path[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 23,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 25,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/even_fold.py",
+   "lines": 36,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.tail_alias.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/kernel.py",
+   "lines": 71,
+   "imports": [
+    {
+     "line": 7,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.tail_alias.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.alternating_gauge.even_fold",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.alternating_gauge.scalar",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/alternating_gauge/scalar.py",
+   "lines": 46,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.tail_alias.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.inverse19_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.arithmetic.lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.safe_scalar.phase",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/arithmetic/division.py",
+   "lines": 181,
+   "imports": [
+    {
+     "line": 6,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 69,
+     "name": "field",
+     "func": "divide_via_norm"
+    },
+    {
+     "line": 133,
+     "name": "field",
+     "func": "divide_zero"
+    },
+    {
+     "line": 165,
+     "name": "field",
+     "func": "erase_inverse_releasing"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/arithmetic/field.py",
+   "lines": 514,
+   "imports": [
+    {
+     "line": 9,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "circ",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/arithmetic/lowwidth.py",
+   "lines": 155,
+   "imports": [
+    {
+     "line": 2,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "division",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/kernel.py",
+   "lines": 55,
+   "imports": [
+    {
+     "line": 7,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.inverse12_escape.joint",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": ".model",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "model",
+     "func": "<module>"
+    },
+    {
+     "line": 49,
+     "name": "exp.decoder.common",
+     "func": "extract"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 12,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_extract/model.py",
+   "lines": 202,
+   "imports": [
+    {
+     "line": 5,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "random",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "time",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "audit",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "audit",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 199,
+     "what": "Path().with_name().write_text",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      201
+     ],
+     "func_main_only": true
+    }
+   ],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 188,
+     "what": "json.loads (data only: JSON)",
+     "func": "main",
+     "under_main_guard": false,
+     "func_call_sites": [
+      201
+     ],
+     "func_main_only": true
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 201,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/confluent_synthesis/kernel.py",
+   "lines": 19,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.alternating_gauge",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 5,
+     "what": "import types : FunctionType,SimpleNamespace",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 6,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 17,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 18,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 17,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 17,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 18,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 18,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 17,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 18,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 16,
+     "what": "vars",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/convert/convert.py",
+   "lines": 151,
+   "imports": [
+    {
+     "line": 8,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 11,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/convert/hankel_check.py",
+   "lines": 77,
+   "imports": [
+    {
+     "line": 2,
+     "name": "random",
+     "func": "<module>"
+    },
+    {
+     "line": 2,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "functools",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 14,
+     "kind": "For"
+    },
+    {
+     "line": 16,
+     "kind": "For"
+    },
+    {
+     "line": 76,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/convert/kernels.py",
+   "lines": 88,
+   "imports": [
+    {
+     "line": 2,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "hankel_check",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "functools",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/convert/repair.py",
+   "lines": 152,
+   "imports": [
+    {
+     "line": 7,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "convert",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "kernels",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/kernel.py",
+   "lines": 93,
+   "imports": [
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.safe_scalar",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/convert_short_hankel/phase34.py",
+   "lines": 34,
+   "imports": [
+    {
+     "line": 6,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.safe_scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.fold_cached_norm.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.convert_short_hankel",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 6,
+     "what": "import types : FunctionType,SimpleNamespace",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": "FunctionType",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      20,
+      21,
+      23,
+      26,
+      32
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 22,
+     "what": "vars",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 30,
+     "what": "vars",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": ".__code__",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      20,
+      21,
+      23,
+      26,
+      32
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 14,
+     "what": ".__closure__",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      20,
+      21,
+      23,
+      26,
+      32
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 20,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 21,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 25,
+     "kind": "For"
+    },
+    {
+     "line": 31,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/common.py",
+   "lines": 126,
+   "imports": [
+    {
+     "line": 2,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "circ",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 120,
+     "name": "numpy",
+     "func": "write"
+    },
+    {
+     "line": 124,
+     "name": "numpy",
+     "func": "read"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 8,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/extract.py",
+   "lines": 40,
+   "imports": [
+    {
+     "line": 2,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "exp.inverse12_escape.joint",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/safe_bridge.py",
+   "lines": 25,
+   "imports": [
+    {
+     "line": 2,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "division",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "numpy",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "json",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 24,
+     "what": "write_text",
+     "func": "<module>",
+     "under_main_guard": true
+    }
+   ],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 9,
+     "kind": "If"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/decoder/synthesis.py",
+   "lines": 162,
+   "imports": [
+    {
+     "line": 8,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "extract",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "division",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "convert",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "safe_bridge",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 12,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/kernel.py",
+   "lines": 76,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.inverse12_escape.joint",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.arithmetic.division",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.arithmetic.field",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.zero_padding_synthesis",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.inverse12_escape.zero1",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.fold_cached_norm.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.inverse12_escape.zero1",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "exp.phase24_tradeoff.phase6small",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.alternating_gauge",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 5,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 39,
+     "what": "FunctionType",
+     "func": "bind",
+     "under_main_guard": false,
+     "func_call_sites": [
+      41,
+      62,
+      63,
+      64,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 39,
+     "what": ".__code__",
+     "func": "bind",
+     "under_main_guard": false,
+     "func_call_sites": [
+      41,
+      62,
+      63,
+      64,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 39,
+     "what": ".__closure__",
+     "func": "bind",
+     "under_main_guard": false,
+     "func_call_sites": [
+      41,
+      62,
+      63,
+      64,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 73,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 39,
+     "what": ".__globals__",
+     "func": "bind",
+     "under_main_guard": false,
+     "func_call_sites": [
+      41,
+      62,
+      63,
+      64,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75
+     ],
+     "func_main_only": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/fold_cached_norm/phase34.py",
+   "lines": 6,
+   "imports": [
+    {
+     "line": 2,
+     "name": "exp.jet24.kernel",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/fold_joint/divide.py",
+   "lines": 57,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.safe_scalar.phase",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.arithmetic.lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/fold_joint/kernel.py",
+   "lines": 108,
+   "imports": [
+    {
+     "line": 7,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.partial_gauge",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.fold_joint.divide",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/joint.py",
+   "lines": 81,
+   "imports": [
+    {
+     "line": 4,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.inverse19_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.inverse12_escape.zero1",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 6,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/inverse12_escape/zero1.py",
+   "lines": 46,
+   "imports": [
+    {
+     "line": 4,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.inverse19_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 43,
+     "name": "exp.inverse19_joint",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 8,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 6,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 9,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 45,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 45,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 45,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 45,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/inverse19_joint/kernel.py",
+   "lines": 81,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.inverse_width_subspaces",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.inverse_width_subspaces.kernel19",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.safe_scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.safe_scalar.phase",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 48,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 67,
+     "name": "exp.arithmetic.lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 48,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 10,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": "assign globals()[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 51,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 50,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/baseline.py",
+   "lines": 19,
+   "imports": [
+    {
+     "line": 2,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20.py",
+   "lines": 161,
+   "imports": [
+    {
+     "line": 11,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": ".baseline",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "baseline",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 14,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 7,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_search/inverse20_iso.py",
+   "lines": 82,
+   "imports": [
+    {
+     "line": 77,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": ".",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": ".inverse20",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "inverse20",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "inverse20",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 77,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 12,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": "assign globals()[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 81,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 6,
+     "kind": "Try"
+    },
+    {
+     "line": 78,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width/kernel.py",
+   "lines": 102,
+   "imports": [
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.inverse_search",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.inverse_search",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.inverse_search.inverse20_iso",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.arithmetic.lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 15,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/inverse_width_subspaces/kernel19.py",
+   "lines": 65,
+   "imports": [
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.inverse_search",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.inverse_search",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.inverse_search.inverse20_iso",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.inverse_width.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 46,
+     "name": "types",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 46,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": "assign globals()[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": "globals",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 49,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 48,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/jet24/kernel.py",
+   "lines": 93,
+   "imports": [
+    {
+     "line": 5,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.inverse12_escape",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.inverse12_escape",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.inverse12_escape.joint",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.arithmetic.lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 7,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/jet24/pro_jet.py",
+   "lines": 332,
+   "imports": [
+    {
+     "line": 8,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.jet24.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.inverse_search",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/mask_projection/kernel.py",
+   "lines": 110,
+   "imports": [
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/kernels.py",
+   "lines": 90,
+   "imports": [
+    {
+     "line": 5,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "field",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/phase36.py",
+   "lines": 65,
+   "imports": [
+    {
+     "line": 11,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": ".kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "kernels",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 6,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/mul99/schedules.py",
+   "lines": 77,
+   "imports": [
+    {
+     "line": 7,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.noscratch.phase39",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "division",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": ".kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": ".phase36",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "phase36",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 6,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 2,
+     "kind": "Try"
+    },
+    {
+     "line": 11,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/kernels.py",
+   "lines": 50,
+   "imports": [
+    {
+     "line": 2,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "field",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/phase39.py",
+   "lines": 69,
+   "imports": [
+    {
+     "line": 9,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": ".kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "kernels",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 5,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/noscratch/schedules.py",
+   "lines": 54,
+   "imports": [
+    {
+     "line": 6,
+     "name": "division",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": ".phase39",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "phase39",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 2,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/prefix.py",
+   "lines": 70,
+   "imports": [
+    {
+     "line": 8,
+     "name": ".scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "scalar",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 7,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/scalar.py",
+   "lines": 22,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "field",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "lowwidth",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/synthesis_noflag.py",
+   "lines": 147,
+   "imports": [
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "extract",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.decoder",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.partial_gauge",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.partial_gauge.scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "exp.partial_gauge.tail",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "division",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/partial_gauge/tail.py",
+   "lines": 35,
+   "imports": [
+    {
+     "line": 6,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": ".scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "scalar",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": ".prefix",
+     "func": "divide_safe138"
+    },
+    {
+     "line": 22,
+     "name": ".prefix",
+     "func": "multiply_safe165"
+    },
+    {
+     "line": 17,
+     "name": "prefix",
+     "func": "divide_safe138"
+    },
+    {
+     "line": 23,
+     "name": "prefix",
+     "func": "multiply_safe165"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 2,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/phase24_tradeoff/kernel.py",
+   "lines": 116,
+   "imports": [
+    {
+     "line": 2,
+     "name": "exp.jet24.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "exp.mul99.phase36",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/phase24_tradeoff/phase6small.py",
+   "lines": 68,
+   "imports": [
+    {
+     "line": 4,
+     "name": "exp.phase24_tradeoff.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "json",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 6,
+     "what": "json.loads (data only: JSON)",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/converter.py",
+   "lines": 184,
+   "imports": [
+    {
+     "line": 11,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "convert",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "repair",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 45,
+     "name": "exp.inverse12_escape.zero1",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 13,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/kernel.py",
+   "lines": 39,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 5,
+     "name": "exp.inverse_search.inverse20_iso",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.safe_scalar.phase",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/safe_scalar/phase.py",
+   "lines": 67,
+   "imports": [
+    {
+     "line": 11,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "lowwidth",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 6,
+     "kind": "Try"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/exp/scan/scan.py",
+   "lines": 45,
+   "imports": [
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "common",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "extract",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 11,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/divide.py",
+   "lines": 18,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.fold_joint",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.inverse19_joint.kernel",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 5,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 16,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 16,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 16,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/tail_alias/kernel.py",
+   "lines": 78,
+   "imports": [
+    {
+     "line": 6,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.fold_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "exp.tail_alias.divide",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "types",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 11,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 8,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 15,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 14,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/exp/zero_padding_synthesis/kernel.py",
+   "lines": 63,
+   "imports": [
+    {
+     "line": 2,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 4,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 6,
+     "name": "exp.tail_alias.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "exp.alternating_gauge",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "exp.alternating_gauge.even_fold",
+     "func": "<module>"
+    },
+    {
+     "line": 9,
+     "name": "exp.confluent_synthesis",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 4,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 5,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 61,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 62,
+     "what": "FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 61,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 61,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 62,
+     "what": ".__code__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 62,
+     "what": ".__closure__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 61,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 62,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/final_decoder/conversion.py",
+   "lines": 219,
+   "imports": [
+    {
+     "line": 9,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "contextlib",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.convert_short_hankel",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "types",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "exp.fold_cached_norm.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 11,
+     "what": "import types : SimpleNamespace",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 15,
+     "what": "import types : FunctionType",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 13,
+     "what": "sys.path.insert",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 20,
+     "what": "FunctionType",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      193,
+      194,
+      202,
+      190,
+      192,
+      201
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 185,
+     "what": "vars",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 20,
+     "what": ".__code__",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      193,
+      194,
+      202,
+      190,
+      192,
+      201
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 20,
+     "what": ".__closure__",
+     "func": "clone",
+     "under_main_guard": false,
+     "func_call_sites": [
+      193,
+      194,
+      202,
+      190,
+      192,
+      201
+     ],
+     "func_main_only": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 187,
+     "kind": "For"
+    },
+    {
+     "line": 199,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/final_decoder/decode.py",
+   "lines": 443,
+   "imports": [
+    {
+     "line": 6,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 10,
+     "name": "decode",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.confluent_extract.model",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.inverse12_escape.joint",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.jet24.pro_jet",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.inverse19_joint.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "exp.fold_cached_norm.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.convert_short_hankel.phase34",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "final_decoder",
+     "func": "<module>"
+    },
+    {
+     "line": 19,
+     "name": "final_decoder.conversion",
+     "func": "<module>"
+    },
+    {
+     "line": 276,
+     "name": "functools",
+     "func": "<module>"
+    },
+    {
+     "line": 277,
+     "name": "exp.mul99.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 278,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 279,
+     "name": "exp.arithmetic.division",
+     "func": "<module>"
+    },
+    {
+     "line": 280,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 281,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 282,
+     "name": "exp.mul99.phase36",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 9,
+     "what": "assign sys.path[]",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": [
+    {
+     "line": 49,
+     "kind": "For"
+    }
+   ]
+  },
+  {
+   "file": "pro_q2_897/final_decoder/synthesis.py",
+   "lines": 176,
+   "imports": [
+    {
+     "line": 7,
+     "name": "sys",
+     "func": "<module>"
+    },
+    {
+     "line": 8,
+     "name": "pathlib",
+     "func": "<module>"
+    },
+    {
+     "line": 11,
+     "name": "decode",
+     "func": "<module>"
+    },
+    {
+     "line": 12,
+     "name": "exp.decoder.common",
+     "func": "<module>"
+    },
+    {
+     "line": 13,
+     "name": "exp.mul99.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 14,
+     "name": "exp.noscratch.schedules",
+     "func": "<module>"
+    },
+    {
+     "line": 15,
+     "name": "exp.noscratch.kernels",
+     "func": "<module>"
+    },
+    {
+     "line": 16,
+     "name": "exp.arithmetic.division",
+     "func": "<module>"
+    },
+    {
+     "line": 17,
+     "name": "exp.inverse_search.inverse20_iso",
+     "func": "<module>"
+    },
+    {
+     "line": 18,
+     "name": "exp.phase24_tradeoff.phase6small",
+     "func": "<module>"
+    },
+    {
+     "line": 19,
+     "name": "exp.zero_padding_synthesis.kernel",
+     "func": "<module>"
+    },
+    {
+     "line": 20,
+     "name": "exp.fold_cached_norm",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [
+    {
+     "line": 10,
+     "what": "assign sys.path[]",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 164,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    },
+    {
+     "line": 165,
+     "what": ".__globals__",
+     "func": "<module>",
+     "under_main_guard": false
+    }
+   ],
+   "module_level_other": []
+  },
+  {
+   "file": "pro_q2_897/playbook/exp/cf_check/audit.py",
+   "lines": 152,
+   "imports": [
+    {
+     "line": 2,
+     "name": "argparse",
+     "func": "<module>"
+    },
+    {
+     "line": 2,
+     "name": "json",
+     "func": "<module>"
+    },
+    {
+     "line": 2,
+     "name": "random",
+     "func": "<module>"
+    },
+    {
+     "line": 2,
+     "name": "time",
+     "func": "<module>"
+    },
+    {
+     "line": 3,
+     "name": "collections",
+     "func": "<module>"
+    }
+   ],
+   "file_writes": [
+    {
+     "line": 77,
+     "what": "vals.copy",
+     "func": "extract",
+     "under_main_guard": false,
+     "func_call_sites": [
+      118
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 52,
+     "what": "a.copy",
+     "func": "pdiv",
+     "under_main_guard": false,
+     "func_call_sites": [
+      71,
+      105,
+      132,
+      60,
+      139,
+      141
+     ],
+     "func_main_only": false
+    },
+    {
+     "line": 133,
+     "what": "D.copy",
+     "func": "validate",
+     "under_main_guard": false,
+     "func_call_sites": [
+      150
+     ],
+     "func_main_only": true
+    }
+   ],
+   "network": [],
+   "subprocess": [],
+   "dynamic": [],
+   "module_level_other": [
+    {
+     "line": 147,
+     "kind": "If"
+    }
+   ]
+  }
+ ]
+}

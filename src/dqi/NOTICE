@@ -37,21 +37,42 @@ Credits, as the upstream notebook gives them:
 - Earlier links of the design: Dmitrii Gluzdov (round12 decoder), Agniv Banerjee
   (SomeJoint) (Bezout-Hankel phase solve), ViberTeam, Phuc Thai (DePie).
 
-Provenance caveat
------------------
-The design lineage runs through the GitHub repository jday96314/QuantumAI. Every public
-note on it says it "states no license", and it returned HTTP 404 on 2026-10-29. Alex
-Chilton's notebook says his decoder was rebuilt from that repository's code. SomeJoint
-describes its decoder as rebuilt from scratch, starting from Chilton's design, and
-licenses its code as Apache-2.0. We could not compare the ported text with jday96314's
-code.
+Provenance caveat (design lineage)
+----------------------------------
+The design lineage of this decoder runs through the GitHub repository jday96314/QuantumAI:
+- That repository states no licence. Every public note on it says it "states no license"
+  (SomeJoint's notebook versions 13 to 21, Ahmed Berat Ozer's DQI_NOTICE.md, Alex Chilton's
+  notebook).
+- It returned HTTP 404 on 2026-10-29 (api.github.com/repos/jday96314/QuantumAI and
+  github.com/jday96314/QuantumAI), so its content can no longer be checked.
+- Alex Chilton's 883-qubit decoder, the design this code starts from, was by his own account
+  rebuilt from that repository's code: "The decoder is jday96314's ... Rebuilt it from their
+  code" (Chilton's portfolio notebook, cell 9).
+- SomeJoint describes its own decoder as "rebuilt from scratch", from a design that "starts
+  from" Chilton's 883-qubit Schur decoder (SomeJoint notebook versions 10 to 12), and licenses
+  its notebook code as Apache-2.0.
+So the code ported here carries a clear Apache-2.0 grant from its author, while its design
+lineage passes through unlicensed code that another author reused. We could not compare the
+ported text with jday96314's code, because the repository is gone.
 
-Our own files (Apache-2.0)
---------------------------
-generate.py, __init__.py, MANIFEST.json, NOTICE, .gitattributes. generate.py
-re-implements the upstream build script (pro_q2_897/build_897.py, which we do not run)
-with the same register layout and output format, plus a manifest check and a JSON build
-record.
+What is whose
+-------------
+The circuit design, and every file under pro_q2_897/, is SomeJoint's and its credited
+contributors' work (above), not ours. A circuit built from this directory is a reproduction
+of SomeJoint's 897-qubit decoder. Any change we make to the design will live outside
+pro_q2_897/, and its effect will be measured against this ported baseline.
+
+Our modifications
+-----------------
+None of the ported files was changed. Our additions are exactly these three files:
+- generate.py: our launcher. It re-implements the upstream build script
+  pro_q2_897/build_897.py (which we do not run) with the same register layout and output
+  format, and adds a SHA-256 check of every kit file against MANIFEST.json and a JSON build
+  record.
+- MANIFEST.json: the SHA-256 of every ported file.
+- .gitattributes: turns off line-ending conversion so checkouts stay byte-identical.
+LICENSE (the upstream Apache-2.0 text, unchanged) and this NOTICE are attribution files,
+not modifications.
 
 kickmix (the circuit builder the code runs on) is Google's, under its own licence; it is
 not part of this directory.
