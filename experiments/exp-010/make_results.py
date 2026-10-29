@@ -42,6 +42,42 @@ def window_table(d):
     return out
 
 
+# Frontier phases: line ranges chosen by reading its class timeline (kmx_ledger --every=250) and the
+# Z_POW groups; they are labels for the report, not something the circuit declares.
+FRONTIER_PHASES = [
+    ('normalize (flags into x low bits)', 1, 250),
+    ('main lookup (35 table qubits)', 251, 16710),
+    ('H phase (Z_POW group 1)', 16711, 17090),
+    ('table/address step (x[14..21] partly zeroed)', 17091, 22000),
+    ('arithmetic (L built, table words erased)', 22001, 27124),
+    ('L phase (Z_POW group 2)', 27125, 27380),
+    ('arithmetic uncompute', 27381, 31750),
+    ('table recompute and uncompute', 31751, 36250),
+    ('measured-unlookup phase fix-up', 36251, 43250),
+    ('restore address and un-normalize', 43251, 45745),
+]
+
+
+def phase_table(d, kmx_path):
+    tof = []
+    with open(kmx_path, encoding='utf-8') as f:
+        for i, line in enumerate(f, 1):
+            op = line.split(' ', 1)[0].strip()
+            if op in ('CCX', 'CCZ', 'CSWAP'):
+                tof.append(i)
+    out = []
+    for name, lo, hi in FRONTIER_PHASES:
+        mx = max(v for a, b, v in d['live_profile_rle'] if b >= lo and a <= hi)
+        pts = [e for e in d['timeline'] if lo <= e['line'] <= hi]
+        best = max(pts, key=lambda e: e['live']) if pts else None
+        out.append({'phase': name, 'lines': [lo, hi], 'max_live': mx,
+                    'toffoli_static': sum(1 for i in tof if lo <= i <= hi),
+                    'timeline_point': best['line'] if best else None,
+                    'classes_by_reg_at_point': best['classes_by_reg'] if best else None,
+                    'live_at_point': best['live'] if best else None})
+    return out
+
+
 def main(commit):
     pl = load('port_ledger.json')
     pk = load('port_kmx_ledger.json')
@@ -73,6 +109,7 @@ def main(commit):
             'peak_live': fr['peak_live'], 'toffoli_static': fr['toffoli_static'], 'toffoli_exec_mean': fr['toffoli_exec_mean'],
             'toffoli_exec_frac_at_ge': fr['toffoli_exec_frac_at_ge'], 'x_restored': fr['x_restored'],
             'segments': seg_table(fr), 'phase_windows': window_table(fr), 'seconds': fr['seconds'],
+            'phases': phase_table(fr, HERE / 'out' / 'public' / 'frontier.kmx'),
         },
         'break_even_toffoli_per_qubit_at_Q92': round(C / 92, 2),
     }
