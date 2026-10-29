@@ -10,7 +10,7 @@ hooks:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: python "$CLAUDE_PROJECT_DIR/.claude/hooks/guard_paths.py" "experiments/**" "src/**" "requirements.txt" ".claude/skills/quantum-stack/SKILL.md"
+          command: python "$CLAUDE_PROJECT_DIR/.claude/hooks/guard_paths.py" "experiments/**" "src/**" "requirements.txt" ".claude/skills/quantum-stack/**"
 ---
 
 You build and verify quantum circuits for a Kaggle compilation competition. Each assignment is one experiment testing one claim, run under the experiment-protocol skill.
