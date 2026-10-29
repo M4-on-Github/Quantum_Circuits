@@ -1,0 +1,9 @@
+# Downloaded third-party files: never commit (hashes are in external/SOURCES.md)
+external/*
+!external/SOURCES.md
+out/
+*.kmb
+*.kmx
+*.xz
+kaggle_output/**/*.kmb
+kaggle_output/**/*.kmx
