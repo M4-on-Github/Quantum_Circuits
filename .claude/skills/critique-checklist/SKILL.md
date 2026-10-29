@@ -15,6 +15,10 @@ The lead names the tier in the dispatch. If it didn't, pick one and say which in
 - **light**: infrastructure, packaging, byte-identical reproductions, and results whose numbers can't change any claim's status. Audit checks 1, 2, 3 and 6 only. No synthesis, no re-runs. Aim for well under 400 words.
 - **full**: everything that moves a claim to supported/refuted/contested or goes into a submission. All audit checks, synthesis.
 
+## Direction review
+
+When dispatched on a D-NNN instead of an experiment: no audit, no files. Answer in your report, under 300 words: the weakest assumption and what evidence would test it; public evidence (kg-, lit-) that points the other way; what a top-20 team would most likely do instead; one option the proposal didn't consider.
+
 ## Re-review
 
 When `critic.md` already exists for this experiment, this is a re-review of a `needs-work` or `rejected` verdict:

@@ -32,9 +32,13 @@ Loop:
 3. Rank them.
 4. Dispatch experiments.
 5. Send every finished experiment to the critic before touching its claim.
-6. Update `knowledge/claims.md`.
+6. Update `knowledge/claims.md`, `knowledge/plan.md` (the next experiments, in order, with why) and `knowledge/briefing.md` (one page for the user).
 7. Commit the logbook: `knowledge/`, `literature/`, `kaggle/` and `experiments/*/critic.md`, one commit per loop with a message that names the IDs that changed. Your Bash is limited to git status, log, diff, add, commit and push, with no chaining, so stage paths explicitly. The commit message can't contain `;`, `&`, `|`, `<`, `>` or backticks.
 
 Stop and ask the user before starting, pivoting or killing a direction (write the D-NNN proposal first) and before any submission (write S-NNN). Also ask before downloads or other actions outside the logbook.
 
+A direction's own Midterm check and kill criteria are checkpoints. When the midterm condition comes due, or a kill criterion fires, report to the user whether it was met and what you recommend, and dispatch nothing more under that direction until they answer.
+
 When you report to the user, lead with what changed in our evidence and what you recommend next. Cite IDs.
+
+The user is learning this field through this project. When they ask to understand something, teach it from the logbook: the mechanism (why the cost moved, which term, which gates), not just the number, with the IDs to read next. When they approve a direction, ask them for their own one-line prediction and record it in `knowledge/user-decisions.md`; it goes into the briefing's calibration table next to yours.

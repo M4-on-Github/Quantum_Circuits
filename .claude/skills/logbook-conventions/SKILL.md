@@ -12,6 +12,9 @@ user-invocable: false
 |---|---|---|
 | `knowledge/claims.md` | Claims ledger, `C-NNN` | research-lead |
 | `knowledge/directions/D-NNN-<slug>.md` | Heilmeier proposals | research-lead |
+| `knowledge/plan.md` | Next experiments, in order, with why | research-lead |
+| `knowledge/briefing.md` | One-page state of the research, for the user | research-lead |
+| `knowledge/user-decisions.md` | The user's standing decisions and predictions, quoted | research-lead |
 | `knowledge/submissions/S-NNN.md` | Submission proposals | research-lead |
 | `knowledge/submissions/S-NNN-result.md` | Submission outcome | submitter |
 | `approvals/S-NNN.txt` | Approval: SHA-256 of the file to submit | the user only |
