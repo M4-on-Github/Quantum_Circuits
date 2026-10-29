@@ -91,6 +91,21 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
   - On the public 63Q invsqrt: mean 1,334.496 over 193,606 lanes in 4.5 s.
   - On our 92Q port over all 3,133,452 x: about 70 s, mean 1,303.999.
   - The REGISTER line's id (`r0`) is not a q/b operand. Map it from the raw tokens.
+- kickmix 1.0.0 builder internals (exp-010 probe):
+  - A `km.q` has `.id`, the qubit index.
+  - `alloc_qubits` reuses freed indices (free q3, q4, then alloc 1, and you get q4).
+  - `num_allocated_qubits` is the current live count.
+  - Qubits that kickmix allocates inside its own calls (for example `init_lookup`) are not visible from outside the call.
+- Width ledger of the `src/invsqrt` build (exp-010):
+  - `experiments/exp-010/port_ledger.py` replaces `invsqrt.build.B`, in-process only, with a subclass whose builder is a forwarding proxy. It names every allocation by its call site.
+  - The build stays byte-identical: raw `c97569f5...`, final `ff629b09...`. It takes 36 s with a copy of the exp-008 cache.
+  - The port's `init_lookup` costs 254 Toffoli. It peaks at 87 qubits, 8 of them kickmix-internal.
+- `experiments/exp-010/kmx_ledger.py <c.kmx> <out.json> [--every=N]` is a bit-packed value simulation over all 3,133,452 x, run as two independent HMR draws.
+  - It classifies each live qubit as `const`, `random`, `x`/`xn` bit, `flag` (a function of t), `table` (a function of the 8-bit address), `arith_p` (a function of (p, xn)) or `arith`.
+  - It reports per-segment maxima and the feeders of each Z_POW group's temp.
+  - About 90 s without `--every`. With `--every=250`: 737 s on the 63Q frontier and 946 s on the 92Q port, two runs at once. Memory not measured.
+  - It takes a Toffoli's width as max(live before, live after). That reproduces the exp-008 critic's profile (frontier 28.1% of executed Toffolis at 63, port 82.8% at >= 72).
+- `km.Circuit.from_file(kmb).to_file(kmx)` (`experiments/exp-010/to_kmx.py`) is deterministic: the regenerated frontier and port `.kmx` have the same SHA-256 as exp-008's (exp-010).
 - invsqrt verifier `--max-x N` runs the same checks on x = 1..N only (64 shots each). `--max-x 20000` (1.28M shots) takes 30 s locally, serially. Its `rotation_eps` comes from the min margin over x ≤ N only, so it equals the full-run eps only when the worst-margin x is ≤ N (true for the exp-008 port, which is calibrated against all x).
 - `src/angleload/mbu.py`: `emit_qrom_xor(b, sel, rows, targets)` is the qrom.py segment tree on a caller's builder, with arbitrary target qubits and a freed ladder. With the word bits as targets it gives `==` the reference circuit for all 10 sample circuits. `emit_mbu_clear` measures out qubits holding `rows[a]` (HMR plus a unary-iteration phase fix). `build_mbu_section_family` is the exp-007 P5 legality probe (official verify PASS, width 124, 580.8 s local, 1.10 GB).
 
