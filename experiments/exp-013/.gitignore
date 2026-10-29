@@ -1,0 +1,7 @@
+out/
+*.kmb
+*.kmx
+kaggle_output/**/*.kmb
+# The submission zip is rebuilt byte-identically by src/tools/package.py; its SHA-256 is in README.md and manifest.json.
+submission.zip
+submission.zip.partial
