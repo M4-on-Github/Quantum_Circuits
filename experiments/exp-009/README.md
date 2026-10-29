@@ -4,10 +4,10 @@ title: Package S-002 (sample zip with our src/invsqrt circuit) and pre-register 
 task: all
 tests: [C-001]
 direction: none
-status: planned
+status: done
 date: 2026-10-28
-commit: pending
-result: pending
+commit: c78fbce
+result: S-002 zip experiments/exp-009/submission.zip, SHA-256 fcb9ce1d713827f485beba4efec9e130131ff010ecf5ba0347bda171f1cb7c99 (13 members; invsqrt is our ff629b09, the rest byte-identical to the sample). Fresh-salt full verify PASS, Q 92, cost 148,977.94 (predictions held). Local score 2.40681 (C-001 refs) or 2.40670 (exact sample refs); LB awaits an approved submission
 ---
 
 ## Hypothesis
@@ -103,3 +103,118 @@ step 2. Two independent builds give the same zip SHA-256.
 - dqi and dfthcsos are not re-verified: their members are the sample bytes, so exp-001's costs apply.
 - Nothing in this experiment submits or calls a submit endpoint. The submitter uploads only after the user approves the zip
   SHA-256 in `approvals/S-002.txt`.
+
+## Results
+
+All numbers come from `results.json` (written by `make_results.py c78fbce` from `kaggle_output/exp009/` and
+`manifest.json`) and `manifest.json` (written by `package.py`).
+
+**Submission file (S-002).**
+- **Zip:** `experiments/exp-009/submission.zip`, 73,809,027 bytes, 13 members.
+- **SHA-256:** `fcb9ce1d713827f485beba4efec9e130131ff010ecf5ba0347bda171f1cb7c99`.
+- Reproducible: three builds (one before the verify finished, two after) gave this same SHA-256; the two post-verify
+  manifests are identical apart from `runtime_s`. Kept out of git by `experiments/exp-009/.gitignore`.
+
+| Member | Size (B) | Compressed (B) | SHA-256 | Equals |
+|---|---:|---:|---|---|
+| `invsqrt.kmb` | 288,783 | 24,551 | `ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917` | the file verified below (kernel `verified_file_sha256` and verifier `circuit_sha256`); exp-008 `out/port.kmb` |
+| `dqi.kmb` | 886,118,180 | 69,819,447 | `959471d05a26373b4f14ca0cae2d8639ea25f18170d9f6532139aa51ccc04995` | sample, exp-004 |
+| `dfthcsos/angle_k_0.kmb` | 1,671,932 | 112,922 | `7bfb3983accc6ff97d6ab41a88deae924f1d1c97cf30e60879d0bff5688a8e25` | sample, exp-004 |
+| `dfthcsos/angle_k_1.kmb` | 1,662,896 | 115,853 | `a04b6d0d57ce851b123af265066aaab2ab33353ea049d26acd534727466d72b6` | sample, exp-004 |
+| `dfthcsos/angle_k_2.kmb` | 1,665,821 | 116,351 | `5c1b8987bc3fa1a4b8607e470f8c8f1392c22e7a7dbcb228f0ce9ec986e18058` | sample, exp-004 |
+| `dfthcsos/angle_k_3.kmb` | 1,666,802 | 117,309 | `16ac67cdcaf3e2c6abdd98c4138ff1ae8a56cfc4ae15622bcdb3d3a3ba1e22cf` | sample, exp-004 |
+| `dfthcsos/angle_k_4.kmb` | 1,954,082 | 134,959 | `d21cdd4c7e94196654aab15ebcabfe10ce8d343151a5e8dc3672e76684b6628d` | sample, exp-004 |
+| `dfthcsos/angle_k_5.kmb` | 1,948,583 | 133,922 | `63b8d4cba36955e6098321f3b2ef3e34401dd276fa629b2e490d043b1743880b` | sample, exp-004 |
+| `dfthcsos/angle_k_6.kmb` | 1,947,980 | 133,745 | `5bf740428e661d035fda860142578f421969e35e0df2e4e024fbf01a7340b378` | sample, exp-004 |
+| `dfthcsos/angle_k_7.kmb` | 1,968,527 | 135,539 | `606009582111a22bd549b795c8d115ac8bbeb124bc8da24a80380eca6d34163d` | sample, exp-004 |
+| `dfthcsos/angle_k_8.kmb` | 1,957,124 | 136,948 | `57c7cc51f5922fff6e95d76e1f723d4c2d029a241da643b95684d6322157a8fe` | sample, exp-004 |
+| `dfthcsos/angle_k_9.kmb` | 1,953,830 | 134,416 | `22cbe2828988ff954fc07fd971a25e6bc04a02c302bf2cc642e4c3535daaad65` | sample, exp-004 |
+| `dfthcsos/submission.npz` | 4,537,436 | 2,691,533 | `14d5cc25eb3bf82a9ccb87c811db28d127bef6d28697dd190dc1e875de3bfe69` | sample, exp-004 |
+
+Checks in `manifest.json` (all true):
+- member names and order equal exp-004's; no directory entries, duplicates or zip64; `testzip` passes;
+- one invsqrt and one dqi file; `angle_k_0..9` contiguous;
+- npz keys present, loadable with `allow_pickle=False`, little-endian;
+- every member byte-identical to its source; dqi and all 11 dfthcsos members equal both `data/sample_submission/` and
+  exp-004's manifest; the invsqrt member equals the verified file; extracted files byte-identical.
+
+Also (`results.json`): the 12 non-invsqrt deflate entries have exp-004's compressed sizes and CRCs. An independent reader
+(Windows `tar.exe`, bsdtar) lists the same 13 names in order and inflates `invsqrt.kmb`, `dqi.kmb`, `angle_k_9.kmb` and
+`submission.npz` to the same SHA-256s.
+
+**Rebuild from committed code.**
+- Local (`out/build.log`, gitignored): empty work dir `out/work`, LP calibration recomputed (130.1 s; worst
+  0.9999059628540141, margin 73,111,258, 44 rotations), 198 s total. File and canonical `.kmb` SHA-256 both
+  `ff629b09...5917`; `cmp`-identical to exp-008 `out/port.kmb`.
+- Kaggle (kernel v1): the embedded local file hashed `ff629b09...` (file and canonical). An independent rebuild from the
+  embedded 46af961 sources (each SHA-256-equal to `git show 46af961:src/invsqrt/<file>`) and config (equal to
+  `config_port.json`) in an empty work dir took 130.4 s and was byte-identical to it. The downloaded `invsqrt.kmb` and
+  `rebuilt.kmb` are `cmp`-identical to the local `out/invsqrt.kmb`.
+
+**Fresh-salt full verify.**
+- Kernel `rainm4/exp-009-s002-invsqrt-salt-verify` v1, private CPU script kernel (metadata in `kernel/kernel-metadata.json`),
+  status COMPLETE.
+- Command `/usr/bin/python3 -I -B invsqrt/verify_submission_invsqrt.py /kaggle/working/exp009/invsqrt.kmb --salt
+  exp-009-S-002`, cwd the competition `verifiers/` mount. Verifier SHA-256 `ddef520d...`, the same as exp-008 and local.
+- rc 0, stderr empty, 973.3 s wall, peak tree RSS 0.71 GB, system used 0.99 GB.
+- Full stdout in `verifier.log` (identical to `kaggle_output/exp009/verify_full.json`).
+
+| Metric | exp-008 (default salt) | exp-009 (salt `exp-009-S-002`) | Change | Pre-registered | Held? |
+|---|---|---|---|---|---|
+| status | PASS | PASS | | PASS | yes |
+| Q | 92 | 92 | 0 | 92 | yes |
+| toffoli_count | 1,303.999457656843 | 1,303.999920385329 | +0.00046 | 1,304.000 ± 0.0016 | yes |
+| max_toffoli_count | 1,315 | 1,315 | 0 | 1,315 | yes |
+| t_count / rotation_count | 1 / 44 | 1 / 44 | 0 | 1 / 44 | yes |
+| rotation_eps | 2.8298390184213153e-13 | 2.8298390184213153e-13 | 0 | exact | yes |
+| worst_error_over_tolerance | 0.9999059628540141 (x 2) | 0.9999059628540141 (x 2) | 0 | exact | yes |
+| toffoli_equivalent | 1,619.3250243907166 | 1,619.3254871192025 | +0.00046 | | |
+| cost | 148,977.90224394592 | 148,977.94481496664 | +0.0426 | 148,977.95 ± 0.15 | yes |
+| verified_shots | 200,540,928 | 200,540,928 | 0 | 64 x 3,133,452 | yes |
+| circuit_sha256 | `ff629b09...` | `ff629b09...` | | `ff629b09...` | yes |
+
+Improvement over the exp-001 sample at this salt: 2,076,774.23 / 148,977.94 = 13.94015; score factor 2.40670.
+
+**Local score of S-002** (`results.json` `local_score`; invsqrt from this verify, dqi and dfthcsos from exp-001's accepted
+costs of the byte-identical sample members):
+
+| | invsqrt | dqi | dfthcsos | score |
+|---|---|---|---|---|
+| factors vs C-001 rounded references | 13.940855 | 1.000078 | 1.000000 | **2.406806** |
+| factors vs exact sample costs | 13.940146 | 1 | 1 | **2.406703** |
+
+Both are inside the pre-registered C-001 window [2.4043, 2.4091]. On the same arithmetic, x1.015 gives 2.4428 to 2.4429
+and x0.974938 (dqi half-shot eps+) gives 2.3464 to 2.3465.
+
+LB score: **not measured.** Nothing was submitted and no submit endpoint was called.
+
+## Conclusion
+
+- **Every pre-registered local prediction held.**
+  - The committed generator (46af961, `config_port.json`) rebuilds `ff629b09...` from an empty work dir, on Windows and on
+    Kaggle.
+  - The full official verify with a fresh salt passes: Q 92, cost 148,977.94481 (inside 148,977.95 ± 0.15), mean Toffoli
+    1,303.99992 (inside 1,304.000 ± 0.0016). eps and the worst ratio are bit-identical to exp-008.
+  - The salt moves the cost by 2.9e-7 relative.
+- **S-002 is ready for the lead and the user:** `experiments/exp-009/submission.zip`, SHA-256
+  `fcb9ce1d713827f485beba4efec9e130131ff010ecf5ba0347bda171f1cb7c99`. It differs from exp-004's zip only in the
+  `invsqrt.kmb` member. The submitter should re-hash it against this value immediately before upload, and only after the
+  user writes `approvals/S-002.txt`.
+- **C-001 is still untested.** Reading the LB number back:
+  - inside [2.4043, 2.4091]: C-001 holds (2.40681 means rounded references, 2.40670 exact sample costs);
+  - about 2.4428: references about 4.5% higher in product;
+  - about 2.3465: dqi eps+ from about half the shots on the public split;
+  - about 1.000, or an error: our invsqrt member was not scored as ours;
+  - compare S-002's ratio (LB / local) with S-001's. Equal ratios point to a whole-score effect (references or dqi);
+    different ratios point to how the LB scores invsqrt;
+  - record any per-task values Kaggle shows; invsqrt should read 148,977.9 ± 0.2.
+
+## Deviations
+
+- 2026-10-28: the verify took 973 s on Kaggle, against the "about 13 min" in the task and exp-008's 775 s for the same
+  file at the default salt. The cause was not investigated (same kernel type, 4 CPUs; Kaggle host load unknown).
+- 2026-10-28: the downloaded calibration cache `kaggle_output/exp009/work/hang_*.pkl` was deleted unloaded, as in exp-008.
+  The downloaded `rebuilt.kmb` was moved to `out/kaggle_rebuilt.kmb`. Neither is an input to anything.
+- 2026-10-28: a trial `package.py` run before the kernel output existed produced the same zip SHA-256 but failed its
+  `invsqrt_member_is_the_verified_file` check, by design (no verify yet); its log is `out/package_pre.log`. The committed
+  `manifest.json` is from the post-verify run.
