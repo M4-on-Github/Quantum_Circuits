@@ -1,0 +1,7 @@
+# The submission zip (~74 MB) is rebuilt byte-identically by package.py; its path and SHA-256 are in README.md and manifest.json.
+submission.zip
+submission.zip.partial
+out/
+kaggle_output/exp009/invsqrt.kmb
+kaggle_output/exp009/work/
+kaggle_output/src/
