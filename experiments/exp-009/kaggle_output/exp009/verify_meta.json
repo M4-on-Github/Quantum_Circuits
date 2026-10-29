@@ -1,0 +1,34 @@
+{
+ "rc": 0,
+ "wall_s": 973.3471603393555,
+ "peak": {
+  "tree_rss": 705413120,
+  "sys_used": 988659712
+ },
+ "cmd": [
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "invsqrt/verify_submission_invsqrt.py",
+  "/kaggle/working/exp009/invsqrt.kmb",
+  "--salt",
+  "exp-009-S-002"
+ ],
+ "cwd": "/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers",
+ "salt": "exp-009-S-002",
+ "verified_file_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "verified_canonical_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "rebuilt_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "rebuild_byte_identical": true,
+ "build_s": 130.37692523002625,
+ "verifier_sha256": "ddef520dec6b68d1cf0a6f328ddd36d79eb84570b9192cf3f7acaf073f06733a",
+ "machine": {
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+  "cpu_count": 4,
+  "total_mem_bytes": 33658159104,
+  "kickmix": "1.0.0",
+  "numpy": "2.1.3",
+  "scipy": "1.16.3"
+ }
+}
