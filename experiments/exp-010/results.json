@@ -1,0 +1,861 @@
+{
+ "exp": "exp-010",
+ "commit": "3884639",
+ "task": "invsqrt",
+ "verifier": null,
+ "verifier_cmd": null,
+ "passed": null,
+ "note": "diagnostic width ledger; no official verifier run (none needed). Q/C figures of the port are exp-008 verifier values.",
+ "port": {
+  "config": "experiments/exp-008/config_port.json",
+  "code": "src/invsqrt at 46af961 (unchanged)",
+  "raw_sha256": "c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66",
+  "final_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+  "same_circuit_as_exp008": true,
+  "generator_peak": [
+   92,
+   "B add n=21"
+  ],
+  "build_seconds": 35.9,
+  "stages": {
+   "thermo": {
+    "peak": 48,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "f1": 1,
+     "flags": 4,
+     "thermo": 21,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [],
+    "idle_qubits_in_stage_at_peak": 0,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 20
+   },
+   "norm": {
+    "peak": 79,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "C2": 7,
+     "H": 7,
+     "L": 21,
+     "T": 18,
+     "flags": 4,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "C2",
+     "H",
+     "L",
+     "T"
+    ],
+    "idle_qubits_in_stage_at_peak": 53,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 79
+   },
+   "lookup": {
+    "peak": 83,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "C2": 7,
+     "H": 7,
+     "L": 21,
+     "T": 18,
+     "const": 1,
+     "ext": 3,
+     "flags": 4,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "ext",
+     "flags"
+    ],
+    "idle_qubits_in_stage_at_peak": 7,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 0
+   },
+   "Hphase": {
+    "peak": 84,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "C2": 7,
+     "H": 7,
+     "L": 21,
+     "T": 18,
+     "const": 1,
+     "ext": 3,
+     "flags": 4,
+     "ptemp": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "C2",
+     "L",
+     "T",
+     "x"
+    ],
+    "idle_qubits_in_stage_at_peak": 68,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 64
+   },
+   "A": {
+    "peak": 83,
+    "peak_sub": "row4 add n=12",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "carry": 10,
+     "flags": 4,
+     "guard": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "L",
+     "flags"
+    ],
+    "idle_qubits_in_stage_at_peak": 25,
+    "n_substages_at_peak": 7,
+    "toffoli_like_calls": 108
+   },
+   "B": {
+    "peak": 92,
+    "peak_sub": "row12 add n=21",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "carry": 19,
+     "flags": 4,
+     "guard": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "C2",
+     "flags",
+     "guard"
+    ],
+    "idle_qubits_in_stage_at_peak": 12,
+    "n_substages_at_peak": 14,
+    "toffoli_like_calls": 214
+   },
+   "Lphase": {
+    "peak": 89,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "counter": 12,
+     "ext": 3,
+     "flags": 4,
+     "guard": 1,
+     "ptemp": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "C2",
+     "T",
+     "counter",
+     "guard",
+     "x"
+    ],
+    "idle_qubits_in_stage_at_peak": 60,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 134
+   },
+   "B-1": {
+    "peak": 92,
+    "peak_sub": "row0 add n=9",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "carry": 7,
+     "counter": 12,
+     "flags": 4,
+     "guard": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "C2",
+     "flags",
+     "guard"
+    ],
+    "idle_qubits_in_stage_at_peak": 12,
+    "n_substages_at_peak": 14,
+    "toffoli_like_calls": 214
+   },
+   "A-1": {
+    "peak": 83,
+    "peak_sub": "row11 add n=12",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "carry": 10,
+     "flags": 4,
+     "guard": 1,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "L",
+     "flags"
+    ],
+    "idle_qubits_in_stage_at_peak": 25,
+    "n_substages_at_peak": 7,
+    "toffoli_like_calls": 108
+   },
+   "unlookup": {
+    "peak": 72,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "C2": 7,
+     "L": 21,
+     "T": 18,
+     "flags": 4,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [
+     "flags"
+    ],
+    "idle_qubits_in_stage_at_peak": 4,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 14
+   },
+   "unnorm": {
+    "peak": 41,
+    "peak_sub": "",
+    "regs_at_peak": {
+     "f1": 1,
+     "flags": 4,
+     "unnorm_anc": 14,
+     "x": 22
+    },
+    "internal_at_peak": 0,
+    "idle_in_stage_at_peak": [],
+    "idle_qubits_in_stage_at_peak": 0,
+    "n_substages_at_peak": 1,
+    "toffoli_like_calls": 101
+   }
+  },
+  "B_row_adds": 28,
+  "B_row_adds_at_92": 28,
+  "kmx_ledger": {
+   "peak_live": 92,
+   "segments": [
+    {
+     "name": "pre",
+     "lines": [
+      1,
+      9693
+     ],
+     "max_live": 87,
+     "max_line": 4911,
+     "classes_by_reg_at_max": {
+      "flag|-": 5,
+      "flag|x": 1,
+      "table|-": 60,
+      "xn|x": 21
+     },
+     "idle_in_segment_at_max": 0,
+     "idle_classes": {},
+     "toffoli_static": 371,
+     "toffoli_exec_mean": 371.0
+    },
+    {
+     "name": "G1",
+     "lines": [
+      9694,
+      9903
+     ],
+     "max_live": 84,
+     "max_line": 9694,
+     "classes_by_reg_at_max": {
+      "flag|-": 5,
+      "flag|x": 1,
+      "table|-": 46,
+      "table_t|-": 11,
+      "xn|x": 21
+     },
+     "idle_in_segment_at_max": 70,
+     "idle_classes": {
+      "flag": 3,
+      "table": 46,
+      "xn": 21
+     },
+     "toffoli_static": 31,
+     "toffoli_exec_mean": 31.0
+    },
+    {
+     "name": "mid",
+     "lines": [
+      9904,
+      14195
+     ],
+     "max_live": 92,
+     "max_line": 11279,
+     "classes_by_reg_at_max": {
+      "arith_p|-": 58,
+      "flag|-": 4,
+      "flag|x": 1,
+      "table|-": 8,
+      "xn|x": 21
+     },
+     "idle_in_segment_at_max": 8,
+     "idle_classes": {
+      "flag": 1,
+      "xn": 7
+     },
+     "toffoli_static": 375,
+     "toffoli_exec_mean": 375.0
+    },
+    {
+     "name": "G2",
+     "lines": [
+      14196,
+      14622
+     ],
+     "max_live": 89,
+     "max_line": 14196,
+     "classes_by_reg_at_max": {
+      "arith|-": 24,
+      "arith_p|-": 31,
+      "flag|-": 4,
+      "flag|x": 1,
+      "table|-": 8,
+      "xn|x": 21
+     },
+     "idle_in_segment_at_max": 63,
+     "idle_classes": {
+      "arith_p": 31,
+      "flag": 3,
+      "table": 8,
+      "xn": 21
+     },
+     "toffoli_static": 53,
+     "toffoli_exec_mean": 53.0
+    },
+    {
+     "name": "post",
+     "lines": [
+      14623,
+      39107
+     ],
+     "max_live": 92,
+     "max_line": 14939,
+     "classes_by_reg_at_max": {
+      "arith_p|-": 58,
+      "arith_p|x": 1,
+      "flag|-": 4,
+      "flag|x": 1,
+      "table|-": 8,
+      "xn|x": 20
+     },
+     "idle_in_segment_at_max": 0,
+     "idle_classes": {},
+     "toffoli_static": 485,
+     "toffoli_exec_mean": 473.999
+    }
+   ],
+   "phase_windows": [
+    {
+     "temp": 83,
+     "start": 9691,
+     "first_zpow": 9694,
+     "end": 9903,
+     "n_zpow": 18,
+     "n_zpow_on_temp": 18,
+     "live_at_start": 83,
+     "live_at_first_zpow": 84,
+     "live_after_end": 84,
+     "persistent_through_window": 83,
+     "persistent_classes_by_reg": {
+      "flag|-": 5,
+      "flag|x": 1,
+      "table_t|-": 10,
+      "table|-": 46,
+      "xn|x": 21
+     },
+     "classes_by_reg_at_first_zpow": {
+      "flag|-": 5,
+      "flag|x": 1,
+      "table|-": 46,
+      "table_t|-": 11,
+      "xn|x": 21
+     },
+     "feeders_by_role": {
+      "data|-|table_t": 10,
+      "flag_or_x|-|flag": 3
+     },
+     "feeder_summary": {
+      "persistent|flag": 3,
+      "persistent|table_t": 10
+     }
+    },
+    {
+     "temp": 88,
+     "start": 14193,
+     "first_zpow": 14196,
+     "end": 14622,
+     "n_zpow": 29,
+     "n_zpow_on_temp": 29,
+     "live_at_start": 88,
+     "live_at_first_zpow": 89,
+     "live_after_end": 89,
+     "persistent_through_window": 88,
+     "persistent_classes_by_reg": {
+      "arith_p|-": 31,
+      "arith|-": 23,
+      "flag|-": 4,
+      "flag|x": 1,
+      "table|-": 8,
+      "xn|x": 21
+     },
+     "classes_by_reg_at_first_zpow": {
+      "arith|-": 24,
+      "arith_p|-": 31,
+      "flag|-": 4,
+      "flag|x": 1,
+      "table|-": 8,
+      "xn|x": 21
+     },
+     "feeders_by_role": {
+      "data|-|arith": 22,
+      "flag_or_x|-|flag": 2
+     },
+     "feeder_summary": {
+      "persistent|arith": 22,
+      "persistent|flag": 2
+     }
+    }
+   ],
+   "toffoli_exec_mean": 1303.999,
+   "toffoli_exec_frac_at_ge": {
+    "59": 0.8282,
+    "63": 0.8282,
+    "72": 0.8282,
+    "84": 0.533,
+    "89": 0.1495,
+    "92": 0.0429
+   },
+   "x_restored": true,
+   "seconds": 945.6
+  }
+ },
+ "frontier": {
+  "kmb_sha256": "07314803a0925970cf45007ebbdb8a146378c242e3991c70d6f7509af3d583da",
+  "kmx": "experiments/exp-010/out/public/frontier.kmx (kickmix 1.0.0 from_file/to_file; SHA-256 17019b15...)",
+  "peak_live": 63,
+  "toffoli_static": 1402,
+  "toffoli_exec_mean": 1334.504,
+  "toffoli_exec_frac_at_ge": {
+   "59": 0.6096,
+   "63": 0.2806,
+   "72": 0.0,
+   "84": 0.0,
+   "89": 0.0,
+   "92": 0.0
+  },
+  "x_restored": true,
+  "segments": [
+   {
+    "name": "pre",
+    "lines": [
+     1,
+     16710
+    ],
+    "max_live": 63,
+    "max_line": 4209,
+    "classes_by_reg_at_max": {
+     "arith|x": 4,
+     "flag|-": 1,
+     "flag|x": 1,
+     "table|-": 40,
+     "table|x": 2,
+     "xn|x": 15
+    },
+    "idle_in_segment_at_max": 0,
+    "idle_classes": {},
+    "toffoli_static": 250,
+    "toffoli_exec_mean": 250.0
+   },
+   {
+    "name": "G1",
+    "lines": [
+     16711,
+     17090
+    ],
+    "max_live": 63,
+    "max_line": 16716,
+    "classes_by_reg_at_max": {
+     "flag|-": 2,
+     "flag|x": 2,
+     "table|-": 39,
+     "xn|x": 20
+    },
+    "idle_in_segment_at_max": 16,
+    "idle_classes": {
+     "table": 3,
+     "xn": 13
+    },
+    "toffoli_static": 60,
+    "toffoli_exec_mean": 60.0
+   },
+   {
+    "name": "mid",
+    "lines": [
+     17091,
+     27124
+    ],
+    "max_live": 63,
+    "max_line": 17198,
+    "classes_by_reg_at_max": {
+     "arith|x": 3,
+     "flag|-": 4,
+     "flag|x": 2,
+     "table|-": 37,
+     "xn|x": 17
+    },
+    "idle_in_segment_at_max": 0,
+    "idle_classes": {},
+    "toffoli_static": 411,
+    "toffoli_exec_mean": 411.0
+   },
+   {
+    "name": "G2",
+    "lines": [
+     27125,
+     27380
+    ],
+    "max_live": 63,
+    "max_line": 27181,
+    "classes_by_reg_at_max": {
+     "arith|-": 3,
+     "arith|x": 3,
+     "arith_p|-": 34,
+     "arith_p|x": 6,
+     "flag|-": 2,
+     "flag|x": 2,
+     "table_t|-": 2,
+     "xn|x": 11
+    },
+    "idle_in_segment_at_max": 31,
+    "idle_classes": {
+     "arith_p": 20,
+     "xn": 11
+    },
+    "toffoli_static": 90,
+    "toffoli_exec_mean": 90.0
+   },
+   {
+    "name": "post",
+    "lines": [
+     27381,
+     45745
+    ],
+    "max_live": 63,
+    "max_line": 28295,
+    "classes_by_reg_at_max": {
+     "arith_p|-": 39,
+     "arith_p|x": 6,
+     "flag|-": 2,
+     "flag|x": 2,
+     "xn|x": 14
+    },
+    "idle_in_segment_at_max": 0,
+    "idle_classes": {},
+    "toffoli_static": 591,
+    "toffoli_exec_mean": 523.504
+   }
+  ],
+  "phase_windows": [
+   {
+    "temp": 59,
+    "start": 16365,
+    "first_zpow": 16711,
+    "end": 17090,
+    "n_zpow": 22,
+    "n_zpow_on_temp": 9,
+    "live_at_start": 58,
+    "live_at_first_zpow": 61,
+    "live_after_end": 61,
+    "persistent_through_window": 58,
+    "persistent_classes_by_reg": {
+     "arith|x": 4,
+     "flag|-": 1,
+     "flag|x": 1,
+     "table|-": 35,
+     "xn|x": 17
+    },
+    "classes_by_reg_at_first_zpow": {
+     "flag|-": 2,
+     "flag|x": 2,
+     "table|-": 37,
+     "xn|x": 20
+    },
+    "feeders_by_role": {
+     "data|-|table": 26,
+     "data|x|arith": 3,
+     "flag_or_x|-|flag": 1,
+     "flag_or_x|x|flag": 1,
+     "flag_or_x|x|xn": 5,
+     "phase_only|-|zero": 4
+    },
+    "feeder_summary": {
+     "persistent|flag": 1,
+     "persistent|table": 26,
+     "phase-only|zero": 4,
+     "x-reg|arith": 3,
+     "x-reg|flag": 1,
+     "x-reg|xn": 5
+    }
+   },
+   {
+    "temp": 40,
+    "start": 27110,
+    "first_zpow": 27125,
+    "end": 27380,
+    "n_zpow": 26,
+    "n_zpow_on_temp": 26,
+    "live_at_start": 58,
+    "live_at_first_zpow": 59,
+    "live_after_end": 59,
+    "persistent_through_window": 58,
+    "persistent_classes_by_reg": {
+     "arith_p|-": 34,
+     "arith_p|x": 6,
+     "flag|-": 2,
+     "flag|x": 2,
+     "xn|x": 14
+    },
+    "classes_by_reg_at_first_zpow": {
+     "arith|-": 1,
+     "arith|x": 2,
+     "arith_p|-": 34,
+     "arith_p|x": 6,
+     "flag|-": 2,
+     "flag|x": 2,
+     "xn|x": 12
+    },
+    "feeders_by_role": {
+     "data|-|arith_p": 15,
+     "data|x|arith_p": 5,
+     "flag_or_x|-|flag": 2,
+     "flag_or_x|x|flag": 2,
+     "flag_or_x|x|xn": 3,
+     "phase_only|-|zero": 4
+    },
+    "feeder_summary": {
+     "persistent|arith_p": 15,
+     "persistent|flag": 2,
+     "phase-only|zero": 4,
+     "x-reg|arith_p": 5,
+     "x-reg|flag": 2,
+     "x-reg|xn": 3
+    }
+   }
+  ],
+  "seconds": 736.7,
+  "phases": [
+   {
+    "phase": "normalize (flags into x low bits)",
+    "lines": [
+     1,
+     250
+    ],
+    "max_live": 48,
+    "toffoli_static": 71,
+    "timeline_point": 1,
+    "classes_by_reg_at_point": {
+     "x|x": 22
+    },
+    "live_at_point": 22
+   },
+   {
+    "phase": "main lookup (35 table qubits)",
+    "lines": [
+     251,
+     16710
+    ],
+    "max_live": 63,
+    "toffoli_static": 179,
+    "timeline_point": 4251,
+    "classes_by_reg_at_point": {
+     "arith|x": 4,
+     "flag|-": 1,
+     "flag|x": 1,
+     "table|-": 40,
+     "table|x": 1,
+     "xn|x": 16
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "H phase (Z_POW group 1)",
+    "lines": [
+     16711,
+     17090
+    ],
+    "max_live": 63,
+    "toffoli_static": 60,
+    "timeline_point": 16751,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "flag|-": 2,
+     "flag|x": 2,
+     "table|-": 38,
+     "table_t|-": 1,
+     "xn|x": 17
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "table/address step (x[14..21] partly zeroed)",
+    "lines": [
+     17091,
+     22000
+    ],
+    "max_live": 63,
+    "toffoli_static": 47,
+    "timeline_point": 17251,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "flag|-": 4,
+     "flag|x": 2,
+     "table|-": 37,
+     "xn|x": 17
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "arithmetic (L built, table words erased)",
+    "lines": [
+     22001,
+     27124
+    ],
+    "max_live": 63,
+    "toffoli_static": 364,
+    "timeline_point": 25751,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "arith_p|-": 39,
+     "arith_p|x": 8,
+     "flag|-": 2,
+     "xn|x": 11
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "L phase (Z_POW group 2)",
+    "lines": [
+     27125,
+     27380
+    ],
+    "max_live": 63,
+    "toffoli_static": 90,
+    "timeline_point": 27251,
+    "classes_by_reg_at_point": {
+     "arith|-": 2,
+     "arith|x": 3,
+     "arith_p|-": 34,
+     "arith_p|x": 6,
+     "flag|-": 2,
+     "flag|x": 2,
+     "table_t|-": 3,
+     "xn|x": 11
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "arithmetic uncompute",
+    "lines": [
+     27381,
+     31750
+    ],
+    "max_live": 63,
+    "toffoli_static": 288,
+    "timeline_point": 29251,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "arith_p|-": 36,
+     "arith_p|x": 8,
+     "flag|-": 2,
+     "xn|x": 11
+    },
+    "live_at_point": 60
+   },
+   {
+    "phase": "table recompute and uncompute",
+    "lines": [
+     31751,
+     36250
+    ],
+    "max_live": 63,
+    "toffoli_static": 184,
+    "timeline_point": 32501,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "arith_p|-": 16,
+     "arith_p|x": 1,
+     "flag|-": 2,
+     "table|-": 23,
+     "table|x": 7,
+     "xn|x": 11
+    },
+    "live_at_point": 63
+   },
+   {
+    "phase": "measured-unlookup phase fix-up",
+    "lines": [
+     36251,
+     43250
+    ],
+    "max_live": 63,
+    "toffoli_static": 12,
+    "timeline_point": 36251,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "arith_p|-": 15,
+     "arith_p|x": 6,
+     "flag|-": 3,
+     "table|-": 13,
+     "table|x": 2,
+     "xn|-": 7,
+     "xn|x": 11
+    },
+    "live_at_point": 60
+   },
+   {
+    "phase": "restore address and un-normalize",
+    "lines": [
+     43251,
+     45745
+    ],
+    "max_live": 52,
+    "toffoli_static": 107,
+    "timeline_point": 43751,
+    "classes_by_reg_at_point": {
+     "arith|x": 3,
+     "flag|-": 3,
+     "table|-": 19,
+     "table|x": 8,
+     "xn|-": 7,
+     "xn|x": 11
+    },
+    "live_at_point": 51
+   }
+  ]
+ },
+ "break_even_toffoli_per_qubit_at_Q92": 17.6
+}

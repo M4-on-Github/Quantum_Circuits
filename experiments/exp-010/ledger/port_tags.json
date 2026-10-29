@@ -1,0 +1,66 @@
+{
+ "file": "experiments/exp-010/out/port.kmx",
+ "n_lines": 39107,
+ "total_toffoli_like": 1315,
+ "conditioned_toffoli_like": 22,
+ "op_counts": {
+  "APPEND_TO_REGISTER": 22,
+  "REGISTER": 1,
+  "X": 777,
+  "CX": 13105,
+  "R": 1014,
+  "CCX": 1053,
+  "HMR": 1018,
+  "CZ": 7541,
+  "CSWAP": 262,
+  "INFO_TAG": 1056,
+  "Z": 35,
+  "Z_POW": 47,
+  "PUSH_CONDITION": 6588,
+  "POP_CONDITION": 6588
+ },
+ "by_path": {
+  "": 1047,
+  "lookup/lookup/lookup/lookup/lookup/lookup/lookup/lookup": 128,
+  "lookup/lookup/lookup/lookup/lookup/lookup/lookup": 64,
+  "lookup/lookup/lookup/lookup/lookup/lookup": 32,
+  "lookup/lookup/lookup/lookup/lookup": 16,
+  "unary_iteration": 14,
+  "lookup/lookup/lookup/lookup": 8,
+  "lookup/lookup/lookup": 4,
+  "lookup/lookup": 2
+ },
+ "instance_histograms": {
+  "lookup": {
+   "0": 256,
+   "1": 128,
+   "3": 64,
+   "7": 32,
+   "15": 16,
+   "31": 8,
+   "63": 4,
+   "127": 2,
+   "254": 1
+  },
+  "unary_iteration": {
+   "0": 9,
+   "1": 4,
+   "2": 2,
+   "3": 2
+  }
+ },
+ "conditioned_by_top_mark": {
+  "": {
+   "toffolis": 22,
+   "definitions": {
+    "[{\"kind\": \"measured\"}]": 22
+   }
+  }
+ },
+ "push_condition_definitions": {
+  "{\"kind\": \"measured\"}": 6588
+ },
+ "conditioned_by_path": {
+  " | [{\"kind\": \"measured\"}]": 22
+ }
+}

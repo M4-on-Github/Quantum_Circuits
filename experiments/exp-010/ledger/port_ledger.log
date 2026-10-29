@@ -1,0 +1,19 @@
+tables 0.0s
+calibration worst 0.9999059628540141 margin 73111258.0 nrot 44 (2.6s)
+windows A {'A': 10, 'B': 19}, wcb [2, 2, 2, 2, 2, 2]
+raw build {'Q': 92, 'toffoli_sampled_mean': 1312.970703125, 't': 1.0, 'rot': 44.0, 'max_toffoli': 1324, 'C': 1628.2962698588735, 'cost': 149803.25682701636, 'ratio': 13.863345014677577, 'peak': (92, 'B add n=21'), 'sha256': 'c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66'} (26.3s)
+exact pass {'ccx_del': 8, 'ccx_cx': 1, 'ccz_del': 0, 'ccz_cz': 0, 'cswap_del': 0, 'cswap_swap': 0} (35.9s)
+final {'Q': 92, 'toffoli_sampled_mean': 1303.970703125, 't': 1.0, 'rot': 44.0, 'max_toffoli': 1315, 'C': 1619.2962698588735, 'cost': 148975.25682701636, 'ratio': 13.940397069606952, 'sha256': 'ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917'} (35.9s)
+raw c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66 final ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917 35.9s
+          peak  27 at '' regs {'f1': 1, 'flags': 4, 'x': 22} internal 0 idle(stage) ['f1', 'flags', 'x']=27
+thermo    peak  48 at '' regs {'f1': 1, 'flags': 4, 'thermo': 21, 'x': 22} internal 0 idle(stage) []=0
+norm      peak  79 at '' regs {'C2': 7, 'H': 7, 'L': 21, 'T': 18, 'flags': 4, 'x': 22} internal 0 idle(stage) ['C2', 'H', 'L', 'T']=53
+lookup    peak  83 at '' regs {'C2': 7, 'H': 7, 'L': 21, 'T': 18, 'const': 1, 'ext': 3, 'flags': 4, 'x': 22} internal 0 idle(stage) ['ext', 'flags']=7
+Hphase    peak  84 at '' regs {'C2': 7, 'H': 7, 'L': 21, 'T': 18, 'const': 1, 'ext': 3, 'flags': 4, 'ptemp': 1, 'x': 22} internal 0 idle(stage) ['C2', 'L', 'T', 'x']=68
+A         peak  83 at 'row4 add n=12' regs {'C2': 7, 'L': 21, 'T': 18, 'carry': 10, 'flags': 4, 'guard': 1, 'x': 22} internal 0 idle(stage) ['L', 'flags']=25
+B         peak  92 at 'row12 add n=21' regs {'C2': 7, 'L': 21, 'T': 18, 'carry': 19, 'flags': 4, 'guard': 1, 'x': 22} internal 0 idle(stage) ['C2', 'flags', 'guard']=12
+Lphase    peak  89 at '' regs {'C2': 7, 'L': 21, 'T': 18, 'counter': 12, 'ext': 3, 'flags': 4, 'guard': 1, 'ptemp': 1, 'x': 22} internal 0 idle(stage) ['C2', 'T', 'counter', 'guard', 'x']=60
+B-1       peak  92 at 'row0 add n=9' regs {'C2': 7, 'L': 21, 'T': 18, 'carry': 7, 'counter': 12, 'flags': 4, 'guard': 1, 'x': 22} internal 0 idle(stage) ['C2', 'flags', 'guard']=12
+A-1       peak  83 at 'row11 add n=12' regs {'C2': 7, 'L': 21, 'T': 18, 'carry': 10, 'flags': 4, 'guard': 1, 'x': 22} internal 0 idle(stage) ['L', 'flags']=25
+unlookup  peak  72 at '' regs {'C2': 7, 'L': 21, 'T': 18, 'flags': 4, 'x': 22} internal 0 idle(stage) ['flags']=4
+unnorm    peak  41 at '' regs {'f1': 1, 'flags': 4, 'unnorm_anc': 14, 'x': 22} internal 0 idle(stage) []=0

@@ -1,0 +1,6467 @@
+{
+ "config": "experiments/exp-008/config_port.json",
+ "work": "experiments/exp-010/out/work",
+ "build_seconds": 35.9,
+ "raw_sha256": "c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66",
+ "final_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+ "raw_report": {
+  "Q": 92,
+  "toffoli_sampled_mean": 1312.970703125,
+  "t": 1.0,
+  "rot": 44.0,
+  "max_toffoli": 1324,
+  "C": 1628.2962698588735,
+  "cost": 149803.25682701636,
+  "ratio": 13.863345014677577,
+  "peak": [
+   92,
+   "B add n=21"
+  ],
+  "sha256": "c97569f50d762f1166c827d2568099af097d5b1e961566caf245687ba7caea66"
+ },
+ "final_report": {
+  "Q": 92,
+  "toffoli_sampled_mean": 1303.970703125,
+  "t": 1.0,
+  "rot": 44.0,
+  "max_toffoli": 1315,
+  "C": 1619.2962698588735,
+  "cost": 148975.25682701636,
+  "ratio": 13.940397069606952,
+  "sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917"
+ },
+ "windows": {
+  "A": {
+   "A": 10,
+   "B": 19
+  },
+  "wcb": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ "generator_peak": [
+  92,
+  "B add n=21"
+ ],
+ "stages": {
+  "": {
+   "peak": 27,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "f1",
+    "flags",
+    "x"
+   ],
+   "idle_qubits_in_stage_at_peak": 27,
+   "idle_in_peak_substage": [
+    "f1",
+    "flags",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 27,
+   "touched_in_stage": {},
+   "toffoli_like_calls": 0,
+   "n_substages_at_peak": 1
+  },
+  "thermo": {
+   "peak": 48,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "f1": 1,
+    "flags": 4,
+    "thermo": 21,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [],
+   "idle_qubits_in_stage_at_peak": 0,
+   "idle_in_peak_substage": [],
+   "idle_qubits_in_peak_substage": 0,
+   "touched_in_stage": {
+    "f1": 21,
+    "flags": 18,
+    "thermo": 121,
+    "x": 84
+   },
+   "toffoli_like_calls": 20,
+   "n_substages_at_peak": 1
+  },
+  "norm": {
+   "peak": 79,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "C2",
+    "H",
+    "L",
+    "T"
+   ],
+   "idle_qubits_in_stage_at_peak": 53,
+   "idle_in_peak_substage": [
+    "C2",
+    "H",
+    "L",
+    "T"
+   ],
+   "idle_qubits_in_peak_substage": 53,
+   "touched_in_stage": {
+    "f1": 23,
+    "flags": 58,
+    "x": 161
+   },
+   "toffoli_like_calls": 79,
+   "n_substages_at_peak": 1
+  },
+  "lookup": {
+   "peak": 83,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "ext",
+    "flags"
+   ],
+   "idle_qubits_in_stage_at_peak": 7,
+   "idle_in_peak_substage": [
+    "ext",
+    "flags"
+   ],
+   "idle_qubits_in_peak_substage": 7,
+   "touched_in_stage": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "x": 8
+   },
+   "toffoli_like_calls": 0,
+   "n_substages_at_peak": 1
+  },
+  "Hphase": {
+   "peak": 84,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "ptemp": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "C2",
+    "L",
+    "T",
+    "x"
+   ],
+   "idle_qubits_in_stage_at_peak": 68,
+   "idle_in_peak_substage": [
+    "C2",
+    "L",
+    "T",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 68,
+   "touched_in_stage": {
+    "H": 159,
+    "const": 27,
+    "ext": 70,
+    "flags": 100,
+    "ptemp": 98
+   },
+   "toffoli_like_calls": 64,
+   "n_substages_at_peak": 1
+  },
+  "A": {
+   "peak": 83,
+   "peak_sub": "row4 add n=12",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "L",
+    "flags"
+   ],
+   "idle_qubits_in_stage_at_peak": 25,
+   "idle_in_peak_substage": [
+    "L",
+    "flags",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 47,
+   "touched_in_stage": {
+    "C2": 397,
+    "T": 767,
+    "carry": 788,
+    "guard": 33,
+    "x": 216
+   },
+   "toffoli_like_calls": 108,
+   "n_substages_at_peak": 7
+  },
+  "B": {
+   "peak": 92,
+   "peak_sub": "row12 add n=21",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "C2",
+    "flags",
+    "guard"
+   ],
+   "idle_qubits_in_stage_at_peak": 12,
+   "idle_in_peak_substage": [
+    "C2",
+    "flags",
+    "guard",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 34,
+   "touched_in_stage": {
+    "L": 1520,
+    "T": 1536,
+    "carry": 1948,
+    "counter": 228,
+    "x": 420
+   },
+   "toffoli_like_calls": 214,
+   "n_substages_at_peak": 14
+  },
+  "Lphase": {
+   "peak": 89,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "ptemp": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "C2",
+    "T",
+    "counter",
+    "guard",
+    "x"
+   ],
+   "idle_qubits_in_stage_at_peak": 60,
+   "idle_in_peak_substage": [
+    "C2",
+    "T",
+    "counter",
+    "guard",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 60,
+   "touched_in_stage": {
+    "L": 532,
+    "ext": 70,
+    "flags": 192,
+    "ptemp": 164
+   },
+   "toffoli_like_calls": 134,
+   "n_substages_at_peak": 1
+  },
+  "B-1": {
+   "peak": 92,
+   "peak_sub": "row0 add n=9",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "C2",
+    "flags",
+    "guard"
+   ],
+   "idle_qubits_in_stage_at_peak": 12,
+   "idle_in_peak_substage": [
+    "C2",
+    "flags",
+    "guard",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 34,
+   "touched_in_stage": {
+    "L": 1548,
+    "T": 1536,
+    "carry": 1948,
+    "counter": 248,
+    "x": 448
+   },
+   "toffoli_like_calls": 214,
+   "n_substages_at_peak": 14
+  },
+  "A-1": {
+   "peak": 83,
+   "peak_sub": "row11 add n=12",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "L",
+    "flags"
+   ],
+   "idle_qubits_in_stage_at_peak": 25,
+   "idle_in_peak_substage": [
+    "L",
+    "flags",
+    "x"
+   ],
+   "idle_qubits_in_peak_substage": 47,
+   "touched_in_stage": {
+    "C2": 397,
+    "T": 767,
+    "carry": 788,
+    "guard": 33,
+    "x": 234
+   },
+   "toffoli_like_calls": 108,
+   "n_substages_at_peak": 7
+  },
+  "unlookup": {
+   "peak": 72,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [
+    "flags"
+   ],
+   "idle_qubits_in_stage_at_peak": 4,
+   "idle_in_peak_substage": [
+    "flags"
+   ],
+   "idle_qubits_in_peak_substage": 4,
+   "touched_in_stage": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "f1": 2,
+    "internal": 6537,
+    "onehot": 6657,
+    "x": 33
+   },
+   "toffoli_like_calls": 14,
+   "n_substages_at_peak": 1
+  },
+  "unnorm": {
+   "peak": 41,
+   "peak_sub": "",
+   "regs_at_peak": {
+    "f1": 1,
+    "flags": 4,
+    "unnorm_anc": 14,
+    "x": 22
+   },
+   "internal_at_peak": 0,
+   "idle_in_stage_at_peak": [],
+   "idle_qubits_in_stage_at_peak": 0,
+   "idle_in_peak_substage": [],
+   "idle_qubits_in_peak_substage": 0,
+   "touched_in_stage": {
+    "f1": 23,
+    "flags": 62,
+    "unnorm_anc": 85,
+    "x": 274
+   },
+   "toffoli_like_calls": 101,
+   "n_substages_at_peak": 1
+  }
+ },
+ "substages": [
+  {
+   "label": "",
+   "sub": "",
+   "total": 27,
+   "named": 27,
+   "internal": 0,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   },
+   "seq": 2,
+   "touched": {}
+  },
+  {
+   "label": "thermo",
+   "sub": "",
+   "total": 48,
+   "named": 48,
+   "internal": 0,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "thermo": 21,
+    "x": 22
+   },
+   "seq": 3,
+   "touched": {
+    "f1": 21,
+    "flags": 18,
+    "thermo": 121,
+    "x": 84
+   }
+  },
+  {
+   "label": "norm",
+   "sub": "",
+   "total": 79,
+   "named": 79,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   },
+   "seq": 9,
+   "touched": {
+    "f1": 23,
+    "flags": 58,
+    "x": 161
+   }
+  },
+  {
+   "label": "lookup",
+   "sub": "",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "x": 22
+   },
+   "seq": 11,
+   "touched": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "x": 8
+   }
+  },
+  {
+   "label": "Hphase",
+   "sub": "",
+   "total": 84,
+   "named": 84,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "ptemp": 1,
+    "x": 22
+   },
+   "seq": 12,
+   "touched": {
+    "H": 159,
+    "const": 27,
+    "ext": 70,
+    "flags": 100,
+    "ptemp": 98
+   }
+  },
+  {
+   "label": "A",
+   "sub": "",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 17,
+   "touched": {
+    "T": 3,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row4",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 17,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row4 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 18,
+   "touched": {
+    "C2": 5,
+    "T": 52,
+    "carry": 67,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row6",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 19,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row6 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 20,
+   "touched": {
+    "C2": 25,
+    "T": 54,
+    "carry": 73,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row7",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 21,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row7 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 22,
+   "touched": {
+    "C2": 34,
+    "T": 55,
+    "carry": 77,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row8",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 23,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row8 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 24,
+   "touched": {
+    "C2": 43,
+    "T": 56,
+    "carry": 81,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row9",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 25,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row9 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 26,
+   "touched": {
+    "C2": 52,
+    "T": 57,
+    "carry": 85,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row10",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 27,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row10 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 28,
+   "touched": {
+    "C2": 61,
+    "T": 58,
+    "carry": 89,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row11",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 29,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row11 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 30,
+   "touched": {
+    "C2": 59,
+    "T": 58,
+    "carry": 91,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row12",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 31,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row12 add n=11",
+   "total": 82,
+   "named": 82,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 32,
+   "touched": {
+    "C2": 59,
+    "T": 53,
+    "carry": 84,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row13",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 33,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 24
+   }
+  },
+  {
+   "label": "A",
+   "sub": "row13 add n=10",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 34,
+   "touched": {
+    "C2": 59,
+    "T": 48,
+    "carry": 77,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A",
+   "sub": "high add n=7",
+   "total": 78,
+   "named": 78,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 36,
+   "touched": {
+    "T": 75,
+    "carry": 64,
+    "guard": 5
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row12",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 39,
+   "touched": {
+    "L": 42,
+    "x": 42
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row12 add n=21",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 40,
+   "touched": {
+    "L": 115,
+    "T": 160,
+    "carry": 196
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row13",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 41,
+   "touched": {
+    "L": 42,
+    "x": 42
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row13 add n=21",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 42,
+   "touched": {
+    "L": 115,
+    "T": 158,
+    "carry": 198
+   }
+  },
+  {
+   "label": "B",
+   "sub": "",
+   "total": 88,
+   "named": 88,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 86,
+   "touched": {}
+  },
+  {
+   "label": "B",
+   "sub": "row11",
+   "total": 75,
+   "named": 75,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 44,
+   "touched": {
+    "L": 34,
+    "counter": 4,
+    "x": 38
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row11 add n=19",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 45,
+   "touched": {
+    "L": 101,
+    "T": 151,
+    "carry": 178,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row10",
+   "total": 75,
+   "named": 75,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 46,
+   "touched": {
+    "L": 34,
+    "counter": 4,
+    "x": 38
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row10 add n=19",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 47,
+   "touched": {
+    "L": 100,
+    "T": 142,
+    "carry": 174,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row9",
+   "total": 77,
+   "named": 77,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 49,
+   "touched": {
+    "L": 30,
+    "counter": 4,
+    "x": 34
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row9 add n=17",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 50,
+   "touched": {
+    "L": 89,
+    "T": 133,
+    "carry": 156,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row8",
+   "total": 77,
+   "named": 77,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 51,
+   "touched": {
+    "L": 30,
+    "counter": 4,
+    "x": 34
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row8 add n=17",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 52,
+   "touched": {
+    "L": 88,
+    "T": 124,
+    "carry": 152,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row7",
+   "total": 79,
+   "named": 79,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 54,
+   "touched": {
+    "L": 26,
+    "counter": 4,
+    "x": 30
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row7 add n=15",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 55,
+   "touched": {
+    "L": 77,
+    "T": 115,
+    "carry": 134,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row6",
+   "total": 79,
+   "named": 79,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 56,
+   "touched": {
+    "L": 26,
+    "counter": 4,
+    "x": 30
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row6 add n=15",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 57,
+   "touched": {
+    "L": 76,
+    "T": 106,
+    "carry": 130,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row5",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 59,
+   "touched": {
+    "L": 22,
+    "counter": 4,
+    "x": 26
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row5 add n=13",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 60,
+   "touched": {
+    "L": 65,
+    "T": 97,
+    "carry": 112,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row4",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 61,
+   "touched": {
+    "L": 22,
+    "counter": 4,
+    "x": 26
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row4 add n=13",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 62,
+   "touched": {
+    "L": 64,
+    "T": 88,
+    "carry": 108,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row3",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 64,
+   "touched": {
+    "L": 18,
+    "counter": 4,
+    "x": 22
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row3 add n=11",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 65,
+   "touched": {
+    "L": 53,
+    "T": 79,
+    "carry": 90,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row2",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 66,
+   "touched": {
+    "L": 18,
+    "counter": 4,
+    "x": 22
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row2 add n=11",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 67,
+   "touched": {
+    "L": 52,
+    "T": 70,
+    "carry": 86,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row1",
+   "total": 85,
+   "named": 85,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 69,
+   "touched": {
+    "L": 14,
+    "counter": 4,
+    "x": 18
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row1 add n=9",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 70,
+   "touched": {
+    "L": 41,
+    "T": 61,
+    "carry": 68,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row0",
+   "total": 85,
+   "named": 85,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 71,
+   "touched": {
+    "L": 14,
+    "counter": 4,
+    "x": 18
+   }
+  },
+  {
+   "label": "B",
+   "sub": "row0 add n=9",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 72,
+   "touched": {
+    "L": 40,
+    "T": 52,
+    "carry": 64,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold5 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 74,
+   "touched": {
+    "L": 11,
+    "carry": 17,
+    "counter": 25
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold4 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 76,
+   "touched": {
+    "L": 11,
+    "carry": 17,
+    "counter": 25
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold3 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 78,
+   "touched": {
+    "L": 11,
+    "carry": 17,
+    "counter": 25
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold2 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 80,
+   "touched": {
+    "L": 11,
+    "carry": 17,
+    "counter": 25
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold1 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 82,
+   "touched": {
+    "L": 11,
+    "carry": 17,
+    "counter": 25
+   }
+  },
+  {
+   "label": "B",
+   "sub": "fold0 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 84,
+   "touched": {
+    "L": 17,
+    "carry": 17,
+    "counter": 19
+   }
+  },
+  {
+   "label": "Lphase",
+   "sub": "",
+   "total": 89,
+   "named": 89,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "ptemp": 1,
+    "x": 22
+   },
+   "seq": 87,
+   "touched": {
+    "L": 532,
+    "ext": 70,
+    "flags": 192,
+    "ptemp": 164
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold0 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 90,
+   "touched": {
+    "L": 25,
+    "carry": 17,
+    "counter": 19
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold1 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 92,
+   "touched": {
+    "L": 15,
+    "carry": 17,
+    "counter": 29
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold2 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 94,
+   "touched": {
+    "L": 15,
+    "carry": 17,
+    "counter": 29
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold3 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 96,
+   "touched": {
+    "L": 15,
+    "carry": 17,
+    "counter": 29
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold4 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 98,
+   "touched": {
+    "L": 15,
+    "carry": 17,
+    "counter": 29
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "fold5 add n=4",
+   "total": 87,
+   "named": 87,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 100,
+   "touched": {
+    "L": 15,
+    "carry": 17,
+    "counter": 29
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row0",
+   "total": 85,
+   "named": 85,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 101,
+   "touched": {
+    "L": 14,
+    "counter": 4,
+    "x": 20
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row0 add n=9",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 102,
+   "touched": {
+    "L": 40,
+    "T": 52,
+    "carry": 64,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row1",
+   "total": 85,
+   "named": 85,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 103,
+   "touched": {
+    "L": 14,
+    "counter": 4,
+    "x": 20
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row1 add n=9",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 104,
+   "touched": {
+    "L": 41,
+    "T": 61,
+    "carry": 68,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 106,
+   "touched": {}
+  },
+  {
+   "label": "B-1",
+   "sub": "row2",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 106,
+   "touched": {
+    "L": 18,
+    "counter": 4,
+    "x": 24
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row2 add n=11",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 107,
+   "touched": {
+    "L": 52,
+    "T": 70,
+    "carry": 86,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row3",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 108,
+   "touched": {
+    "L": 18,
+    "counter": 4,
+    "x": 24
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row3 add n=11",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 109,
+   "touched": {
+    "L": 53,
+    "T": 79,
+    "carry": 90,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row4",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 111,
+   "touched": {
+    "L": 22,
+    "counter": 4,
+    "x": 28
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row4 add n=13",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 112,
+   "touched": {
+    "L": 64,
+    "T": 88,
+    "carry": 108,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row5",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 113,
+   "touched": {
+    "L": 22,
+    "counter": 4,
+    "x": 28
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row5 add n=13",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 114,
+   "touched": {
+    "L": 65,
+    "T": 97,
+    "carry": 112,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row6",
+   "total": 79,
+   "named": 79,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 116,
+   "touched": {
+    "L": 26,
+    "counter": 4,
+    "x": 32
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row6 add n=15",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 117,
+   "touched": {
+    "L": 76,
+    "T": 106,
+    "carry": 130,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row7",
+   "total": 79,
+   "named": 79,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 118,
+   "touched": {
+    "L": 26,
+    "counter": 4,
+    "x": 32
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row7 add n=15",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 119,
+   "touched": {
+    "L": 77,
+    "T": 115,
+    "carry": 134,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row8",
+   "total": 77,
+   "named": 77,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 121,
+   "touched": {
+    "L": 30,
+    "counter": 4,
+    "x": 36
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row8 add n=17",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 122,
+   "touched": {
+    "L": 88,
+    "T": 124,
+    "carry": 152,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row9",
+   "total": 77,
+   "named": 77,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 123,
+   "touched": {
+    "L": 30,
+    "counter": 4,
+    "x": 36
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row9 add n=17",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 124,
+   "touched": {
+    "L": 89,
+    "T": 133,
+    "carry": 156,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row10",
+   "total": 75,
+   "named": 75,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 126,
+   "touched": {
+    "L": 34,
+    "counter": 4,
+    "x": 40
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row10 add n=19",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 127,
+   "touched": {
+    "L": 100,
+    "T": 142,
+    "carry": 174,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row11",
+   "total": 75,
+   "named": 75,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 128,
+   "touched": {
+    "L": 34,
+    "counter": 4,
+    "x": 40
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row11 add n=19",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 129,
+   "touched": {
+    "L": 101,
+    "T": 151,
+    "carry": 178,
+    "counter": 3
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row13",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 131,
+   "touched": {
+    "L": 42,
+    "x": 44
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row13 add n=21",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 132,
+   "touched": {
+    "L": 115,
+    "T": 158,
+    "carry": 198
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row12",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 133,
+   "touched": {
+    "L": 42,
+    "x": 44
+   }
+  },
+  {
+   "label": "B-1",
+   "sub": "row12 add n=21",
+   "total": 92,
+   "named": 92,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 134,
+   "touched": {
+    "L": 115,
+    "T": 160,
+    "carry": 196
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 135,
+   "touched": {
+    "T": 3,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "high add n=7",
+   "total": 78,
+   "named": 78,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 136,
+   "touched": {
+    "T": 75,
+    "carry": 64,
+    "guard": 5
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row13",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 139,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row13 add n=10",
+   "total": 81,
+   "named": 81,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 140,
+   "touched": {
+    "C2": 59,
+    "T": 48,
+    "carry": 77,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row12",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 141,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row12 add n=11",
+   "total": 82,
+   "named": 82,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 142,
+   "touched": {
+    "C2": 59,
+    "T": 53,
+    "carry": 84,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row11",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 143,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row11 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 144,
+   "touched": {
+    "C2": 59,
+    "T": 58,
+    "carry": 91,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row10",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 145,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row10 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 146,
+   "touched": {
+    "C2": 61,
+    "T": 58,
+    "carry": 89,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row9",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 147,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row9 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 148,
+   "touched": {
+    "C2": 52,
+    "T": 57,
+    "carry": 85,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row8",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 149,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row8 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 150,
+   "touched": {
+    "C2": 43,
+    "T": 56,
+    "carry": 81,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row7",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 151,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row7 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 152,
+   "touched": {
+    "C2": 34,
+    "T": 55,
+    "carry": 77,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row6",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 153,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row6 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 154,
+   "touched": {
+    "C2": 25,
+    "T": 54,
+    "carry": 73,
+    "guard": 1
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row4",
+   "total": 73,
+   "named": 73,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 155,
+   "touched": {
+    "T": 22,
+    "guard": 2,
+    "x": 26
+   }
+  },
+  {
+   "label": "A-1",
+   "sub": "row4 add n=12",
+   "total": 83,
+   "named": 83,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   },
+   "seq": 156,
+   "touched": {
+    "C2": 5,
+    "T": 52,
+    "carry": 67,
+    "guard": 1
+   }
+  },
+  {
+   "label": "unlookup",
+   "sub": "",
+   "total": 72,
+   "named": 72,
+   "internal": 0,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   },
+   "seq": 158,
+   "touched": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "f1": 2,
+    "internal": 6537,
+    "onehot": 6657,
+    "x": 33
+   }
+  },
+  {
+   "label": "unnorm",
+   "sub": "",
+   "total": 41,
+   "named": 41,
+   "internal": 0,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "unnorm_anc": 14,
+    "x": 22
+   },
+   "seq": 196,
+   "touched": {
+    "f1": 23,
+    "flags": 62,
+    "unnorm_anc": 85,
+    "x": 274
+   }
+  }
+ ],
+ "events": [
+  {
+   "seq": 1,
+   "kind": "alloc",
+   "reg": "x",
+   "k": 22,
+   "label": "",
+   "sub": "",
+   "total": 22,
+   "regs": {
+    "x": 22
+   }
+  },
+  {
+   "seq": 2,
+   "kind": "alloc",
+   "reg": "f1",
+   "k": 5,
+   "label": "",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 3,
+   "kind": "alloc",
+   "reg": "thermo",
+   "k": 21,
+   "label": "thermo",
+   "sub": "",
+   "total": 48,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "thermo": 21,
+    "x": 22
+   }
+  },
+  {
+   "seq": 4,
+   "kind": "free",
+   "reg": "thermo",
+   "k": 21,
+   "label": "thermo",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 5,
+   "kind": "free",
+   "reg": "f1",
+   "k": 1,
+   "label": "norm",
+   "sub": "",
+   "total": 26,
+   "regs": {
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 6,
+   "kind": "alloc",
+   "reg": "L",
+   "k": 21,
+   "label": "norm",
+   "sub": "",
+   "total": 47,
+   "regs": {
+    "L": 21,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 7,
+   "kind": "alloc",
+   "reg": "H",
+   "k": 7,
+   "label": "norm",
+   "sub": "",
+   "total": 54,
+   "regs": {
+    "H": 7,
+    "L": 21,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 8,
+   "kind": "alloc",
+   "reg": "T",
+   "k": 18,
+   "label": "norm",
+   "sub": "",
+   "total": 72,
+   "regs": {
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 9,
+   "kind": "alloc",
+   "reg": "C2",
+   "k": 7,
+   "label": "norm",
+   "sub": "",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 10,
+   "kind": "alloc",
+   "reg": "const",
+   "k": 1,
+   "label": "lookup",
+   "sub": "",
+   "total": 80,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 11,
+   "kind": "alloc",
+   "reg": "ext",
+   "k": 3,
+   "label": "lookup",
+   "sub": "",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 12,
+   "kind": "alloc",
+   "reg": "ptemp",
+   "k": 1,
+   "label": "Hphase",
+   "sub": "",
+   "total": 84,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "ptemp": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 13,
+   "kind": "free",
+   "reg": "ptemp",
+   "k": 1,
+   "label": "Hphase",
+   "sub": "",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "ext": 3,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 14,
+   "kind": "free",
+   "reg": "ext",
+   "k": 3,
+   "label": "Hphase",
+   "sub": "",
+   "total": 80,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "const": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 15,
+   "kind": "free",
+   "reg": "const",
+   "k": 1,
+   "label": "Hphase",
+   "sub": "",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "H": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 16,
+   "kind": "free",
+   "reg": "H",
+   "k": 7,
+   "label": "Hphase",
+   "sub": "",
+   "total": 72,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 17,
+   "kind": "alloc",
+   "reg": "guard",
+   "k": 1,
+   "label": "Hphase",
+   "sub": "",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 18,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row4 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 19,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row4 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 20,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row6 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 21,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row6 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 22,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row7 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 23,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row7 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 24,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row8 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 25,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row8 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 26,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row9 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 27,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row9 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 28,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row10 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 29,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row10 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 30,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row11 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 31,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A",
+   "sub": "row11 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 32,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "A",
+   "sub": "row12 add n=11",
+   "total": 82,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 33,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "A",
+   "sub": "row12 add n=11",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 34,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 8,
+   "label": "A",
+   "sub": "row13 add n=10",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 35,
+   "kind": "free",
+   "reg": "carry",
+   "k": 8,
+   "label": "A",
+   "sub": "row13 add n=10",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 36,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 5,
+   "label": "A",
+   "sub": "high add n=7",
+   "total": 78,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 37,
+   "kind": "free",
+   "reg": "carry",
+   "k": 5,
+   "label": "A",
+   "sub": "high add n=7",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 38,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 5,
+   "label": "A",
+   "sub": "high add n=7",
+   "total": 78,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 39,
+   "kind": "free",
+   "reg": "carry",
+   "k": 5,
+   "label": "A",
+   "sub": "high add n=7",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 40,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 19,
+   "label": "B",
+   "sub": "row12 add n=21",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 41,
+   "kind": "free",
+   "reg": "carry",
+   "k": 19,
+   "label": "B",
+   "sub": "row12 add n=21",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 42,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 19,
+   "label": "B",
+   "sub": "row13 add n=21",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 43,
+   "kind": "free",
+   "reg": "carry",
+   "k": 19,
+   "label": "B",
+   "sub": "row13 add n=21",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 44,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 45,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 17,
+   "label": "B",
+   "sub": "row11 add n=19",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 46,
+   "kind": "free",
+   "reg": "carry",
+   "k": 17,
+   "label": "B",
+   "sub": "row11 add n=19",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 47,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 17,
+   "label": "B",
+   "sub": "row10 add n=19",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 48,
+   "kind": "free",
+   "reg": "carry",
+   "k": 17,
+   "label": "B",
+   "sub": "row10 add n=19",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 49,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 50,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 15,
+   "label": "B",
+   "sub": "row9 add n=17",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 51,
+   "kind": "free",
+   "reg": "carry",
+   "k": 15,
+   "label": "B",
+   "sub": "row9 add n=17",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 52,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 15,
+   "label": "B",
+   "sub": "row8 add n=17",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 53,
+   "kind": "free",
+   "reg": "carry",
+   "k": 15,
+   "label": "B",
+   "sub": "row8 add n=17",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 54,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 55,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 13,
+   "label": "B",
+   "sub": "row7 add n=15",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 56,
+   "kind": "free",
+   "reg": "carry",
+   "k": 13,
+   "label": "B",
+   "sub": "row7 add n=15",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 57,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 13,
+   "label": "B",
+   "sub": "row6 add n=15",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 58,
+   "kind": "free",
+   "reg": "carry",
+   "k": 13,
+   "label": "B",
+   "sub": "row6 add n=15",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 59,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 60,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 11,
+   "label": "B",
+   "sub": "row5 add n=13",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 61,
+   "kind": "free",
+   "reg": "carry",
+   "k": 11,
+   "label": "B",
+   "sub": "row5 add n=13",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 62,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 11,
+   "label": "B",
+   "sub": "row4 add n=13",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 63,
+   "kind": "free",
+   "reg": "carry",
+   "k": 11,
+   "label": "B",
+   "sub": "row4 add n=13",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 64,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 65,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "B",
+   "sub": "row3 add n=11",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 66,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "B",
+   "sub": "row3 add n=11",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 67,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "B",
+   "sub": "row2 add n=11",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 68,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "B",
+   "sub": "row2 add n=11",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 69,
+   "kind": "alloc",
+   "reg": "counter",
+   "k": 2,
+   "label": "B",
+   "sub": "",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 70,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 7,
+   "label": "B",
+   "sub": "row1 add n=9",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 71,
+   "kind": "free",
+   "reg": "carry",
+   "k": 7,
+   "label": "B",
+   "sub": "row1 add n=9",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 72,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 7,
+   "label": "B",
+   "sub": "row0 add n=9",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 73,
+   "kind": "free",
+   "reg": "carry",
+   "k": 7,
+   "label": "B",
+   "sub": "row0 add n=9",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 74,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold5 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 75,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold5 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 76,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold4 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 77,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold4 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 78,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold3 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 79,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold3 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 80,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold2 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 81,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold2 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 82,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold1 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 83,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold1 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 84,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold0 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 85,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B",
+   "sub": "fold0 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 86,
+   "kind": "alloc",
+   "reg": "ext",
+   "k": 3,
+   "label": "B",
+   "sub": "",
+   "total": 88,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 87,
+   "kind": "alloc",
+   "reg": "ptemp",
+   "k": 1,
+   "label": "Lphase",
+   "sub": "",
+   "total": 89,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "ptemp": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 88,
+   "kind": "free",
+   "reg": "ptemp",
+   "k": 1,
+   "label": "Lphase",
+   "sub": "",
+   "total": 88,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "ext": 3,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 89,
+   "kind": "free",
+   "reg": "ext",
+   "k": 3,
+   "label": "Lphase",
+   "sub": "",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 90,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold0 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 91,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold0 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 92,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold1 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 93,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold1 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 94,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold2 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 95,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold2 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 96,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold3 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 97,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold3 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 98,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold4 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 99,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold4 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 100,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold5 add n=4",
+   "total": 87,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 2,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 101,
+   "kind": "free",
+   "reg": "carry",
+   "k": 2,
+   "label": "B-1",
+   "sub": "fold5 add n=4",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 102,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 7,
+   "label": "B-1",
+   "sub": "row0 add n=9",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 103,
+   "kind": "free",
+   "reg": "carry",
+   "k": 7,
+   "label": "B-1",
+   "sub": "row0 add n=9",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 104,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 7,
+   "label": "B-1",
+   "sub": "row1 add n=9",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 7,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 105,
+   "kind": "free",
+   "reg": "carry",
+   "k": 7,
+   "label": "B-1",
+   "sub": "row1 add n=9",
+   "total": 85,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 12,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 106,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 107,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "B-1",
+   "sub": "row2 add n=11",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 108,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "B-1",
+   "sub": "row2 add n=11",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 109,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "B-1",
+   "sub": "row3 add n=11",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 110,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "B-1",
+   "sub": "row3 add n=11",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 111,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 112,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 11,
+   "label": "B-1",
+   "sub": "row4 add n=13",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 113,
+   "kind": "free",
+   "reg": "carry",
+   "k": 11,
+   "label": "B-1",
+   "sub": "row4 add n=13",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 114,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 11,
+   "label": "B-1",
+   "sub": "row5 add n=13",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 11,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 115,
+   "kind": "free",
+   "reg": "carry",
+   "k": 11,
+   "label": "B-1",
+   "sub": "row5 add n=13",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 116,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 117,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 13,
+   "label": "B-1",
+   "sub": "row6 add n=15",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 118,
+   "kind": "free",
+   "reg": "carry",
+   "k": 13,
+   "label": "B-1",
+   "sub": "row6 add n=15",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 119,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 13,
+   "label": "B-1",
+   "sub": "row7 add n=15",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 13,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 120,
+   "kind": "free",
+   "reg": "carry",
+   "k": 13,
+   "label": "B-1",
+   "sub": "row7 add n=15",
+   "total": 79,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 6,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 121,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 122,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 15,
+   "label": "B-1",
+   "sub": "row8 add n=17",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 123,
+   "kind": "free",
+   "reg": "carry",
+   "k": 15,
+   "label": "B-1",
+   "sub": "row8 add n=17",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 124,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 15,
+   "label": "B-1",
+   "sub": "row9 add n=17",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 15,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 125,
+   "kind": "free",
+   "reg": "carry",
+   "k": 15,
+   "label": "B-1",
+   "sub": "row9 add n=17",
+   "total": 77,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 4,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 126,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 127,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 17,
+   "label": "B-1",
+   "sub": "row10 add n=19",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 128,
+   "kind": "free",
+   "reg": "carry",
+   "k": 17,
+   "label": "B-1",
+   "sub": "row10 add n=19",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 129,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 17,
+   "label": "B-1",
+   "sub": "row11 add n=19",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 17,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 130,
+   "kind": "free",
+   "reg": "carry",
+   "k": 17,
+   "label": "B-1",
+   "sub": "row11 add n=19",
+   "total": 75,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "counter": 2,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 131,
+   "kind": "free",
+   "reg": "counter",
+   "k": 2,
+   "label": "B-1",
+   "sub": "",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 132,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 19,
+   "label": "B-1",
+   "sub": "row13 add n=21",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 133,
+   "kind": "free",
+   "reg": "carry",
+   "k": 19,
+   "label": "B-1",
+   "sub": "row13 add n=21",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 134,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 19,
+   "label": "B-1",
+   "sub": "row12 add n=21",
+   "total": 92,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 19,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 135,
+   "kind": "free",
+   "reg": "carry",
+   "k": 19,
+   "label": "B-1",
+   "sub": "row12 add n=21",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 136,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 5,
+   "label": "A-1",
+   "sub": "high add n=7",
+   "total": 78,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 137,
+   "kind": "free",
+   "reg": "carry",
+   "k": 5,
+   "label": "A-1",
+   "sub": "high add n=7",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 138,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 5,
+   "label": "A-1",
+   "sub": "high add n=7",
+   "total": 78,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 5,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 139,
+   "kind": "free",
+   "reg": "carry",
+   "k": 5,
+   "label": "A-1",
+   "sub": "high add n=7",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 140,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 8,
+   "label": "A-1",
+   "sub": "row13 add n=10",
+   "total": 81,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 8,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 141,
+   "kind": "free",
+   "reg": "carry",
+   "k": 8,
+   "label": "A-1",
+   "sub": "row13 add n=10",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 142,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 9,
+   "label": "A-1",
+   "sub": "row12 add n=11",
+   "total": 82,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 9,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 143,
+   "kind": "free",
+   "reg": "carry",
+   "k": 9,
+   "label": "A-1",
+   "sub": "row12 add n=11",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 144,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row11 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 145,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row11 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 146,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row10 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 147,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row10 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 148,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row9 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 149,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row9 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 150,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row8 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 151,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row8 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 152,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row7 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 153,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row7 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 154,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row6 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 155,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row6 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 156,
+   "kind": "alloc",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row4 add n=12",
+   "total": 83,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "carry": 10,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 157,
+   "kind": "free",
+   "reg": "carry",
+   "k": 10,
+   "label": "A-1",
+   "sub": "row4 add n=12",
+   "total": 73,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "guard": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 158,
+   "kind": "free",
+   "reg": "guard",
+   "k": 1,
+   "label": "A-1",
+   "sub": "",
+   "total": 72,
+   "regs": {
+    "C2": 7,
+    "L": 21,
+    "T": 18,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 159,
+   "kind": "free",
+   "reg": "L",
+   "k": 46,
+   "label": "unlookup",
+   "sub": "",
+   "total": 26,
+   "regs": {
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 160,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "flags": 4,
+    "onehot": 1,
+    "x": 22
+   }
+  },
+  {
+   "seq": 161,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 28,
+   "regs": {
+    "flags": 4,
+    "onehot": 2,
+    "x": 22
+   }
+  },
+  {
+   "seq": 162,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 29,
+   "regs": {
+    "flags": 4,
+    "onehot": 3,
+    "x": 22
+   }
+  },
+  {
+   "seq": 163,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 30,
+   "regs": {
+    "flags": 4,
+    "onehot": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 164,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 31,
+   "regs": {
+    "flags": 4,
+    "onehot": 5,
+    "x": 22
+   }
+  },
+  {
+   "seq": 165,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 32,
+   "regs": {
+    "flags": 4,
+    "onehot": 6,
+    "x": 22
+   }
+  },
+  {
+   "seq": 166,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 33,
+   "regs": {
+    "flags": 4,
+    "onehot": 7,
+    "x": 22
+   }
+  },
+  {
+   "seq": 167,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 34,
+   "regs": {
+    "flags": 4,
+    "onehot": 8,
+    "x": 22
+   }
+  },
+  {
+   "seq": 168,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 35,
+   "regs": {
+    "flags": 4,
+    "onehot": 9,
+    "x": 22
+   }
+  },
+  {
+   "seq": 169,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 36,
+   "regs": {
+    "flags": 4,
+    "onehot": 10,
+    "x": 22
+   }
+  },
+  {
+   "seq": 170,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 37,
+   "regs": {
+    "flags": 4,
+    "onehot": 11,
+    "x": 22
+   }
+  },
+  {
+   "seq": 171,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 38,
+   "regs": {
+    "flags": 4,
+    "onehot": 12,
+    "x": 22
+   }
+  },
+  {
+   "seq": 172,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 39,
+   "regs": {
+    "flags": 4,
+    "onehot": 13,
+    "x": 22
+   }
+  },
+  {
+   "seq": 173,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 40,
+   "regs": {
+    "flags": 4,
+    "onehot": 14,
+    "x": 22
+   }
+  },
+  {
+   "seq": 174,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 41,
+   "regs": {
+    "flags": 4,
+    "onehot": 15,
+    "x": 22
+   }
+  },
+  {
+   "seq": 175,
+   "kind": "alloc",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 42,
+   "regs": {
+    "flags": 4,
+    "onehot": 16,
+    "x": 22
+   }
+  },
+  {
+   "seq": 176,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 41,
+   "regs": {
+    "flags": 4,
+    "onehot": 15,
+    "x": 22
+   }
+  },
+  {
+   "seq": 177,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 40,
+   "regs": {
+    "flags": 4,
+    "onehot": 14,
+    "x": 22
+   }
+  },
+  {
+   "seq": 178,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 39,
+   "regs": {
+    "flags": 4,
+    "onehot": 13,
+    "x": 22
+   }
+  },
+  {
+   "seq": 179,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 38,
+   "regs": {
+    "flags": 4,
+    "onehot": 12,
+    "x": 22
+   }
+  },
+  {
+   "seq": 180,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 37,
+   "regs": {
+    "flags": 4,
+    "onehot": 11,
+    "x": 22
+   }
+  },
+  {
+   "seq": 181,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 36,
+   "regs": {
+    "flags": 4,
+    "onehot": 10,
+    "x": 22
+   }
+  },
+  {
+   "seq": 182,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 35,
+   "regs": {
+    "flags": 4,
+    "onehot": 9,
+    "x": 22
+   }
+  },
+  {
+   "seq": 183,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 34,
+   "regs": {
+    "flags": 4,
+    "onehot": 8,
+    "x": 22
+   }
+  },
+  {
+   "seq": 184,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 33,
+   "regs": {
+    "flags": 4,
+    "onehot": 7,
+    "x": 22
+   }
+  },
+  {
+   "seq": 185,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 32,
+   "regs": {
+    "flags": 4,
+    "onehot": 6,
+    "x": 22
+   }
+  },
+  {
+   "seq": 186,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 31,
+   "regs": {
+    "flags": 4,
+    "onehot": 5,
+    "x": 22
+   }
+  },
+  {
+   "seq": 187,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 30,
+   "regs": {
+    "flags": 4,
+    "onehot": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 188,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 29,
+   "regs": {
+    "flags": 4,
+    "onehot": 3,
+    "x": 22
+   }
+  },
+  {
+   "seq": 189,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 28,
+   "regs": {
+    "flags": 4,
+    "onehot": 2,
+    "x": 22
+   }
+  },
+  {
+   "seq": 190,
+   "kind": "free",
+   "reg": "onehot",
+   "k": 2,
+   "label": "unlookup",
+   "sub": "",
+   "total": 26,
+   "regs": {
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 191,
+   "kind": "alloc",
+   "reg": "f1",
+   "k": 1,
+   "label": "unlookup",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 192,
+   "kind": "alloc",
+   "reg": "unnorm_anc",
+   "k": 2,
+   "label": "unnorm",
+   "sub": "",
+   "total": 29,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "unnorm_anc": 2,
+    "x": 22
+   }
+  },
+  {
+   "seq": 193,
+   "kind": "free",
+   "reg": "unnorm_anc",
+   "k": 2,
+   "label": "unnorm",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 194,
+   "kind": "alloc",
+   "reg": "unnorm_anc",
+   "k": 6,
+   "label": "unnorm",
+   "sub": "",
+   "total": 33,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "unnorm_anc": 6,
+    "x": 22
+   }
+  },
+  {
+   "seq": 195,
+   "kind": "free",
+   "reg": "unnorm_anc",
+   "k": 6,
+   "label": "unnorm",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 196,
+   "kind": "alloc",
+   "reg": "unnorm_anc",
+   "k": 14,
+   "label": "unnorm",
+   "sub": "",
+   "total": 41,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "unnorm_anc": 14,
+    "x": 22
+   }
+  },
+  {
+   "seq": 197,
+   "kind": "free",
+   "reg": "unnorm_anc",
+   "k": 14,
+   "label": "unnorm",
+   "sub": "",
+   "total": 27,
+   "regs": {
+    "f1": 1,
+    "flags": 4,
+    "x": 22
+   }
+  },
+  {
+   "seq": 198,
+   "kind": "free",
+   "reg": "f1",
+   "k": 5,
+   "label": "unnorm",
+   "sub": "",
+   "total": 22,
+   "regs": {
+    "x": 22
+   }
+  }
+ ]
+}
