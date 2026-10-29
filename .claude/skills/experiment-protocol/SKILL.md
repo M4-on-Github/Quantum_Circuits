@@ -10,11 +10,18 @@ user-invocable: false
 
 1. Glob `experiments/exp-*` and create the next free `exp-NNN/`.
 2. Write the README sections from Hypothesis through Method, including the prediction, before running anything. Then commit, so the prediction is timestamped before the result exists.
-3. Implement in `exp-NNN/` (or `src/` if reusable). Put configs in files, not CLI flags you'll forget.
-4. Run the official verifier. Write `results.json` and fill in Results and Conclusion.
-5. Commit code, README, configs and `results.json` with message `exp-NNN: <title>`. Circuit outputs stay gitignored, so their generator and config must reproduce them.
+3. Implement in `exp-NNN/` (or `src/` if reusable). Put configs in files, not CLI flags you'll forget. Use the shared tools in `src/tools/` (results assembly, Kaggle kernel building, packaging) instead of writing per-experiment copies. If a tool you need isn't there, add it to `src/tools/` with a config interface, so the next experiment can call it.
+4. Run the official verifier and save its full output to `exp-NNN/verifier.log`. Write `results.json` and fill in Results and Conclusion.
+5. Commit code, README, configs, `verifier.log` and `results.json` with message `exp-NNN: <title>`. Circuit outputs stay gitignored, so their generator and config must reproduce them.
 6. Report back: the result in one line, and whether the prediction held.
 
+## Checkpoints
+
+Runs get cut off (rate limits, permission blocks, context). Make a restart cheap:
+- Commit after each milestone, not only at the end: pre-registration, code ready, kernel pushed, outputs downloaded, verified. Message `exp-NNN: <milestone>`.
+- Keep a `## Status` section at the bottom of the README with one dated line: what is done, what is running (kernel slug, PID, log path), and the exact next step. Update it at each milestone. A restarted run reads this first and continues from there instead of re-deriving.
+
+Never call the competition submit endpoint from experiment code or kernels. Only the submitter agent submits.
 Never edit a prediction after seeing results. If the plan changes mid-run, add a dated `Deviations` note.
 
 ## README template
@@ -49,6 +56,9 @@ result: <one line, filled at the end>
 
 ## Deviations
 <only if any>
+
+## Status
+- YYYY-MM-DD HH:MM: <done / running (where) / next step>
 ```
 
 ## results.json
@@ -61,6 +71,8 @@ result: <one line, filled at the end>
   "verifier": "verify_submission_invsqrt.py",
   "verifier_cmd": "<exact command>",
   "passed": true,
+  "circuit_path": "experiments/exp-NNN/out/<file>",
+  "circuit_sha256": "<hash of the verified circuit>",
   "metrics": {"Q": 0, "toffoli": 0, "t_gates": 0, "cost": 0},
   "baseline": {"exp": "exp-001", "cost": 0},
   "improvement_factor": 0,

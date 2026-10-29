@@ -13,6 +13,8 @@ user-invocable: false
 | `knowledge/claims.md` | Claims ledger, `C-NNN` | research-lead |
 | `knowledge/directions/D-NNN-<slug>.md` | Heilmeier proposals | research-lead |
 | `knowledge/submissions/S-NNN.md` | Submission proposals | research-lead |
+| `knowledge/submissions/S-NNN-result.md` | Submission outcome | submitter |
+| `approvals/S-NNN.txt` | Approval: SHA-256 of the file to submit | the user only |
 | `literature/papers/lit-<arxiv-id>.md` | Paper notes (non-arXiv: `lit-<firstauthor><year>-<word>`) | lit-scout |
 | `kaggle/digests/YYYY-MM-DD.md` | Dated digests | kaggle-scout |
 | `kaggle/threads/kg-<topic-id>-<slug>.md` | Notes on one discussion thread or notebook | kaggle-scout |

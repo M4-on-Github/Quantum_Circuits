@@ -47,7 +47,7 @@ date: YYYY-MM-DD
 
 ## Submission proposal: `knowledge/submissions/S-NNN.md`
 
-Proposals only. The user decides and runs the submission.
+Name the exact file to submit and its SHA-256. The user approves by writing `approvals/S-NNN.txt` with that hash. Only then dispatch the submitter with the S-NNN ID. The submit hook enforces all of this.
 
 ```markdown
 ---
@@ -55,6 +55,8 @@ id: S-NNN
 date: YYYY-MM-DD
 status: proposed | approved | submitted | declined
 experiments: [exp-NNN for each task]
+file: <path to the zip>
+sha256: <hash of that file>
 ---
 
 ## Contents      <task → exp, local cost, factor vs. reference>

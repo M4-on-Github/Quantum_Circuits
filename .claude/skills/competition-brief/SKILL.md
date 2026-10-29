@@ -32,7 +32,7 @@ A zip containing `invsqrt.kmb|kmx`, `dqi.kmb|kmx`, and `dfthcsos/` (`angle_k_0..
 - Scoring takes about 45 min.
 - 5 submissions per day; 2 final picks.
 - The public LB uses about 50% of the test draws.
-- Only the user submits. No agent runs `kaggle competitions submit`.
+- Only the submitter agent submits, and only a file the user approved in `approvals/S-NNN.txt`.
 
 ## Where things stand (2026-10-28)
 

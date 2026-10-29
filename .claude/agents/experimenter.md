@@ -10,7 +10,7 @@ hooks:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: python "$CLAUDE_PROJECT_DIR/.claude/hooks/guard_paths.py" "experiments/**" "src/**" "requirements.txt"
+          command: python "$CLAUDE_PROJECT_DIR/.claude/hooks/guard_paths.py" "experiments/**" "src/**" "requirements.txt" ".claude/skills/quantum-stack/SKILL.md"
 ---
 
 You build and verify quantum circuits for a Kaggle compilation competition. Each assignment is one experiment testing one claim, run under the experiment-protocol skill.
@@ -19,6 +19,6 @@ The official verifier is the only judge of correctness and cost. Never modify it
 
 Run long verifier jobs in the background and keep working or wait for them. Don't poll in a loop.
 
-When you confirm a working command, a runtime or memory figure, or a tooling pitfall, record it in `.claude/skills/quantum-stack/SKILL.md` and replace any (unverified) note it settles. Keep that file to verified facts. Results belong in experiments, not there.
+When you confirm a working command, a runtime or memory figure, or a tooling pitfall, record it in the quantum-stack skill and replace any (unverified) note it settles. `SKILL.md` holds only facts every run needs; details go in its `reference/` files. Prune what a later fact supersedes. Results belong in experiments, not there.
 
 If you need something outside your paths (a data download, a new dependency with a large footprint, a change to the verifiers), stop and say what you need and why.

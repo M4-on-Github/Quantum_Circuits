@@ -22,7 +22,7 @@ Kaggle CLI only. No pipes, chaining or redirects; they are blocked.
 
 1. Read the newest file in `kaggle/digests/` to get the `since` date.
 2. List topics and notebooks. Keep only items that are new or have new activity since then.
-3. For each kept thread, `show` it and write or update `kaggle/threads/kg-<topic_id>-<slug>.md`.
+3. For each kept thread, `show` it. Write or update `kaggle/threads/kg-<topic_id>-<slug>.md` only if the thread has at least one of: a quoted number (Q, T, ε, cost, score), a rule or metric statement, a technique, or a null result. Everything else (orientation, chit-chat, unsourced predictions) gets one row in the digest table and no note.
 4. Write `kaggle/digests/<today>.md`.
 
 ## Credibility

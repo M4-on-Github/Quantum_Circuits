@@ -6,7 +6,9 @@ user-invocable: false
 
 # Quantum stack
 
-> The experimenter maintains this file. It holds verified, reusable tooling facts only.
+> The experimenter maintains this skill. `SKILL.md` holds only verified facts that every run needs; `reference/` holds the details, read on demand:
+> `reference/runtimes.md` (verifier runtimes and memory), `reference/kaggle-cli.md` (CLI behaviour, kernel machine, datasets, auth), `reference/packaging.md` (submission zip), `reference/housekeeping.md` (Windows, Bash tool, git and permission pitfalls).
+> Prune a note when a later fact supersedes it.
 > Anything marked (unverified) must be checked against the verifier source before you rely on it.
 
 ## Environment
@@ -122,25 +124,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Use one self-contained script per experiment, and pin `pip install kickmix==1.0.0` at the top.
 - Record the kernel slug, version and metadata in the README. Save the downloaded outputs (`kaggle kernels output`) under `experiments/exp-NNN/`.
 - Experiment code and kernels never submit to the competition.
-- Verified working (exp-001, kernel `rainm4/exp-001-verify-sample-submission` v1, 2026-10-28): the defaults above with Kaggle CLI 2.2.5 and `kaggle kernels push -p <dir>`. `kaggle kernels status <slug>` reports `KernelWorkerStatus.RUNNING` / `COMPLETE`. `kaggle kernels output <slug> -p <dir>` downloads `/kaggle/working` contents plus `<slug>.log`. The server renames `code_file` to `<slug>.py` and adds `docker_image` and `machine_shape: "None"` (see `kaggle kernels pull <slug> -m`).
-- The Kaggle CLI is the miniconda one on PATH (`kaggle`, at `/c/Users/moemy/miniconda3/Scripts/kaggle`). It is not in `.venv` (exp-003).
-- Auth: the CLI authenticates with `KAGGLE_API_TOKEN`. It is set at Windows user scope, but the Bash tool's shell may not inherit it. Load it without printing: `export KAGGLE_API_TOKEN="$(powershell.exe -NoProfile -Command "[Environment]::GetEnvironmentVariable('KAGGLE_API_TOKEN','User')" | tr -d '\r\n')"`.
-- Kaggle CPU kernel machine (exp-001): Python 3.13.15, 4 CPUs (`cpu.max` 400000/100000), cgroup `memory.max` 32212254720 B (30 GiB), `fork` available, numpy 2.1.3, scipy 1.16.3, psutil 5.9.5 preinstalled. `pip install kickmix==1.0.0` works with internet on.
-- Competition data mounts at `/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/` (same layout as the zip: `verifiers/`, `sample_submission/`, ...), not `/kaggle/input/<slug>/`. Search for a marker file instead of hard-coding the path. The files there are byte-identical (SHA-256) to the local `data/` copy.
-- Pass absolute paths when a runner starts a verifier with a different `cwd`. Relative paths then resolve against the child's cwd and fail.
-- Kaggle datasets (CLI 2.2.5, exp-006): a specific version is addressed as `owner/slug/N` for `kaggle datasets files owner/slug/N` and `kaggle datasets download owner/slug/N -f <file>`. `owner/slug/versions/N` is rejected as invalid. `kaggle datasets status` returns not-found for other users' datasets. `datasets files` takes `--format`, not `-o`.
-- Finding which version an unversioned download was (exp-005 fix, 2026-10-28): `kaggle datasets files owner/slug/N --format csv --page-size 200` works on other users' datasets and lists each file's size and creationDate for that version. The default page size is 20, and `--page-size` goes up to 200. Match the creationDates and sizes recorded at download time against each N.
-- Kernel `dataset_sources` version pins do not work: `"owner/slug/N"` is accepted by `kaggle kernels push`, but the server strips the version (see `kaggle kernels pull -m`) and mounts the latest version. Identify attached files by SHA-256 inside the kernel (exp-006).
-- Attached datasets mount at `/kaggle/input/datasets/<owner>/<slug>/` (exp-006).
-- More Kaggle CLI 2.2.5 behaviour (exp-008):
-  - `kaggle datasets files owner/slug/N --format csv --page-size 200` prints `Next Page Token = ...` when more files exist. Pass `--page-token <tok>` for the next page (mrmeows/qcc-1375-open-circuits v8 lists 2,704 files, including members of its zips).
-  - `kaggle datasets download owner/slug/N -f dir/file -p D` writes to `D/dir/file`, keeping the file's directory path.
-  - `kaggle kernels files <owner/slug>` lists a kernel's output files, but its `size` column is not the file size (every entry shows 870 to 970).
-  - `kaggle kernels pull <slug> -p D -m` writes the code file and `kernel-metadata.json`, with no version number.
-- More Kaggle CLI 2.2.5 behaviour (exp-011):
-  - `kaggle kernels pull owner/slug/N -p D` fetches version N of another user's notebook. The file is named after the notebook's *current* slug, whatever the version. A version that doesn't exist fails with "To search for one, try 'kaggle search <query>'". This found the SomeJoint v14 generator after its old slug stopped resolving.
-  - `kaggle kernels list --competition google-verifiable-quantum-circuit-compilation --sort-by dateRun --page-size 100 --page N` lists the competition's public notebooks. A bare `-s <term>` search returns mostly unrelated Kaggle notebooks.
-- GitHub: `gh` is not authenticated on this machine. Anonymous `curl https://api.github.com/repos/<owner>/<repo>` works for public metadata, including the `license` field (exp-011).
+- Kaggle CLI behaviour, kernel machine specs, dataset versioning and auth: `reference/kaggle-cli.md`.
 
 ## Running
 
@@ -152,61 +136,6 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - dqi T in the cost is `toffoli_count`, the mean Toffoli-like count per simulated shot (seed-dependent). `max_toffoli_count` is the static circuit count. Sample: mean 5,725,108.38 vs static 5,725,461 (exp-001).
 - `python -I dfthcsos/verify.py <abs stage dir>` (cwd `verifiers/`) works: verify.py puts its own repository root on `sys.path`, so isolated mode needs no PYTHONPATH (exp-006, Windows and Kaggle).
 - Cross-platform parity (exp-001): invsqrt output is bit-identical between Windows and Kaggle Linux. dfthcsos integer resources (T, Q) and pass/fail are identical, but float metrics differ in the last 1–2 ulp (score rel. diff 3e-16, error_1 4e-13) because numpy/scipy versions differ.
-
-## Verifier runtimes and memory (sample submission, default args, exp-001, 2026-10-28)
-
-| Verifier | Kaggle CPU kernel (4 workers via fork) | Local Windows 11, i9-14900HX, 32 logical CPUs, 31.7 GB (serial) |
-|---|---|---|
-| invsqrt (200,540,928 shots) | 1,503 s wall; 0.54 GB per process, 0.71 GB summed tree RSS | 9,056 s wall (2.5 h, ~94% of one core); 0.54 GB peak working set; no stdout until it finishes |
-| dqi (102,400 shots) | 449 s wall; 9.5 GB peak per-process, 9.6 GB system used | not run |
-| dqi with `--salt` (exp-003, 3 runs) | 366–371 s wall; 9.53 GB peak per-process, ≤ 9.95 GB system used | not run |
-| dfthcsos | 137 s wall; 1.2 GB | 356 s wall; 1.1 GB |
-| dfthcsos, public 15-circuit 430Q build (1,220 addresses, about 280 Toffoli per circuit; exp-006) | 29.5 and 33.5 s wall; 0.73 GB | 42.8 s wall; 0.86 GB (alone, AC power) |
-| dqi with `--salt`, public 889Q decoder (454,507 static Toffoli, 505 MB .kmb; exp-005, 3 runs) | 216 s wall each; 4.86 GB peak per process, ≤ 5.8 GB system used | not run |
-| invsqrt, 92Q `src/invsqrt` port (200,540,928 shots, default args; exp-008) | 774.9 s wall; 0.70 GB summed tree RSS, 0.97 GB system used | not run (only `--max-x 20000`, 30 s) |
-| invsqrt, same 92Q port with `--salt exp-009-S-002` (exp-009) | 973.3 s wall; 0.71 GB summed tree RSS, 0.99 GB system used | not run |
-
-- dqi accounting pipeline on Kaggle (exp-003):
-  - Loading the sample `dqi.kmb` takes 3.8 s.
-  - `to_file(format='kmx')` takes 14.3 s and writes 1.54 GB (86.1M lines).
-  - The streaming `kmx_tag_count` takes 111 s.
-  - Peak memory is 3.57 GB per process.
-  - Generator build, sample load, `==`, plus the count: 4.47 GB peak.
-- Same pipeline on the public 889Q dqi .kmb (exp-005, Kaggle): load 0.6 s, `to_file(format='kmx')` 7.9 s for 762.6 MB (55.8M lines), `kmx_tag_count` 47 s, count step 94 s at 4.83 GB peak. A whole-circuit `sim.do` on 2,048 verifier-distributed shots takes 16.7 s. Four parallel segsim workers of 2,048 shots took 137 s wall and 4.9 GB each, 20.3 GB system used.
-- To analyse a large circuit as text off Kaggle, have a kernel write the .kmx and compress it with Python `lzma` (preset 6): 762.6 MB of .kmx became 16.6 MB in 240 s, with 0.53 GB peak RSS (exp-005, kernel `rainm4/exp-005-dqi-kmx-dump`). Locally, streaming that .xz through `lzma.open(..., 'rt')` with a line parser takes about 90 s.
-- So run full invsqrt verifies on Kaggle. The dqi CLI's "~6 GB per worker" estimate did not hold: the whole forked tree stayed under 10 GB.
-- The local figures come from three verifiers running concurrently.
-- A local dfthcsos verify of the sample took 1,017 s wall with a 1.11 GB peak RSS (exp-002). For the first ~11 min it got only about 98 CPU-s, then about 1 CPU-s/s. It was mostly alone, but exp-004's dfthcsos verify overlapped its last ~69 s. The laptop was on battery (`BatteryStatus.Discharging` True); that this caused the slowdown is untested. Two concurrent runs of the same verifier in the exp-002 review took about 330 s each (1.04 GB). Expect 5.5–17 min locally.
-- Waiting on a background job: `powershell.exe -NoProfile -Command "Wait-Process -Id <pid> -Timeout 590"` works. If it exceeds the Bash tool's 600 s limit, the call moves itself to the background (exp-002).
-- The machine runs at about 92% commit charge with the user's normal apps open (Edge alone about 14 GB private). Check `Win32_OperatingSystem` free memory before starting dqi locally.
-
-## Submission packaging
-
-- `experiments/exp-004/package.py` builds a submission zip with Python `zipfile`, `ZIP_DEFLATED` level 6.
-  - Layout: `invsqrt.kmb` and `dqi.kmb` at the root, then `dfthcsos/angle_k_0..n-1.kmb` and `dfthcsos/submission.npz`. No directory entries and no wrapping folder.
-  - It then re-reads every member and checks its SHA-256 against the source.
-  - This is the competition page layout, and the one public assembly notebooks use.
-  - (unverified) That the LB accepts it. This is settled once a submission of it is scored.
-- Deflate shrinks the sample a lot (exp-004): `dqi.kmb` goes from 886,118,180 B to 69,819,447 B, and the whole zip is 73,803,082 B. Building and checking takes about 45 s locally.
-- Fixed member metadata makes the zip SHA-256 reproducible between runs on the same Python/zlib build (verified for 3.13.12 / zlib 1.3.1, exp-004): `ZipInfo` date_time (1980,1,1,0,0,0), `create_system=3`, mode 0o100644, sorted members.
-- Verifier seeds hash member contents (canonical kmb bytes and npz arrays), not the zip bytes, so the packaging doesn't change which tests run.
-- `experiments/exp-009/package.py` is the same logic with a per-member source map (invsqrt from an experiment build, the rest from the sample). With the same member order and metadata, the unchanged members get exp-004's compressed sizes and CRCs. Windows `C:/Windows/System32/tar.exe` (bsdtar) lists and inflates these zips (`tar -xOf z.zip member`), a reader independent of Python `zipfile` (exp-009).
-- A circuit can be shipped to a kernel inside the script as base64 (exp-009: a 288,783 B `.kmb` gave a 446 KB script; `kaggle kernels push` accepted it and the kernel decoded it to the same SHA-256).
-- Windows: `np.load` on an `.npz` keeps the file open until the `NpzFile` is closed, so a `tempfile.TemporaryDirectory` holding it fails to clean up with WinError 32. Use `with np.load(p) as z: d = {k: z[k] for k in z.files}` (exp-005).
-- Windows: renaming a just-written zip can fail with `PermissionError` WinError 32 because something else briefly holds the file. Retry the rename (exp-004).
-- dfthcsos `verify.py` accepts a folder extracted from the zip (`verify.py <extract>/dfthcsos`). Its output was bit-identical to exp-001 local: 512 s wall against 356 s in exp-001. Machine load is unknown: exp-002 and exp-003 were running at the same time.
-
-## Process housekeeping
-
-- Git: this repo has `core.autocrlf=true`, so a byte-exact port of third-party files needs a `.gitattributes` with `* -text` in its directory (`src/dqi/.gitattributes`). Otherwise checkout rewrites line endings and the SHA-256 manifest breaks (exp-011).
-- Permissions: the Claude Code auto-mode classifier denies running ported third-party code (reason "Code from External"), even after a byte-verified copy into `src/` under `python -I -B`. `python -I -B src/dqi/generate.py --import-only ...` was denied (exp-011). Running such code locally or on Kaggle needs the user's permission. Parse-only checks (`ast.parse`, `ast.literal_eval`) were not blocked.
-- Git: a user hook (`block_claude_trailer.py`) rejects commit messages that carry a Claude `Co-Authored-By` trailer, so commit without it (exp-003).
-- Bash tool: one long command that wrote several files through `<<'EOF'` heredocs failed with ``unexpected EOF while looking for matching `''`` and wrote nothing. The cause was not determined. Writing the files with the Write tool worked (exp-003).
-  - It happened again in the exp-005 fix: a ~100-line `<<'EOF'` heredoc of Python whose content held `'''` and `"""` strings. Writing that script with the Write tool and then running it worked.
-- The experimenter's path guard (`.claude/hooks/guard_paths.py`) blocks Write and Edit outside `experiments/**`, `src/**`, `requirements.txt` and this file, and that includes the session scratchpad. Put helper scripts under a gitignored `experiments/exp-NNN/out/`. Bash `cp` into the scratchpad still works (exp-005 fix).
-
-- To list processes from Git Bash, call PowerShell CIM. Escape every `$` as `\$` inside the double-quoted `-Command`:
-  `powershell.exe -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { \$_.Name -match '^(python|bash|powershell|kaggle)(\.exe)?$' } | Format-List ProcessId,ParentProcessId,CreationDate,CommandLine"`
-- Each Claude Code background job shows up as a tree: `bash.exe` (Git\bin), then `bash.exe` (usr\bin), then the command. A `.venv\Scripts\python.exe` launcher shim spawns a second python (the real interpreter), so each python job appears twice. Subprocess verifiers repeat that pair. The CPU and memory sit only on the innermost python.
-- Background jobs from every agent in a session share one `claude.exe` parent. To tell experiments apart, use the command line (script path, `--tag`), not the parent PID.
-- `browser-use.exe --cli-mcp` pythons under `uv\cache` are Claude Code MCP plugin servers, not experiment processes.
+- Runtimes and memory for every verifier and circuit measured so far: `reference/runtimes.md`. Read it before choosing local vs Kaggle.
+- Submission zip layout and the packager: `reference/packaging.md`.
+- Windows, Bash tool, git and permission pitfalls: `reference/housekeeping.md`. Read it before writing long scripts or listing processes.

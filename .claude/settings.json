@@ -3,12 +3,6 @@
     "CLAUDE_CODE_FORK_SUBAGENT": "0",
     "PYTHONIOENCODING": "utf-8"
   },
-  "permissions": {
-    "deny": [
-      "Bash(kaggle competitions submit *)",
-      "PowerShell(kaggle competitions submit *)"
-    ]
-  },
   "disableBundledSkills": true,
   "skillOverrides": {
     "experimental-design": "off",
@@ -25,6 +19,17 @@
     "ralph-loop@claude-plugins-official": false
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard_submit.py\""
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
