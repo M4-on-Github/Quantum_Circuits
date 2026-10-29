@@ -82,7 +82,7 @@ The dfthcsos starter kit is a separate Kaggle dataset ("Verifiable Circuit Compi
   - `unary_iteration(sel, range(3976))` costs 3,978 Toffoli when used for a full phase fix-up pass.
 - invsqrt generator `src/invsqrt` (exp-008): an Apache-2.0 port of marsyas's "VQCC invsqrt 13.94x - full source", with an attribution notice.
   - Run it with `python -I -B experiments/exp-008/build.py experiments/exp-008/config_port.json <out.kmb>`.
-  - It fits the tables (8 spawn workers), runs the LP angle calibration (both cached in `experiments/exp-008/out/work/`), builds the circuit and runs the exact pass. About 140 s locally the first time.
+  - It fits the tables (8 spawn workers), runs the LP angle calibration (both cached in `experiments/exp-008/out/work/`), builds the circuit and runs the exact pass. About 140 s locally the first time (exp-008); 198 s with an empty work dir passed as the third argument, calibration 130 s of it, machine load not recorded (exp-009). The third argument `<work_dir>` selects the cache dir; an empty one forces a full refit and recalibration.
   - The output is byte-identical (SHA-256 `ff629b09...`) to the hash marsyas's notebook states, so PyPI kickmix 1.0.0 + scipy 1.18.1 reproduce a Kaggle build.
   - A fresh build on a Kaggle CPU kernel (numpy 2.1.3, scipy 1.16.3, empty work dir) gives the same `ff629b09...` bytes and a byte-identical calibration cache `hang_*.pkl` in 113 s, so the build is reproducible across these numpy/scipy versions (exp-008, kernel `rainm4/exp-008-invsqrt-port-verify` v1).
   - `generate.py` loads `<work>/hang_*.pkl` with `pickle.load` whenever it exists. Never point its work dir at a downloaded directory (exp-008).
@@ -145,6 +145,7 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 | dfthcsos, public 15-circuit 430Q build (1,220 addresses, about 280 Toffoli per circuit; exp-006) | 29.5 and 33.5 s wall; 0.73 GB | 42.8 s wall; 0.86 GB (alone, AC power) |
 | dqi with `--salt`, public 889Q decoder (454,507 static Toffoli, 505 MB .kmb; exp-005, 3 runs) | 216 s wall each; 4.86 GB peak per process, ≤ 5.8 GB system used | not run |
 | invsqrt, 92Q `src/invsqrt` port (200,540,928 shots, default args; exp-008) | 774.9 s wall; 0.70 GB summed tree RSS, 0.97 GB system used | not run (only `--max-x 20000`, 30 s) |
+| invsqrt, same 92Q port with `--salt exp-009-S-002` (exp-009) | 973.3 s wall; 0.71 GB summed tree RSS, 0.99 GB system used | not run |
 
 - dqi accounting pipeline on Kaggle (exp-003):
   - Loading the sample `dqi.kmb` takes 3.8 s.
@@ -170,6 +171,8 @@ Run experiments as private Kaggle script kernels pushed with `kaggle kernels pus
 - Deflate shrinks the sample a lot (exp-004): `dqi.kmb` goes from 886,118,180 B to 69,819,447 B, and the whole zip is 73,803,082 B. Building and checking takes about 45 s locally.
 - Fixed member metadata makes the zip SHA-256 reproducible between runs on the same Python/zlib build (verified for 3.13.12 / zlib 1.3.1, exp-004): `ZipInfo` date_time (1980,1,1,0,0,0), `create_system=3`, mode 0o100644, sorted members.
 - Verifier seeds hash member contents (canonical kmb bytes and npz arrays), not the zip bytes, so the packaging doesn't change which tests run.
+- `experiments/exp-009/package.py` is the same logic with a per-member source map (invsqrt from an experiment build, the rest from the sample). With the same member order and metadata, the unchanged members get exp-004's compressed sizes and CRCs. Windows `C:/Windows/System32/tar.exe` (bsdtar) lists and inflates these zips (`tar -xOf z.zip member`), a reader independent of Python `zipfile` (exp-009).
+- A circuit can be shipped to a kernel inside the script as base64 (exp-009: a 288,783 B `.kmb` gave a 446 KB script; `kaggle kernels push` accepted it and the kernel decoded it to the same SHA-256).
 - Windows: `np.load` on an `.npz` keeps the file open until the `NpzFile` is closed, so a `tempfile.TemporaryDirectory` holding it fails to clean up with WinError 32. Use `with np.load(p) as z: d = {k: z[k] for k in z.files}` (exp-005).
 - Windows: renaming a just-written zip can fail with `PermissionError` WinError 32 because something else briefly holds the file. Retry the rename (exp-004).
 - dfthcsos `verify.py` accepts a folder extracted from the zip (`verify.py <extract>/dfthcsos`). Its output was bit-identical to exp-001 local: 512 s wall against 356 s in exp-001. Machine load is unknown: exp-002 and exp-003 were running at the same time.
