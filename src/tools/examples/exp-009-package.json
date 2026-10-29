@@ -1,0 +1,20 @@
+{
+ "_comment": "exp-009's member map (S-002): the sample submission with invsqrt.kmb replaced by the src/invsqrt build. Rebuild into a scratch dir with --zip/--manifest/--extract-dir; the committed experiments/exp-009 files are the historical record. Expected zip SHA-256 fcb9ce1d713827f485beba4efec9e130131ff010ecf5ba0347bda171f1cb7c99.",
+ "exp": "exp-009",
+ "submission": "S-002",
+ "zip_path": "experiments/exp-009/submission.zip",
+ "manifest_path": "experiments/exp-009/manifest.json",
+ "extract_dir": "experiments/exp-009/out/extract",
+ "members": {
+  "invsqrt.kmb": {"source": "experiments/exp-009/out/invsqrt.kmb",
+                  "expected_sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917",
+                  "verified_by": {"verifier_json": "experiments/exp-009/kaggle_output/exp009/verify_full.json",
+                                  "meta_json": "experiments/exp-009/kaggle_output/exp009/verify_meta.json"}},
+  "dqi.kmb": "data/sample_submission/dqi.kmb",
+  "dfthcsos/": "data/sample_submission/dfthcsos/"
+ },
+ "compare": [{"manifest": "experiments/exp-004/manifest.json", "expect_same": ["dqi.kmb", "dfthcsos/*"],
+              "expect_different": ["invsqrt.kmb"]}],
+ "sources_note": {"invsqrt.kmb": "experiments/exp-009/out/invsqrt.kmb (src/invsqrt @ 46af961, experiments/exp-008/config_port.json)",
+                  "other members": "data/sample_submission"}
+}

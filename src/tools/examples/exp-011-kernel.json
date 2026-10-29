@@ -1,0 +1,12 @@
+{
+ "_comment": "Regenerates experiments/exp-011/kernel/exp011_verify.py (written by exp-011/kernel/make_kernel.py from the working tree of src/dqi at 7645e03) with src/tools/build_kernel.py. sort=windows reproduces exp-011's Windows Path ordering of the zip members. exp-011's kernel-metadata.json was hand-written (indent 2), so only the script is expected to match.",
+ "template": "experiments/exp-011/kernel/exp011_template.py",
+ "script": "experiments/exp-011/kernel/exp011_verify.py",
+ "substitutions": {
+  "__SRC_ZIP_B64__": {"zip_b64": "src/dqi", "prefix": "dqi/", "git_commit": "7645e03", "sort": "windows",
+                      "encode": "repr"},
+  "__SRC_MEMBERS__": {"zip_members": "src/dqi", "prefix": "dqi/", "git_commit": "7645e03", "sort": "windows",
+                      "encode": "json", "json_kwargs": {"indent": 1}}
+ },
+ "metadata": {"id": "rainm4/exp-011-dqi-897-port-verify", "title": "exp-011 dqi 897 port verify"}
+}

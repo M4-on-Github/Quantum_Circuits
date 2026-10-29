@@ -1,0 +1,15 @@
+{
+ "_comment": "Regenerates experiments/exp-009/kernel/exp009_verify.py and kernel-metadata.json (written by exp-009/make_kernel.py) with src/tools/build_kernel.py. Run with --check or --out-dir; the committed files are the historical record.",
+ "template": "experiments/exp-009/kernel_template.py",
+ "script": "experiments/exp-009/kernel/exp009_verify.py",
+ "substitutions": {
+  "__SOURCES_JSON__": {"sources": "src/invsqrt", "pattern": "*.py", "prefix": "invsqrt/", "git_commit": "46af961",
+                       "encode": "repr"},
+  "__CONFIG_JSON__": {"json_file": "experiments/exp-008/config_port.json", "git_commit": "46af961", "encode": "repr"},
+  "__KMB_B64__": {"file_b64": "experiments/exp-009/out/invsqrt.kmb",
+                  "sha256": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917"},
+  "__EXPECTED_SHA__": {"text": "ff629b0925ebfce1e7da166f895b1105332e7edebe26f359deb32f7c942b5917"},
+  "__SALT__": {"text": "exp-009-S-002", "count": 2}
+ },
+ "metadata": {"id": "rainm4/exp-009-s002-invsqrt-salt-verify"}
+}
