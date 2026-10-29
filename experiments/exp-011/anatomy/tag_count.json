@@ -1,0 +1,173 @@
+{
+ "file": "experiments/exp-011/out/anatomy/dqi.kmx",
+ "n_lines": 55832290,
+ "total_toffoli_like": 454477,
+ "conditioned_toffoli_like": 14326,
+ "op_counts": {
+  "APPEND_TO_REGISTER": 49980,
+  "REGISTER": 4165,
+  "INFO_TAG": 17690,
+  "BIT_STORE0": 116708,
+  "BIT_INVERT": 2882282,
+  "Z": 79985,
+  "CX": 49283484,
+  "SWAP": 1619099,
+  "CCX": 430459,
+  "R": 98166,
+  "HMR": 125185,
+  "CZ": 795190,
+  "X": 249282,
+  "CSWAP": 22104,
+  "NEG": 2241,
+  "PUSH_CONDITION": 19546,
+  "POP_CONDITION": 19546,
+  "BIT_STORE1": 15264,
+  "CCZ": 1914
+ },
+ "by_path": {
+  "unextract": 96925,
+  "unconvert": 69535,
+  "convert": 68352,
+  "unsynthesis": 54408,
+  "extract": 50817,
+  "scan": 44275,
+  "synthesis": 33317,
+  "extract/multiply v": 5544,
+  "unextract/reverse multiply v": 5544,
+  "unextract/reverse scale v": 4704,
+  "unextract/reverse scale u": 4704,
+  "extract/inverse24 products": 3920,
+  "extract/inverse24 norm": 2352,
+  "unextract/reverse norm": 2352,
+  "unextract/reverse start inverse with flag": 1848,
+  "unextract/reverse finish inverse": 1680,
+  "extract/inverse24 scalar/inverse12 products": 1400,
+  "extract/inverse24 scalar/inverse12 scalar": 1008,
+  "unextract/reverse cached phase inverse": 952,
+  "extract/inverse24 scalar/inverse12 norm": 840
+ },
+ "instance_histograms": {
+  "convert": {
+   "68352": 1
+  },
+  "extract": {
+   "65881": 1
+  },
+  "gf_iadd": {
+   "0": 8050
+  },
+  "initial": {
+   "0": 1
+  },
+  "inverse12 norm": {
+   "15": 56
+  },
+  "inverse12 products": {
+   "25": 56
+  },
+  "inverse12 scalar": {
+   "18": 56
+  },
+  "inverse24 norm": {
+   "42": 56
+  },
+  "inverse24 products": {
+   "70": 56
+  },
+  "inverse24 scalar": {
+   "58": 56
+  },
+  "mask_projection": {
+   "0": 1
+  },
+  "multiply v": {
+   "99": 56
+  },
+  "restore_masks": {
+   "0": 1
+  },
+  "reverse cached phase inverse": {
+   "17": 56
+  },
+  "reverse finish inverse": {
+   "30": 56
+  },
+  "reverse multiply v": {
+   "99": 56
+  },
+  "reverse norm": {
+   "42": 56
+  },
+  "reverse scale u": {
+   "84": 56
+  },
+  "reverse scale v": {
+   "84": 56
+  },
+  "reverse start inverse with flag": {
+   "33": 56
+  },
+  "scan": {
+   "44275": 1
+  },
+  "synthesis": {
+   "33317": 1
+  },
+  "unconvert": {
+   "69535": 1
+  },
+  "unextract": {
+   "118709": 1
+  },
+  "uninitial": {
+   "0": 1
+  },
+  "unsynthesis": {
+   "54408": 1
+  }
+ },
+ "conditioned_by_top_mark": {
+  "unconvert": {
+   "toffolis": 160,
+   "definitions": {
+    "[{\"kind\": \"measured\"}]": 160
+   }
+  },
+  "unsynthesis": {
+   "toffolis": 12672,
+   "definitions": {
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 12474,
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}, {\"kind\": \"measured\"}]": 198
+   }
+  },
+  "unextract": {
+   "toffolis": 1494,
+   "definitions": {
+    "[{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 1296,
+    "[{\"kind\": \"measured\"}]": 198
+   }
+  }
+ },
+ "push_condition_definitions": {
+  "{\"kind\": \"measured\"}": 2170,
+  "{\"kind\": \"store0\"}": 2220,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}": 14076,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 2, \"n_sources\": 2, \"register_prefixes\": {\"b\": 2}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 3, \"n_sources\": 3, \"register_prefixes\": {\"b\": 3}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 4, \"n_sources\": 4, \"register_prefixes\": {\"b\": 4}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 5, \"n_sources\": 5, \"register_prefixes\": {\"b\": 5}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 6, \"n_sources\": 6, \"register_prefixes\": {\"b\": 6}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 7, \"n_sources\": 7, \"register_prefixes\": {\"b\": 7}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 8, \"n_sources\": 8, \"register_prefixes\": {\"b\": 8}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 9, \"n_sources\": 9, \"register_prefixes\": {\"b\": 9}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 10, \"n_sources\": 10, \"register_prefixes\": {\"b\": 10}}": 108,
+  "{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 11, \"n_sources\": 11, \"register_prefixes\": {\"b\": 11}}": 108
+ },
+ "conditioned_by_path": {
+  "unsynthesis | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 12474,
+  "unextract | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}]": 1296,
+  "unsynthesis | [{\"bits_per_register\": [1], \"kind\": \"or_of\", \"n_registers\": 1, \"n_sources\": 1, \"register_prefixes\": {\"b\": 1}}, {\"kind\": \"measured\"}]": 198,
+  "unextract | [{\"kind\": \"measured\"}]": 198,
+  "unconvert | [{\"kind\": \"measured\"}]": 160
+ }
+}

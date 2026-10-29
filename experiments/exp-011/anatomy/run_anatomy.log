@@ -1,0 +1,74 @@
+{"toffoli_like": 454477, "paths": 27, "hmr": 125185, "registered_qubits": 840, "op_hist": {"APPEND_TO_REGISTER": 49980, "REGISTER": 4165, "INFO_TAG": 17690, "BIT_STORE0": 116708, "BIT_INVERT": 2882282, "Z": 79985, "CX": 49283484, "SWAP": 1619099, "CCX": 430459, "R": 98166, "HMR": 125185, "CZ": 795190, "X": 249282, "CSWAP": 22104, "NEG": 2241, "PUSH_CONDITION": 19546, "POP_CONDITION": 19546, "BIT_STORE1": 15264, "CCZ": 1914}}
+[time] 94 s: .venv/Scripts/python.exe -I -B experiments/exp-005/analysis/kmx_skeleton.py experiments/exp-011/kaggle_output/exp011/dqi.kmx.xz experiments/exp-011/out/anatomy/skeleton.npz
+{"toffoli_like": 63, "paths": 8, "hmr": 0, "registered_qubits": 37, "op_hist": {"APPEND_TO_REGISTER": 37, "REGISTER": 4, "INFO_TAG": 14, "CX": 481, "SWAP": 21, "CCX": 63}}
+{"toffoli_like": 75, "paths": 12, "hmr": 12, "registered_qubits": 37, "op_hist": {"APPEND_TO_REGISTER": 37, "REGISTER": 4, "INFO_TAG": 22, "R": 12, "CX": 481, "SWAP": 21, "CCX": 75, "HMR": 12, "CZ": 144, "BIT_INVERT": 104, "BIT_STORE0": 10}}
+{"toffoli_like": 75, "paths": 12, "hmr": 12, "registered_qubits": 37, "op_hist": {"APPEND_TO_REGISTER": 37, "REGISTER": 4, "INFO_TAG": 22, "R": 12, "CX": 481, "SWAP": 21, "CCX": 75, "HMR": 12, "CZ": 144, "BIT_INVERT": 104, "BIT_STORE0": 10}}
+{"skeleton_toffoli_like": 454477, "searches": {"ixor_gf2_mul": {"template_toffoli": 63, "num_toffoli_like": 63, "hits": 0}, "ixor_gf2_mul_controlled": {"template_toffoli": 75, "num_toffoli_like": 75, "hits": 0}}, "self_check_core_in_controlled_build": 1}
+[time] 12 s: .venv/Scripts/python.exe -I -B experiments/exp-005/analysis/fingerprint_search.py experiments/exp-011/out/anatomy/skeleton.npz experiments/exp-011/out/anatomy/fingerprint_search.json
+kmx sha256 a29b01cb0a733ca6ec514385698fed2b0c3dda1928bb7cb2291931ddfc1c7e38
+[time] 8 s: .venv/Scripts/python.exe -I -B -c import lzma,shutil,hashlib,sys; h=hashlib.sha256(); f=lzma.open(sys.argv[1],'rb'); o=open(sys.argv[2],'wb')
+while True:
+    b=f.read(1<<22)
+    if not b: break
+    h.update(b); o.write(b)
+o.close(); print('kmx sha256', h.hexdigest()) experiments/exp-011/kaggle_output/exp011/dqi.kmx.xz experiments/exp-011/out/anatomy/dqi.kmx
+{"n_lines": 55832290, "total_toffoli_like": 454477, "conditioned_toffoli_like": 14326}
+[time] 86 s: .venv/Scripts/python.exe -I -B src/kmx_tag_count.py experiments/exp-011/out/anatomy/dqi.kmx experiments/exp-011/out/anatomy/tag_count.json
+{
+ "units11": {
+  "gf2^12_product_42": 5040,
+  "gf2^24_product_99": 1242
+ },
+ "units05": {
+  "gf2^12_product_42": 5040,
+  "gf2^24_product_99": 1242
+ },
+ "ratio": {
+  "gf2^12_product_42": 1.0,
+  "gf2^24_product_99": 1.0
+ },
+ "fp11": {
+  "ixor_gf2_mul": 0,
+  "ixor_gf2_mul_controlled": 0
+ },
+ "skel11": {
+  "toffoli_like": 454477,
+  "op_counts": {
+   "0": 430459,
+   "2": 22104,
+   "1": 1914
+  },
+  "conditioned": 14326,
+  "hmr": 125185,
+  "by_top_tag": {
+   "convert": 68352,
+   "extract": 65881,
+   "scan": 44275,
+   "synthesis": 33317,
+   "unconvert": 69535,
+   "unextract": 118709,
+   "unsynthesis": 54408
+  }
+ },
+ "skel05": {
+  "toffoli_like": 454507,
+  "op_counts": {
+   "0": 430489,
+   "2": 22104,
+   "1": 1914
+  },
+  "conditioned": 14524,
+  "hmr": 125215,
+  "by_top_tag": {
+   "convert": 68160,
+   "extract": 65881,
+   "scan": 44275,
+   "synthesis": 33317,
+   "unconvert": 69343,
+   "unextract": 119123,
+   "unsynthesis": 54408
+  }
+ }
+}
+[time] 2 s: .venv/Scripts/python.exe -I -B experiments/exp-011/tools/anatomy_compare.py . experiments/exp-011/out/anatomy/compare.json
+ANATOMY_DONE

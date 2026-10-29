@@ -1,0 +1,255 @@
+{
+ "machine": {
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+  "cpu_count": 4,
+  "kickmix": "1.0.0",
+  "numpy": "2.1.3",
+  "data_root": "/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation",
+  "verifier_sha256": "f14274bc0943fb9769ddb01131be6063191a15009fe1caf1d4bdd9fd25194e65"
+ },
+ "runs": [
+  {
+   "label": "unpack",
+   "cmd": [
+    "/usr/bin/python3",
+    "/kaggle/src/script.py",
+    "--step",
+    "unpack"
+   ],
+   "returncode": 0,
+   "wall_s": 0.1,
+   "tree_rss_peak_bytes": 2551808,
+   "proc_hwm_peak_bytes": 2744320,
+   "sys_used_peak_bytes": 537477120,
+   "output": {
+    "unpacked": 73,
+    "zip_sha256": "d13c4ee92cb5e1f0e625305c8ce402109151e548ea2348a3ec3c06f88197eb22"
+   }
+  },
+  {
+   "label": "build",
+   "cmd": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "/tmp/exp011/src/dqi/generate.py",
+    "/tmp/exp011/dqi.kmb"
+   ],
+   "returncode": 0,
+   "wall_s": 153.5,
+   "tree_rss_peak_bytes": 2065145856,
+   "proc_hwm_peak_bytes": 2065145856,
+   "sys_used_peak_bytes": 2532040704,
+   "output": {
+    "sha256": "b3354f60e459dcebe67910363e96498f8bb0aa7f699bc016ef962015c3732fd6",
+    "matches_upstream_stated": true,
+    "Q": 897,
+    "T_static": 454477,
+    "num_ops": 55778145,
+    "num_bits": 103164,
+    "seconds": 153.3,
+    "kit_files_checked": 68,
+    "kickmix_version": "1.0.0",
+    "stdlib_top_level": [
+     "_sysconfigdata__x86_64-linux-gnu",
+     "argparse",
+     "base64",
+     "datetime",
+     "email",
+     "gettext",
+     "importlib",
+     "ipaddress",
+     "quopri",
+     "urllib"
+    ],
+    "third_party_top_level": {
+     "circ": "/usr/local/lib/python3.13/dist-packages",
+     "kickmix": "/usr/local/lib/python3.13/dist-packages"
+    }
+   }
+  },
+  {
+   "label": "stats",
+   "cmd": [
+    "/usr/bin/python3",
+    "/kaggle/src/script.py",
+    "--step",
+    "stats"
+   ],
+   "returncode": 0,
+   "wall_s": 6.0,
+   "tree_rss_peak_bytes": 1888284672,
+   "proc_hwm_peak_bytes": 2046476288,
+   "sys_used_peak_bytes": 3287937024,
+   "output": {
+    "file_sha256": "b3354f60e459dcebe67910363e96498f8bb0aa7f699bc016ef962015c3732fd6",
+    "canonical_sha256": "b3354f60e459dcebe67910363e96498f8bb0aa7f699bc016ef962015c3732fd6",
+    "file_bytes": 505134467,
+    "equals_b3354f60": true,
+    "canonical_equals_b3354f60": true,
+    "equals_v15_53d8b2ed": false,
+    "num_qubits": 897,
+    "num_bits": 103164,
+    "num_registers": 4165,
+    "num_ops": 55778145,
+    "num_toffoli_like": 454477,
+    "num_t_like": 0,
+    "op_counts": {
+     "NEG": 2241,
+     "BIT_INVERT": 2882282,
+     "BIT_STORE0": 116708,
+     "BIT_STORE1": 15264,
+     "X": 249282,
+     "Z": 79985,
+     "R": 98166,
+     "HMR": 125185,
+     "CX": 49283484,
+     "CZ": 795190,
+     "SWAP": 1619099,
+     "CSWAP": 22104,
+     "CCX": 430459,
+     "CCZ": 1914,
+     "INFO_TAG": 17690,
+     "POP_CONDITION": 19546,
+     "PUSH_CONDITION": 19546
+    },
+    "load_s": 0.6
+   }
+  },
+  {
+   "label": "dump",
+   "cmd": [
+    "/usr/bin/python3",
+    "/kaggle/src/script.py",
+    "--step",
+    "dump"
+   ],
+   "returncode": 0,
+   "wall_s": 260.1,
+   "tree_rss_peak_bytes": 531406848,
+   "proc_hwm_peak_bytes": 531406848,
+   "sys_used_peak_bytes": 2411102208,
+   "output": {
+    "kmx_bytes": 762553245,
+    "kmx_sha256": "a29b01cb0a733ca6ec514385698fed2b0c3dda1928bb7cb2291931ddfc1c7e38",
+    "xz_bytes": 16610688,
+    "xz_sha256": "fcb7e53e6425d765e59382bdba14d356bb061a6e525330dc975d79ddb98df4ec",
+    "to_kmx_s": 9.2,
+    "xz_s": 250.6
+   }
+  },
+  {
+   "label": "verify_default",
+   "cmd": [
+    "/usr/bin/python3",
+    "/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers/dqi/verify_submission_dqi.py",
+    "/tmp/exp011/dqi.kmb"
+   ],
+   "returncode": 0,
+   "wall_s": 222.7,
+   "tree_rss_peak_bytes": 4637286400,
+   "proc_hwm_peak_bytes": 4855939072,
+   "sys_used_peak_bytes": 5252427776,
+   "output": {
+    "status": "PASS",
+    "score": 422346240055.8793,
+    "m": 4095,
+    "n": 70,
+    "degree": 12,
+    "r": 2016,
+    "verified_shots": 102400,
+    "value_errors": 0,
+    "phase_errors": 0,
+    "empirical_error_rate": 0.0,
+    "effective_error_rate": 0.0008660587301657926,
+    "log2_delta": -128.0,
+    "repetition_factor": 1.1912604648115832,
+    "mean_error_weight": 31.046737331746634,
+    "toffoli_count": 440632.99798828125,
+    "max_toffoli_count": 454477,
+    "reaction_depth": 9339,
+    "num_ops": 55778145,
+    "shot_operation_counts": {
+     "NEG": 8297470,
+     "BIT_INVERT": 148440321891,
+     "BIT_STORE0": 11950899200,
+     "BIT_STORE1": 290308204,
+     "X": 25484727600,
+     "Z": 2946134613,
+     "R": 8969169026,
+     "HMR": 11735914626,
+     "CX": 5020937301259,
+     "CZ": 35171793288,
+     "SWAP": 163679827293,
+     "CSWAP": 2263449600,
+     "CCX": 42783029718,
+     "CCZ": 74339676,
+     "INFO_TAG": 1811456000,
+     "POP_CONDITION": 2001510400,
+     "PUSH_CONDITION": 2001510400
+    },
+    "num_qubits": 897,
+    "num_bits": 103164,
+    "circuit_sha256": "b3354f60e459dcebe67910363e96498f8bb0aa7f699bc016ef962015c3732fd6"
+   }
+  },
+  {
+   "label": "verify_salt",
+   "cmd": [
+    "/usr/bin/python3",
+    "/kaggle/input/competitions/google-verifiable-quantum-circuit-compilation/verifiers/dqi/verify_submission_dqi.py",
+    "/tmp/exp011/dqi.kmb",
+    "--salt",
+    "exp011-a"
+   ],
+   "returncode": 0,
+   "wall_s": 222.1,
+   "tree_rss_peak_bytes": 4587626496,
+   "proc_hwm_peak_bytes": 4856418304,
+   "sys_used_peak_bytes": 5057482752,
+   "output": {
+    "status": "PASS",
+    "score": 422346258963.7676,
+    "m": 4095,
+    "n": 70,
+    "degree": 12,
+    "r": 2016,
+    "verified_shots": 102400,
+    "value_errors": 0,
+    "phase_errors": 0,
+    "empirical_error_rate": 0.0,
+    "effective_error_rate": 0.0008660587301657926,
+    "log2_delta": -128.0,
+    "repetition_factor": 1.1912604648115832,
+    "mean_error_weight": 31.046737331746634,
+    "toffoli_count": 440633.01771484374,
+    "max_toffoli_count": 454477,
+    "reaction_depth": 9339,
+    "num_ops": 55778145,
+    "shot_operation_counts": {
+     "NEG": 8293795,
+     "BIT_INVERT": 148432219041,
+     "BIT_STORE0": 11950899200,
+     "BIT_STORE1": 290289669,
+     "X": 25484729712,
+     "Z": 2946011825,
+     "R": 8969170997,
+     "HMR": 11735916597,
+     "CX": 5020937310942,
+     "CZ": 35171832458,
+     "SWAP": 163679824821,
+     "CSWAP": 2263449600,
+     "CCX": 42783031642,
+     "CCZ": 74339772,
+     "INFO_TAG": 1811456000,
+     "POP_CONDITION": 2001510400,
+     "PUSH_CONDITION": 2001510400
+    },
+    "num_qubits": 897,
+    "num_bits": 103164,
+    "circuit_sha256": "b3354f60e459dcebe67910363e96498f8bb0aa7f699bc016ef962015c3732fd6"
+   }
+  }
+ ]
+}

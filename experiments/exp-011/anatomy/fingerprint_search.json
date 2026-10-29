@@ -1,0 +1,16 @@
+{
+ "skeleton_toffoli_like": 454477,
+ "searches": {
+  "ixor_gf2_mul": {
+   "template_toffoli": 63,
+   "num_toffoli_like": 63,
+   "hits": 0
+  },
+  "ixor_gf2_mul_controlled": {
+   "template_toffoli": 75,
+   "num_toffoli_like": 75,
+   "hits": 0
+  }
+ },
+ "self_check_core_in_controlled_build": 1
+}
